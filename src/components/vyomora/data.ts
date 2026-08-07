@@ -4,9 +4,11 @@ export const PROJECT = {
   location: "Hinjawadi Phase 1, Pune",
   startingPrice: "₹84.99 Lakhs*",
   reraNote: "Prices are indicative and subject to change. T&C apply.",
-  phone: "+919000000000",
-  phoneDisplay: "+91 90000 00000",
-  whatsapp: "919000000000",
+  phone: "+919175892774",
+  phoneDisplay: "+91 91758 92774",
+  whatsapp: "919175892774",
+  email: "shrikant@homelogic.co.in",
+  firm: "Home Logic",
 };
 
 export const HIGHLIGHTS = [
