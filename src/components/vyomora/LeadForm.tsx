@@ -25,10 +25,12 @@ export const CITY_OPTIONS = [
   "Outside India (NRI)",
 ];
 
+type Errs = Partial<Record<keyof LeadValues, string | undefined>>;
+
 type TextKey = "name" | "mobile" | "email";
 
 const errorsFor = (v: LeadValues, withCity?: boolean) => {
-  const e: Partial<Record<keyof LeadValues, string>> = {};
+  const e: Errs = {};
   const name = v.name.trim();
   if (name.length < 2) e.name = "Please enter your full name";
   else if (name.length > 80) e.name = "Name is too long";
@@ -43,7 +45,7 @@ const errorsFor = (v: LeadValues, withCity?: boolean) => {
 
 export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity, onSuccess }: Props) {
   const [values, setValues] = useState<LeadValues>({ name: "", mobile: "", email: "", city: "" });
-  const [errors, setErrors] = useState<Partial<Record<keyof LeadValues, string>>>({});
+  const [errors, setErrors] = useState<Errs>({});
   const [busy, setBusy] = useState(false);
 
   const inputClass =
