@@ -791,6 +791,12 @@ function Index() {
       <footer className="bg-ink px-4 py-10 text-center text-[11px] leading-relaxed text-secondary/50 sm:px-6">
         <p className="font-display text-lg text-secondary">Vyomora</p>
         <p className="mt-2">{PROJECT.location} · Sales desk {PROJECT.phoneDisplay}</p>
+        <p className="mt-1">
+          Marketed by {PROJECT.firm} ·{" "}
+          <a href={`mailto:${PROJECT.email}`} className="text-gold hover:underline">
+            {PROJECT.email}
+          </a>
+        </p>
         <p className="mx-auto mt-4 max-w-2xl">
           This is an information page for prospective buyers. Images are artistic impressions.
           Prices, areas and amenities are indicative and subject to change without notice.
