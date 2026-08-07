@@ -1,33 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  BadgeIndianRupee,
   BedDouble,
   Building2,
   CalendarClock,
-  CarFront,
   CheckCircle2,
   Download,
   Dumbbell,
   Flower2,
   Gamepad2,
-  Headphones,
-  Home,
-  Images,
   Laptop,
-  LayoutGrid,
   MapPin,
   MessageCircle,
   Phone,
-  PlayCircle,
   Sparkles,
   Trees,
   Trophy,
   Waves,
-  Wifi,
   X,
 } from "lucide-react";
-
 
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import {
@@ -38,6 +29,14 @@ import {
   LOCATION_GROUPS,
   PROJECT,
 } from "@/components/vyomora/data";
+import {
+  AVAILABILITY,
+  HERO_FACTS,
+  HERO_STRIPS,
+  NAV_ITEMS,
+  PROMISES,
+} from "@/components/vyomora/layout-data";
+
 import heroImg from "@/assets/hero-township.jpg";
 import poolImg from "@/assets/gallery-pool.jpg";
 import livingImg from "@/assets/gallery-living.jpg";
