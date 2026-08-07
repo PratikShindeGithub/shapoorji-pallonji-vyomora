@@ -872,7 +872,7 @@ function Index() {
         <p className="mt-4 font-display text-2xl text-foreground">Vyomora</p>
         <p className="eyebrow text-gold">Enquire Now</p>
         <div className="mt-3 text-left">
-          <LeadForm intent="rail" cta="Submit" onSuccess={handleSuccess} />
+          <LeadForm intent="rail" cta="Submit" withCity onSuccess={handleSuccess} />
         </div>
       </aside>
 
@@ -914,7 +914,7 @@ function Index() {
                   <span className="text-gold">best offers!!</span>
                 </p>
                 <div className="mt-6">
-                  <LeadForm intent="welcome" cta="Submit" onSuccess={handleSuccess} />
+                  <LeadForm intent="welcome" cta="Submit" withCity onSuccess={handleSuccess} />
                 </div>
               </div>
               <div className="flex flex-col justify-center gap-4 bg-primary px-6 py-8 text-primary-foreground">
@@ -949,6 +949,7 @@ function Index() {
             key={modal?.intent ?? "modal"}
             intent={modal?.intent ?? "modal"}
             cta={modal?.cta ?? "Submit Enquiry"}
+            withCity
             onSuccess={handleSuccess}
           />
         </div>
