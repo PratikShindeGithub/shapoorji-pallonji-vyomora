@@ -368,7 +368,7 @@ function Index() {
               </a>
               <button
                 onClick={() => openEnquiry("header")}
-                className="rounded-md bg-gold px-4 py-2 text-xs font-bold tracking-wide text-gold-foreground transition hover:-translate-y-0.5 hover:shadow-lift"
+                className="cta-blink rounded-md px-4 py-2 text-xs font-bold tracking-wide transition hover:-translate-y-0.5 hover:shadow-lift"
               >
                 Enquire
               </button>
@@ -401,7 +401,7 @@ function Index() {
                   onClick={() =>
                     openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
                   }
-                  className="inline-flex h-full items-center gap-2 bg-primary px-5 text-xs font-bold text-primary-foreground transition hover:bg-gold hover:text-gold-foreground"
+                  className="cta-blink inline-flex h-full items-center gap-2 px-5 text-xs font-bold transition"
                 >
                   <Download className="h-4 w-4" /> Download Brochure
                 </button>
@@ -441,10 +441,11 @@ function Index() {
                 ))}
               </ul>
               <div className="mt-5 space-y-1.5">
-                {HERO_STRIPS.map((s) => (
+                {HERO_STRIPS.map((s, i) => (
                   <p
                     key={s}
-                    className="rounded-sm bg-primary px-3 py-2 text-[11px] font-semibold tracking-wide text-primary-foreground"
+                    style={{ animationDelay: `${i * 0.35}s` }}
+                    className="strip-blink rounded-sm px-3 py-2 text-[11px] font-semibold tracking-wide"
                   >
                     {s}
                   </p>
@@ -790,6 +791,12 @@ function Index() {
       <footer className="bg-ink px-4 py-10 text-center text-[11px] leading-relaxed text-secondary/50 sm:px-6">
         <p className="font-display text-lg text-secondary">Vyomora</p>
         <p className="mt-2">{PROJECT.location} · Sales desk {PROJECT.phoneDisplay}</p>
+        <p className="mt-1">
+          Marketed by {PROJECT.firm} ·{" "}
+          <a href={`mailto:${PROJECT.email}`} className="text-gold hover:underline">
+            {PROJECT.email}
+          </a>
+        </p>
         <p className="mx-auto mt-4 max-w-2xl">
           This is an information page for prospective buyers. Images are artistic impressions.
           Prices, areas and amenities are indicative and subject to change without notice.
