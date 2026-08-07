@@ -771,9 +771,9 @@ function Index() {
         <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{modal?.copy}</p>
         <div className="mt-6">
           <LeadForm
-            key={modal?.intent}
-            intent={modal?.intent}
-            cta={modal?.cta}
+            key={modal?.intent ?? "modal"}
+            intent={modal?.intent ?? "modal"}
+            cta={modal?.cta ?? "Submit Enquiry"}
             onSuccess={handleSuccess}
           />
         </div>
