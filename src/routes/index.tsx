@@ -860,28 +860,6 @@ function Index() {
         </button>
       </div>
 
-      {/* Desktop sticky enquiry rail */}
-      <aside className="fixed right-0 top-48 z-40 hidden w-72 border border-border bg-card/95 p-4 text-center shadow-lift backdrop-blur xl:block">
-        <a
-          href={`tel:${PROJECT.phone}`}
-          className="block rounded-md border border-border py-2 text-sm font-semibold text-foreground transition hover:border-gold"
-        >
-          Call : {PROJECT.phoneDisplay}
-        </a>
-        <button
-          onClick={() =>
-            openEnquiry("rail-callback", "Request Call Back", "Request a call back", "Our sales desk will call you within 10 minutes during working hours.")
-          }
-          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary py-2 text-sm font-semibold text-primary-foreground transition hover:bg-gold hover:text-gold-foreground"
-        >
-          <Phone className="h-3.5 w-3.5" /> Request Call Back
-        </button>
-        <p className="mt-4 font-display text-2xl text-foreground">Vyomora</p>
-        <p className="eyebrow text-gold">Enquire Now</p>
-        <div className="mt-3 text-left">
-          <LeadForm intent="rail" cta="Submit" withCity onSuccess={handleSuccess} />
-        </div>
-      </aside>
 
       {/* Welcome popup (reference-style 3 column) */}
       {welcome ? (
