@@ -368,7 +368,7 @@ function Index() {
               </a>
               <button
                 onClick={() => openEnquiry("header")}
-                className="rounded-md bg-gold px-4 py-2 text-xs font-bold tracking-wide text-gold-foreground transition hover:-translate-y-0.5 hover:shadow-lift"
+                className="cta-blink rounded-md px-4 py-2 text-xs font-bold tracking-wide transition hover:-translate-y-0.5 hover:shadow-lift"
               >
                 Enquire
               </button>
