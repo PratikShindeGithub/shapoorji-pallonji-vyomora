@@ -19,6 +19,13 @@
  */
 
 @theme inline {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-ink: var(--ink);
+  --shadow-lift: var(--shadow-lift);
+  --shadow-soft: var(--shadow-soft);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -26,6 +33,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -140,5 +148,72 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+/* ---------- Vyomora brand system ---------- */
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.985 0.012 85);
+  --foreground: oklch(0.235 0.028 155);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.235 0.028 155);
+  --popover: oklch(0.995 0.006 85);
+  --popover-foreground: oklch(0.235 0.028 155);
+  --primary: oklch(0.34 0.062 158);
+  --primary-foreground: oklch(0.985 0.012 85);
+  --secondary: oklch(0.95 0.022 92);
+  --secondary-foreground: oklch(0.3 0.045 158);
+  --muted: oklch(0.955 0.016 88);
+  --muted-foreground: oklch(0.505 0.028 150);
+  --accent: oklch(0.93 0.048 88);
+  --accent-foreground: oklch(0.3 0.045 158);
+  --border: oklch(0.9 0.018 90);
+  --input: oklch(0.9 0.018 90);
+  --ring: oklch(0.72 0.1 85);
+  --gold: oklch(0.74 0.11 82);
+  --gold-foreground: oklch(0.24 0.03 155);
+  --ink: oklch(0.19 0.024 158);
+  --shadow-soft: 0 1px 2px oklch(0.24 0.03 155 / 0.06), 0 8px 24px oklch(0.24 0.03 155 / 0.07);
+  --shadow-lift: 0 18px 48px oklch(0.24 0.03 155 / 0.16);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+@utility eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@utility hairline {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  height: 1px;
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
   }
 }
