@@ -10,24 +10,9 @@ type Props = {
   onSuccess: (values: LeadValues, intent?: string) => void;
 };
 
-export const CITY_OPTIONS = [
-  "Pune",
-  "Mumbai",
-  "Bengaluru",
-  "Hyderabad",
-  "Delhi NCR",
-  "Ahmedabad",
-  "Chennai",
-  "Kolkata",
-  "Nagpur",
-  "Nashik",
-  "Other City in India",
-  "Outside India (NRI)",
-];
-
 type Errs = Partial<Record<keyof LeadValues, string | undefined>>;
 
-type TextKey = "name" | "mobile" | "email";
+type TextKey = "name" | "mobile" | "email" | "city";
 
 const errorsFor = (v: LeadValues, withCity?: boolean) => {
   const e: Errs = {};
@@ -39,7 +24,11 @@ const errorsFor = (v: LeadValues, withCity?: boolean) => {
   if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.email.trim()))
     e.email = "Enter a valid email address";
   else if (v.email.trim().length > 120) e.email = "Email is too long";
-  if (withCity && !v.city) e.city = "Please select your current city";
+  if (withCity) {
+    const city = v.city?.trim() ?? "";
+    if (city.length < 2) e.city = "Please enter your current city";
+    else if (city.length > 60) e.city = "City name is too long";
+  }
   return e;
 };
 
@@ -84,15 +73,13 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
         setBusy(true);
         window.setTimeout(() => {
           setBusy(false);
-          onSuccess(
-            {
-              name: values.name.trim(),
-              mobile: values.mobile.trim(),
-              email: values.email.trim(),
-              ...(withCity ? { city: values.city } : {}),
-            },
-            intent,
-          );
+          const payload: LeadValues = {
+            name: values.name.trim(),
+            mobile: values.mobile.trim(),
+            email: values.email.trim(),
+          };
+          if (withCity) payload.city = values.city?.trim() ?? "";
+          onSuccess(payload, intent);
           setValues({ name: "", mobile: "", email: "", city: "" });
         }, 450);
       }}
@@ -101,31 +88,7 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
       {field("name", "Full name", { autoComplete: "name", maxLength: "80" })}
       {field("mobile", "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}
       {field("email", "Email address", { type: "email", autoComplete: "email", maxLength: "120" })}
-      {withCity ? (
-        <div className={compact ? "sm:col-span-3" : ""}>
-          <label htmlFor={`${intent ?? "lead"}-city`} className="sr-only">
-            Current city
-          </label>
-          <select
-            id={`${intent ?? "lead"}-city`}
-            value={values.city}
-            aria-invalid={Boolean(errors.city)}
-            onChange={(e) => {
-              setValues((v) => ({ ...v, city: e.target.value }));
-              setErrors((p) => ({ ...p, city: undefined }));
-            }}
-            className={`${inputClass} ${values.city ? "" : "text-muted-foreground"}`}
-          >
-            <option value="">Current city</option>
-            {CITY_OPTIONS.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-          {errors.city ? <p className="mt-1 text-xs text-destructive">{errors.city}</p> : null}
-        </div>
-      ) : null}
+      {withCity ? field("city", "Current city", { autoComplete: "address-level2", maxLength: "60" }) : null}
       <button
         type="submit"
         disabled={busy}
