@@ -1,22 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
+  BadgeIndianRupee,
   BedDouble,
   Building2,
   CalendarClock,
+  CarFront,
+  CheckCircle2,
+  Download,
   Dumbbell,
   Flower2,
   Gamepad2,
+  Headphones,
+  Home,
+  Images,
   Laptop,
+  LayoutGrid,
   MapPin,
   MessageCircle,
   Phone,
+  PlayCircle,
   Sparkles,
   Trees,
   Trophy,
   Waves,
+  Wifi,
   X,
 } from "lucide-react";
+
 
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import {
