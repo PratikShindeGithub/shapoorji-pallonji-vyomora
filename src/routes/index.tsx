@@ -99,6 +99,39 @@ const AMENITY_ICONS = [
   Sparkles,
 ];
 
+const NAV_ITEMS = [
+  { label: "Home", href: "#top", icon: Home },
+  { label: "Price", href: "#pricing", icon: BadgeIndianRupee },
+  { label: "Site Plan", href: "#plans", icon: LayoutGrid },
+  { label: "Amenities", href: "#amenities", icon: Wifi },
+  { label: "Gallery", href: "#gallery", icon: Images },
+  { label: "Location", href: "#location", icon: MapPin },
+  { label: "Walkthrough", href: "#gallery", icon: PlayCircle },
+];
+
+const HERO_FACTS = [
+  "25 Acres Township",
+  "40+ Amenities",
+  "1.5 Acre Vehicle-Free Podium",
+  "4 of 9 Towers Released",
+  "G+24 Storey",
+];
+
+const HERO_STRIPS = [
+  "Limited Time Pre-Launch Offers",
+  "Double-Height Sky Lobbies",
+  "High Speed Elevators",
+];
+
+const PROMISES = [
+  { icon: Headphones, label: "Instant Call Back" },
+  { icon: CarFront, label: "Free Site Visit" },
+  { icon: BadgeIndianRupee, label: "Unmatched Price" },
+];
+
+const AVAILABILITY = ["Available Units", "Payment Plan", "Floor Plans"];
+
+
 const GALLERY = [
   { src: heroImg, alt: "Vyomora towers at dusk with landscaped water court", tall: true },
   { src: poolImg, alt: "Resort-style swimming pool deck at Vyomora clubhouse" },
