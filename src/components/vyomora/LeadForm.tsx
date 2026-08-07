@@ -73,15 +73,13 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
         setBusy(true);
         window.setTimeout(() => {
           setBusy(false);
-          onSuccess(
-            {
-              name: values.name.trim(),
-              mobile: values.mobile.trim(),
-              email: values.email.trim(),
-              ...(withCity ? { city: values.city?.trim() } : {}),
-            },
-            intent,
-          );
+          const payload: LeadValues = {
+            name: values.name.trim(),
+            mobile: values.mobile.trim(),
+            email: values.email.trim(),
+          };
+          if (withCity) payload.city = values.city?.trim() ?? "";
+          onSuccess(payload, intent);
           setValues({ name: "", mobile: "", email: "", city: "" });
         }, 450);
       }}
