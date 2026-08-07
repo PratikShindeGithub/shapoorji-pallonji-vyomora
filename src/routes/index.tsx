@@ -883,6 +883,92 @@ function Index() {
         </button>
       </div>
 
+      {/* Desktop sticky enquiry rail */}
+      <aside className="fixed right-0 top-32 z-40 hidden w-64 border border-border bg-card/95 p-4 text-center shadow-lift backdrop-blur xl:block">
+        <a
+          href={`tel:${PROJECT.phone}`}
+          className="block rounded-md border border-border py-2 text-sm font-semibold text-foreground transition hover:border-gold"
+        >
+          Call : {PROJECT.phoneDisplay}
+        </a>
+        <button
+          onClick={() =>
+            openEnquiry("rail-callback", "Request Call Back", "Request a call back", "Our sales desk will call you within 10 minutes during working hours.")
+          }
+          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary py-2 text-sm font-semibold text-primary-foreground transition hover:bg-gold hover:text-gold-foreground"
+        >
+          <Phone className="h-3.5 w-3.5" /> Request Call Back
+        </button>
+        <p className="mt-4 font-display text-2xl text-foreground">Vyomora</p>
+        <p className="eyebrow text-gold">Enquire Now</p>
+        <div className="mt-3 text-left">
+          <LeadForm intent="rail" compact cta="Submit" onSuccess={handleSuccess} />
+        </div>
+      </aside>
+
+      {/* Welcome popup (reference-style 3 column) */}
+      {welcome ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Register for best offers"
+          className="fixed inset-0 z-[75] flex items-center justify-center bg-ink/70 p-4 backdrop-blur-sm"
+          onClick={() => setWelcome(false)}
+        >
+          <div
+            className="animate-scale-in relative w-full max-w-4xl overflow-hidden rounded-xl bg-card shadow-lift"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setWelcome(false)}
+              aria-label="Close"
+              className="absolute right-3 top-3 z-10 rounded-full p-1.5 text-muted-foreground transition hover:bg-muted hover:text-foreground"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <div className="grid md:grid-cols-[0.8fr_1.2fr_0.9fr]">
+              <div className="hidden flex-col items-center gap-6 bg-muted/50 px-5 py-8 text-center md:flex">
+                <p className="font-display text-xl text-primary">We Promise</p>
+                {PROMISES.map(({ icon: Icon, label }) => (
+                  <div key={label} className="space-y-2">
+                    <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <p className="text-xs font-semibold text-foreground">{label}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="px-6 py-8">
+                <p className="text-center font-display text-2xl leading-tight text-foreground">
+                  Register here and avail the{" "}
+                  <span className="text-gold">best offers!!</span>
+                </p>
+                <div className="mt-6">
+                  <LeadForm intent="welcome" compact cta="Submit" onSuccess={handleSuccess} />
+                </div>
+              </div>
+              <div className="flex flex-col justify-center gap-4 bg-primary px-6 py-8 text-primary-foreground">
+                <p className="font-display text-xl leading-tight">
+                  Get information on availabilities
+                </p>
+                {AVAILABILITY.map((a) => (
+                  <p key={a} className="inline-flex items-center gap-2 text-sm font-semibold">
+                    <CheckCircle2 className="h-4 w-4 text-gold" /> {a}
+                  </p>
+                ))}
+              </div>
+            </div>
+            <a
+              href={`tel:${PROJECT.phone}`}
+              className="flex items-center justify-center gap-2 bg-ink py-3 text-sm font-semibold text-secondary transition hover:text-gold"
+            >
+              <Phone className="h-4 w-4 text-gold" /> {PROJECT.phoneDisplay}
+            </a>
+          </div>
+        </div>
+      ) : null}
+
+
       {/* Enquiry modal */}
       <Modal open={Boolean(modal)} onClose={() => setModal(null)} label="Enquiry form">
         <p className="eyebrow text-gold">Vyomora</p>
