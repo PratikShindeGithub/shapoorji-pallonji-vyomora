@@ -441,10 +441,11 @@ function Index() {
                 ))}
               </ul>
               <div className="mt-5 space-y-1.5">
-                {HERO_STRIPS.map((s) => (
+                {HERO_STRIPS.map((s, i) => (
                   <p
                     key={s}
-                    className="rounded-sm bg-primary px-3 py-2 text-[11px] font-semibold tracking-wide text-primary-foreground"
+                    style={{ animationDelay: `${i * 0.35}s` }}
+                    className="strip-blink rounded-sm px-3 py-2 text-[11px] font-semibold tracking-wide"
                   >
                     {s}
                   </p>
