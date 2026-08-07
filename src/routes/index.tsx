@@ -310,11 +310,19 @@ function Index() {
     return () => document.removeEventListener("mouseout", onLeave);
   }, [openEnquiry]);
 
+  const [welcome, setWelcome] = useState(false);
+  useEffect(() => {
+    const id = window.setTimeout(() => setWelcome(true), 1500);
+    return () => window.clearTimeout(id);
+  }, []);
+
   const handleSuccess = (values: LeadValues) => {
     setUnlocked(true);
     setModal(null);
+    setWelcome(false);
     setThankYou(values);
   };
+
 
   return (
     <div ref={pageRef} className="min-h-screen bg-background text-foreground">
