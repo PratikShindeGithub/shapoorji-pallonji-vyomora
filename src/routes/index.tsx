@@ -854,7 +854,7 @@ function Index() {
       </div>
 
       {/* Desktop sticky enquiry rail */}
-      <aside className="fixed right-0 top-32 z-40 hidden w-64 border border-border bg-card/95 p-4 text-center shadow-lift backdrop-blur xl:block">
+      <aside className="fixed right-0 top-48 z-40 hidden w-72 border border-border bg-card/95 p-4 text-center shadow-lift backdrop-blur xl:block">
         <a
           href={`tel:${PROJECT.phone}`}
           className="block rounded-md border border-border py-2 text-sm font-semibold text-foreground transition hover:border-gold"
