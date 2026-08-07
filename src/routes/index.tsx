@@ -4,6 +4,8 @@ import {
   BedDouble,
   Building2,
   CalendarClock,
+  CheckCircle2,
+  Download,
   Dumbbell,
   Flower2,
   Gamepad2,
@@ -27,6 +29,14 @@ import {
   LOCATION_GROUPS,
   PROJECT,
 } from "@/components/vyomora/data";
+import {
+  AVAILABILITY,
+  HERO_FACTS,
+  HERO_STRIPS,
+  NAV_ITEMS,
+  PROMISES,
+} from "@/components/vyomora/layout-data";
+
 import heroImg from "@/assets/hero-township.jpg";
 import poolImg from "@/assets/gallery-pool.jpg";
 import livingImg from "@/assets/gallery-living.jpg";
@@ -87,6 +97,10 @@ const AMENITY_ICONS = [
   Laptop,
   Sparkles,
 ];
+
+
+
+
 
 const GALLERY = [
   { src: heroImg, alt: "Vyomora towers at dusk with landscaped water court", tall: true },
@@ -266,22 +280,53 @@ function Index() {
     return () => document.removeEventListener("mouseout", onLeave);
   }, [openEnquiry]);
 
+  const [welcome, setWelcome] = useState(false);
+  useEffect(() => {
+    const id = window.setTimeout(() => setWelcome(true), 1500);
+    return () => window.clearTimeout(id);
+  }, []);
+
   const handleSuccess = (values: LeadValues) => {
     setUnlocked(true);
     setModal(null);
+    setWelcome(false);
     setThankYou(values);
   };
+
 
   return (
     <div ref={pageRef} className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="fixed inset-x-0 top-0 z-50">
+        <div className="hidden justify-end gap-px bg-ink text-[11px] font-semibold lg:flex">
+          <button
+            onClick={() =>
+              openEnquiry(
+                "site-visit-top",
+                "Organize Site Visit",
+                "Organize a site visit",
+                "Pick a slot and we'll arrange complimentary cab pickup anywhere in Pune.",
+              )
+            }
+            className="bg-primary/90 px-4 py-2 text-primary-foreground transition hover:bg-primary"
+          >
+            Organize Site Visit
+          </button>
+          <a
+            href={`https://wa.me/${PROJECT.whatsapp}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 bg-[#25D366] px-4 py-2 text-ink transition hover:brightness-110"
+          >
+            <MessageCircle className="h-3.5 w-3.5" /> WhatsApp Now
+          </a>
+        </div>
         <Countdown />
         <div
           className={`transition-all duration-300 ${
             scrolled
               ? "border-b border-border bg-background/95 shadow-soft backdrop-blur"
-              : "bg-gradient-to-b from-ink/70 to-transparent"
+              : "bg-gradient-to-b from-ink/80 to-transparent"
           }`}
         >
           <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
@@ -329,6 +374,40 @@ function Index() {
               </button>
             </div>
           </div>
+          {/* Icon nav rail */}
+          <nav
+            aria-label="Section navigation"
+            className={`hidden border-t lg:block ${
+              scrolled ? "border-border bg-card/95" : "border-secondary/15 bg-ink/70 backdrop-blur"
+            }`}
+          >
+            <ul className="mx-auto flex max-w-6xl items-stretch px-4 sm:px-6">
+              {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className={`inline-flex items-center gap-2 px-4 py-3 text-xs font-semibold tracking-wide transition ${
+                      scrolled
+                        ? "text-foreground hover:text-primary"
+                        : "text-secondary/85 hover:text-gold"
+                    }`}
+                  >
+                    <Icon className="h-4 w-4 text-gold" /> {label}
+                  </a>
+                </li>
+              ))}
+              <li className="ml-auto">
+                <button
+                  onClick={() =>
+                    openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
+                  }
+                  className="inline-flex h-full items-center gap-2 bg-primary px-5 text-xs font-bold text-primary-foreground transition hover:bg-gold hover:text-gold-foreground"
+                >
+                  <Download className="h-4 w-4" /> Download Brochure
+                </button>
+              </li>
+            </ul>
+          </nav>
         </div>
       </header>
 
@@ -342,44 +421,53 @@ function Index() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/30" />
-        <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-4 pb-16 pt-36 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-32">
-          <div>
-            <p className="reveal eyebrow text-gold" data-reveal>
-              Now welcoming first residents
-            </p>
-            <h1
-              className="reveal mt-4 text-4xl leading-[1.05] text-secondary sm:text-6xl"
-              data-reveal
-              data-reveal-delay="80"
-            >
-              Vyomora
-              <span className="mt-2 block text-xl font-normal text-secondary/80 sm:text-2xl">
-                {PROJECT.tagline}
-              </span>
-            </h1>
-            <div
-              className="reveal mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-secondary/85"
-              data-reveal
-              data-reveal-delay="160"
-            >
-              <span className="inline-flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-gold" /> {PROJECT.location}
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <BedDouble className="h-4 w-4 text-gold" /> 2 & 3 BHK + Duplex
-              </span>
+        <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-4 pb-16 pt-40 sm:px-6 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:pt-44 xl:pr-72">
+          {/* Reference-style project fact card */}
+          <div
+            className="reveal overflow-hidden rounded-xl border border-gold/25 bg-card/92 text-center shadow-lift backdrop-blur"
+            data-reveal
+          >
+            <p className="eyebrow bg-primary/10 py-3 text-primary">Booking Open</p>
+            <div className="px-6 pb-6 pt-5">
+              <h1 className="font-display text-4xl leading-none text-foreground sm:text-5xl">
+                Vyomora
+              </h1>
+              <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+                <MapPin className="h-3.5 w-3.5 text-gold" /> {PROJECT.location}
+              </p>
+              <ul className="mt-6 space-y-2 border-y border-border bg-muted/40 py-5 text-sm text-foreground">
+                {HERO_FACTS.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+              <div className="mt-5 space-y-1.5">
+                {HERO_STRIPS.map((s) => (
+                  <p
+                    key={s}
+                    className="rounded-sm bg-primary px-3 py-2 text-[11px] font-semibold tracking-wide text-primary-foreground"
+                  >
+                    {s}
+                  </p>
+                ))}
+              </div>
+              <p className="mt-5 text-sm text-muted-foreground">
+                Luxurious 2 &amp; 3 BHK Apartments &amp; Duplexes
+              </p>
+              <p className="text-xs tracking-wide text-muted-foreground">Starting Price</p>
+              <p className="mt-1 font-display text-3xl text-gold sm:text-4xl">
+                {PROJECT.startingPrice} Onwards
+              </p>
+              <button
+                onClick={() => openEnquiry("hero-card")}
+                className="mt-5 w-full rounded-md bg-gold py-3 text-sm font-bold text-gold-foreground transition hover:-translate-y-0.5 hover:shadow-lift"
+              >
+                Enquire Now
+              </button>
             </div>
-            <p
-              className="reveal mt-6 font-display text-3xl text-gold sm:text-4xl"
-              data-reveal
-              data-reveal-delay="220"
-            >
-              Starting {PROJECT.startingPrice}
-            </p>
           </div>
 
           <div
-            className="reveal rounded-xl border border-gold/25 bg-card/95 p-6 shadow-lift backdrop-blur sm:p-7"
+            className="reveal rounded-xl border border-gold/25 bg-card/95 p-6 shadow-lift backdrop-blur sm:p-7 lg:max-w-md lg:justify-self-end"
             data-reveal
             data-reveal-delay="120"
           >
@@ -393,6 +481,7 @@ function Index() {
           </div>
         </div>
       </section>
+
 
       {/* Highlights */}
       <section className="border-y border-border bg-secondary">
@@ -763,6 +852,92 @@ function Index() {
           <Sparkles className="h-4 w-4" /> Enquire
         </button>
       </div>
+
+      {/* Desktop sticky enquiry rail */}
+      <aside className="fixed right-0 top-48 z-40 hidden w-72 border border-border bg-card/95 p-4 text-center shadow-lift backdrop-blur xl:block">
+        <a
+          href={`tel:${PROJECT.phone}`}
+          className="block rounded-md border border-border py-2 text-sm font-semibold text-foreground transition hover:border-gold"
+        >
+          Call : {PROJECT.phoneDisplay}
+        </a>
+        <button
+          onClick={() =>
+            openEnquiry("rail-callback", "Request Call Back", "Request a call back", "Our sales desk will call you within 10 minutes during working hours.")
+          }
+          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary py-2 text-sm font-semibold text-primary-foreground transition hover:bg-gold hover:text-gold-foreground"
+        >
+          <Phone className="h-3.5 w-3.5" /> Request Call Back
+        </button>
+        <p className="mt-4 font-display text-2xl text-foreground">Vyomora</p>
+        <p className="eyebrow text-gold">Enquire Now</p>
+        <div className="mt-3 text-left">
+          <LeadForm intent="rail" cta="Submit" onSuccess={handleSuccess} />
+        </div>
+      </aside>
+
+      {/* Welcome popup (reference-style 3 column) */}
+      {welcome ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Register for best offers"
+          className="fixed inset-0 z-[75] flex items-center justify-center bg-ink/70 p-4 backdrop-blur-sm"
+          onClick={() => setWelcome(false)}
+        >
+          <div
+            className="animate-scale-in relative w-full max-w-4xl overflow-hidden rounded-xl bg-card shadow-lift"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setWelcome(false)}
+              aria-label="Close"
+              className="absolute right-3 top-3 z-10 rounded-full p-1.5 text-muted-foreground transition hover:bg-muted hover:text-foreground"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <div className="grid md:grid-cols-[0.8fr_1.2fr_0.9fr]">
+              <div className="hidden flex-col items-center gap-6 bg-muted/50 px-5 py-8 text-center md:flex">
+                <p className="font-display text-xl text-primary">We Promise</p>
+                {PROMISES.map(({ icon: Icon, label }) => (
+                  <div key={label} className="space-y-2">
+                    <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <p className="text-xs font-semibold text-foreground">{label}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="px-6 py-8">
+                <p className="text-center font-display text-2xl leading-tight text-foreground">
+                  Register here and avail the{" "}
+                  <span className="text-gold">best offers!!</span>
+                </p>
+                <div className="mt-6">
+                  <LeadForm intent="welcome" cta="Submit" onSuccess={handleSuccess} />
+                </div>
+              </div>
+              <div className="flex flex-col justify-center gap-4 bg-primary px-6 py-8 text-primary-foreground">
+                <p className="font-display text-xl leading-tight">
+                  Get information on availabilities
+                </p>
+                {AVAILABILITY.map((a) => (
+                  <p key={a} className="inline-flex items-center gap-2 text-sm font-semibold">
+                    <CheckCircle2 className="h-4 w-4 text-gold" /> {a}
+                  </p>
+                ))}
+              </div>
+            </div>
+            <a
+              href={`tel:${PROJECT.phone}`}
+              className="flex items-center justify-center gap-2 bg-ink py-3 text-sm font-semibold text-secondary transition hover:text-gold"
+            >
+              <Phone className="h-4 w-4 text-gold" /> {PROJECT.phoneDisplay}
+            </a>
+          </div>
+        </div>
+      ) : null}
+
 
       {/* Enquiry modal */}
       <Modal open={Boolean(modal)} onClose={() => setModal(null)} label="Enquiry form">
