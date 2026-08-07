@@ -401,7 +401,7 @@ function Index() {
                   onClick={() =>
                     openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
                   }
-                  className="inline-flex h-full items-center gap-2 bg-primary px-5 text-xs font-bold text-primary-foreground transition hover:bg-gold hover:text-gold-foreground"
+                  className="cta-blink inline-flex h-full items-center gap-2 px-5 text-xs font-bold transition"
                 >
                   <Download className="h-4 w-4" /> Download Brochure
                 </button>
