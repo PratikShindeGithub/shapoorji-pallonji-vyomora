@@ -276,12 +276,35 @@ function Index() {
     <div ref={pageRef} className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="fixed inset-x-0 top-0 z-50">
+        <div className="hidden justify-end gap-px bg-ink text-[11px] font-semibold lg:flex">
+          <button
+            onClick={() =>
+              openEnquiry(
+                "site-visit-top",
+                "Organize Site Visit",
+                "Organize a site visit",
+                "Pick a slot and we'll arrange complimentary cab pickup anywhere in Pune.",
+              )
+            }
+            className="bg-primary/90 px-4 py-2 text-primary-foreground transition hover:bg-primary"
+          >
+            Organize Site Visit
+          </button>
+          <a
+            href={`https://wa.me/${PROJECT.whatsapp}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 bg-[#25D366] px-4 py-2 text-ink transition hover:brightness-110"
+          >
+            <MessageCircle className="h-3.5 w-3.5" /> WhatsApp Now
+          </a>
+        </div>
         <Countdown />
         <div
           className={`transition-all duration-300 ${
             scrolled
               ? "border-b border-border bg-background/95 shadow-soft backdrop-blur"
-              : "bg-gradient-to-b from-ink/70 to-transparent"
+              : "bg-gradient-to-b from-ink/80 to-transparent"
           }`}
         >
           <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
@@ -329,6 +352,40 @@ function Index() {
               </button>
             </div>
           </div>
+          {/* Icon nav rail */}
+          <nav
+            aria-label="Section navigation"
+            className={`hidden border-t lg:block ${
+              scrolled ? "border-border bg-card/95" : "border-secondary/15 bg-ink/70 backdrop-blur"
+            }`}
+          >
+            <ul className="mx-auto flex max-w-6xl items-stretch px-4 sm:px-6">
+              {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className={`inline-flex items-center gap-2 px-4 py-3 text-xs font-semibold tracking-wide transition ${
+                      scrolled
+                        ? "text-foreground hover:text-primary"
+                        : "text-secondary/85 hover:text-gold"
+                    }`}
+                  >
+                    <Icon className="h-4 w-4 text-gold" /> {label}
+                  </a>
+                </li>
+              ))}
+              <li className="ml-auto">
+                <button
+                  onClick={() =>
+                    openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
+                  }
+                  className="inline-flex h-full items-center gap-2 bg-primary px-5 text-xs font-bold text-primary-foreground transition hover:bg-gold hover:text-gold-foreground"
+                >
+                  <Download className="h-4 w-4" /> Download Brochure
+                </button>
+              </li>
+            </ul>
+          </nav>
         </div>
       </header>
 
@@ -342,44 +399,53 @@ function Index() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/30" />
-        <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-4 pb-16 pt-36 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-32">
-          <div>
-            <p className="reveal eyebrow text-gold" data-reveal>
-              Now welcoming first residents
-            </p>
-            <h1
-              className="reveal mt-4 text-4xl leading-[1.05] text-secondary sm:text-6xl"
-              data-reveal
-              data-reveal-delay="80"
-            >
-              Vyomora
-              <span className="mt-2 block text-xl font-normal text-secondary/80 sm:text-2xl">
-                {PROJECT.tagline}
-              </span>
-            </h1>
-            <div
-              className="reveal mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-secondary/85"
-              data-reveal
-              data-reveal-delay="160"
-            >
-              <span className="inline-flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-gold" /> {PROJECT.location}
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <BedDouble className="h-4 w-4 text-gold" /> 2 & 3 BHK + Duplex
-              </span>
+        <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-4 pb-16 pt-40 sm:px-6 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:pt-44 xl:pr-72">
+          {/* Reference-style project fact card */}
+          <div
+            className="reveal overflow-hidden rounded-xl border border-gold/25 bg-card/92 text-center shadow-lift backdrop-blur"
+            data-reveal
+          >
+            <p className="eyebrow bg-primary/10 py-3 text-primary">Booking Open</p>
+            <div className="px-6 pb-6 pt-5">
+              <h1 className="font-display text-4xl leading-none text-foreground sm:text-5xl">
+                Vyomora
+              </h1>
+              <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+                <MapPin className="h-3.5 w-3.5 text-gold" /> {PROJECT.location}
+              </p>
+              <ul className="mt-6 space-y-2 border-y border-border bg-muted/40 py-5 text-sm text-foreground">
+                {HERO_FACTS.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+              <div className="mt-5 space-y-1.5">
+                {HERO_STRIPS.map((s) => (
+                  <p
+                    key={s}
+                    className="rounded-sm bg-primary px-3 py-2 text-[11px] font-semibold tracking-wide text-primary-foreground"
+                  >
+                    {s}
+                  </p>
+                ))}
+              </div>
+              <p className="mt-5 text-sm text-muted-foreground">
+                Luxurious 2 &amp; 3 BHK Apartments &amp; Duplexes
+              </p>
+              <p className="text-xs tracking-wide text-muted-foreground">Starting Price</p>
+              <p className="mt-1 font-display text-3xl text-gold sm:text-4xl">
+                {PROJECT.startingPrice} Onwards
+              </p>
+              <button
+                onClick={() => openEnquiry("hero-card")}
+                className="mt-5 w-full rounded-md bg-gold py-3 text-sm font-bold text-gold-foreground transition hover:-translate-y-0.5 hover:shadow-lift"
+              >
+                Enquire Now
+              </button>
             </div>
-            <p
-              className="reveal mt-6 font-display text-3xl text-gold sm:text-4xl"
-              data-reveal
-              data-reveal-delay="220"
-            >
-              Starting {PROJECT.startingPrice}
-            </p>
           </div>
 
           <div
-            className="reveal rounded-xl border border-gold/25 bg-card/95 p-6 shadow-lift backdrop-blur sm:p-7"
+            className="reveal rounded-xl border border-gold/25 bg-card/95 p-6 shadow-lift backdrop-blur sm:p-7 lg:max-w-md lg:justify-self-end"
             data-reveal
             data-reveal-delay="120"
           >
@@ -393,6 +459,7 @@ function Index() {
           </div>
         </div>
       </section>
+
 
       {/* Highlights */}
       <section className="border-y border-border bg-secondary">
