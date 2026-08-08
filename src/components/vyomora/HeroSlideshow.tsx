@@ -1,0 +1,45 @@
+import { useEffect, useState } from "react";
+import { HERO_SLIDES } from "./logo";
+
+export function HeroSlideshow() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setActive((i) => (i + 1) % HERO_SLIDES.length);
+    }, 5000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  return (
+    <div className="relative h-56 w-full sm:h-72 lg:absolute lg:inset-0 lg:h-full">
+      {HERO_SLIDES.map((slide, i) => (
+        <img
+          key={slide.url}
+          src={slide.url}
+          alt={slide.alt}
+          width={1920}
+          height={1280}
+          loading={i === 0 ? "eager" : "lazy"}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            i === active ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+      <div className="absolute inset-x-0 bottom-3 z-10 flex justify-center gap-2 lg:bottom-6">
+        {HERO_SLIDES.map((slide, i) => (
+          <button
+            key={slide.url}
+            type="button"
+            aria-label={`Show slide ${i + 1}`}
+            aria-current={i === active}
+            onClick={() => setActive(i)}
+            className={`h-1.5 rounded-full transition-all ${
+              i === active ? "w-6 bg-gold" : "w-1.5 bg-background/70"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
