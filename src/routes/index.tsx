@@ -316,13 +316,14 @@ function Index() {
               <li className="ml-auto">
                 <button
                   onClick={() =>
-                    openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
+                    openEnquiry("nav-site-visit", "Organise Site Visit", "Organise a site visit", "Share your details and our sales desk will arrange a guided site visit at your preferred time.")
                   }
                   className="cta-blink inline-flex h-full items-center gap-2 px-5 text-xs font-bold transition"
                 >
-                  <Download className="h-4 w-4" /> Download Brochure
+                  <CarFront className="h-4 w-4" /> Organise Site Visit
                 </button>
               </li>
+
             </ul>
           </nav>
         </div>
