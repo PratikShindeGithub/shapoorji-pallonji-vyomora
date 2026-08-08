@@ -262,3 +262,20 @@ h1, h2, h3, .font-display {
     animation: none;
   }
 }
+
+@keyframes icon-nudge-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@utility icon-nudge {
+  animation: icon-nudge-down 1.2s ease-in-out infinite;
+  will-change: transform;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
