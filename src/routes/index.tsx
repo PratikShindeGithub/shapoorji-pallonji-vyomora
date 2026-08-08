@@ -210,7 +210,6 @@ function SectionHead({
 function Index() {
   const pageRef = useReveal<HTMLDivElement>();
   const [modal, setModal] = useState<null | { intent: string; cta: string; title: string; copy: string }>(null);
-  const [unlocked, setUnlocked] = useState(false);
   const [thankYou, setThankYou] = useState<LeadValues | null>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
