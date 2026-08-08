@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+
+import { submitLead } from "@/lib/leads.functions";
+
 
 export type LeadValues = { name: string; mobile: string; email: string; city?: string };
 
@@ -36,6 +40,9 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
   const [values, setValues] = useState<LeadValues>({ name: "", mobile: "", email: "", city: "" });
   const [errors, setErrors] = useState<Errs>({});
   const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const send = useServerFn(submitLead);
+
 
   const inputClass =
     "w-full rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
@@ -65,24 +72,38 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
   return (
     <form
       noValidate
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
         const next = errorsFor(values, withCity);
         setErrors(next);
         if (Object.keys(next).length > 0) return;
         setBusy(true);
-        window.setTimeout(() => {
-          setBusy(false);
-          const payload: LeadValues = {
-            name: values.name.trim(),
-            mobile: values.mobile.trim(),
-            email: values.email.trim(),
-          };
-          if (withCity) payload.city = values.city?.trim() ?? "";
+        setFailed(false);
+        const payload: LeadValues = {
+          name: values.name.trim(),
+          mobile: values.mobile.trim(),
+          email: values.email.trim(),
+        };
+        if (withCity) payload.city = values.city?.trim() ?? "";
+        try {
+          await send({
+            data: {
+              name: payload.name,
+              mobile: payload.mobile,
+              email: payload.email,
+              ...(payload.city ? { city: payload.city } : {}),
+              ...(intent ? { intent } : {}),
+            },
+          });
           onSuccess(payload, intent);
           setValues({ name: "", mobile: "", email: "", city: "" });
-        }, 450);
+        } catch {
+          setFailed(true);
+        } finally {
+          setBusy(false);
+        }
       }}
+
       className={compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
     >
       {field("name", "Full name", { autoComplete: "name", maxLength: "80" })}
@@ -96,8 +117,14 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
       >
         {busy ? "Sending…" : cta}
       </button>
+      {failed ? (
+        <p className="text-xs text-destructive">
+          Something went wrong. Please try again or call our sales desk.
+        </p>
+      ) : null}
       <p className="text-[11px] leading-relaxed text-muted-foreground">
         By submitting you authorise our sales desk to contact you regarding this project.
+
       </p>
     </form>
   );
