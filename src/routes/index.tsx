@@ -714,13 +714,15 @@ function Index() {
             >
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/ImSlM9bKxFg"
+                src="https://www.youtube-nocookie.com/embed/ImSlM9bKxFg?rel=0&modestbranding=1"
                 title="Vyomora Hinjawadi — Project film"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
+              {/* Mask YouTube's title + channel overlay at the top */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[14%] bg-ink" />
             </div>
           </div>
         </div>
