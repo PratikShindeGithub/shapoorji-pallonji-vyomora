@@ -45,7 +45,7 @@ import gardenImg from "@/assets/gallery-garden.jpg";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
-import logoAsset from "@/assets/vyomora-logo.png.asset.json";
+import { LOGO_URL } from "@/components/vyomora/logo";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -333,7 +333,7 @@ function Index() {
           <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
             <a href="#top" className="flex min-w-0 items-center">
               <img
-                src={logoAsset.url}
+                src={LOGO_URL}
                 alt="Shapoorji Pallonji Vyomora, Hinjawadi"
                 className={`h-11 w-auto shrink-0 transition sm:h-12 ${
                   scrolled ? "" : "brightness-0 invert"
@@ -775,7 +775,7 @@ function Index() {
 
       <footer className="bg-ink px-4 py-10 text-center text-[11px] leading-relaxed text-secondary/50 sm:px-6">
         <img
-          src={logoAsset.url}
+          src={LOGO_URL}
           alt="Shapoorji Pallonji Vyomora, Hinjawadi"
           className="mx-auto h-14 w-auto brightness-0 invert"
         />
