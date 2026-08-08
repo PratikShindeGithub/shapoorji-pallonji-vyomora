@@ -429,7 +429,7 @@ function Index() {
 
             {/* Price breakup form — inline on smaller screens, fixed panel on xl+ */}
             <div
-              className="reveal w-full max-w-md rounded-xl border border-gold/25 bg-card/95 p-6 shadow-lift backdrop-blur sm:p-7 xl:hidden"
+              className="reveal w-full border-y border-gold/25 bg-card p-5 sm:p-7 lg:max-w-md lg:rounded-xl lg:border lg:bg-card/95 lg:shadow-lift lg:backdrop-blur xl:hidden"
               data-reveal
               data-reveal-delay="120"
             >
