@@ -40,6 +40,9 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
   const [values, setValues] = useState<LeadValues>({ name: "", mobile: "", email: "", city: "" });
   const [errors, setErrors] = useState<Errs>({});
   const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const send = useServerFn(submitLead);
+
 
   const inputClass =
     "w-full rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
