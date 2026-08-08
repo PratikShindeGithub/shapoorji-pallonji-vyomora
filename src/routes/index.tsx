@@ -37,10 +37,7 @@ import {
 } from "@/components/vyomora/layout-data";
 
 import heroImg from "@/assets/hero-township.jpg";
-import poolImg from "@/assets/gallery-pool.jpg";
-import livingImg from "@/assets/gallery-living.jpg";
-import clubhouseImg from "@/assets/gallery-clubhouse.jpg";
-import gardenImg from "@/assets/gallery-garden.jpg";
+import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
@@ -102,13 +99,7 @@ const AMENITY_ICONS = [
 
 
 
-const GALLERY = [
-  { src: heroImg, alt: "Vyomora towers at dusk with landscaped water court", tall: true },
-  { src: poolImg, alt: "Resort-style swimming pool deck at Vyomora clubhouse" },
-  { src: livingImg, alt: "Sunlit living room of a Vyomora apartment" , tall: true },
-  { src: clubhouseImg, alt: "Vyomora clubhouse exterior in the evening" },
-  { src: gardenImg, alt: "Landscaped garden walkway inside the township" },
-];
+const GALLERY = GALLERY_ITEMS;
 
 const PLANS = [
   { title: "2 BHK · 718 sq.ft.", src: plan2 },
