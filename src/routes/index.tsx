@@ -42,7 +42,8 @@ import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
-import { HERO_IMAGE_URL, LOGO_URL } from "@/components/vyomora/logo";
+import { LOGO_URL } from "@/components/vyomora/logo";
+import { HERO_SLIDES } from "@/components/vyomora/hero-slides";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -211,6 +212,15 @@ function Index() {
   const [thankYou, setThankYou] = useState<LeadValues | null>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(
+      () => setHeroSlide((i) => (i + 1) % HERO_SLIDES.length),
+      5000,
+    );
+    return () => window.clearInterval(id);
+  }, []);
   
 
   useEffect(() => {
