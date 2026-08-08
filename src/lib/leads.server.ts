@@ -2,9 +2,10 @@ export type LeadInput = {
   name: string;
   mobile: string;
   email: string;
-  city?: string;
-  intent?: string;
+  city?: string | undefined;
+  intent?: string | undefined;
 };
+
 
 export async function saveLead(input: LeadInput) {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
