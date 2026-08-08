@@ -981,14 +981,7 @@ function Index() {
             The floor &amp; unit plans, cost sheet and brochure are on the way to {thankYou?.email}.
             Our sales desk will call you on {thankYou?.mobile} shortly.
           </p>
-          <a
-            href={FLOOR_PLAN_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="cta-blink mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:-translate-y-0.5"
-          >
-            <Download className="icon-nudge h-4 w-4" /> Download floor &amp; unit plans
-          </a>
+          <p className="mt-6 text-sm font-semibold text-gold">Get pick and drop service</p>
           <button
             onClick={() => setThankYou(null)}
             className="mt-3 block w-full rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent"
