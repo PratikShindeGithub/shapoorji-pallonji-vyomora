@@ -478,7 +478,7 @@ function Index() {
           title="Choose the home that fits your life"
           copy="Efficient layouts with wide living spaces, deep balconies and cross-ventilation across every tower."
         />
-        <div className="mt-14 grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-start">
+        <div className="mt-14 flex flex-col gap-10">
           <div className="reveal overflow-hidden rounded-xl border border-border bg-card shadow-soft" data-reveal>
             <table className="w-full border-collapse text-left">
               <thead>
@@ -515,14 +515,14 @@ function Index() {
                           onClick={() =>
                             openEnquiry(
                               `cost-sheet-${c.type}`,
-                              "Request For Price Breakup",
+                              "Click Here",
                               `Price breakup — ${c.type}`,
                               "We'll send the detailed cost sheet with all charges and the payment schedule.",
                             )
                           }
-                          className="cta-blink shrink-0 rounded-md px-4 py-2.5 text-xs font-semibold shadow-soft transition hover:-translate-y-0.5"
+                          className="shrink-0 rounded-md px-4 py-2.5 text-xs font-semibold shadow-soft transition hover:-translate-y-0.5"
                         >
-                          Request For Price Breakup
+                          Click Here
                         </button>
                       </div>
                     </td>
