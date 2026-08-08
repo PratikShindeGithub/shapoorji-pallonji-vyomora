@@ -490,14 +490,14 @@ function Index() {
                   onClick={() =>
                     openEnquiry(
                       `cost-sheet-${c.type}`,
-                      "Click Here",
+                      "Know More",
                       `Price breakup — ${c.type}`,
                       "We'll send the detailed cost sheet with all charges and the payment schedule.",
                     )
                   }
                   className="mt-5 w-full rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition"
                 >
-                  Click Here
+                  Know More
                 </button>
               </div>
             ))}
@@ -543,14 +543,14 @@ function Index() {
                         onClick={() =>
                           openEnquiry(
                             `cost-sheet-${c.type}`,
-                            "Click Here",
+                            "Know More",
                             `Price breakup — ${c.type}`,
                             "We'll send the detailed cost sheet with all charges and the payment schedule.",
                           )
                         }
                         className="w-32 shrink-0 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
                       >
-                        Click Here
+                        Know More
                       </button>
                     </td>
 
@@ -597,7 +597,7 @@ function Index() {
           <div className="reveal mx-auto max-w-2xl text-center" data-reveal>
             <p className="eyebrow text-gold">Amenities</p>
             <h2 className="mt-3 text-3xl leading-tight text-secondary sm:text-4xl">
-              Forty-plus reasons to stay in
+              Forty-Plus Reasons to Stay In
             </h2>
             <div className="hairline mx-auto mt-5 w-24" />
           </div>
@@ -673,7 +673,7 @@ function Index() {
       {/* Gallery */}
       <section id="gallery" className="bg-secondary py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <SectionHead eyebrow="Gallery" title="A closer look at Vyomora" />
+          <SectionHead eyebrow="Gallery" title="A Closer look at Vyomora" />
           <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {GALLERY.map((g, i) => (
               <button
