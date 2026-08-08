@@ -478,48 +478,85 @@ function Index() {
           title="Choose the home that fits your life"
           copy="Efficient layouts with wide living spaces, deep balconies and cross-ventilation across every tower."
         />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {CONFIGS.map((c, i) => (
-            <article
-              key={c.type}
-              className={`reveal flex flex-col rounded-xl border p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-lift ${
-                c.featured
-                  ? "border-gold bg-card shadow-soft"
-                  : "border-border bg-card/60"
-              }`}
-              data-reveal
-              data-reveal-delay={i * 90}
-            >
-              {c.featured ? (
-                <p className="eyebrow mb-3 text-gold">Most enquired</p>
-              ) : null}
-              <h3 className="text-lg text-foreground">{c.type}</h3>
-              <p className="mt-1 text-xs tracking-wide text-muted-foreground">{c.area} carpet</p>
-              <p className="mt-5 font-display text-2xl text-primary">{c.price}</p>
-              <ul className="mt-5 flex-1 space-y-2 text-xs leading-relaxed text-muted-foreground">
-                {c.notes.map((n) => (
-                  <li key={n} className="flex gap-2">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold" />
-                    {n}
-                  </li>
+        <div className="mt-14 grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-start">
+          <div className="reveal overflow-hidden rounded-xl border border-border bg-card shadow-soft" data-reveal>
+            <table className="w-full border-collapse text-left">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="px-4 py-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:px-6">
+                    Type
+                  </th>
+                  <th className="px-4 py-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:px-6">
+                    Carpet Area
+                  </th>
+                  <th className="px-4 py-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:px-6">
+                    Price
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {CONFIGS.map((c, i) => (
+                  <tr
+                    key={c.type}
+                    className={`border-b border-border last:border-0 ${i % 2 === 0 ? "bg-muted/40" : ""}`}
+                  >
+                    <td className="px-4 py-5 align-middle text-sm font-semibold text-foreground sm:px-6">
+                      {c.type}
+                    </td>
+                    <td className="px-4 py-5 align-middle text-sm text-muted-foreground sm:px-6">
+                      {c.area}
+                    </td>
+                    <td className="px-4 py-5 align-middle sm:px-6">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                        <span className="font-display text-lg text-primary sm:text-xl">
+                          {c.price} Onwards
+                        </span>
+                        <button
+                          onClick={() =>
+                            openEnquiry(
+                              `cost-sheet-${c.type}`,
+                              "Request For Price Breakup",
+                              `Price breakup — ${c.type}`,
+                              "We'll send the detailed cost sheet with all charges and the payment schedule.",
+                            )
+                          }
+                          className="cta-blink shrink-0 rounded-md px-4 py-2.5 text-xs font-semibold shadow-soft transition hover:-translate-y-0.5"
+                        >
+                          Request For Price Breakup
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
                 ))}
-              </ul>
-              <button
-                onClick={() =>
-                  openEnquiry(
-                    `cost-sheet-${c.type}`,
-                    "Download Cost Sheet",
-                    `Cost sheet — ${c.type}`,
-                    "We'll send the detailed cost sheet with all charges and the payment schedule.",
-                  )
-                }
-                className="mt-6 rounded-md border border-primary/25 px-4 py-2.5 text-xs font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground"
-              >
-                Download Cost Sheet
-              </button>
-            </article>
-          ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="reveal overflow-hidden rounded-xl border border-border bg-card shadow-soft" data-reveal data-reveal-delay="120">
+            <img
+              src={COST_SHEET_IMAGE}
+              alt="Sample Vyomora cost sheet with detail sheet and payment schedule"
+              loading="lazy"
+              width={1024}
+              height={768}
+              className="w-full border-b border-border object-cover"
+            />
+            <button
+              onClick={() =>
+                openEnquiry(
+                  "complete-costing",
+                  "Request Complete Costing Details",
+                  "Complete costing details",
+                  "Get the full detail sheet and payment schedule for your preferred configuration.",
+                )
+              }
+              className="cta-blink w-full px-5 py-4 text-sm font-semibold tracking-wide transition hover:-translate-y-0.5"
+            >
+              Request Complete Costing Details
+            </button>
+          </div>
         </div>
+
         <p className="reveal mt-8 text-center text-[11px] text-muted-foreground" data-reveal>
           {PROJECT.reraNote}
         </p>
