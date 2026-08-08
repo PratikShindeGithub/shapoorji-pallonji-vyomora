@@ -521,6 +521,9 @@ function Index() {
                   <th className="px-4 py-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:px-6">
                     Price
                   </th>
+                  <th className="px-4 py-4 text-right text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:px-6">
+                    Price Breakup
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -536,40 +539,42 @@ function Index() {
                       {c.area}
                     </td>
                     <td className="px-4 py-5 align-middle sm:px-6">
-                      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                        <span className="font-display text-lg text-primary sm:text-xl">
-                          {c.price} Onwards
-                        </span>
-                        <button
-                          onClick={() =>
-                            openEnquiry(
-                              `cost-sheet-${c.type}`,
-                              "Click Here",
-                              `Price breakup — ${c.type}`,
-                              "We'll send the detailed cost sheet with all charges and the payment schedule.",
-                            )
-                          }
-                          className="shrink-0 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
-                        >
-                          Click Here
-                        </button>
-                      </div>
+                      <span className="font-display text-lg text-primary sm:text-xl">
+                        {c.price} Onwards
+                      </span>
                     </td>
+                    <td className="px-4 py-5 text-right align-middle sm:px-6">
+                      <button
+                        onClick={() =>
+                          openEnquiry(
+                            `cost-sheet-${c.type}`,
+                            "Click Here",
+                            `Price breakup — ${c.type}`,
+                            "We'll send the detailed cost sheet with all charges and the payment schedule.",
+                          )
+                        }
+                        className="w-32 shrink-0 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
+                      >
+                        Click Here
+                      </button>
+                    </td>
+
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <div className="reveal overflow-hidden rounded-xl border border-border bg-card shadow-soft" data-reveal data-reveal-delay="120">
+          <div className="reveal mx-auto w-full max-w-sm overflow-hidden rounded-xl border border-border bg-card shadow-soft" data-reveal data-reveal-delay="120">
             <img
               src={COST_SHEET_IMAGE}
               alt="Sample Vyomora cost sheet with detail sheet and payment schedule"
               loading="lazy"
               width={1024}
               height={768}
-              className="w-full border-b border-border object-cover"
+              className="h-40 w-full border-b border-border object-cover"
             />
+
             <button
               onClick={() =>
                 openEnquiry(
