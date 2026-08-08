@@ -36,7 +36,6 @@ import {
   PROMISES,
 } from "@/components/vyomora/layout-data";
 
-import heroImg from "@/assets/hero-township.jpg";
 import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
