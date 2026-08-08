@@ -366,23 +366,28 @@ function Index() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative isolate flex min-h-screen items-center overflow-hidden">
+      <section
+        id="top"
+        className="relative isolate overflow-hidden pt-[72px] lg:flex lg:min-h-screen lg:items-center lg:pt-0"
+      >
         <img
           src={HERO_IMAGE_URL}
           alt="Vyomora township towers illuminated at dusk beside the landscaped swimming pool deck"
           width={1920}
           height={1280}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="h-56 w-full object-cover sm:h-72 lg:absolute lg:inset-0 lg:h-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/35 to-transparent" />
-        <div className="relative w-full px-4 pb-16 pt-40 sm:px-6 lg:pt-44">
-          <div className="mx-auto grid w-full max-w-6xl gap-8">
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-ink/75 via-ink/35 to-transparent lg:block" />
+        <div className="relative w-full lg:px-4 lg:pb-16 lg:pt-44 lg:sm:px-6">
+          <div className="mx-auto grid w-full max-w-6xl gap-6 lg:gap-8">
             {/* Reference-style project fact card */}
             <div
-              className="reveal w-full max-w-sm overflow-hidden rounded-xl border border-gold/25 bg-card/92 text-center shadow-lift backdrop-blur"
+              className="reveal w-full overflow-hidden border-y border-gold/25 bg-card text-center lg:max-w-sm lg:rounded-xl lg:border lg:bg-card/92 lg:shadow-lift lg:backdrop-blur"
               data-reveal
             >
-              <p className="eyebrow bg-primary/10 py-3 text-primary">Booking Open</p>
+              <p className="eyebrow bg-primary py-3 text-primary-foreground lg:bg-primary/10 lg:text-primary">
+                Booking Open
+              </p>
               <div className="px-6 pb-6 pt-5">
                 <h1 className="font-display text-4xl leading-none text-foreground sm:text-5xl">
                   Vyomora
