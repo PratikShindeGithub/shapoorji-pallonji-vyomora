@@ -325,7 +325,7 @@ function Index() {
                   }
                   className="cta-blink inline-flex h-full items-center gap-2 px-5 text-xs font-bold transition"
                 >
-                  <Download className="h-4 w-4" /> Download Brochure
+                  <Download className="icon-nudge h-4 w-4" /> Download Brochure
                 </button>
               </li>
             </ul>
@@ -880,7 +880,7 @@ function Index() {
           }
           className="cta-blink flex flex-col items-center gap-1 border-r border-border py-3 text-[11px] font-bold"
         >
-          <Download className="h-4 w-4" /> Brochure
+          <Download className="icon-nudge h-4 w-4" /> Brochure
         </button>
         <button
           onClick={() => openEnquiry("mobile-bar")}
@@ -987,7 +987,7 @@ function Index() {
             rel="noreferrer"
             className="cta-blink mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:-translate-y-0.5"
           >
-            <Download className="h-4 w-4" /> Download floor &amp; unit plans
+            <Download className="icon-nudge h-4 w-4" /> Download floor &amp; unit plans
           </a>
           <button
             onClick={() => setThankYou(null)}
