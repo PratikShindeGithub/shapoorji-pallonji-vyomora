@@ -954,16 +954,6 @@ function Index() {
                   <LeadForm intent="welcome" cta="Submit" withCity onSuccess={handleSuccess} />
                 </div>
               </div>
-              <div className="flex flex-col justify-center gap-4 bg-primary px-6 py-8 text-primary-foreground">
-                <p className="font-display text-xl leading-tight">
-                  Get information on availabilities
-                </p>
-                {AVAILABILITY.map((a) => (
-                  <p key={a} className="inline-flex items-center gap-2 text-sm font-semibold">
-                    <CheckCircle2 className="h-4 w-4 text-gold" /> {a}
-                  </p>
-                ))}
-              </div>
             </div>
             <a
               href={`tel:${PROJECT.phone}`}
