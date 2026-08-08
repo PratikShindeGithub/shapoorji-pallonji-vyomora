@@ -839,9 +839,9 @@ function Index() {
           onClick={() =>
             openEnquiry("mobile-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
           }
-          className="flex flex-col items-center gap-1 border-r border-border py-3 text-[11px] font-semibold text-foreground"
+          className="cta-blink flex flex-col items-center gap-1 border-r border-border py-3 text-[11px] font-bold"
         >
-          <Download className="h-4 w-4 text-primary" /> Brochure
+          <Download className="h-4 w-4" /> Brochure
         </button>
         <button
           onClick={() => openEnquiry("mobile-bar")}
