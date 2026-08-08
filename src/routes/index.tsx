@@ -334,13 +334,8 @@ function Index() {
         id="top"
         className="relative isolate overflow-hidden pt-[72px] lg:flex lg:min-h-screen lg:items-center lg:pt-0"
       >
-        <img
-          src={HERO_IMAGE_URL}
-          alt="Vyomora township towers illuminated at dusk beside the landscaped swimming pool deck"
-          width={1920}
-          height={1280}
-          className="h-56 w-full object-cover sm:h-72 lg:absolute lg:inset-0 lg:h-full"
-        />
+        <HeroSlideshow />
+
         <div className="absolute inset-0 hidden bg-gradient-to-r from-ink/75 via-ink/35 to-transparent lg:block" />
         <div className="relative w-full lg:px-4 lg:pb-16 lg:pt-44 lg:sm:px-6">
           <div className="mx-auto grid w-full max-w-6xl gap-6 lg:gap-8">
