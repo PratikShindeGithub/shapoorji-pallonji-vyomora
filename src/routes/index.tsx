@@ -238,7 +238,6 @@ function Index() {
   }, []);
 
   const handleSuccess = (values: LeadValues) => {
-    setUnlocked(true);
     setModal(null);
     setWelcome(false);
     setThankYou(values);
