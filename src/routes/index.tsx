@@ -44,7 +44,7 @@ import gardenImg from "@/assets/gallery-garden.jpg";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
-import { LOGO_URL } from "@/components/vyomora/logo";
+import { HERO_IMAGE_URL, LOGO_URL } from "@/components/vyomora/logo";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -265,7 +265,7 @@ function Index() {
 
 
   return (
-    <div ref={pageRef} className="min-h-screen bg-background text-foreground">
+    <div ref={pageRef} className="min-h-screen bg-background text-foreground xl:pr-[22rem]">
       {/* Header */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="hidden justify-end gap-px bg-ink text-[11px] font-semibold lg:flex">
@@ -368,74 +368,89 @@ function Index() {
       {/* Hero */}
       <section id="top" className="relative isolate flex min-h-screen items-center overflow-hidden">
         <img
-          src={heroImg}
-          alt="Vyomora township towers illuminated at dusk beside a landscaped water court"
+          src={HERO_IMAGE_URL}
+          alt="Vyomora township towers illuminated at dusk beside the landscaped swimming pool deck"
           width={1920}
           height={1280}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/30" />
-        <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-4 pb-16 pt-40 sm:px-6 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:pt-44 xl:pr-72">
-          {/* Reference-style project fact card */}
-          <div
-            className="reveal overflow-hidden rounded-xl border border-gold/25 bg-card/92 text-center shadow-lift backdrop-blur"
-            data-reveal
-          >
-            <p className="eyebrow bg-primary/10 py-3 text-primary">Booking Open</p>
-            <div className="px-6 pb-6 pt-5">
-              <h1 className="font-display text-4xl leading-none text-foreground sm:text-5xl">
-                Vyomora
-              </h1>
-              <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
-                <MapPin className="h-3.5 w-3.5 text-gold" /> {PROJECT.location}
-              </p>
-              <ul className="mt-6 space-y-2 border-y border-border bg-muted/40 py-5 text-sm text-foreground">
-                {HERO_FACTS.map((f) => (
-                  <li key={f}>{f}</li>
-                ))}
-              </ul>
-              <div className="mt-5 space-y-1.5">
-                {HERO_STRIPS.map((s, i) => (
-                  <p
-                    key={s}
-                    style={{ animationDelay: `${i * 0.35}s` }}
-                    className="strip-blink rounded-sm px-3 py-2 text-[11px] font-semibold tracking-wide"
-                  >
-                    {s}
-                  </p>
-                ))}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/35 to-transparent" />
+        <div className="relative w-full px-4 pb-16 pt-40 sm:px-6 lg:pt-44">
+          <div className="mx-auto grid w-full max-w-6xl gap-8">
+            {/* Reference-style project fact card */}
+            <div
+              className="reveal w-full max-w-sm overflow-hidden rounded-xl border border-gold/25 bg-card/92 text-center shadow-lift backdrop-blur"
+              data-reveal
+            >
+              <p className="eyebrow bg-primary/10 py-3 text-primary">Booking Open</p>
+              <div className="px-6 pb-6 pt-5">
+                <h1 className="font-display text-4xl leading-none text-foreground sm:text-5xl">
+                  Vyomora
+                </h1>
+                <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+                  <MapPin className="h-3.5 w-3.5 text-gold" /> {PROJECT.location}
+                </p>
+                <ul className="mt-6 space-y-2 border-y border-border bg-muted/40 py-5 text-sm text-foreground">
+                  {HERO_FACTS.map((f) => (
+                    <li key={f}>{f}</li>
+                  ))}
+                </ul>
+                <div className="mt-5 space-y-1.5">
+                  {HERO_STRIPS.map((s, i) => (
+                    <p
+                      key={s}
+                      style={{ animationDelay: `${i * 0.35}s` }}
+                      className="strip-blink rounded-sm px-3 py-2 text-[11px] font-semibold tracking-wide"
+                    >
+                      {s}
+                    </p>
+                  ))}
+                </div>
+                <p className="mt-5 text-sm text-muted-foreground">
+                  Luxurious 2 &amp; 3 BHK Apartments &amp; Duplexes
+                </p>
+                <p className="text-xs tracking-wide text-muted-foreground">Starting Price</p>
+                <p className="mt-1 font-display text-3xl text-gold sm:text-4xl">
+                  {PROJECT.startingPrice} Onwards
+                </p>
+                <button
+                  onClick={() => openEnquiry("hero-card")}
+                  className="mt-5 w-full rounded-md bg-gold py-3 text-sm font-bold text-gold-foreground transition hover:-translate-y-0.5 hover:shadow-lift"
+                >
+                  Enquire Now
+                </button>
               </div>
-              <p className="mt-5 text-sm text-muted-foreground">
-                Luxurious 2 &amp; 3 BHK Apartments &amp; Duplexes
-              </p>
-              <p className="text-xs tracking-wide text-muted-foreground">Starting Price</p>
-              <p className="mt-1 font-display text-3xl text-gold sm:text-4xl">
-                {PROJECT.startingPrice} Onwards
-              </p>
-              <button
-                onClick={() => openEnquiry("hero-card")}
-                className="mt-5 w-full rounded-md bg-gold py-3 text-sm font-bold text-gold-foreground transition hover:-translate-y-0.5 hover:shadow-lift"
-              >
-                Enquire Now
-              </button>
             </div>
-          </div>
 
-          <div
-            className="reveal rounded-xl border border-gold/25 bg-card/95 p-6 shadow-lift backdrop-blur sm:p-7 lg:max-w-md lg:justify-self-end"
-            data-reveal
-            data-reveal-delay="120"
-          >
-            <h2 className="text-xl text-foreground">Get the exact price breakup</h2>
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Floor-wise pricing, charges, payment plan and brochure — sent instantly.
-            </p>
-            <div className="mt-5">
-              <LeadForm intent="hero" onSuccess={handleSuccess} />
+            {/* Price breakup form — inline on smaller screens, fixed panel on xl+ */}
+            <div
+              className="reveal w-full max-w-md rounded-xl border border-gold/25 bg-card/95 p-6 shadow-lift backdrop-blur sm:p-7 xl:hidden"
+              data-reveal
+              data-reveal-delay="120"
+            >
+              <h2 className="text-xl text-foreground">Get the exact price breakup</h2>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                Floor-wise pricing, charges, payment plan and brochure — sent instantly.
+              </p>
+              <div className="mt-5">
+                <LeadForm intent="hero" onSuccess={handleSuccess} />
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Persistent price-breakup panel (desktop) — visible across the whole page */}
+      <aside className="fixed right-4 top-[10.5rem] z-[45] hidden max-h-[calc(100vh-12rem)] w-[20rem] overflow-y-auto rounded-xl border border-gold/25 bg-card/95 p-5 shadow-lift backdrop-blur xl:block">
+        <h2 className="text-lg text-foreground">Get the exact price breakup</h2>
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+          Floor-wise pricing, charges, payment plan and brochure — sent instantly.
+        </p>
+        <div className="mt-4">
+          <LeadForm intent="sticky-panel" onSuccess={handleSuccess} />
+        </div>
+      </aside>
+
 
 
       {/* Highlights */}
@@ -764,7 +779,7 @@ function Index() {
       {/* Floating "Enquire Now" button — visible anywhere on the page after scrolling */}
       <button
         onClick={() => openEnquiry("floating-enquire", "Enquire Now", "Enquire Now", "Share your details and our sales desk will send the cost sheet, floor plans and brochure within minutes.")}
-        className={`fixed bottom-20 right-4 z-[45] rounded-full px-5 py-3 text-sm font-bold tracking-wide shadow-lift transition-all duration-300 hover:-translate-y-0.5 lg:bottom-4 ${
+        className={`fixed bottom-20 right-4 z-[45] rounded-full xl:hidden px-5 py-3 text-sm font-bold tracking-wide shadow-lift transition-all duration-300 hover:-translate-y-0.5 lg:bottom-4 ${
           scrolled ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none"
         } cta-blink`}
         aria-label="Enquire Now"
@@ -773,7 +788,7 @@ function Index() {
       </button>
 
       {/* Floating CTAs (desktop) */}
-      <div className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 lg:flex">
+      <div className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 lg:flex xl:right-[23rem]">
         {[
           {
             key: "wa",
