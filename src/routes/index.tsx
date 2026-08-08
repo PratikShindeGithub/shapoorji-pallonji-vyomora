@@ -330,30 +330,14 @@ function Index() {
           }`}
         >
           <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
-            <a href="#top" className="flex min-w-0 items-center gap-2.5">
-              <span
-                className={`grid h-9 w-9 shrink-0 place-items-center rounded-sm border text-sm font-semibold ${
-                  scrolled ? "border-primary/30 text-primary" : "border-gold/60 text-gold"
+            <a href="#top" className="flex min-w-0 items-center">
+              <img
+                src={logoAsset.url}
+                alt="Shapoorji Pallonji Vyomora, Hinjawadi"
+                className={`h-11 w-auto shrink-0 transition sm:h-12 ${
+                  scrolled ? "" : "brightness-0 invert"
                 }`}
-              >
-                V
-              </span>
-              <span className="min-w-0">
-                <span
-                  className={`block truncate font-display text-lg leading-none tracking-tight ${
-                    scrolled ? "text-foreground" : "text-secondary"
-                  }`}
-                >
-                  Vyomora
-                </span>
-                <span
-                  className={`block truncate text-[10px] tracking-[0.2em] ${
-                    scrolled ? "text-muted-foreground" : "text-secondary/70"
-                  }`}
-                >
-                  HINJAWADI PHASE 1
-                </span>
-              </span>
+              />
             </a>
             <div className="flex items-center gap-2">
               <a
