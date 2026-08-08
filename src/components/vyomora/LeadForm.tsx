@@ -117,8 +117,14 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
       >
         {busy ? "Sending…" : cta}
       </button>
+      {failed ? (
+        <p className="text-xs text-destructive">
+          Something went wrong. Please try again or call our sales desk.
+        </p>
+      ) : null}
       <p className="text-[11px] leading-relaxed text-muted-foreground">
         By submitting you authorise our sales desk to contact you regarding this project.
+
       </p>
     </form>
   );
