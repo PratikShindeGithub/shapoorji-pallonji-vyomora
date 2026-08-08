@@ -565,15 +565,16 @@ function Index() {
             </table>
           </div>
 
-          <div className="reveal overflow-hidden rounded-xl border border-border bg-card shadow-soft" data-reveal data-reveal-delay="120">
+          <div className="reveal mx-auto w-full max-w-sm overflow-hidden rounded-xl border border-border bg-card shadow-soft" data-reveal data-reveal-delay="120">
             <img
               src={COST_SHEET_IMAGE}
               alt="Sample Vyomora cost sheet with detail sheet and payment schedule"
               loading="lazy"
               width={1024}
               height={768}
-              className="w-full border-b border-border object-cover"
+              className="h-40 w-full border-b border-border object-cover"
             />
+
             <button
               onClick={() =>
                 openEnquiry(
