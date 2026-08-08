@@ -923,7 +923,7 @@ function Index() {
           onClick={() => setWelcome(false)}
         >
           <div
-            className="animate-scale-in relative w-full max-w-4xl overflow-hidden rounded-xl bg-card shadow-lift"
+            className="animate-scale-in relative w-full max-w-2xl overflow-hidden rounded-xl bg-card shadow-lift"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -933,7 +933,7 @@ function Index() {
             >
               <X className="h-4 w-4" />
             </button>
-            <div className="grid md:grid-cols-[0.8fr_1.2fr_0.9fr]">
+            <div className="grid md:grid-cols-[0.8fr_1.2fr]">
               <div className="hidden flex-col items-center gap-6 bg-muted/50 px-5 py-8 text-center md:flex">
                 <p className="font-display text-xl text-primary">We Promise</p>
                 {PROMISES.map(({ icon: Icon, label }) => (
