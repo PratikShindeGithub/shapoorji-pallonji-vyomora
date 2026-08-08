@@ -704,30 +704,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Project video */}
-      <section className="bg-ink px-4 pb-4 sm:px-6">
-        <div className="mx-auto max-w-4xl">
-          <div className="reveal" data-reveal>
-            <div
-              className="relative w-full overflow-hidden rounded-xl border border-gold/20 shadow-2xl"
-              style={{ aspectRatio: "16 / 9" }}
-            >
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                src="https://www.youtube-nocookie.com/embed/ImSlM9bKxFg?rel=0&modestbranding=1"
-                title="Vyomora Hinjawadi — Project film"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-              {/* Mask YouTube's title + channel overlay at the top */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[14%] bg-ink" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24">
         <SectionHead eyebrow="FAQ" title="Questions buyers ask us most" />
