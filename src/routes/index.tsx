@@ -429,7 +429,7 @@ function Index() {
                 Floor-wise pricing, charges, payment plan and brochure — sent instantly.
               </p>
               <div className="mt-5">
-                <LeadForm intent="hero" onSuccess={handleSuccess} />
+                <LeadForm intent="hero" withCity onSuccess={handleSuccess} />
               </div>
             </div>
           </div>
@@ -443,7 +443,7 @@ function Index() {
           Floor-wise pricing, charges, payment plan and brochure — sent instantly.
         </p>
         <div className="mt-4">
-          <LeadForm intent="sticky-panel" onSuccess={handleSuccess} />
+          <LeadForm intent="sticky-panel" withCity onSuccess={handleSuccess} />
         </div>
         <div className="mt-4 flex items-center justify-center gap-3 border-t border-border pt-4">
           <a
@@ -776,7 +776,7 @@ function Index() {
             Complimentary cab pickup anywhere in Pune. Slots fill fast on weekends.
           </p>
           <div className="reveal mx-auto mt-9 max-w-xl rounded-xl border border-border bg-card p-6 text-left shadow-soft sm:p-8" data-reveal data-reveal-delay="140">
-            <LeadForm intent="footer" compact cta="Book Site Visit" onSuccess={handleSuccess} />
+            <LeadForm intent="footer" compact withCity cta="Book Site Visit" onSuccess={handleSuccess} />
           </div>
         </div>
       </section>
