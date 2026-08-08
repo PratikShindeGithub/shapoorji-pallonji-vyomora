@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
+import { User, Phone, Mail, MapPin, type LucideIcon } from "lucide-react";
 
 import { submitLead } from "@/lib/leads.functions";
 
@@ -17,6 +18,13 @@ type Props = {
 type Errs = Partial<Record<keyof LeadValues, string | undefined>>;
 
 type TextKey = "name" | "mobile" | "email" | "city";
+
+const FIELD_ICONS: Record<TextKey, LucideIcon> = {
+  name: User,
+  mobile: Phone,
+  email: Mail,
+  city: MapPin,
+};
 
 const errorsFor = (v: LeadValues, withCity?: boolean) => {
   const e: Errs = {};
@@ -45,29 +53,35 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
 
 
   const inputClass =
-    "w-full rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
+    "w-full rounded-md border border-border bg-card py-3 pl-11 pr-4 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
 
-  const field = (key: TextKey, label: string, extra?: Record<string, string>) => (
-    <div>
-      <label htmlFor={`${intent ?? "lead"}-${key}`} className="sr-only">
-        {label}
-      </label>
-      <input
-        id={`${intent ?? "lead"}-${key}`}
-        value={values[key]}
-        placeholder={label}
-        aria-invalid={Boolean(errors[key])}
-        onChange={(e) => {
-          const next = key === "mobile" ? e.target.value.replace(/\D/g, "").slice(0, 10) : e.target.value;
-          setValues((v) => ({ ...v, [key]: next }));
-          setErrors((p) => ({ ...p, [key]: undefined }));
-        }}
-        className={inputClass}
-        {...extra}
-      />
-      {errors[key] ? <p className="mt-1 text-xs text-destructive">{errors[key]}</p> : null}
-    </div>
-  );
+  const field = (key: TextKey, label: string, extra?: Record<string, string>) => {
+    const Icon = FIELD_ICONS[key];
+    return (
+      <div>
+        <label htmlFor={`${intent ?? "lead"}-${key}`} className="sr-only">
+          {label}
+        </label>
+        <div className="relative">
+          <Icon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <input
+            id={`${intent ?? "lead"}-${key}`}
+            value={values[key]}
+            placeholder={label}
+            aria-invalid={Boolean(errors[key])}
+            onChange={(e) => {
+              const next = key === "mobile" ? e.target.value.replace(/\D/g, "").slice(0, 10) : e.target.value;
+              setValues((v) => ({ ...v, [key]: next }));
+              setErrors((p) => ({ ...p, [key]: undefined }));
+            }}
+            className={inputClass}
+            {...extra}
+          />
+        </div>
+        {errors[key] ? <p className="mt-1 text-xs text-destructive">{errors[key]}</p> : null}
+      </div>
+    );
+  };
 
   return (
     <form
