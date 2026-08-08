@@ -265,7 +265,7 @@ function Index() {
 
 
   return (
-    <div ref={pageRef} className="min-h-screen bg-background text-foreground">
+    <div ref={pageRef} className="min-h-screen bg-background text-foreground xl:pr-[22rem]">
       {/* Header */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="hidden justify-end gap-px bg-ink text-[11px] font-semibold lg:flex">
@@ -779,7 +779,7 @@ function Index() {
       {/* Floating "Enquire Now" button — visible anywhere on the page after scrolling */}
       <button
         onClick={() => openEnquiry("floating-enquire", "Enquire Now", "Enquire Now", "Share your details and our sales desk will send the cost sheet, floor plans and brochure within minutes.")}
-        className={`fixed bottom-20 right-4 z-[45] rounded-full px-5 py-3 text-sm font-bold tracking-wide shadow-lift transition-all duration-300 hover:-translate-y-0.5 lg:bottom-4 ${
+        className={`fixed bottom-20 right-4 z-[45] rounded-full xl:hidden px-5 py-3 text-sm font-bold tracking-wide shadow-lift transition-all duration-300 hover:-translate-y-0.5 lg:bottom-4 ${
           scrolled ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none"
         } cta-blink`}
         aria-label="Enquire Now"
@@ -788,7 +788,7 @@ function Index() {
       </button>
 
       {/* Floating CTAs (desktop) */}
-      <div className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 lg:flex">
+      <div className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 lg:flex xl:right-[23rem]">
         {[
           {
             key: "wa",
