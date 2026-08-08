@@ -211,7 +211,7 @@ function Index() {
   const [thankYou, setThankYou] = useState<LeadValues | null>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const exitShown = useRef(false);
+  
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -226,20 +226,8 @@ function Index() {
     [],
   );
 
-  useEffect(() => {
-    const onLeave = (e: MouseEvent) => {
-      if (e.clientY > 0 || exitShown.current) return;
-      exitShown.current = true;
-      openEnquiry(
-        "exit-intent",
-        "Send Me The Cost Sheet",
-        "Before you go — take the numbers with you",
-        "Get the full cost sheet with floor-wise pricing, charges and payment plan on WhatsApp and email.",
-      );
-    };
-    document.addEventListener("mouseout", onLeave);
-    return () => document.removeEventListener("mouseout", onLeave);
-  }, [openEnquiry]);
+
+
 
   const [welcome, setWelcome] = useState(false);
   useEffect(() => {
