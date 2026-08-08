@@ -366,19 +366,16 @@ function Index() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative isolate overflow-hidden">
-        {/* Image: in-flow block on mobile, full-bleed background on sm+ */}
+      <section id="top" className="relative isolate flex min-h-screen items-center overflow-hidden">
         <img
           src={HERO_IMAGE_URL}
           alt="Vyomora township towers illuminated at dusk beside the landscaped swimming pool deck"
           width={1920}
           height={1280}
-          className="block h-[50vh] w-full object-cover sm:absolute sm:inset-0 sm:h-full"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        {/* Gradient overlay: hidden on mobile so image stays sharp, shown on sm+ */}
-        <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-ink/75 sm:via-ink/35 sm:to-transparent" />
-        {/* Content: flows below image on mobile, overlaid & centered on sm+ */}
-        <div className="relative px-4 pb-16 pt-8 sm:absolute sm:inset-0 sm:flex sm:items-center sm:px-4 sm:pb-16 sm:pt-40 lg:px-6 lg:pt-44">
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/35 to-transparent" />
+        <div className="relative w-full px-4 pb-16 pt-40 sm:px-6 lg:pt-44">
           <div className="mx-auto grid w-full max-w-6xl gap-8">
             {/* Reference-style project fact card */}
             <div
