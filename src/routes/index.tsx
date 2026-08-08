@@ -479,7 +479,36 @@ function Index() {
           copy="Efficient layouts with wide living spaces, deep balconies and cross-ventilation across every tower."
         />
         <div className="mt-14 flex flex-col gap-10">
-          <div className="reveal overflow-hidden rounded-xl border border-border bg-card shadow-soft" data-reveal>
+          {/* Mobile cards */}
+          <div className="reveal grid gap-5 sm:hidden" data-reveal>
+            {CONFIGS.map((c) => (
+              <div
+                key={c.type}
+                className="rounded-xl border border-border bg-muted/40 px-5 py-7 text-center shadow-soft"
+              >
+                <p className="font-display text-3xl text-foreground">{c.type}</p>
+                <p className="mt-3 text-base text-muted-foreground">
+                  {c.area} <span className="text-sm">(Carpet Area)</span>
+                </p>
+                <p className="mt-2 font-display text-xl text-primary">{c.price} Onwards</p>
+                <button
+                  onClick={() =>
+                    openEnquiry(
+                      `cost-sheet-${c.type}`,
+                      "Click Here",
+                      `Price breakup — ${c.type}`,
+                      "We'll send the detailed cost sheet with all charges and the payment schedule.",
+                    )
+                  }
+                  className="mt-5 w-full rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition"
+                >
+                  Click Here
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="reveal hidden overflow-hidden rounded-xl border border-border bg-card shadow-soft sm:block" data-reveal>
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b border-border">
