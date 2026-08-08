@@ -210,7 +210,6 @@ function SectionHead({
 function Index() {
   const pageRef = useReveal<HTMLDivElement>();
   const [modal, setModal] = useState<null | { intent: string; cta: string; title: string; copy: string }>(null);
-  const [unlocked, setUnlocked] = useState(false);
   const [thankYou, setThankYou] = useState<LeadValues | null>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -239,7 +238,6 @@ function Index() {
   }, []);
 
   const handleSuccess = (values: LeadValues) => {
-    setUnlocked(true);
     setModal(null);
     setWelcome(false);
     setThankYou(values);
@@ -599,25 +597,19 @@ function Index() {
         <SectionHead
           eyebrow="Floor plans"
           title="See every square foot before you decide"
-          copy={
-            unlocked
-              ? "Thank you — the full plan set is unlocked below and on its way to your inbox."
-              : "Plans are unlocked instantly once you share your details."
-          }
+          copy="Enquire now and our sales desk will share the complete plan set instantly."
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-3">
           {PLANS.map((p, i) => (
             <button
               key={p.title}
               onClick={() =>
-                unlocked
-                  ? setLightbox(null)
-                  : openEnquiry(
-                      `floor-plan-${p.title}`,
-                      "Unlock Floor Plans",
-                      "Unlock all floor plans",
-                      "Enter your details to view the complete plan set for every configuration.",
-                    )
+                openEnquiry(
+                  `floor-plan-${p.title}`,
+                  "Enquire Now",
+                  "Enquire Now",
+                  "Share your details and our sales desk will send the complete floor plan set for every configuration.",
+                )
               }
               className="reveal group overflow-hidden rounded-xl border border-border bg-card text-left shadow-soft transition hover:-translate-y-1.5 hover:shadow-lift"
               data-reveal
@@ -630,22 +622,18 @@ function Index() {
                   width={1024}
                   height={768}
                   loading="lazy"
-                  className={`h-52 w-full object-cover transition duration-500 ${
-                    unlocked ? "group-hover:scale-105" : "scale-105 blur-md"
-                  }`}
+                  className="h-52 w-full scale-105 object-cover blur-md transition duration-500"
                 />
-                {!unlocked ? (
-                  <span className="absolute inset-0 grid place-items-center bg-ink/45">
-                    <span className="rounded-full bg-gold px-4 py-2 text-[11px] font-bold tracking-wide text-gold-foreground">
-                      Tap to unlock
-                    </span>
+                <span className="absolute inset-0 grid place-items-center bg-ink/45">
+                  <span className="cta-blink rounded-md px-5 py-2.5 text-xs font-bold tracking-wide shadow-soft">
+                    Enquire Now
                   </span>
-                ) : null}
+                </span>
               </span>
               <span className="block px-5 py-4">
                 <span className="block text-sm font-semibold text-foreground">{p.title}</span>
                 <span className="mt-1 block text-xs text-muted-foreground">
-                  {unlocked ? "Plan unlocked" : "Locked preview"}
+                  Tap to enquire for plans
                 </span>
               </span>
             </button>
