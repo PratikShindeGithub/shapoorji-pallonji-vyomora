@@ -78,6 +78,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "Vyomora" },
+      {
+        name: "google-site-verification",
+        content: "ir_5Pq4c0UMLIwQ8fCIv849ft40aZdo-Tyvx7OUAuto",
+      },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Vyomora, Hinjawadi Phase 1" },
       { name: "twitter:card", content: "summary_large_image" },
