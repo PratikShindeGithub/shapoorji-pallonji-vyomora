@@ -848,7 +848,7 @@ function Index() {
       </div>
 
       {/* Sticky mobile bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-border bg-card/95 backdrop-blur lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-border bg-card/95 backdrop-blur lg:hidden">
         <a
           href={`tel:${PROJECT.phone}`}
           className="flex flex-col items-center gap-1 py-3 text-[11px] font-semibold text-foreground"
@@ -863,6 +863,14 @@ function Index() {
         >
           <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp
         </a>
+        <button
+          onClick={() =>
+            openEnquiry("mobile-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
+          }
+          className="flex flex-col items-center gap-1 border-r border-border py-3 text-[11px] font-semibold text-foreground"
+        >
+          <Download className="h-4 w-4 text-primary" /> Brochure
+        </button>
         <button
           onClick={() => openEnquiry("mobile-bar")}
           className="flex flex-col items-center gap-1 bg-gold py-3 text-[11px] font-bold text-gold-foreground"
