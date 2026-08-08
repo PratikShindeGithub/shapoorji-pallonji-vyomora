@@ -293,10 +293,10 @@ function Index() {
         </div>
         
         <div
-          className={`transition-all duration-300 ${
+          className={`border-b transition-all duration-300 ${
             scrolled
-              ? "border-b border-border bg-background/95 shadow-soft backdrop-blur"
-              : "bg-gradient-to-b from-ink/80 to-transparent"
+              ? "border-border bg-background/95 shadow-soft backdrop-blur"
+              : "border-border bg-background/95 shadow-soft backdrop-blur lg:border-transparent lg:bg-gradient-to-b lg:from-ink/80 lg:to-transparent lg:shadow-none"
           }`}
         >
           <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
@@ -305,7 +305,7 @@ function Index() {
                 src={LOGO_URL}
                 alt="Shapoorji Pallonji Vyomora, Hinjawadi"
                 className={`h-11 w-auto shrink-0 transition sm:h-12 ${
-                  scrolled ? "" : "brightness-0 invert"
+                  scrolled ? "" : "lg:brightness-0 lg:invert"
                 }`}
               />
             </a>
