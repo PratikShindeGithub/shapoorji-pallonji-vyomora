@@ -42,7 +42,8 @@ import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
-import { HERO_IMAGE_URL, LOGO_URL } from "@/components/vyomora/logo";
+import { LOGO_URL } from "@/components/vyomora/logo";
+import { HERO_SLIDES } from "@/components/vyomora/hero-slides";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -211,6 +212,15 @@ function Index() {
   const [thankYou, setThankYou] = useState<LeadValues | null>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(
+      () => setHeroSlide((i) => (i + 1) % HERO_SLIDES.length),
+      5000,
+    );
+    return () => window.clearInterval(id);
+  }, []);
   
 
   useEffect(() => {
@@ -334,13 +344,35 @@ function Index() {
         id="top"
         className="relative isolate overflow-hidden pt-[72px] lg:flex lg:min-h-screen lg:items-center lg:pt-0"
       >
-        <img
-          src={HERO_IMAGE_URL}
-          alt="Vyomora township towers illuminated at dusk beside the landscaped swimming pool deck"
-          width={1920}
-          height={1280}
-          className="h-56 w-full object-cover sm:h-72 lg:absolute lg:inset-0 lg:h-full"
-        />
+        <div className="relative h-56 w-full sm:h-72 lg:absolute lg:inset-0 lg:h-full">
+          {HERO_SLIDES.map((slide, i) => (
+            <img
+              key={slide.src}
+              src={slide.src}
+              alt={slide.alt}
+              width={1920}
+              height={1280}
+              loading={i === 0 ? "eager" : "lazy"}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+                i === heroSlide ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
+          <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2 lg:bottom-6 lg:left-auto lg:right-8 lg:translate-x-0">
+            {HERO_SLIDES.map((slide, i) => (
+              <button
+                key={slide.src}
+                type="button"
+                aria-label={`Show hero image ${i + 1}`}
+                onClick={() => setHeroSlide(i)}
+                className={`h-2 rounded-full transition-all ${
+                  i === heroSlide ? "w-6 bg-gold" : "w-2 bg-primary-foreground/60"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
         <div className="absolute inset-0 hidden bg-gradient-to-r from-ink/75 via-ink/35 to-transparent lg:block" />
         <div className="relative w-full lg:px-4 lg:pb-16 lg:pt-44 lg:sm:px-6">
           <div className="mx-auto grid w-full max-w-6xl gap-6 lg:gap-8">
