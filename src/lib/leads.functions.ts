@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
-import { saveLead } from "./leads.server";
+import { saveLead, sendLeadEmails } from "./leads.server";
 
 const schema = z.object({
   name: z.string().trim().min(2).max(80),
@@ -15,5 +15,7 @@ export const submitLead = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => schema.parse(data))
   .handler(async ({ data }) => {
     const id = await saveLead(data);
-    return { id, emailed: false as boolean };
+    const emailed = await sendLeadEmails(id, data);
+    return { id, emailed };
   });
+
