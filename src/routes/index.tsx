@@ -288,24 +288,8 @@ function Index() {
                 }`}
               />
             </a>
-            <div className="flex items-center gap-2">
-              <a
-                href={`tel:${PROJECT.phone}`}
-                className={`hidden items-center gap-2 rounded-md border px-4 py-2 text-xs font-semibold transition sm:inline-flex ${
-                  scrolled
-                    ? "border-border text-foreground hover:border-gold"
-                    : "border-secondary/40 text-secondary hover:border-gold hover:text-gold"
-                }`}
-              >
-                <Phone className="h-3.5 w-3.5" /> Call Now
-              </a>
-              <button
-                onClick={() => openEnquiry("header")}
-                className="cta-blink rounded-md px-4 py-2 text-xs font-bold tracking-wide transition hover:-translate-y-0.5 hover:shadow-lift"
-              >
-                Enquire
-              </button>
-            </div>
+            <div className="flex items-center gap-2" />
+
           </div>
           {/* Icon nav rail */}
           <nav
