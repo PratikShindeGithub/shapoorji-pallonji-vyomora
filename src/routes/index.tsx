@@ -278,6 +278,19 @@ function Index() {
               >
                 <Phone className="h-3.5 w-3.5" /> Call Now
               </a>
+              <button
+                onClick={() =>
+                  openEnquiry(
+                    "site-visit-header",
+                    "Organize Site Visit",
+                    "Organize a site visit",
+                    "Pick a slot and we'll arrange complimentary cab pickup anywhere in Pune.",
+                  )
+                }
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition hover:bg-primary/90"
+              >
+                <CalendarCheck className="h-3.5 w-3.5" /> Organize Site Visit
+              </button>
             </div>
           </div>
           {/* Icon nav rail */}
