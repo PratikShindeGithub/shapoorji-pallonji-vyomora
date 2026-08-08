@@ -520,7 +520,7 @@ function Index() {
                               "We'll send the detailed cost sheet with all charges and the payment schedule.",
                             )
                           }
-                          className="shrink-0 rounded-md px-4 py-2.5 text-xs font-semibold shadow-soft transition hover:-translate-y-0.5"
+                          className="shrink-0 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
                         >
                           Click Here
                         </button>
