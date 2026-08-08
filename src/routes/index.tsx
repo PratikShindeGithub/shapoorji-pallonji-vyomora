@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   BedDouble,
   Building2,
-  CalendarClock,
   CheckCircle2,
   Download,
   Dumbbell,
