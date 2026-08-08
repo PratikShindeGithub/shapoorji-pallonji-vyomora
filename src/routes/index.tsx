@@ -441,7 +441,7 @@ function Index() {
       </section>
 
       {/* Persistent price-breakup panel (desktop) — visible across the whole page */}
-      <aside className="fixed right-4 top-28 z-[45] hidden w-[20rem] rounded-xl border border-gold/25 bg-card/95 p-5 shadow-lift backdrop-blur xl:block">
+      <aside className="fixed right-4 top-[10.5rem] z-[45] hidden max-h-[calc(100vh-12rem)] w-[20rem] overflow-y-auto rounded-xl border border-gold/25 bg-card/95 p-5 shadow-lift backdrop-blur xl:block">
         <h2 className="text-lg text-foreground">Get the exact price breakup</h2>
         <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
           Floor-wise pricing, charges, payment plan and brochure — sent instantly.
