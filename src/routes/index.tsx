@@ -211,7 +211,7 @@ function Index() {
   const [thankYou, setThankYou] = useState<LeadValues | null>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const exitShown = useRef(false);
+  
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
