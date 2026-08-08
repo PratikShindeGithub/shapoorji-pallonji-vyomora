@@ -247,29 +247,8 @@ function Index() {
     <div ref={pageRef} className="min-h-screen bg-background text-foreground xl:pr-[22rem]">
       {/* Header */}
       <header className="fixed inset-x-0 top-0 z-50">
-        <div className="hidden justify-end gap-px bg-ink text-[11px] font-semibold lg:flex">
-          <button
-            onClick={() =>
-              openEnquiry(
-                "site-visit-top",
-                "Organize Site Visit",
-                "Organize a site visit",
-                "Pick a slot and we'll arrange complimentary cab pickup anywhere in Pune.",
-              )
-            }
-            className="bg-primary/90 px-4 py-2 text-primary-foreground transition hover:bg-primary"
-          >
-            Organize Site Visit
-          </button>
-          <a
-            href={`https://wa.me/${PROJECT.whatsapp}`}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] px-4 py-2 text-ink transition hover:brightness-110"
-          >
-            <MessageCircle className="h-3.5 w-3.5" /> WhatsApp Now
-          </a>
-        </div>
+
+
         
         <div
           className={`border-b transition-all duration-300 ${
