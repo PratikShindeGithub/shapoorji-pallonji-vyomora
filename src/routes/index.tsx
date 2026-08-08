@@ -642,12 +642,12 @@ function Index() {
       <section id="gallery" className="bg-secondary py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHead eyebrow="Gallery" title="A closer look at Vyomora" />
-          <div className="mt-14 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {GALLERY.map((g, i) => (
               <button
                 key={g.alt}
                 onClick={() => setLightbox(i)}
-                className="reveal group block w-full overflow-hidden rounded-xl shadow-soft"
+                className="reveal group relative block aspect-video w-full overflow-hidden rounded-xl shadow-soft"
                 data-reveal
                 data-reveal-delay={i * 80}
               >
@@ -656,8 +656,8 @@ function Index() {
                   alt={g.alt}
                   loading="lazy"
                   width={1200}
-                  height={g.tall ? 1500 : 900}
-                  className="w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  height={675}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                 />
               </button>
             ))}
