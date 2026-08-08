@@ -625,7 +625,7 @@ function Index() {
       <section id="plans" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <SectionHead
           eyebrow="Floor plans"
-          title="See every square foot before you decide"
+          title="See Every Square foot Before you Decide"
           copy="Enquire now and our sales desk will share the complete plan set instantly."
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-3">
