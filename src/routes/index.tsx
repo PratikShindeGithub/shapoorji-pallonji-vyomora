@@ -299,12 +299,6 @@ function Index() {
               >
                 <Phone className="h-3.5 w-3.5" /> Call Now
               </a>
-              <button
-                onClick={() => openEnquiry("header")}
-                className="cta-blink rounded-md px-4 py-2 text-xs font-bold tracking-wide transition hover:-translate-y-0.5 hover:shadow-lift"
-              >
-                Enquire
-              </button>
             </div>
           </div>
           {/* Icon nav rail */}
