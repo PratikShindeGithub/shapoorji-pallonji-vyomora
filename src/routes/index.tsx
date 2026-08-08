@@ -821,7 +821,7 @@ function Index() {
       </button>
 
       {/* Floating CTAs (desktop) */}
-      <div className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 lg:flex xl:right-[23rem]">
+      <div className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 lg:flex xl:hidden">
         {[
           {
             key: "wa",
