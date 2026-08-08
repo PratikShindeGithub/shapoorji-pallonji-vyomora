@@ -5,6 +5,8 @@ import bedroom1 from "@/assets/vyomora-bedroom-1.jpg.asset.json";
 import bedroom2 from "@/assets/vyomora-bedroom-2.jpg.asset.json";
 import kitchen from "@/assets/vyomora-kitchen.jpg.asset.json";
 import washroom from "@/assets/vyomora-washroom.jpg.asset.json";
+import playArea from "@/assets/vyomora-play-area.jpg.asset.json";
+import towerExterior from "@/assets/vyomora-tower-exterior.jpg.asset.json";
 
 export const GALLERY_ITEMS: { src: string; alt: string; tall?: boolean }[] = [
   { src: livingRoom1.url, alt: "Living room with designer lighting and balcony views at Vyomora" },
@@ -14,4 +16,6 @@ export const GALLERY_ITEMS: { src: string; alt: string; tall?: boolean }[] = [
   { src: bedroom2.url, alt: "Second bedroom with wood panelling and TV unit" },
   { src: kitchen.url, alt: "Modular kitchen with utility balcony at Vyomora" },
   { src: washroom.url, alt: "Master washroom with walk-in shower and stone finishes" },
+  { src: playArea.url, alt: "Landscaped children's play area with flowering trees at Vyomora" },
+  { src: towerExterior.url, alt: "Vyomora residential towers seen from the landscaped podium" },
 ];
