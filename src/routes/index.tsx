@@ -375,7 +375,7 @@ function Index() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/35 to-transparent" />
-        <div className="relative w-full px-4 pb-16 pt-40 sm:px-6 lg:pt-44 xl:pr-[24rem]">
+        <div className="relative w-full px-4 pb-16 pt-40 sm:px-6 lg:pt-44">
           <div className="mx-auto grid w-full max-w-6xl gap-8">
             {/* Reference-style project fact card */}
             <div
