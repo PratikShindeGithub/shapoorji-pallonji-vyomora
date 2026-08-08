@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
+import { FLOOR_PLAN_URL } from "@/components/vyomora/floor-plan";
 import {
   AMENITIES,
   CONFIGS,
