@@ -44,7 +44,7 @@ import gardenImg from "@/assets/gallery-garden.jpg";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
-import { LOGO_URL } from "@/components/vyomora/logo";
+import { HERO_IMAGE_URL, LOGO_URL } from "@/components/vyomora/logo";
 
 export const Route = createFileRoute("/")({
   component: Index,
