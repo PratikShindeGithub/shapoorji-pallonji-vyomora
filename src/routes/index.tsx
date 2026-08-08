@@ -322,7 +322,7 @@ function Index() {
             <MessageCircle className="h-3.5 w-3.5" /> WhatsApp Now
           </a>
         </div>
-        <Countdown />
+        
         <div
           className={`transition-all duration-300 ${
             scrolled
