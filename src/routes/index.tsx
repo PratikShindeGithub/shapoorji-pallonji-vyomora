@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   BedDouble,
   Building2,
-  CalendarClock,
   CheckCircle2,
   Download,
   Dumbbell,
@@ -144,36 +143,6 @@ function useReveal<T extends HTMLElement>() {
   return ref;
 }
 
-function Countdown() {
-  const [left, setLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
-  useEffect(() => {
-    const end = new Date();
-    end.setHours(23, 59, 59, 999);
-    end.setDate(end.getDate() + 3);
-    const tick = () => {
-      const ms = Math.max(0, end.getTime() - Date.now());
-      setLeft({
-        d: Math.floor(ms / 86400000),
-        h: Math.floor((ms / 3600000) % 24),
-        m: Math.floor((ms / 60000) % 60),
-        s: Math.floor((ms / 1000) % 60),
-      });
-    };
-    tick();
-    const id = window.setInterval(tick, 1000);
-    return () => window.clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return (
-    <div className="flex items-center gap-2 bg-ink px-4 py-2.5 text-center text-xs text-primary-foreground sm:justify-center">
-      <CalendarClock className="h-4 w-4 shrink-0 text-gold" aria-hidden />
-      <p className="min-w-0 truncate">
-        <span className="font-semibold text-gold">Pre-launch advantage</span> — inaugural
-        pricing closes in {left.d}d {pad(left.h)}h {pad(left.m)}m {pad(left.s)}s
-      </p>
-    </div>
-  );
-}
 
 function Modal({
   open,
@@ -322,7 +291,7 @@ function Index() {
             <MessageCircle className="h-3.5 w-3.5" /> WhatsApp Now
           </a>
         </div>
-        <Countdown />
+        
         <div
           className={`transition-all duration-300 ${
             scrolled
