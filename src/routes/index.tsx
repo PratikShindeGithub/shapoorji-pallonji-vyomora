@@ -45,6 +45,7 @@ import gardenImg from "@/assets/gallery-garden.jpg";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
+import logoAsset from "@/assets/vyomora-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -773,7 +774,11 @@ function Index() {
       </section>
 
       <footer className="bg-ink px-4 py-10 text-center text-[11px] leading-relaxed text-secondary/50 sm:px-6">
-        <p className="font-display text-lg text-secondary">Vyomora</p>
+        <img
+          src={logoAsset.url}
+          alt="Shapoorji Pallonji Vyomora, Hinjawadi"
+          className="mx-auto h-14 w-auto brightness-0 invert"
+        />
         <p className="mt-2">{PROJECT.location} · Sales desk {PROJECT.phoneDisplay}</p>
         <p className="mt-1">
           Marketed by {PROJECT.firm} ·{" "}
