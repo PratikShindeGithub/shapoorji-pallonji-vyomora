@@ -3,9 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   BedDouble,
   Building2,
-  CarFront,
   CheckCircle2,
-
   Download,
   Dumbbell,
   Flower2,
@@ -290,8 +288,24 @@ function Index() {
                 }`}
               />
             </a>
-            <div className="flex items-center gap-2" />
-
+            <div className="flex items-center gap-2">
+              <a
+                href={`tel:${PROJECT.phone}`}
+                className={`hidden items-center gap-2 rounded-md border px-4 py-2 text-xs font-semibold transition sm:inline-flex ${
+                  scrolled
+                    ? "border-border text-foreground hover:border-gold"
+                    : "border-secondary/40 text-secondary hover:border-gold hover:text-gold"
+                }`}
+              >
+                <Phone className="h-3.5 w-3.5" /> Call Now
+              </a>
+              <button
+                onClick={() => openEnquiry("header")}
+                className="cta-blink rounded-md px-4 py-2 text-xs font-bold tracking-wide transition hover:-translate-y-0.5 hover:shadow-lift"
+              >
+                Enquire
+              </button>
+            </div>
           </div>
           {/* Icon nav rail */}
           <nav
@@ -318,14 +332,13 @@ function Index() {
               <li className="ml-auto">
                 <button
                   onClick={() =>
-                    openEnquiry("nav-site-visit", "Organise Site Visit", "Organise a site visit", "Share your details and our sales desk will arrange a guided site visit at your preferred time.")
+                    openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
                   }
                   className="cta-blink inline-flex h-full items-center gap-2 px-5 text-xs font-bold transition"
                 >
-                  <CarFront className="h-4 w-4" /> Organise Site Visit
+                  <Download className="h-4 w-4" /> Download Brochure
                 </button>
               </li>
-
             </ul>
           </nav>
         </div>
