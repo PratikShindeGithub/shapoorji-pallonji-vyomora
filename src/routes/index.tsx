@@ -771,38 +771,16 @@ function Index() {
             />
           </div>
 
-          {/* Contact info */}
-          <div className="mt-5 text-center text-xs leading-relaxed text-secondary/60">
-            <p>{PROJECT.location}</p>
-            <p className="mt-1">
-              Sales desk: {PROJECT.phoneDisplay} · Marketed by {PROJECT.firm} ·{" "}
-              <a href={`mailto:${PROJECT.email}`} className="text-gold hover:underline">
-                {PROJECT.email}
-              </a>
-            </p>
-          </div>
-
           {/* MahaRERA */}
-          <div className="mt-7 flex w-full flex-col items-center gap-4 rounded-xl border border-secondary/15 bg-secondary/5 p-5 sm:flex-row sm:justify-center sm:gap-6">
+          <div className="mt-7 flex w-full flex-col items-center gap-4 rounded-xl border border-secondary/15 bg-secondary/5 p-5">
             <img
               src={MAHARERA_QR_URL}
               alt="MahaRERA Registration No. PR1260002600999 QR code"
               className="h-24 w-auto rounded-md bg-secondary/95 p-1"
               loading="lazy"
             />
-            <div className="text-center sm:text-left">
-              <p className="text-sm font-semibold text-secondary/85">MahaRERA Registration No.</p>
-              <p className="text-lg font-bold tracking-wide text-secondary">PR1260002600999</p>
-              <a
-                href="https://maharera.maharashtra.gov.in/"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="text-xs text-gold hover:underline"
-              >
-                https://maharera.maharashtra.gov.in/
-              </a>
-            </div>
           </div>
+
 
           {/* Divider */}
           <div className="mt-7 h-px w-full bg-secondary/15" />
