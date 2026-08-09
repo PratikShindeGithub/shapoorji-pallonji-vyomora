@@ -250,9 +250,9 @@ function Index() {
 
 
   return (
-    <div ref={pageRef} className="min-h-screen bg-background text-foreground xl:pr-[22rem]">
+    <div ref={pageRef} className="min-h-screen bg-background text-foreground xl:pr-[20rem]">
       {/* Header */}
-      <header className="fixed inset-x-0 top-0 z-50">
+      <header className="fixed left-0 right-0 top-0 z-50 xl:right-[20rem]">
 
 
         
