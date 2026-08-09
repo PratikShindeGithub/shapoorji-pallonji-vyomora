@@ -42,7 +42,7 @@ import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
-import { LOGO_URL, SP_LOGO_URL } from "@/components/vyomora/logo";
+import { LOGO_URL, MAHARERA_QR_URL, SP_LOGO_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 import ProjectVideo from "@/components/vyomora/ProjectVideo";
 
@@ -864,7 +864,7 @@ function Index() {
           {/* MahaRERA */}
           <div className="mt-7 flex w-full flex-col items-center gap-4 rounded-xl border border-secondary/15 bg-secondary/5 p-5 sm:flex-row sm:justify-center sm:gap-6">
             <img
-              src={maharera.url}
+              src={MAHARERA_QR_URL}
               alt="MahaRERA Registration No. PR1260002600999 QR code"
               className="h-24 w-auto rounded-md bg-secondary/95 p-1"
               loading="lazy"
