@@ -424,9 +424,10 @@ function Index() {
       </section>
 
       {/* Persistent price-breakup panel (desktop) — visible across the whole page */}
-      <aside className="fixed right-4 top-[10.5rem] z-[45] hidden max-h-[calc(100vh-12rem)] w-[20rem] overflow-y-auto rounded-xl border border-gold/25 bg-card shadow-lift xl:block">
+      <aside className="fixed right-0 top-0 z-[60] hidden h-screen w-[20rem] overflow-y-auto border-l border-gold/25 bg-card shadow-lift xl:block">
         {/* Quick contact strip */}
-        <div className="grid grid-cols-2 overflow-hidden rounded-t-xl">
+        <div className="grid grid-cols-2 overflow-hidden">
+
           <button
             onClick={() => openEnquiry("site-visit", "Organize Site Visit", "Organize a site visit", "Share your details and our team will schedule your visit.")}
             className="bg-ink px-3 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary"
