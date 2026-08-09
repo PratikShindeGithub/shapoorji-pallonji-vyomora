@@ -981,6 +981,7 @@ function Index() {
         </div>
       </Modal>
 
+      {/* Thank you page is a dedicated route at /thankyou.html for conversion tracking */}
 
       {/* Lightbox */}
       {lightbox !== null ? (
