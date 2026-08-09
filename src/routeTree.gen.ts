@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PrivacyPolicyDothtmlRouteImport } from './routes/privacy-policy[.]html'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ThankyouDothtmlRouteImport } from './routes/thankyou[.]html'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -17,6 +18,11 @@ import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/l
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyDothtmlRoute = PrivacyPolicyDothtmlRouteImport.update({
+  id: '/privacy-policy.html',
+  path: '/privacy-policy.html',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -38,12 +44,14 @@ const LovableEmailTransactionalPreviewRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -51,6 +59,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -59,18 +68,21 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/privacy-policy.html'
     | '/sitemap.xml'
     | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/privacy-policy.html'
     | '/sitemap.xml'
     | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
+    | '/privacy-policy.html'
     | '/sitemap.xml'
     | '/thankyou.html'
     | '/lovable/email/transactional/preview'
@@ -78,6 +90,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PrivacyPolicyDothtmlRoute: typeof PrivacyPolicyDothtmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ThankyouDothtmlRoute: typeof ThankyouDothtmlRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -90,6 +103,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy.html': {
+      id: '/privacy-policy.html'
+      path: '/privacy-policy.html'
+      fullPath: '/privacy-policy.html'
+      preLoaderRoute: typeof PrivacyPolicyDothtmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -118,6 +138,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PrivacyPolicyDothtmlRoute: PrivacyPolicyDothtmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ThankyouDothtmlRoute: ThankyouDothtmlRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
