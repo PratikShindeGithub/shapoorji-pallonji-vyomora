@@ -42,7 +42,7 @@ import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
-import { LOGO_URL } from "@/components/vyomora/logo";
+import { LOGO_URL, SP_LOGO_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 
 
@@ -263,7 +263,18 @@ function Index() {
           }`}
         >
           <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
-            <a href="#top" className="flex min-w-0 items-center">
+            <a href="#top" className="flex min-w-0 items-center gap-2 sm:gap-3">
+              <img
+                src={SP_LOGO_URL}
+                alt="Shapoorji Pallonji Real Estate"
+                className={`h-10 w-auto shrink-0 sm:h-12 ${
+                  scrolled ? "" : "lg:rounded-md lg:bg-secondary/95 lg:p-1"
+                }`}
+              />
+              <span
+                className={`h-8 w-px shrink-0 ${scrolled ? "bg-border" : "bg-border lg:bg-secondary/40"}`}
+                aria-hidden="true"
+              />
               <img
                 src={LOGO_URL}
                 alt="Shapoorji Pallonji Vyomora, Hinjawadi"
@@ -817,11 +828,19 @@ function Index() {
       </section>
 
       <footer className="bg-ink px-4 py-10 text-center text-[11px] leading-relaxed text-secondary/50 sm:px-6">
-        <img
-          src={LOGO_URL}
-          alt="Shapoorji Pallonji Vyomora, Hinjawadi"
-          className="mx-auto h-14 w-auto brightness-0 invert"
-        />
+        <div className="flex items-center justify-center gap-4">
+          <img
+            src={SP_LOGO_URL}
+            alt="Shapoorji Pallonji Real Estate"
+            className="h-14 w-auto rounded-md bg-secondary/95 p-1.5"
+          />
+          <span className="h-10 w-px bg-secondary/30" aria-hidden="true" />
+          <img
+            src={LOGO_URL}
+            alt="Shapoorji Pallonji Vyomora, Hinjawadi"
+            className="h-14 w-auto brightness-0 invert"
+          />
+        </div>
         <p className="mt-2">{PROJECT.location} · Sales desk {PROJECT.phoneDisplay}</p>
         <p className="mt-1">
           Marketed by {PROJECT.firm} ·{" "}

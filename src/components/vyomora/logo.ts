@@ -22,3 +22,7 @@ export const HERO_SLIDES: { url: string; alt: string }[] = [
   { url: towerAsset.url, alt: "Vyomora high-rise towers viewed from the podium level" },
   { url: livingAsset.url, alt: "Vyomora sample apartment living and dining area" },
 ];
+
+import spLogoAsset from "@/assets/sp-logo.png.asset.json";
+
+export const SP_LOGO_URL: string = spLogoAsset.url;
