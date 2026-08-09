@@ -253,72 +253,41 @@ function Index() {
     <div ref={pageRef} className="min-h-screen bg-background text-foreground xl:pr-[20rem]">
       {/* Header */}
       <header className="fixed left-0 right-0 top-0 z-50 xl:right-[20rem]">
-
-
-        
-        <div
-          className={`border-b transition-all duration-300 ${
-            scrolled
-              ? "border-border bg-background/95 shadow-soft backdrop-blur"
-              : "border-border bg-background/95 shadow-soft backdrop-blur lg:border-transparent lg:bg-gradient-to-b lg:from-ink/80 lg:to-transparent lg:shadow-none"
-          }`}
-        >
-          <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
-            <a href="#top" className="flex min-w-0 items-center gap-2 sm:gap-3">
+        <div className="border-b border-border bg-card shadow-soft">
+          <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6">
+            <a href="#top" className="flex shrink-0 items-center py-2">
               <img
                 src={SP_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
-                className={`h-10 w-auto shrink-0 sm:h-12 ${
-                  scrolled ? "" : "lg:rounded-md lg:bg-secondary/95 lg:p-1"
-                }`}
-              />
-              <span
-                className={`h-8 w-px shrink-0 ${scrolled ? "bg-border" : "bg-border lg:bg-secondary/40"}`}
-                aria-hidden="true"
-              />
-              <img
-                src={LOGO_URL}
-                alt="Shapoorji Pallonji Vyomora, Hinjawadi"
-                className={`h-11 w-auto shrink-0 transition sm:h-12 ${
-                  scrolled ? "" : "lg:brightness-0 lg:invert"
-                }`}
+                className="h-10 w-auto shrink-0 sm:h-11"
               />
             </a>
-          </div>
-          {/* Icon nav rail */}
-          <nav
-            aria-label="Section navigation"
-            className={`hidden border-t lg:block ${
-              scrolled ? "border-border bg-card/95" : "border-secondary/15 bg-ink/70 backdrop-blur"
-            }`}
-          >
-            <ul className="mx-auto flex max-w-6xl items-stretch px-4 sm:px-6">
-              {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    className={`inline-flex items-center gap-2 px-4 py-3 text-xs font-semibold tracking-wide transition ${
-                      scrolled
-                        ? "text-foreground hover:text-primary"
-                        : "text-secondary/85 hover:text-gold"
-                    }`}
+            {/* Icon nav rail — same line as logo */}
+            <nav aria-label="Section navigation" className="hidden flex-1 lg:block">
+              <ul className="flex items-stretch">
+                {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className="inline-flex items-center gap-2 px-3 py-4 text-xs font-semibold tracking-wide text-foreground transition hover:text-primary"
+                    >
+                      <Icon className="h-4 w-4 text-gold" /> {label}
+                    </a>
+                  </li>
+                ))}
+                <li className="ml-auto">
+                  <button
+                    onClick={() =>
+                      openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
+                    }
+                    className="cta-blink inline-flex h-full items-center gap-2 px-5 text-xs font-bold transition"
                   >
-                    <Icon className="h-4 w-4 text-gold" /> {label}
-                  </a>
+                    <Download className="icon-nudge h-4 w-4" /> Download Brochure
+                  </button>
                 </li>
-              ))}
-              <li className="ml-auto">
-                <button
-                  onClick={() =>
-                    openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
-                  }
-                  className="cta-blink inline-flex h-full items-center gap-2 px-5 text-xs font-bold transition"
-                >
-                  <Download className="icon-nudge h-4 w-4" /> Download Brochure
-                </button>
-              </li>
-            </ul>
-          </nav>
+              </ul>
+            </nav>
+          </div>
         </div>
       </header>
 
