@@ -337,45 +337,49 @@ function Index() {
               className="reveal w-full overflow-hidden border-y border-gold/25 bg-card text-center lg:max-w-sm lg:rounded-xl lg:border lg:bg-card/92 lg:shadow-lift lg:backdrop-blur"
               data-reveal
             >
-              <p className="eyebrow bg-primary py-3 text-primary-foreground lg:bg-primary/10 lg:text-primary">
+              <p className="eyebrow bg-primary py-2 text-primary-foreground lg:bg-primary/10 lg:text-primary">
                 Booking Open
               </p>
-              <div className="px-6 pb-6 pt-5">
-                <h1 className="font-display text-4xl leading-none text-foreground sm:text-5xl">
-                  Vyomora
-                </h1>
-                <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+              <div className="px-5 pb-5 pt-4">
+                <h1 className="sr-only">Vyomora — {PROJECT.location}</h1>
+                <img
+                  src={LOGO_URL}
+                  alt="Vyomora Hinjawadi"
+                  className="mx-auto h-10 w-auto object-contain sm:h-12"
+                />
+                <p className="mt-1.5 inline-flex items-center gap-1.5 text-[13px] text-muted-foreground">
                   <MapPin className="h-3.5 w-3.5 text-gold" /> {PROJECT.location}
                 </p>
-                <ul className="mt-6 space-y-2 border-y border-border bg-muted/40 py-5 text-sm text-foreground">
+                <ul className="mt-3 space-y-1 border-y border-border bg-muted/40 py-3 text-[13px] leading-snug text-foreground">
                   {HERO_FACTS.map((f) => (
                     <li key={f}>{f}</li>
                   ))}
                 </ul>
-                <div className="mt-5 space-y-1.5">
+                <div className="mt-3 space-y-1">
                   {HERO_STRIPS.map((s, i) => (
                     <p
                       key={s}
                       style={{ animationDelay: `${i * 0.35}s` }}
-                      className="strip-blink rounded-sm px-3 py-2 text-[11px] font-semibold tracking-wide"
+                      className="strip-blink rounded-sm px-3 py-1.5 text-[11px] font-semibold tracking-normal"
                     >
                       {s}
                     </p>
                   ))}
                 </div>
-                <p className="mt-5 text-sm text-muted-foreground">
+                <p className="mt-3 text-[13px] leading-snug text-muted-foreground">
                   Luxurious 2 &amp; 3 BHK Apartments &amp; Duplexes
                 </p>
-                <p className="text-xs tracking-wide text-muted-foreground">Starting Price</p>
-                <p className="mt-1 font-display text-3xl text-gold sm:text-4xl">
+                <p className="text-[11px] tracking-normal text-muted-foreground">Starting Price</p>
+                <p className="mt-0.5 font-sans text-2xl font-bold tracking-tight text-gold sm:text-3xl">
                   {PROJECT.startingPrice} Onwards
                 </p>
                 <button
                   onClick={() => openEnquiry("hero-card")}
-                  className="mt-5 w-full rounded-md bg-gold py-3 text-sm font-bold text-gold-foreground transition hover:-translate-y-0.5 hover:shadow-lift"
+                  className="mt-3.5 w-full rounded-md bg-gold py-2.5 text-sm font-bold text-gold-foreground transition hover:-translate-y-0.5 hover:shadow-lift"
                 >
                   Enquire Now
                 </button>
+
               </div>
             </div>
 
