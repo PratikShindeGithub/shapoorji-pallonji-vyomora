@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrivacyPolicyDothtmlRouteImport } from './routes/privacy-policy[.]html'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsDothtmlRouteImport } from './routes/terms[.]html'
 import { Route as ThankyouDothtmlRouteImport } from './routes/thankyou[.]html'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -30,6 +31,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsDothtmlRoute = TermsDothtmlRouteImport.update({
+  id: '/terms.html',
+  path: '/terms.html',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ThankyouDothtmlRoute = ThankyouDothtmlRouteImport.update({
   id: '/thankyou.html',
   path: '/thankyou.html',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms.html': typeof TermsDothtmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms.html': typeof TermsDothtmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -61,6 +69,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms.html': typeof TermsDothtmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -70,6 +79,7 @@ export interface FileRouteTypes {
     | '/'
     | '/privacy-policy.html'
     | '/sitemap.xml'
+    | '/terms.html'
     | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
@@ -77,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/privacy-policy.html'
     | '/sitemap.xml'
+    | '/terms.html'
     | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   id:
@@ -84,6 +95,7 @@ export interface FileRouteTypes {
     | '/'
     | '/privacy-policy.html'
     | '/sitemap.xml'
+    | '/terms.html'
     | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
@@ -92,6 +104,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PrivacyPolicyDothtmlRoute: typeof PrivacyPolicyDothtmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsDothtmlRoute: typeof TermsDothtmlRoute
   ThankyouDothtmlRoute: typeof ThankyouDothtmlRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
@@ -119,6 +132,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms.html': {
+      id: '/terms.html'
+      path: '/terms.html'
+      fullPath: '/terms.html'
+      preLoaderRoute: typeof TermsDothtmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/thankyou.html': {
       id: '/thankyou.html'
       path: '/thankyou.html'
@@ -140,9 +160,20 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PrivacyPolicyDothtmlRoute: PrivacyPolicyDothtmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsDothtmlRoute: TermsDothtmlRoute,
   ThankyouDothtmlRoute: ThankyouDothtmlRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
