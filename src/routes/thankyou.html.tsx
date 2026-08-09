@@ -45,27 +45,23 @@ function ThankYouPage() {
           <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-accent">
             <Sparkles className="h-6 w-6 text-primary" />
           </div>
-          <h1 className="mt-6 text-3xl text-foreground sm:text-4xl">
-            Thank you{lead.name ? `, ${lead.name.split(" ")[0]}` : ""}
-          </h1>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-            {lead.email
-              ? `The floor & unit plans, cost sheet and brochure are on the way to ${lead.email}.`
-              : "The floor & unit plans, cost sheet and brochure are on the way to your email."}
-            {lead.mobile ? ` Our sales desk will call you on ${lead.mobile} shortly.` : " Our sales desk will call you shortly."}
+          <h1 className="mt-6 text-3xl text-foreground sm:text-4xl">You're All Set!</h1>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Thanks you for expressing interest on our website. Our expert will get in touch with you
+            shortly.
           </p>
           <p className="mt-6 text-sm font-semibold text-gold">Get pick and drop service</p>
 
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Link
               to="/"
-              className="block w-full rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 sm:w-auto"
             >
-              Continue exploring
+              ← Go Back To Home
             </Link>
             <a
               href={`tel:${PROJECT.phone}`}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent sm:w-auto"
             >
               <Phone className="h-4 w-4" /> {PROJECT.phoneDisplay}
             </a>
