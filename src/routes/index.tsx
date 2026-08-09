@@ -303,10 +303,11 @@ function Index() {
                     "Pick a slot and we'll arrange complimentary cab pickup anywhere in Pune.",
                   )
                 }
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition hover:bg-primary/90"
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-primary px-2.5 py-1.5 text-[10px] font-semibold leading-tight text-primary-foreground transition hover:bg-primary/90 sm:gap-2 sm:px-4 sm:py-2 sm:text-xs"
               >
-                <CalendarCheck className="h-3.5 w-3.5" /> Organize Site Visit
+                <CalendarCheck className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" /> Organize Site Visit
               </button>
+
             </div>
           </div>
           {/* Icon nav rail */}
