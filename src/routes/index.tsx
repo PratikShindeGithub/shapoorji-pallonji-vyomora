@@ -263,7 +263,18 @@ function Index() {
           }`}
         >
           <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
-            <a href="#top" className="flex min-w-0 items-center">
+            <a href="#top" className="flex min-w-0 items-center gap-2 sm:gap-3">
+              <img
+                src={SP_LOGO_URL}
+                alt="Shapoorji Pallonji Real Estate"
+                className={`h-10 w-auto shrink-0 sm:h-12 ${
+                  scrolled ? "" : "lg:rounded-md lg:bg-secondary/95 lg:p-1"
+                }`}
+              />
+              <span
+                className={`h-8 w-px shrink-0 ${scrolled ? "bg-border" : "bg-border lg:bg-secondary/40"}`}
+                aria-hidden="true"
+              />
               <img
                 src={LOGO_URL}
                 alt="Shapoorji Pallonji Vyomora, Hinjawadi"
