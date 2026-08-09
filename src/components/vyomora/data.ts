@@ -103,11 +103,11 @@ export const FAQS = [
   },
   {
     q: "What configurations are available?",
-    a: "2 BHK and 3 BHK apartments from 718 to 1,145 sq.ft., plus limited 3 BHK duplex residences of 1,680 sq.ft.",
+    a: "2 BHK and 3 BHK apartments from 685 to 1186 sq.ft., including premium 3 BHK imperial residences.",
   },
   {
     q: "What is the starting price?",
-    a: "Homes start at ₹84.99 Lakhs* for the 2 BHK compact layout. Share your details to receive the complete cost sheet with taxes, charges and payment plan.",
+    a: "Homes start at ₹88 Lakhs* for the 2 BHK compact layout. Share your details to receive the complete cost sheet with taxes, charges and payment plan.",
   },
   {
     q: "Is the project RERA registered?",
