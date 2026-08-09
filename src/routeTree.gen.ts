@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ThankyouHtmlRouteImport } from './routes/thankyou.html'
+import { Route as ThankyouDothtmlRouteImport } from './routes/thankyou[.]html'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,9 +24,9 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ThankyouHtmlRoute = ThankyouHtmlRouteImport.update({
-  id: '/thankyou/html',
-  path: '/thankyou/html',
+const ThankyouDothtmlRoute = ThankyouDothtmlRouteImport.update({
+  id: '/thankyou.html',
+  path: '/thankyou.html',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LovableEmailTransactionalPreviewRoute =
@@ -39,20 +39,20 @@ const LovableEmailTransactionalPreviewRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/thankyou/html': typeof ThankyouHtmlRoute
+  '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/thankyou/html': typeof ThankyouHtmlRoute
+  '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/thankyou/html': typeof ThankyouHtmlRoute
+  '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
@@ -60,26 +60,26 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/sitemap.xml'
-    | '/thankyou/html'
+    | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/sitemap.xml'
-    | '/thankyou/html'
+    | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
     | '/sitemap.xml'
-    | '/thankyou/html'
+    | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  ThankyouHtmlRoute: typeof ThankyouHtmlRoute
+  ThankyouDothtmlRoute: typeof ThankyouDothtmlRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
@@ -99,11 +99,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/thankyou/html': {
-      id: '/thankyou/html'
-      path: '/thankyou/html'
-      fullPath: '/thankyou/html'
-      preLoaderRoute: typeof ThankyouHtmlRouteImport
+    '/thankyou.html': {
+      id: '/thankyou.html'
+      path: '/thankyou.html'
+      fullPath: '/thankyou.html'
+      preLoaderRoute: typeof ThankyouDothtmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lovable/email/transactional/preview': {
@@ -119,9 +119,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  ThankyouHtmlRoute: ThankyouHtmlRoute,
+  ThankyouDothtmlRoute: ThankyouDothtmlRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
