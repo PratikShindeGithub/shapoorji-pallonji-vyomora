@@ -790,6 +790,10 @@ function Index() {
         </div>
       </section>
 
+      <ProjectVideo />
+
+
+
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24">
         <SectionHead eyebrow="FAQ" title="Questions buyers ask us most" />
