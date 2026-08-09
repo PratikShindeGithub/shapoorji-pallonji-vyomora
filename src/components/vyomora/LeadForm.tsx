@@ -47,16 +47,18 @@ const errorsFor = (v: LeadValues, withCity?: boolean) => {
   return e;
 };
 
-export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity, onSuccess }: Props) {
+export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity, variant = "boxed", onSuccess }: Props) {
   const [values, setValues] = useState<LeadValues>({ name: "", mobile: "", email: "", city: "" });
   const [errors, setErrors] = useState<Errs>({});
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
   const send = useServerFn(submitLead);
 
+  const line = variant === "line";
 
-  const inputClass =
-    "w-full rounded-md border border-border bg-card py-3 pl-11 pr-4 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
+  const inputClass = line
+    ? "w-full border-0 border-b border-border bg-transparent px-1 py-3 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-gold"
+    : "w-full rounded-md border border-border bg-card py-3 pl-11 pr-4 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
 
   const field = (key: TextKey, label: string, extra?: Record<string, string>) => {
     const Icon = FIELD_ICONS[key];
@@ -65,8 +67,16 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
         <label htmlFor={`${intent ?? "lead"}-${key}`} className="sr-only">
           {label}
         </label>
-        <div className="relative">
-          <Icon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <div className={line ? "flex items-stretch" : "relative"}>
+          {line ? (
+            key === "mobile" ? (
+              <span className="flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2 text-sm text-foreground">
+                <span aria-hidden>🇮🇳</span> +91
+              </span>
+            ) : null
+          ) : (
+            <Icon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          )}
           <input
             id={`${intent ?? "lead"}-${key}`}
             value={values[key]}
@@ -85,6 +95,7 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
       </div>
     );
   };
+
 
   return (
     <form
