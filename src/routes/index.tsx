@@ -791,7 +791,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="bg-ink/70 backdrop-blur px-4 py-12 sm:px-6">
+      <footer className="bg-ink px-4 py-12 sm:px-6">
         <div className="mx-auto w-full max-w-6xl">
           {/* Logos */}
           <div className="flex flex-wrap items-center justify-center gap-5">
