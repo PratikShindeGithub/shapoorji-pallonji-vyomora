@@ -294,7 +294,7 @@ function Index() {
       {/* Hero */}
       <section
         id="top"
-        className="relative isolate overflow-hidden pt-[72px] lg:flex lg:min-h-screen lg:items-center lg:pt-0"
+        className="relative isolate overflow-hidden pt-[96px] lg:flex lg:min-h-screen lg:items-center lg:pt-0"
       >
         <HeroSlideshow />
 
