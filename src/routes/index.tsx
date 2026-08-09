@@ -683,13 +683,28 @@ function Index() {
         />
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="reveal overflow-hidden rounded-xl border border-border shadow-soft" data-reveal>
-            <iframe
-              title="Map of Hinjawadi Phase 1, Pune"
-              src="https://www.google.com/maps?q=Hinjawadi%20Phase%201%2C%20Pune&output=embed"
-              loading="lazy"
-              className="h-[420px] w-full border-0"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <div className="relative">
+              <iframe
+                title="Map of Hinjawadi Phase 1, Pune"
+                src="https://www.google.com/maps?q=Hinjawadi%20Phase%201%2C%20Pune&output=embed"
+                loading="lazy"
+                className={`h-[420px] w-full border-0 transition duration-500 ${
+                  mapRevealed ? "blur-0" : "scale-105 blur-md"
+                }`}
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              {!mapRevealed ? (
+                <button
+                  onClick={() => setMapRevealed(true)}
+                  className="absolute inset-0 z-10 flex items-center justify-center bg-ink/40 backdrop-blur-[2px]"
+                  aria-label="View location map"
+                >
+                  <span className="rounded-full bg-gold px-6 py-3 text-sm font-bold text-gold-foreground shadow-lift transition hover:-translate-y-0.5">
+                    View Location Map
+                  </span>
+                </button>
+              ) : null}
+            </div>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
             {LOCATION_GROUPS.map((g, i) => (
