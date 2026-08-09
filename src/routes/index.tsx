@@ -771,15 +771,7 @@ function Index() {
             />
           </div>
 
-          {/* MahaRERA */}
-          <div className="mt-7 flex w-full flex-col items-center gap-4 rounded-xl border border-secondary/15 bg-secondary/5 p-5">
-            <img
-              src={MAHARERA_QR_URL}
-              alt="MahaRERA Registration No. PR1260002600999 QR code"
-              className="h-24 w-auto rounded-md bg-secondary/95 p-1"
-              loading="lazy"
-            />
-          </div>
+
 
 
           {/* Divider */}
