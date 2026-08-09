@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useRouterState } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, Sparkles } from "lucide-react";
 
 import { PROJECT } from "@/components/vyomora/data";
