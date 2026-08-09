@@ -833,40 +833,52 @@ function Index() {
         </div>
       </section>
 
-      <footer className="bg-ink px-4 py-10 text-center text-[11px] leading-relaxed text-secondary/50 sm:px-6">
-        <div className="flex items-center justify-center gap-4">
-          <img
-            src={SP_LOGO_URL}
-            alt="Shapoorji Pallonji Real Estate"
-            className="h-14 w-auto rounded-md bg-secondary/95 p-1.5"
-          />
-          <span className="h-10 w-px bg-secondary/30" aria-hidden="true" />
-          <img
-            src={LOGO_URL}
-            alt="Shapoorji Pallonji Vyomora, Hinjawadi"
-            className="h-14 w-auto brightness-0 invert"
-          />
+      <footer className="bg-ink px-4 py-12 sm:px-6">
+        <div className="mx-auto max-w-3xl">
+          {/* Logos */}
+          <div className="flex items-center justify-center gap-5">
+            <img
+              src={SP_LOGO_URL}
+              alt="Shapoorji Pallonji Real Estate"
+              className="h-14 w-auto rounded-md bg-secondary/95 p-1.5"
+            />
+            <span className="h-10 w-px bg-secondary/30" aria-hidden="true" />
+            <img
+              src={LOGO_URL}
+              alt="Shapoorji Pallonji Vyomora, Hinjawadi"
+              className="h-14 w-auto brightness-0 invert"
+            />
+          </div>
+
+          {/* Contact info */}
+          <div className="mt-5 text-center text-xs leading-relaxed text-secondary/60">
+            <p>{PROJECT.location}</p>
+            <p className="mt-1">
+              Sales desk: {PROJECT.phoneDisplay} · Marketed by {PROJECT.firm} ·{" "}
+              <a href={`mailto:${PROJECT.email}`} className="text-gold hover:underline">
+                {PROJECT.email}
+              </a>
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div className="mx-auto mt-6 h-px w-full max-w-2xl bg-secondary/15" />
+
+          {/* Disclaimer */}
+          <p className="mx-auto mt-5 max-w-2xl text-left text-[11px] leading-relaxed text-secondary/45">
+            The content presented on this website is solely for informational purposes and does not
+            constitute a service offer. Prices mentioned here are subject to change without prior
+            notification, and the availability of the listed properties is not assured. Images
+            showcased are illustrative and may not precisely represent the actual properties. Kindly
+            be advised that this website operates as an authorized marketing partner (HomeLogic Pvt
+            Ltd). Additionally, updates and information may be sent to the registered mobile number or
+            email ID. All rights reserved. This website's content, design, and data are protected by
+            copyright and other intellectual property rights. Unauthorized use or reproduction of the
+            content may be subject to legal repercussions. For precise and current information on
+            services, pricing, availability, or any other details, we recommend you contact us
+            directly via the provided contact information on this website. We appreciate your visit.
+          </p>
         </div>
-        <p className="mt-2">{PROJECT.location} · Sales desk {PROJECT.phoneDisplay}</p>
-        <p className="mt-1">
-          Marketed by {PROJECT.firm} ·{" "}
-          <a href={`mailto:${PROJECT.email}`} className="text-gold hover:underline">
-            {PROJECT.email}
-          </a>
-        </p>
-        <p className="mx-auto mt-4 max-w-2xl">
-          The content presented on this website is solely for informational purposes and does not
-          constitute a service offer. Prices mentioned here are subject to change without prior
-          notification, and the availability of the listed properties is not assured. Images
-          showcased are illustrative and may not precisely represent the actual properties. Kindly
-          be advised that this website operates as an authorized marketing partner (HomeLogic Pvt
-          Ltd). Additionally, updates and information may be sent to the registered mobile number or
-          email ID. All rights reserved. This website's content, design, and data are protected by
-          copyright and other intellectual property rights. Unauthorized use or reproduction of the
-          content may be subject to legal repercussions. For precise and current information on
-          services, pricing, availability, or any other details, we recommend you contact us
-          directly via the provided contact information on this website. We appreciate your visit.
-        </p>
       </footer>
 
       {/* Floating "Enquire Now" button — visible anywhere on the page after scrolling */}
