@@ -828,11 +828,19 @@ function Index() {
       </section>
 
       <footer className="bg-ink px-4 py-10 text-center text-[11px] leading-relaxed text-secondary/50 sm:px-6">
-        <img
-          src={LOGO_URL}
-          alt="Shapoorji Pallonji Vyomora, Hinjawadi"
-          className="mx-auto h-14 w-auto brightness-0 invert"
-        />
+        <div className="flex items-center justify-center gap-4">
+          <img
+            src={SP_LOGO_URL}
+            alt="Shapoorji Pallonji Real Estate"
+            className="h-14 w-auto rounded-md bg-secondary/95 p-1.5"
+          />
+          <span className="h-10 w-px bg-secondary/30" aria-hidden="true" />
+          <img
+            src={LOGO_URL}
+            alt="Shapoorji Pallonji Vyomora, Hinjawadi"
+            className="h-14 w-auto brightness-0 invert"
+          />
+        </div>
         <p className="mt-2">{PROJECT.location} · Sales desk {PROJECT.phoneDisplay}</p>
         <p className="mt-1">
           Marketed by {PROJECT.firm} ·{" "}
