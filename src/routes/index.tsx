@@ -981,27 +981,6 @@ function Index() {
         </div>
       </Modal>
 
-      {/* Thank you */}
-      <Modal open={Boolean(thankYou)} onClose={() => setThankYou(null)} label="Enquiry received">
-        <div className="py-2 text-center">
-          <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent">
-            <Sparkles className="h-5 w-5 text-primary" />
-          </div>
-          <h2 className="mt-5 text-2xl text-foreground">Thank you, {thankYou?.name}</h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            The floor &amp; unit plans, cost sheet and brochure are on the way to {thankYou?.email}.
-            Our sales desk will call you on {thankYou?.mobile} shortly.
-          </p>
-          <p className="mt-6 text-sm font-semibold text-gold">Get pick and drop service</p>
-          <button
-            onClick={() => setThankYou(null)}
-            className="mt-3 block w-full rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent"
-          >
-            Continue exploring
-          </button>
-
-        </div>
-      </Modal>
 
       {/* Lightbox */}
       {lightbox !== null ? (
