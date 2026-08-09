@@ -833,7 +833,7 @@ function Index() {
           <img
             src={SP_LOGO_URL}
             alt="Shapoorji Pallonji Real Estate"
-            className="h-14 w-auto rounded-md bg-secondary/95 p-1.5"
+            className="h-14 w-auto brightness-0 invert"
           />
           <span className="h-10 w-px bg-secondary/30" aria-hidden="true" />
           <img
