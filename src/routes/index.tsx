@@ -216,7 +216,7 @@ function Index() {
   const [modal, setModal] = useState<null | { intent: string; cta: string; title: string; copy: string }>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [mapRevealed, setMapRevealed] = useState(false);
+  
   
 
   useEffect(() => {
