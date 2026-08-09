@@ -253,13 +253,13 @@ function Index() {
     <div ref={pageRef} className="min-h-screen bg-background text-foreground xl:pr-[20rem]">
       {/* Header */}
       <header className="fixed left-0 right-0 top-0 z-50 xl:right-[20rem]">
-        <div className="border-b border-border bg-card shadow-soft">
+        <div className="border-b border-secondary/15 bg-ink shadow-soft">
           <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6">
             <a href="#top" className="flex shrink-0 items-center py-2">
               <img
                 src={SP_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
-                className="h-10 w-auto shrink-0 sm:h-11"
+                className="h-10 w-auto shrink-0 rounded bg-secondary/95 p-1 sm:h-11"
               />
             </a>
             {/* Icon nav rail — same line as logo */}
@@ -269,7 +269,7 @@ function Index() {
                   <li key={label}>
                     <a
                       href={href}
-                      className="inline-flex items-center gap-2 px-3 py-4 text-xs font-semibold tracking-wide text-foreground transition hover:text-primary"
+                      className="inline-flex items-center gap-2 px-3 py-4 text-xs font-semibold tracking-wide text-secondary/85 transition hover:text-gold"
                     >
                       <Icon className="h-4 w-4 text-gold" /> {label}
                     </a>
