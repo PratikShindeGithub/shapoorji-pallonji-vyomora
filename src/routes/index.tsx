@@ -753,29 +753,6 @@ function Index() {
 
 
 
-      {/* FAQ */}
-      <section id="faq" className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24">
-        <SectionHead eyebrow="FAQ" title="Questions buyers ask us most" />
-        <div className="mt-12 divide-y divide-border border-y border-border">
-          {FAQS.map((f, i) => (
-            <details
-              key={f.q}
-              className="reveal group py-5"
-              data-reveal
-              data-reveal-delay={i * 60}
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-foreground">
-                {f.q}
-                <span className="shrink-0 text-gold transition-transform duration-300 group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="border-t border-border bg-secondary py-20">
         <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
