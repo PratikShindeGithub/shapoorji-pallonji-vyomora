@@ -424,9 +424,45 @@ function Index() {
       </section>
 
       {/* Persistent price-breakup panel (desktop) — visible across the whole page */}
-      <aside className="fixed right-4 top-[10.5rem] z-[45] hidden max-h-[calc(100vh-12rem)] w-[20rem] overflow-y-auto rounded-xl border border-gold/25 bg-card p-5 shadow-lift xl:block">
+      <aside className="fixed right-4 top-[10.5rem] z-[45] hidden max-h-[calc(100vh-12rem)] w-[20rem] overflow-y-auto rounded-xl border border-gold/25 bg-card shadow-lift xl:block">
+        {/* Quick contact strip */}
+        <div className="grid grid-cols-2 overflow-hidden rounded-t-xl">
+          <button
+            onClick={() => openEnquiry("site-visit", "Organize Site Visit", "Organize a site visit", "Share your details and our team will schedule your visit.")}
+            className="bg-ink px-3 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary"
+          >
+            Organize Site Visit
+          </button>
+          <a
+            href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center gap-2 border-l border-primary-foreground/20 bg-ink px-3 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary"
+          >
+            <MessageCircle className="h-4 w-4" />
+            WhatsApp Now
+          </a>
+        </div>
+        <div className="bg-secondary px-4 py-4">
+          <a
+            href={`tel:${PROJECT.phone}`}
+            className="block rounded-md border border-primary bg-card py-2.5 text-center text-sm font-semibold text-primary"
+          >
+            Call : {PROJECT.phoneDisplay}
+          </a>
+          <button
+            onClick={() => openEnquiry("call-back", "Request Call Back", "Request a call back", "Our sales desk will call you shortly.")}
+            className="mx-auto mt-3 flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition hover:bg-gold hover:text-gold-foreground"
+          >
+            <Phone className="h-4 w-4" />
+            Request Call Back
+          </button>
+        </div>
+
+        <div className="px-5 pb-5 pt-5">
         <img src={LOGO_URL} alt="Vyomora" className="mx-auto h-12 w-auto object-contain" />
         <h2 className="mt-3 text-center text-xl text-foreground">Enquire Now</h2>
+
         <div className="mt-4">
           <LeadForm intent="sticky-panel" variant="line" onSuccess={handleSuccess} />
         </div>
