@@ -424,14 +424,13 @@ function Index() {
       </section>
 
       {/* Persistent price-breakup panel (desktop) — visible across the whole page */}
-      <aside className="fixed right-4 top-[10.5rem] z-[45] hidden max-h-[calc(100vh-12rem)] w-[20rem] overflow-y-auto rounded-xl border border-gold/25 bg-card/95 p-5 shadow-lift backdrop-blur xl:block">
-        <h2 className="text-lg text-foreground">Get the exact price breakup</h2>
-        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-          Floor-wise pricing, charges, payment plan and brochure — sent instantly.
-        </p>
+      <aside className="fixed right-4 top-[10.5rem] z-[45] hidden max-h-[calc(100vh-12rem)] w-[20rem] overflow-y-auto rounded-xl border border-gold/25 bg-card p-5 shadow-lift xl:block">
+        <img src={LOGO_URL} alt="Vyomora" className="mx-auto h-12 w-auto object-contain" />
+        <h2 className="mt-3 text-center text-xl text-foreground">Enquire Now</h2>
         <div className="mt-4">
-          <LeadForm intent="sticky-panel" withCity onSuccess={handleSuccess} />
+          <LeadForm intent="sticky-panel" variant="line" onSuccess={handleSuccess} />
         </div>
+
         <div className="mt-4 flex items-center justify-center gap-3 border-t border-border pt-4">
           <a
             href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}

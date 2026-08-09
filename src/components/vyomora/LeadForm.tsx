@@ -12,8 +12,11 @@ type Props = {
   compact?: boolean;
   intent?: string;
   withCity?: boolean;
+  /** "line": underline-only fields, +91 phone prefix, centered submit */
+  variant?: "boxed" | "line";
   onSuccess: (values: LeadValues, intent?: string) => void;
 };
+
 
 type Errs = Partial<Record<keyof LeadValues, string | undefined>>;
 
@@ -44,16 +47,18 @@ const errorsFor = (v: LeadValues, withCity?: boolean) => {
   return e;
 };
 
-export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity, onSuccess }: Props) {
+export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity, variant = "boxed", onSuccess }: Props) {
   const [values, setValues] = useState<LeadValues>({ name: "", mobile: "", email: "", city: "" });
   const [errors, setErrors] = useState<Errs>({});
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
   const send = useServerFn(submitLead);
 
+  const line = variant === "line";
 
-  const inputClass =
-    "w-full rounded-md border border-border bg-card py-3 pl-11 pr-4 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
+  const inputClass = line
+    ? "w-full border-0 border-b border-border bg-transparent px-1 py-3 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-gold"
+    : "w-full rounded-md border border-border bg-card py-3 pl-11 pr-4 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
 
   const field = (key: TextKey, label: string, extra?: Record<string, string>) => {
     const Icon = FIELD_ICONS[key];
@@ -62,8 +67,16 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
         <label htmlFor={`${intent ?? "lead"}-${key}`} className="sr-only">
           {label}
         </label>
-        <div className="relative">
-          <Icon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <div className={line ? "flex items-stretch" : "relative"}>
+          {line ? (
+            key === "mobile" ? (
+              <span className="flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2 text-sm text-foreground">
+                <span aria-hidden>🇮🇳</span> +91
+              </span>
+            ) : null
+          ) : (
+            <Icon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          )}
           <input
             id={`${intent ?? "lead"}-${key}`}
             value={values[key]}
@@ -82,6 +95,7 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
       </div>
     );
   };
+
 
   return (
     <form
@@ -118,28 +132,32 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
         }
       }}
 
-      className={compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
+      className={compact ? "grid gap-3 sm:grid-cols-3" : line ? "grid gap-0" : "grid gap-3"}
     >
-      {field("name", "Full name", { autoComplete: "name", maxLength: "80" })}
-      {field("mobile", "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}
-      {field("email", "Email address", { type: "email", autoComplete: "email", maxLength: "120" })}
+      {field("name", line ? "Name" : "Full name", { autoComplete: "name", maxLength: "80" })}
+      {field("mobile", line ? "Phone" : "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}
+      {field("email", line ? "E-Mail Address" : "Email address", { type: "email", autoComplete: "email", maxLength: "120" })}
       {withCity ? field("city", "Current city", { autoComplete: "address-level2", maxLength: "60" }) : null}
       <button
         type="submit"
         disabled={busy}
-        className={`${compact ? "sm:col-span-3" : ""} cta-blink mt-1 inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:animate-none disabled:bg-primary disabled:opacity-70`}
+        className={
+          line
+            ? "mx-auto mt-5 inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-sm font-semibold tracking-wide text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:opacity-70"
+            : `${compact ? "sm:col-span-3" : ""} cta-blink mt-1 inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:animate-none disabled:bg-primary disabled:opacity-70`
+        }
       >
-        {busy ? "Sending…" : cta}
+        {busy ? "Sending…" : line ? "Submit" : cta}
       </button>
       {failed ? (
-        <p className="text-xs text-destructive">
+        <p className="mt-2 text-xs text-destructive">
           Something went wrong. Please try again or call our sales desk.
         </p>
       ) : null}
-      <p className="text-[11px] leading-relaxed text-muted-foreground">
+      <p className={`text-[11px] leading-relaxed text-muted-foreground ${line ? "mt-4 text-center" : ""}`}>
         By submitting you authorise our sales desk to contact you regarding this project.
-
       </p>
+
     </form>
   );
 }
