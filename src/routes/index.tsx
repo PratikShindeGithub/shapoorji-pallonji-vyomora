@@ -255,11 +255,11 @@ function Index() {
       <header className="fixed left-0 right-0 top-0 z-50 xl:right-[20rem]">
         <div className="border-b border-secondary/15 bg-ink shadow-soft">
           <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6">
-            <a href="#top" className="flex shrink-0 items-center py-2">
+            <a href="#top" className="flex shrink-0 items-center py-3">
               <img
                 src={SP_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
-                className="h-10 w-auto shrink-0 sm:h-11"
+                className="h-14 w-auto shrink-0 sm:h-16"
               />
             </a>
             {/* Icon nav rail — same line as logo */}
@@ -269,9 +269,9 @@ function Index() {
                   <li key={label}>
                     <a
                       href={href}
-                      className="inline-flex items-center gap-2 px-3 py-4 text-xs font-semibold tracking-wide text-secondary/85 transition hover:text-gold"
+                      className="inline-flex items-center gap-2 px-3 py-5 text-sm font-semibold tracking-wide text-secondary/85 transition hover:text-gold"
                     >
-                      <Icon className="h-4 w-4 text-gold" /> {label}
+                      <Icon className="h-5 w-5 text-gold" /> {label}
                     </a>
                   </li>
                 ))}
@@ -280,9 +280,9 @@ function Index() {
                     onClick={() =>
                       openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
                     }
-                    className="cta-blink inline-flex h-full items-center gap-2 px-5 text-xs font-bold transition"
+                    className="cta-blink inline-flex h-full items-center gap-2 px-6 text-sm font-bold transition"
                   >
-                    <Download className="icon-nudge h-4 w-4" /> Download Brochure
+                    <Download className="icon-nudge h-5 w-5" /> Download Brochure
                   </button>
                 </li>
               </ul>
@@ -294,7 +294,7 @@ function Index() {
       {/* Hero */}
       <section
         id="top"
-        className="relative isolate overflow-hidden pt-[72px] lg:flex lg:min-h-screen lg:items-center lg:pt-0"
+        className="relative isolate overflow-hidden pt-[96px] lg:flex lg:min-h-screen lg:items-center lg:pt-0"
       >
         <HeroSlideshow />
 
