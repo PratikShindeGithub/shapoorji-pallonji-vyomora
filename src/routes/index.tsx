@@ -834,9 +834,9 @@ function Index() {
       </section>
 
       <footer className="bg-ink px-4 py-12 sm:px-6">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto w-full max-w-6xl">
           {/* Logos */}
-          <div className="flex items-center justify-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-5">
             <img
               src={SP_LOGO_URL}
               alt="Shapoorji Pallonji Real Estate"
@@ -861,23 +861,76 @@ function Index() {
             </p>
           </div>
 
+          {/* MahaRERA */}
+          <div className="mt-7 flex w-full flex-col items-center gap-4 rounded-xl border border-secondary/15 bg-secondary/5 p-5 sm:flex-row sm:justify-center sm:gap-6">
+            <img
+              src={maharera.url}
+              alt="MahaRERA Registration No. PR1260002600999 QR code"
+              className="h-24 w-auto rounded-md bg-secondary/95 p-1"
+              loading="lazy"
+            />
+            <div className="text-center sm:text-left">
+              <p className="text-sm font-semibold text-secondary/85">MahaRERA Registration No.</p>
+              <p className="text-lg font-bold tracking-wide text-secondary">PR1260002600999</p>
+              <a
+                href="https://maharera.maharashtra.gov.in/"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-xs text-gold hover:underline"
+              >
+                https://maharera.maharashtra.gov.in/
+              </a>
+            </div>
+          </div>
+
           {/* Divider */}
-          <div className="mx-auto mt-6 h-px w-full max-w-2xl bg-secondary/15" />
+          <div className="mt-7 h-px w-full bg-secondary/15" />
 
           {/* Disclaimer */}
-          <p className="mx-auto mt-5 max-w-2xl text-left text-[11px] leading-relaxed text-secondary/45">
-            The content presented on this website is solely for informational purposes and does not
-            constitute a service offer. Prices mentioned here are subject to change without prior
-            notification, and the availability of the listed properties is not assured. Images
-            showcased are illustrative and may not precisely represent the actual properties. Kindly
-            be advised that this website operates as an authorized marketing partner (HomeLogic Pvt
-            Ltd). Additionally, updates and information may be sent to the registered mobile number or
-            email ID. All rights reserved. This website's content, design, and data are protected by
-            copyright and other intellectual property rights. Unauthorized use or reproduction of the
-            content may be subject to legal repercussions. For precise and current information on
-            services, pricing, availability, or any other details, we recommend you contact us
-            directly via the provided contact information on this website. We appreciate your visit.
-          </p>
+          <div className="mt-5 w-full space-y-4 text-left text-[11px] leading-relaxed text-secondary/45">
+            <p>
+              The content presented on this website is solely for informational purposes and does not
+              constitute a service offer. Prices mentioned here are subject to change without prior
+              notification, and the availability of the listed properties is not assured. Images
+              showcased are illustrative and may not precisely represent the actual properties. Kindly
+              be advised that this website operates as an authorized marketing partner (HomeLogic Pvt
+              Ltd). Additionally, updates and information may be sent to the registered mobile number
+              or email ID. All rights reserved. This website's content, design, and data are protected
+              by copyright and other intellectual property rights. Unauthorized use or reproduction of
+              the content may be subject to legal repercussions. For precise and current information on
+              services, pricing, availability, or any other details, we recommend you contact us
+              directly via the provided contact information on this website. We appreciate your visit.
+            </p>
+            <p>
+              Disclaimer: Joyville Shapoorji Housing Pvt Ltd (CIN No: U70109MH2007PTC166942) is the
+              promoter of the project. This advertisement does constitute an offer. Any prospective sale
+              shall be governed by the terms, and Agreement for Sale to be entered into between the
+              parties. Before making a decision to purchase, you are requested to independently, either
+              directly or through your legal/financial advisors, thoroughly verify all
+              details/documents pertaining to the project. This project is mortgaged in favour of / for
+              the benefit of ICICI Bank Limited, whose NOC will be required for sale of the flats /
+              units in the project. T&amp;C apply. Website:{" "}
+              <a
+                href="https://www.joyvillehomes.com"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-gold hover:underline"
+              >
+                www.joyvillehomes.com
+              </a>
+              .
+            </p>
+          </div>
+
+          {/* Legal links */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-secondary/15 pt-5 text-xs text-secondary/60">
+            <a href="/privacy-policy.html" className="hover:text-gold hover:underline">
+              Privacy Policy
+            </a>
+            <a href="/terms.html" className="hover:text-gold hover:underline">
+              Terms &amp; Conditions
+            </a>
+          </div>
         </div>
       </footer>
 
