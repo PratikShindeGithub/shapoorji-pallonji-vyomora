@@ -14,7 +14,7 @@ export const PROJECT = {
 export const HIGHLIGHTS = [
   { value: "25", label: "Acre integrated community" },
   { value: "2 & 3", label: "BHK apartments & duplexes" },
-  { value: "40+", label: "Curated amenities" },
+  { value: "85+", label: "Curated amenities" },
   { value: "160+\u00a0", label: "Years of Excellence" },
 ];
 
