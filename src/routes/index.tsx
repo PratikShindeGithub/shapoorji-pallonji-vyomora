@@ -68,7 +68,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "25-acre township in Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK homes and duplexes with 40+ amenities. Request the price breakup today.",
+          "25-acre township in Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK homes and duplexes with 85+ amenities. Request the price breakup today.",
       },
       { property: "og:url", content: "/" },
     ],
