@@ -22,6 +22,8 @@ import {
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import { FLOOR_PLAN_URL } from "@/components/vyomora/floor-plan";
 import { COST_SHEET_IMAGE } from "@/components/vyomora/cost-sheet";
+import reraQr1 from "@/assets/rera-qr-1.png.asset.json";
+import reraQr2 from "@/assets/rera-qr-2.png.asset.json";
 
 import {
   AMENITIES,
