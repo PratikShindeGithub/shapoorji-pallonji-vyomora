@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   BedDouble,
@@ -209,8 +209,8 @@ function SectionHead({
 
 function Index() {
   const pageRef = useReveal<HTMLDivElement>();
+  const navigate = useNavigate();
   const [modal, setModal] = useState<null | { intent: string; cta: string; title: string; copy: string }>(null);
-  const [thankYou, setThankYou] = useState<LeadValues | null>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   
@@ -231,6 +231,7 @@ function Index() {
 
 
 
+
   const [welcome, setWelcome] = useState(false);
   useEffect(() => {
     const id = window.setTimeout(() => setWelcome(true), 1500);
@@ -240,7 +241,10 @@ function Index() {
   const handleSuccess = (values: LeadValues) => {
     setModal(null);
     setWelcome(false);
-    setThankYou(values);
+    navigate({
+      to: "/thankyou.html",
+      state: { name: values.name, email: values.email, mobile: values.mobile } as any,
+    });
   };
 
 
@@ -977,27 +981,7 @@ function Index() {
         </div>
       </Modal>
 
-      {/* Thank you */}
-      <Modal open={Boolean(thankYou)} onClose={() => setThankYou(null)} label="Enquiry received">
-        <div className="py-2 text-center">
-          <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent">
-            <Sparkles className="h-5 w-5 text-primary" />
-          </div>
-          <h2 className="mt-5 text-2xl text-foreground">Thank you, {thankYou?.name}</h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            The floor &amp; unit plans, cost sheet and brochure are on the way to {thankYou?.email}.
-            Our sales desk will call you on {thankYou?.mobile} shortly.
-          </p>
-          <p className="mt-6 text-sm font-semibold text-gold">Get pick and drop service</p>
-          <button
-            onClick={() => setThankYou(null)}
-            className="mt-3 block w-full rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent"
-          >
-            Continue exploring
-          </button>
-
-        </div>
-      </Modal>
+      {/* Thank you page is a dedicated route at /thankyou.html for conversion tracking */}
 
       {/* Lightbox */}
       {lightbox !== null ? (
