@@ -855,8 +855,17 @@ function Index() {
           </a>
         </p>
         <p className="mx-auto mt-4 max-w-2xl">
-          This is an information page for prospective buyers. Images are artistic impressions.
-          Prices, areas and amenities are indicative and subject to change without notice.
+          The content presented on this website is solely for informational purposes and does not
+          constitute a service offer. Prices mentioned here are subject to change without prior
+          notification, and the availability of the listed properties is not assured. Images
+          showcased are illustrative and may not precisely represent the actual properties. Kindly
+          be advised that this website operates as an authorized marketing partner (HomeLogic Pvt
+          Ltd). Additionally, updates and information may be sent to the registered mobile number or
+          email ID. All rights reserved. This website's content, design, and data are protected by
+          copyright and other intellectual property rights. Unauthorized use or reproduction of the
+          content may be subject to legal repercussions. For precise and current information on
+          services, pricing, availability, or any other details, we recommend you contact us
+          directly via the provided contact information on this website. We appreciate your visit.
         </p>
       </footer>
 
