@@ -269,9 +269,9 @@ function Index() {
                   <li key={label}>
                     <a
                       href={href}
-                      className="inline-flex items-center gap-2 px-3 py-5 text-sm font-semibold tracking-wide text-secondary/85 transition hover:text-gold"
+                      className="inline-flex items-center gap-1.5 px-3 py-5 text-[13px] font-semibold tracking-wide text-secondary/85 transition hover:text-gold"
                     >
-                      <Icon className="h-5 w-5 text-gold" /> {label}
+                      <Icon className="h-4 w-4 text-gold" /> {label}
                     </a>
                   </li>
                 ))}
@@ -280,9 +280,9 @@ function Index() {
                     onClick={() =>
                       openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
                     }
-                    className="cta-blink inline-flex h-full items-center gap-2 px-6 text-sm font-bold transition"
+                    className="cta-blink inline-flex h-full items-center gap-2 px-6 text-[13px] font-bold transition"
                   >
-                    <Download className="icon-nudge h-5 w-5" /> Download Brochure
+                    <Download className="icon-nudge h-4 w-4" /> Download Brochure
                   </button>
                 </li>
               </ul>
