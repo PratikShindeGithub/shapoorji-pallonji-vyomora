@@ -209,8 +209,8 @@ function SectionHead({
 
 function Index() {
   const pageRef = useReveal<HTMLDivElement>();
+  const navigate = useNavigate();
   const [modal, setModal] = useState<null | { intent: string; cta: string; title: string; copy: string }>(null);
-  const [thankYou, setThankYou] = useState<LeadValues | null>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   
@@ -231,6 +231,7 @@ function Index() {
 
 
 
+
   const [welcome, setWelcome] = useState(false);
   useEffect(() => {
     const id = window.setTimeout(() => setWelcome(true), 1500);
@@ -240,7 +241,10 @@ function Index() {
   const handleSuccess = (values: LeadValues) => {
     setModal(null);
     setWelcome(false);
-    setThankYou(values);
+    navigate({
+      to: "/thankyou.html",
+      state: { name: values.name, email: values.email, mobile: values.mobile },
+    });
   };
 
 
