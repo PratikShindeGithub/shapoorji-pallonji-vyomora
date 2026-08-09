@@ -25,10 +25,8 @@ export const Route = createFileRoute("/thankyou/html")({
   component: ThankYouPage,
 });
 
-type LeadState = { name?: string; email?: string; mobile?: string } | undefined;
-
 function ThankYouPage() {
-  const lead = useRouterState({ select: (s) => s.location.state as LeadState }) ?? {};
+
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
