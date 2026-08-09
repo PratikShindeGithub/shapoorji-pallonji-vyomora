@@ -132,28 +132,32 @@ export function LeadForm({ cta = "Get Price Breakup", compact, intent, withCity,
         }
       }}
 
-      className={compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
+      className={compact ? "grid gap-3 sm:grid-cols-3" : line ? "grid gap-0" : "grid gap-3"}
     >
-      {field("name", "Full name", { autoComplete: "name", maxLength: "80" })}
-      {field("mobile", "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}
-      {field("email", "Email address", { type: "email", autoComplete: "email", maxLength: "120" })}
+      {field("name", line ? "Name" : "Full name", { autoComplete: "name", maxLength: "80" })}
+      {field("mobile", line ? "Phone" : "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}
+      {field("email", line ? "E-Mail Address" : "Email address", { type: "email", autoComplete: "email", maxLength: "120" })}
       {withCity ? field("city", "Current city", { autoComplete: "address-level2", maxLength: "60" }) : null}
       <button
         type="submit"
         disabled={busy}
-        className={`${compact ? "sm:col-span-3" : ""} cta-blink mt-1 inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:animate-none disabled:bg-primary disabled:opacity-70`}
+        className={
+          line
+            ? "mx-auto mt-5 inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-sm font-semibold tracking-wide text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:opacity-70"
+            : `${compact ? "sm:col-span-3" : ""} cta-blink mt-1 inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:animate-none disabled:bg-primary disabled:opacity-70`
+        }
       >
-        {busy ? "Sending…" : cta}
+        {busy ? "Sending…" : line ? "Submit" : cta}
       </button>
       {failed ? (
-        <p className="text-xs text-destructive">
+        <p className="mt-2 text-xs text-destructive">
           Something went wrong. Please try again or call our sales desk.
         </p>
       ) : null}
-      <p className="text-[11px] leading-relaxed text-muted-foreground">
+      <p className={`text-[11px] leading-relaxed text-muted-foreground ${line ? "mt-4 text-center" : ""}`}>
         By submitting you authorise our sales desk to contact you regarding this project.
-
       </p>
+
     </form>
   );
 }
