@@ -23,8 +23,15 @@ export default function ProjectVideo() {
   }, [play]);
 
   return (
-    <section className="bg-ink pb-20 sm:pb-24">
+    <section className="border-t border-gold/15 bg-ink py-20 sm:py-24">
       <div ref={ref} className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="mb-8 text-center">
+          <p className="eyebrow text-gold">Project film</p>
+          <h2 className="mt-3 text-3xl leading-tight text-secondary sm:text-4xl">
+            See Vyomora come to life
+          </h2>
+          <div className="hairline mx-auto mt-5 w-24" />
+        </div>
         <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-gold/25 bg-black shadow-lift">
           {play ? (
             <iframe
