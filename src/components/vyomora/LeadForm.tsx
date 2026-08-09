@@ -12,8 +12,11 @@ type Props = {
   compact?: boolean;
   intent?: string;
   withCity?: boolean;
+  /** "line": underline-only fields, +91 phone prefix, centered submit */
+  variant?: "boxed" | "line";
   onSuccess: (values: LeadValues, intent?: string) => void;
 };
+
 
 type Errs = Partial<Record<keyof LeadValues, string | undefined>>;
 
