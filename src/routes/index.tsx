@@ -44,6 +44,7 @@ import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
 import { LOGO_URL, SP_LOGO_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
+import ProjectVideo from "@/components/vyomora/ProjectVideo";
 
 
 export const Route = createFileRoute("/")({
