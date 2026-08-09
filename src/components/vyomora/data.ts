@@ -2,7 +2,7 @@ export const PROJECT = {
   name: "Vyomora",
   tagline: "A 25-acre township rising in Hinjawadi Phase 1",
   location: "Hinjawadi Phase 1, Pune",
-  startingPrice: "₹84.99 Lakhs*",
+  startingPrice: "₹88 Lakhs*",
   reraNote: "Prices are indicative and subject to change. T&C apply.",
   phone: "+919175892774",
   phoneDisplay: "+91 91758 92774",
@@ -21,27 +21,27 @@ export const HIGHLIGHTS = [
 export const CONFIGS = [
   {
     type: "2 BHK Compact",
-    area: "718 sq.ft.",
-    price: "₹84.99 L*",
+    area: "685 - 750 sq.ft.",
+    price: "₹88 L*",
     notes: ["Wide living-dining", "Dry balcony", "Tower-facing garden view"],
   },
   {
     type: "2 BHK Grand",
-    area: "842 sq.ft.",
-    price: "₹98.50 L*",
+    area: "779 - 839 sq.ft.",
+    price: "₹1 Cr*",
     notes: ["Corner layout", "Two full baths", "Deck balcony"],
     featured: true,
   },
   {
     type: "3 BHK Premium",
-    area: "1,145 sq.ft.",
-    price: "₹1.32 Cr*",
+    area: "1050 - 1091 sq.ft.",
+    price: "₹1.36 Cr*",
     notes: ["Master with walk-in", "Utility deck", "Podium-level views"],
   },
   {
-    type: "3 BHK Duplex",
-    area: "1,680 sq.ft.",
-    price: "₹1.95 Cr*",
+    type: "3 BHK Imperial",
+    area: "1186 sq.ft.",
+    price: "₹1.54 Cr*",
     notes: ["Double-height living", "Private terrace", "Internal staircase"],
   },
 ];
@@ -103,11 +103,11 @@ export const FAQS = [
   },
   {
     q: "What configurations are available?",
-    a: "2 BHK and 3 BHK apartments from 718 to 1,145 sq.ft., plus limited 3 BHK duplex residences of 1,680 sq.ft.",
+    a: "2 BHK and 3 BHK apartments from 685 to 1186 sq.ft., including premium 3 BHK imperial residences.",
   },
   {
     q: "What is the starting price?",
-    a: "Homes start at ₹84.99 Lakhs* for the 2 BHK compact layout. Share your details to receive the complete cost sheet with taxes, charges and payment plan.",
+    a: "Homes start at ₹88 Lakhs* for the 2 BHK compact layout. Share your details to receive the complete cost sheet with taxes, charges and payment plan.",
   },
   {
     q: "Is the project RERA registered?",

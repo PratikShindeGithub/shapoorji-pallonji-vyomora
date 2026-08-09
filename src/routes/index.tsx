@@ -54,16 +54,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Vyomora Hinjawadi Phase 1 | 2 & 3 BHK from ₹84.99 L*",
+        title: "Vyomora Hinjawadi Phase 1 | 2 & 3 BHK from ₹88 L*",
       },
       {
         name: "description",
         content:
-          "Vyomora, a 25-acre township in Hinjawadi Phase 1, Pune. 2 & 3 BHK apartments and duplexes from ₹84.99 Lakhs*. Get the cost sheet, floor plans and site visit slot.",
+          "Vyomora, a 25-acre township in Hinjawadi Phase 1, Pune. 2 & 3 BHK apartments and duplexes from ₹88 Lakhs*. Get the cost sheet, floor plans and site visit slot.",
       },
       {
         property: "og:title",
-        content: "Vyomora Hinjawadi Phase 1 | 2 & 3 BHK from ₹84.99 L*",
+        content: "Vyomora Hinjawadi Phase 1 | 2 & 3 BHK from ₹88 L*",
       },
       {
         property: "og:description",
@@ -108,9 +108,9 @@ const AMENITY_ICONS = [
 const GALLERY = GALLERY_ITEMS;
 
 const PLANS = [
-  { title: "2 BHK · 718 sq.ft.", src: plan2 },
-  { title: "3 BHK · 1,145 sq.ft.", src: plan3 },
-  { title: "3 BHK Duplex · 1,680 sq.ft.", src: planDuplex },
+  { title: "2 BHK · 685 - 750 sq.ft.", src: plan2 },
+  { title: "3 BHK · 1050 - 1091 sq.ft.", src: plan3 },
+  { title: "3 BHK Imperial · 1186 sq.ft.", src: planDuplex },
 ];
 
 /* ---------- helpers ---------- */
@@ -467,14 +467,14 @@ function Index() {
                   onClick={() =>
                     openEnquiry(
                       `cost-sheet-${c.type}`,
-                      "Know More",
+                      "View Floor Plan",
                       `Price breakup — ${c.type}`,
                       "We'll send the detailed cost sheet with all charges and the payment schedule.",
                     )
                   }
                   className="mt-5 w-full rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition"
                 >
-                  Know More
+                  View Floor Plan
                 </button>
               </div>
             ))}
@@ -520,14 +520,14 @@ function Index() {
                         onClick={() =>
                           openEnquiry(
                             `cost-sheet-${c.type}`,
-                            "Know More",
+                            "View Floor Plan",
                             `Price breakup — ${c.type}`,
                             "We'll send the detailed cost sheet with all charges and the payment schedule.",
                           )
                         }
                         className="w-32 shrink-0 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
                       >
-                        Know More
+                        View Floor Plan
                       </button>
                     </td>
 
