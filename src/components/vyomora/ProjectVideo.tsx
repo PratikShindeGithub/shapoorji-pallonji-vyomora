@@ -1,0 +1,42 @@
+import { useEffect, useRef, useState } from "react";
+
+const VIDEO_ID = "px3uOvvAbas";
+
+export default function ProjectVideo() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [play, setPlay] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || play) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setPlay(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [play]);
+
+  return (
+    <section className="bg-ink pb-20 sm:pb-24">
+      <div ref={ref} className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-gold/25 bg-black shadow-lift">
+          {play ? (
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1`}
+              title="Vyomora Hinjawadi project film"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
