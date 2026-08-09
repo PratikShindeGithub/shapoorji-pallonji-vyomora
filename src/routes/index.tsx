@@ -243,7 +243,7 @@ function Index() {
     setWelcome(false);
     navigate({
       to: "/thankyou.html",
-      state: { name: values.name, email: values.email, mobile: values.mobile },
+      state: { name: values.name, email: values.email, mobile: values.mobile } as any,
     });
   };
 
