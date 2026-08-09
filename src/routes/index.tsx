@@ -889,7 +889,7 @@ function Index() {
           {/* Disclaimer */}
           <div className="mt-5 w-full space-y-4 text-left text-[11px] leading-relaxed text-secondary/45">
             <p>
-              The content presented on this website is solely for informational purposes and does not
+              Disclaimer: The content presented on this website is solely for informational purposes and does not
               constitute a service offer. Prices mentioned here are subject to change without prior
               notification, and the availability of the listed properties is not assured. Images
               showcased are illustrative and may not precisely represent the actual properties. Kindly
@@ -902,7 +902,7 @@ function Index() {
               directly via the provided contact information on this website. We appreciate your visit.
             </p>
             <p>
-              Disclaimer: Joyville Shapoorji Housing Pvt Ltd (CIN No: U70109MH2007PTC166942) is the
+              Joyville Shapoorji Housing Pvt Ltd (CIN No: U70109MH2007PTC166942) is the
               promoter of the project. This advertisement does constitute an offer. Any prospective sale
               shall be governed by the terms, and Agreement for Sale to be entered into between the
               parties. Before making a decision to purchase, you are requested to independently, either
