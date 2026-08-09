@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PrivacyPolicyDothtmlRouteImport } from './routes/privacy-policy[.]html'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsDothtmlRouteImport } from './routes/terms[.]html'
 import { Route as ThankyouDothtmlRouteImport } from './routes/thankyou[.]html'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -19,9 +21,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyDothtmlRoute = PrivacyPolicyDothtmlRouteImport.update({
+  id: '/privacy-policy.html',
+  path: '/privacy-policy.html',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsDothtmlRoute = TermsDothtmlRouteImport.update({
+  id: '/terms.html',
+  path: '/terms.html',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ThankyouDothtmlRoute = ThankyouDothtmlRouteImport.update({
@@ -38,20 +50,26 @@ const LovableEmailTransactionalPreviewRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms.html': typeof TermsDothtmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms.html': typeof TermsDothtmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms.html': typeof TermsDothtmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -59,26 +77,34 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/privacy-policy.html'
     | '/sitemap.xml'
+    | '/terms.html'
     | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/privacy-policy.html'
     | '/sitemap.xml'
+    | '/terms.html'
     | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
+    | '/privacy-policy.html'
     | '/sitemap.xml'
+    | '/terms.html'
     | '/thankyou.html'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PrivacyPolicyDothtmlRoute: typeof PrivacyPolicyDothtmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsDothtmlRoute: typeof TermsDothtmlRoute
   ThankyouDothtmlRoute: typeof ThankyouDothtmlRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
@@ -92,11 +118,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy.html': {
+      id: '/privacy-policy.html'
+      path: '/privacy-policy.html'
+      fullPath: '/privacy-policy.html'
+      preLoaderRoute: typeof PrivacyPolicyDothtmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms.html': {
+      id: '/terms.html'
+      path: '/terms.html'
+      fullPath: '/terms.html'
+      preLoaderRoute: typeof TermsDothtmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/thankyou.html': {
@@ -118,7 +158,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PrivacyPolicyDothtmlRoute: PrivacyPolicyDothtmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsDothtmlRoute: TermsDothtmlRoute,
   ThankyouDothtmlRoute: ThankyouDothtmlRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }

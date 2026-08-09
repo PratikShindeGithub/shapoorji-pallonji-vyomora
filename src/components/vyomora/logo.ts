@@ -26,3 +26,7 @@ export const HERO_SLIDES: { url: string; alt: string }[] = [
 import spLogoAsset from "@/assets/sp-logo.png.asset.json";
 
 export const SP_LOGO_URL: string = spLogoAsset.url;
+
+import mahareraAsset from "@/assets/maharera-qr.png.asset.json";
+
+export const MAHARERA_QR_URL: string = mahareraAsset.url;
