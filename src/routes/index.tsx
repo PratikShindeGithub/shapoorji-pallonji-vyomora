@@ -443,7 +443,7 @@ function Index() {
         <h2 className="mt-3 text-center text-xl text-foreground">Enquire Now</h2>
 
         <div className="mt-4">
-          <LeadForm intent="sticky-panel" variant="line" onSuccess={handleSuccess} />
+          <LeadForm intent="sticky-panel" variant="line" withCity cta="Schedule a site visit" onSuccess={handleSuccess} />
         </div>
         </div>
 
