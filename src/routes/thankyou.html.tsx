@@ -4,7 +4,7 @@ import { Phone, Sparkles } from "lucide-react";
 import { PROJECT } from "@/components/vyomora/data";
 import { LOGO_URL } from "@/components/vyomora/logo";
 
-export const Route = createFileRoute("/thankyou.html")({
+export const Route = createFileRoute("/thankyou/html")({
   head: () => ({
     meta: [
       { title: "Thank you — Vyomora Hinjawadi Phase 1" },
