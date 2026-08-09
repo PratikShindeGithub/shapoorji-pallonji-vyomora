@@ -689,22 +689,26 @@ function Index() {
                 title="Map of Hinjawadi Phase 1, Pune"
                 src="https://www.google.com/maps?q=Hinjawadi%20Phase%201%2C%20Pune&output=embed"
                 loading="lazy"
-                className={`h-[420px] w-full border-0 transition duration-500 ${
-                  mapRevealed ? "blur-0" : "scale-105 blur-md"
-                }`}
+                className="h-[420px] w-full scale-105 border-0 blur-md"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              {!mapRevealed ? (
-                <button
-                  onClick={() => setMapRevealed(true)}
-                  className="absolute inset-0 z-10 flex items-center justify-center bg-ink/40 backdrop-blur-[2px]"
-                  aria-label="View location map"
-                >
-                  <span className="rounded-full bg-gold px-6 py-3 text-sm font-bold text-gold-foreground shadow-lift transition hover:-translate-y-0.5">
-                    View Location Map
-                  </span>
-                </button>
-              ) : null}
+              <button
+                onClick={() =>
+                  openEnquiry(
+                    "location-map",
+                    "View Location Map",
+                    "View Location Map",
+                    "Share your details and our sales desk will send the exact location map, connectivity details and site visit options.",
+                  )
+                }
+                className="absolute inset-0 z-10 flex items-center justify-center bg-ink/40 backdrop-blur-[2px]"
+                aria-label="View location map"
+              >
+                <span className="rounded-full bg-gold px-6 py-3 text-sm font-bold text-gold-foreground shadow-lift transition hover:-translate-y-0.5">
+                  View Location Map
+                </span>
+              </button>
+
             </div>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
