@@ -574,7 +574,7 @@ function Index() {
           <div className="reveal mx-auto max-w-2xl text-center" data-reveal>
             <p className="eyebrow text-gold">Amenities</p>
             <h2 className="mt-3 text-3xl leading-tight text-secondary sm:text-4xl">
-              Forty-Plus Reasons to Stay In
+              40+ Reasons to Stay In
             </h2>
             <div className="hairline mx-auto mt-5 w-24" />
           </div>
