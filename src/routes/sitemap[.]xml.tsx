@@ -6,7 +6,11 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: () => {
-        const urls = [`${BASE_URL}/`];
+        const urls = [
+          `${BASE_URL}/`,
+          `${BASE_URL}/privacy-policy.html`,
+          `${BASE_URL}/terms.html`,
+        ];
 
         const lastmod = new Date().toISOString().split("T")[0];
 
