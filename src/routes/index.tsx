@@ -758,43 +758,34 @@ function Index() {
 
       <footer className="bg-ink px-4 py-12 sm:px-6">
         <div className="mx-auto w-full max-w-6xl">
-          {/* Logos */}
-          <div className="flex flex-wrap items-center justify-center gap-5">
-            <img
-              src={SP_LOGO_URL}
-              alt="Shapoorji Pallonji Real Estate"
-              className="h-14 w-auto"
-            />
-            <span className="h-10 w-px bg-secondary/30" aria-hidden="true" />
-            <img
-              src={LOGO_URL}
-              alt="Shapoorji Pallonji Vyomora, Hinjawadi"
-              className="h-14 w-auto brightness-0 invert"
-            />
-          </div>
-
-
-
-
-          {/* Divider */}
-          <div className="mt-7 h-px w-full bg-secondary/15" />
-
-          {/* RERA QR codes */}
-          <div className="mt-5 flex w-full items-center justify-center gap-6">
-            <img src={reraQr1.url} alt="Channel Partner RERA QR code" className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
-            <img src={reraQr2.url} alt="Project RERA QR code" className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
+          {/* RERA QR codes + logos */}
+          <div className="flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-5">
+            <div className="flex items-center gap-4">
+              <img src={reraQr1.url} alt="Channel Partner RERA QR code" className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
+              <img src={reraQr2.url} alt="Project RERA QR code" className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
+            </div>
+            <div className="flex items-center gap-5">
+              <img
+                src={SP_LOGO_URL}
+                alt="Shapoorji Pallonji Real Estate"
+                className="h-14 w-auto"
+              />
+              <span className="h-10 w-px bg-secondary/30" aria-hidden="true" />
+              <img
+                src={LOGO_URL}
+                alt="Shapoorji Pallonji Vyomora, Hinjawadi"
+                className="h-14 w-auto brightness-0 invert"
+              />
+            </div>
           </div>
 
           {/* RERA registration notice */}
-
           <div className="mt-5 w-full text-center text-[12px] font-medium text-secondary/70">
             This project is RERA registered. | Authorized Channel Partner | Channel Partner RERA Number : A031262400404 | Project RERA Number : PR1260002600999
           </div>
 
-
-
           {/* Disclaimer */}
-          <div className="mt-5 w-full space-y-4 text-left text-[11px] leading-relaxed text-secondary/45">
+          <div className="mt-5 w-full text-left text-[11px] leading-relaxed text-secondary/45">
             <p>
               Disclaimer: The content presented on this website is solely for informational purposes and does not
               constitute a service offer. Prices mentioned here are subject to change without prior
@@ -807,8 +798,6 @@ function Index() {
               the content may be subject to legal repercussions. For precise and current information on
               services, pricing, availability, or any other details, we recommend you contact us
               directly via the provided contact information on this website. We appreciate your visit.
-            </p>
-            <p>
               Joyville Shapoorji Housing Pvt Ltd (CIN No: U70109MH2007PTC166942) is the
               promoter of the project. This advertisement does constitute an offer. Any prospective sale
               shall be governed by the terms, and Agreement for Sale to be entered into between the
@@ -816,18 +805,10 @@ function Index() {
               directly or through your legal/financial advisors, thoroughly verify all
               details/documents pertaining to the project. This project is mortgaged in favour of / for
               the benefit of ICICI Bank Limited, whose NOC will be required for sale of the flats /
-              units in the project. T&amp;C apply. Website:{" "}
-              <a
-                href="https://www.joyvillehomes.com"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="text-gold hover:underline"
-              >
-                www.joyvillehomes.com
-              </a>
-              .
+              units in the project. T&amp;C apply.
             </p>
           </div>
+
 
           {/* Legal links */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-secondary/15 pt-5 text-xs text-secondary/60">
