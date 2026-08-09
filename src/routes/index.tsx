@@ -777,6 +777,13 @@ function Index() {
           {/* Divider */}
           <div className="mt-7 h-px w-full bg-secondary/15" />
 
+          {/* RERA registration notice */}
+          <div className="mt-5 w-full text-center text-[12px] font-medium text-secondary/70">
+            This project is RERA registered. | Authorized Channel Partner | Channel Partner RERA Number : A031262400404 | Project RERA Number : PR1260002600999
+          </div>
+
+
+
           {/* Disclaimer */}
           <div className="mt-5 w-full space-y-4 text-left text-[11px] leading-relaxed text-secondary/45">
             <p>
