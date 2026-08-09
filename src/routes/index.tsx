@@ -44,6 +44,7 @@ import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
 import { LOGO_URL, SP_LOGO_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
+import ProjectVideo from "@/components/vyomora/ProjectVideo";
 
 
 export const Route = createFileRoute("/")({
@@ -789,6 +790,10 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <ProjectVideo />
+
+
 
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24">
