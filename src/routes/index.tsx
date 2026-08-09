@@ -753,20 +753,6 @@ function Index() {
 
 
 
-      {/* Final CTA */}
-      <section className="border-t border-border bg-secondary py-20">
-        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
-          <h2 className="reveal text-3xl leading-tight text-foreground sm:text-4xl" data-reveal>
-            Book your site visit at Vyomora
-          </h2>
-          <p className="reveal mt-4 text-sm text-muted-foreground" data-reveal data-reveal-delay="80">
-            Complimentary cab pickup anywhere in Pune. Slots fill fast on weekends.
-          </p>
-          <div className="reveal mx-auto mt-9 max-w-xl rounded-xl border border-border bg-card p-6 text-left shadow-soft sm:p-8" data-reveal data-reveal-delay="140">
-            <LeadForm intent="footer" compact withCity cta="Book Site Visit" onSuccess={handleSuccess} />
-          </div>
-        </div>
-      </section>
 
       <footer className="bg-ink px-4 py-12 sm:px-6">
         <div className="mx-auto w-full max-w-6xl">
