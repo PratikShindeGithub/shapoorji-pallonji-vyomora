@@ -268,8 +268,9 @@ function Index() {
                 src={SP_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
                 className={`h-10 w-auto shrink-0 sm:h-12 ${
-                  scrolled ? "" : "lg:rounded-md lg:bg-secondary/95 lg:p-1"
+                  scrolled ? "" : "lg:brightness-0 lg:invert"
                 }`}
+
               />
               <span
                 className={`h-8 w-px shrink-0 ${scrolled ? "bg-border" : "bg-border lg:bg-secondary/40"}`}
@@ -832,7 +833,7 @@ function Index() {
           <img
             src={SP_LOGO_URL}
             alt="Shapoorji Pallonji Real Estate"
-            className="h-14 w-auto rounded-md bg-secondary/95 p-1.5"
+            className="h-14 w-auto brightness-0 invert"
           />
           <span className="h-10 w-px bg-secondary/30" aria-hidden="true" />
           <img
