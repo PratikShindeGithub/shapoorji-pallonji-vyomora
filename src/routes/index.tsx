@@ -459,42 +459,15 @@ function Index() {
           </button>
         </div>
 
-        <div className="px-5 pb-5 pt-5">
+        <div className="px-5 pb-6 pt-5">
         <img src={LOGO_URL} alt="Vyomora" className="mx-auto h-12 w-auto object-contain" />
         <h2 className="mt-3 text-center text-xl text-foreground">Enquire Now</h2>
 
         <div className="mt-4">
           <LeadForm intent="sticky-panel" variant="line" onSuccess={handleSuccess} />
         </div>
+        </div>
 
-        <div className="mt-4 flex items-center justify-center gap-3 border-t border-border pt-4">
-          <a
-            href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="WhatsApp"
-            className="grid h-11 w-11 place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition hover:-translate-y-0.5 hover:bg-gold hover:text-gold-foreground"
-          >
-            <MessageCircle className="h-4.5 w-4.5" />
-          </a>
-          <a
-            href={`tel:${PROJECT.phone}`}
-            aria-label="Call"
-            className="grid h-11 w-11 place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition hover:-translate-y-0.5 hover:bg-gold hover:text-gold-foreground"
-          >
-            <Phone className="h-4.5 w-4.5" />
-          </a>
-          <button
-            onClick={() =>
-              openEnquiry("brochure", "Send Brochure", "Get the brochure", "The complete Vyomora brochure will be sent to your email and WhatsApp.")
-            }
-            aria-label="Brochure"
-            className="grid h-11 w-11 place-items-center rounded-full bg-gold text-gold-foreground shadow-lift transition hover:-translate-y-0.5"
-          >
-            <Trees className="h-4.5 w-4.5" />
-          </button>
-        </div>
-        </div>
       </aside>
 
 
