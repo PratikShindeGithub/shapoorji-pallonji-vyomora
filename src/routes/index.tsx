@@ -777,7 +777,14 @@ function Index() {
           {/* Divider */}
           <div className="mt-7 h-px w-full bg-secondary/15" />
 
+          {/* RERA QR codes */}
+          <div className="mt-5 flex w-full items-center justify-center gap-6">
+            <img src={reraQr1.url} alt="Channel Partner RERA QR code" className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
+            <img src={reraQr2.url} alt="Project RERA QR code" className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
+          </div>
+
           {/* RERA registration notice */}
+
           <div className="mt-5 w-full text-center text-[12px] font-medium text-secondary/70">
             This project is RERA registered. | Authorized Channel Partner | Channel Partner RERA Number : A031262400404 | Project RERA Number : PR1260002600999
           </div>
