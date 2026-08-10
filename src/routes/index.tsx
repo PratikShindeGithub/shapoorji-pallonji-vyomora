@@ -558,7 +558,7 @@ function Index() {
                             "We'll send the detailed cost sheet with all charges and the payment schedule.",
                           )
                         }
-                        className="mx-auto inline-flex w-[200px] items-center justify-center rounded-[10px] bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
+                        className="mx-auto inline-flex w-[240px] items-center justify-center rounded-[10px] bg-primary px-6 py-4 text-base font-bold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
                       >
                         Know More
                       </button>
