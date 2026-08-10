@@ -44,6 +44,8 @@ import {
 import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import { LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL, SP_VYOMORA_LOCKUP_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
+import { AmenitySlideshow } from "@/components/vyomora/AmenitySlideshow";
+
 import ProjectVideo from "@/components/vyomora/ProjectVideo";
 import VirtualExperience from "@/components/vyomora/VirtualExperience";
 
@@ -567,7 +569,9 @@ function Index() {
             </h2>
             <div className="hairline mx-auto mt-5 w-24" />
           </div>
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <AmenitySlideshow />
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+
             {AMENITIES.map((a, i) => {
               const Icon = AMENITY_ICONS[i % AMENITY_ICONS.length]!;
               return (
