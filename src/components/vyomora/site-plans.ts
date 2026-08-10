@@ -1,0 +1,30 @@
+import masterPlan from "@/assets/vyomora-master-plan.jpg.asset.json";
+import duplex from "@/assets/vyomora-plan-signature-duplex.jpg.asset.json";
+import imperial from "@/assets/vyomora-plan-3bhk-imperial.jpg.asset.json";
+import grande from "@/assets/vyomora-plan-2bhk-grande.jpg.asset.json";
+
+export const MASTER_PLAN = {
+  title: "Master Plan",
+  src: masterPlan.url as string,
+  alt: "Vyomora Hinjawadi master layout plan with towers, podium and landscape legend",
+};
+
+export type UnitPlan = { title: string; src: string; alt: string };
+
+export const UNIT_PLANS: UnitPlan[] = [
+  {
+    title: "3 BHK - Signature Duplex",
+    src: duplex.url as string,
+    alt: "3 BHK Signature Duplex unit plan at Vyomora Hinjawadi",
+  },
+  {
+    title: "3 BHK - Imperial",
+    src: imperial.url as string,
+    alt: "3 BHK Imperial unit plan at Vyomora Hinjawadi",
+  },
+  {
+    title: "2 BHK - Grande",
+    src: grande.url as string,
+    alt: "2 BHK Grande unit plan at Vyomora Hinjawadi",
+  },
+];

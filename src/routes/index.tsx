@@ -21,6 +21,7 @@ import {
 
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import { FLOOR_PLAN_URL } from "@/components/vyomora/floor-plan";
+import { SitePlanSection } from "@/components/vyomora/SitePlanSection";
 import { COST_SHEET_IMAGE } from "@/components/vyomora/cost-sheet";
 import reraQr1 from "@/assets/rera-qr-1.png.asset.json";
 import reraQr2 from "@/assets/rera-qr-2.png.asset.json";
@@ -41,9 +42,6 @@ import {
 } from "@/components/vyomora/layout-data";
 
 import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
-import plan2 from "@/assets/plan-2bhk.jpg";
-import plan3 from "@/assets/plan-3bhk.jpg";
-import planDuplex from "@/assets/plan-duplex.jpg";
 import { LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL, SP_VYOMORA_LOCKUP_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 import ProjectVideo from "@/components/vyomora/ProjectVideo";
@@ -107,11 +105,6 @@ const AMENITY_ICONS = [
 
 const GALLERY = GALLERY_ITEMS;
 
-const PLANS = [
-  { title: "2 BHK · 685 - 750 sq.ft.", src: plan2 },
-  { title: "3 BHK · 1050 - 1091 sq.ft.", src: plan3 },
-  { title: "3 BHK Imperial · 1186 sq.ft.", src: planDuplex },
-];
 
 /* ---------- helpers ---------- */
 
@@ -637,54 +630,9 @@ function Index() {
         </div>
       </section>
 
-      {/* Floor plans */}
-      <section id="plans" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
-        <SectionHead
-          eyebrow="Floor plans"
-          title="See Every Square foot Before you Decide"
-          copy="Enquire now and our sales desk will share the complete plan set instantly."
-        />
-        <div className="mt-14 grid gap-6 sm:grid-cols-3">
-          {PLANS.map((p, i) => (
-            <button
-              key={p.title}
-              onClick={() =>
-                openEnquiry(
-                  `floor-plan-${p.title}`,
-                  "Enquire Now",
-                  "Enquire Now",
-                  "Share your details and our sales desk will send the complete floor plan set for every configuration.",
-                )
-              }
-              className="reveal group overflow-hidden rounded-xl border border-border bg-card text-left shadow-soft transition hover:-translate-y-1.5 hover:shadow-lift"
-              data-reveal
-              data-reveal-delay={i * 100}
-            >
-              <span className="relative block overflow-hidden bg-muted">
-                <img
-                  src={p.src}
-                  alt={`${p.title} floor plan layout`}
-                  width={1024}
-                  height={768}
-                  loading="lazy"
-                  className="h-52 w-full scale-105 object-cover blur-md transition duration-500"
-                />
-                <span className="absolute inset-0 grid place-items-center bg-ink/45">
-                  <span className="cta-blink rounded-md px-5 py-2.5 text-xs font-bold tracking-wide shadow-soft">
-                    Enquire Now
-                  </span>
-                </span>
-              </span>
-              <span className="block px-5 py-4">
-                <span className="block text-sm font-semibold text-foreground">{p.title}</span>
-                <span className="mt-1 block text-xs text-muted-foreground">
-                  Tap to enquire for plans
-                </span>
-              </span>
-            </button>
-          ))}
-        </div>
-      </section>
+      {/* Site & Floor plans */}
+      <SitePlanSection onEnquire={openEnquiry} />
+
 
       {/* Gallery */}
       <section id="gallery" className="bg-secondary py-20 sm:py-24">
