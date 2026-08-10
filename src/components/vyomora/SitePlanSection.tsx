@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import { Download, Maximize2, Minus, Plus, X } from "lucide-react";
+import { Download, Minus, Plus, X } from "lucide-react";
 
-import { MASTER_PLAN, UNIT_PLANS } from "./site-plans";
+import { UNIT_PLANS } from "./site-plans";
 
 type Props = {
   onEnquire: (intent: string, cta?: string, title?: string, copy?: string) => void;
