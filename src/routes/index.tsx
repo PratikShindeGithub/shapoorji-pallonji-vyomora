@@ -480,7 +480,7 @@ function Index() {
         <span className="inline-flex rounded-full border-2 border-primary px-5 py-1.5 text-sm font-medium text-primary">
           Price
         </span>
-        <div className="mt-6 grid items-start gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
+        <div className="mt-6 grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
           {/* Mobile cards */}
           <div className="reveal grid gap-5 sm:hidden" data-reveal>
             {CONFIGS.map((c) => (
