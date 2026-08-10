@@ -642,7 +642,7 @@ function Index() {
                 >
                   <Icon className="h-6 w-6 text-gold transition-transform duration-300 group-hover:scale-110" />
                   <h3 className="mt-4 text-base text-secondary">{a.name}</h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-secondary/60">{a.detail}</p>
+                  {a.detail ? <p className="mt-1.5 text-xs leading-relaxed text-secondary/60">{a.detail}</p> : null}
                 </div>
               );
             })}
