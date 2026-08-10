@@ -419,9 +419,10 @@ function Index() {
           href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
           target="_blank"
           rel="noreferrer"
-          className="mt-4 flex items-center justify-center gap-2 rounded-md bg-[#25D366] py-2.5 text-sm font-bold text-white shadow-soft transition hover:brightness-95"
+          aria-label="Chat on WhatsApp"
+          className="mx-auto mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-soft transition hover:brightness-95"
         >
-          <WhatsAppIcon className="h-5 w-5" /> Chat on WhatsApp
+          <WhatsAppIcon className="h-5 w-5" />
         </a>
         </div>
 
