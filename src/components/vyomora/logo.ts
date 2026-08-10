@@ -37,3 +37,7 @@ export const MAHARERA_QR_URL: string = mahareraAsset.url;
 import spHeaderLogoAsset from "@/assets/sp-logo-header.png.asset.json";
 
 export const SP_HEADER_LOGO_URL: string = spHeaderLogoAsset.url;
+
+import spVyomoraLockupAsset from "@/assets/vyomora-sp-lockup.png.asset.json";
+
+export const SP_VYOMORA_LOCKUP_URL: string = spVyomoraLockupAsset.url;
