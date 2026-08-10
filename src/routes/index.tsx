@@ -331,7 +331,7 @@ function Index() {
                   {HERO_STRIPS.map((s, i) => (
                     <p
                       key={s}
-                      style={{ ["--d" as string]: `${i * 140}ms` }}
+                      style={{ ["--d" as string]: `${i * 250}ms` }}
                       className="hero-strip rounded-sm px-3 py-1.5 text-[11px] font-semibold tracking-normal"
                     >
                       {s}
@@ -348,7 +348,7 @@ function Index() {
                 </p>
                 <button
                   onClick={() => openEnquiry("hero-card")}
-                  className="hero-cta mt-3.5 w-full rounded-md bg-gold py-2.5 text-sm font-bold text-gold-foreground"
+                  className="hero-cta mt-3.5 w-full rounded-md py-2.5 text-sm font-bold"
                 >
                   Enquire Now
                 </button>
