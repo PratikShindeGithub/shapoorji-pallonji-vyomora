@@ -570,7 +570,7 @@ function Index() {
             </table>
           </div>
 
-          <div className="reveal flex w-full flex-col overflow-hidden border border-border bg-card" data-reveal data-reveal-delay="120">
+          <div className="reveal flex w-full flex-col self-start overflow-hidden border border-border bg-card" data-reveal data-reveal-delay="120">
             <div className="border-b border-border bg-muted/40 px-3 py-2 text-left text-sm font-medium text-foreground">
               Cost Sheet
             </div>
@@ -580,8 +580,9 @@ function Index() {
               loading="lazy"
               width={1024}
               height={768}
-              className="min-h-40 flex-1 w-full border-b border-border object-cover object-top"
+              className="h-40 w-full border-b border-border object-cover object-top lg:h-[223px]"
             />
+
 
             <button
               onClick={() =>
