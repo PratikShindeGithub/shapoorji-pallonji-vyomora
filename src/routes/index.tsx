@@ -1,21 +1,12 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  BedDouble,
-  Building2,
-  CalendarCheck,
   Download,
-  Dumbbell,
-  Flower2,
-  Gamepad2,
-  Laptop,
   MapPin,
   Menu,
   Phone,
   Sparkles,
   Trees,
-  Trophy,
-  Waves,
   X,
 } from "lucide-react";
 
