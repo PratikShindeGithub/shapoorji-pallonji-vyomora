@@ -526,7 +526,7 @@ function Index() {
                   <th className="border-r border-border px-5 py-4 text-left text-base font-medium text-foreground">
                     Carpet Area
                   </th>
-                  <th className="border-r border-border px-5 py-4 text-left text-base font-medium text-foreground">
+                  <th className="px-5 py-4 text-left text-base font-medium text-foreground">
                     Price
                   </th>
                   <th className="px-5 py-4 text-center text-base font-medium text-foreground">
@@ -543,7 +543,7 @@ function Index() {
                     <td className="border-r border-border px-5 py-5 align-middle text-left text-base text-muted-foreground">
                       <span className="block truncate">{c.area}</span>
                     </td>
-                    <td className="border-r border-border px-5 py-5 align-middle text-left">
+                    <td className="px-5 py-5 align-middle text-left">
                       <span className="block font-sans text-lg font-bold tracking-tight text-primary">
                         {c.price} Onwards
                       </span>
