@@ -5,7 +5,7 @@ import { saveLead, sendLeadEmails } from "./leads.server";
 
 const schema = z.object({
   name: z.string().trim().min(2).max(80),
-  mobile: z.string().trim().regex(/^[6-9]\d{9}$/),
+  mobile: z.string().trim().regex(/^\+?\d{7,18}$/),
   email: z.string().trim().email().max(120),
   city: z.string().trim().max(60).optional(),
   intent: z.string().trim().max(60).optional(),
