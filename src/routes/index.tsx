@@ -955,14 +955,12 @@ function Index() {
               </div>
               <div className="px-4 py-4">
                 <div className="flex flex-col items-center">
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center">
                     <img
                       src={SP_LOGO_URL}
                       alt="Shapoorji Pallonji"
                       className="h-12 w-auto object-contain"
                     />
-                    <span className="h-10 w-px bg-border" />
-                    <img src={LOGO_URL} alt="Vyomora Hinjawadi" className="h-8 w-auto object-contain" />
                   </div>
                   <p className="mt-1 text-[10px] font-semibold tracking-wide text-muted-foreground">
                     Authorized Channel Partner
