@@ -683,7 +683,7 @@ function Index() {
 
       <VirtualExperience onEnquire={openEnquiry} />
 
-
+      <ProjectVideo />
 
       {/* Developer */}
       <section className="bg-ink py-12 sm:py-14">
@@ -722,7 +722,7 @@ function Index() {
         </div>
       </section>
 
-      <ProjectVideo />
+
 
 
 
