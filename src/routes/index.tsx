@@ -511,7 +511,7 @@ function Index() {
             ))}
           </div>
 
-          <div className="reveal hidden overflow-hidden border border-border bg-card sm:block" data-reveal>
+          <div className="reveal hidden self-start overflow-hidden border border-border bg-card sm:block" data-reveal>
             <table className="w-full table-fixed border-collapse text-left">
               <colgroup>
                 <col className="w-[22%]" />
