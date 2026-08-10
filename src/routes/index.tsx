@@ -791,6 +791,9 @@ function Index() {
               Terms &amp; Conditions
             </a>
           </div>
+          <div className="mt-3 text-center text-xs text-secondary/50">
+            &copy; 2026 All rights reserved.
+          </div>
         </div>
       </footer>
 
