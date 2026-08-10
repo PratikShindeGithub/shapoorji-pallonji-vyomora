@@ -21,8 +21,8 @@ export const NAV_ITEMS = [
 ];
 
 export const HERO_FACTS = [
-  "25 Acres Integrated Community",
-  "40+ Amenities",
+  "25 Acres Integrated Community\u00a0",
+  "85+ Luxury Amenities",
   "1.5 Acre Vehicle-Free Podium",
   "4 of 9 Towers Released",
   "G+24 Storey",
