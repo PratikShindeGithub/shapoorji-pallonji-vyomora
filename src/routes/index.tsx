@@ -302,7 +302,7 @@ function Index() {
         <HeroSlideshow />
 
         <div className="absolute inset-0 hidden bg-gradient-to-r from-ink/75 via-ink/35 to-transparent lg:block" />
-        <div className="relative w-full lg:px-4 lg:pb-16 lg:pt-44 lg:sm:px-6">
+        <div className="relative w-full lg:px-4 lg:pb-8 lg:pt-36 lg:sm:px-6">
           <div className="mx-auto grid w-full max-w-6xl gap-6 lg:gap-8">
             {/* Reference-style project fact card */}
             <div
@@ -427,7 +427,7 @@ function Index() {
 
       {/* Highlights */}
       <section className="border-y border-border bg-secondary">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 px-4 py-12 sm:px-6 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-5 px-4 py-6 sm:px-6 lg:grid-cols-4">
           {HIGHLIGHTS.map((h, i) => (
             <div
               key={h.label}
@@ -445,13 +445,13 @@ function Index() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+      <section id="pricing" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
         <SectionHead
           eyebrow="Configurations"
           title="Choose the home that fits your life"
           copy="Efficient layouts with wide living spaces, deep balconies and cross-ventilation across every tower."
         />
-        <div className="mt-14 flex flex-col gap-10">
+        <div className="mt-8 flex flex-col gap-8">
           {/* Mobile cards */}
           <div className="reveal grid gap-5 sm:hidden" data-reveal>
             {CONFIGS.map((c) => (
