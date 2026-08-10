@@ -302,11 +302,11 @@ h1, h2, h3, .font-display {
   color: #fff;
   background-image: linear-gradient(
     90deg,
-    #876f96 0%,
-    rgba(135, 111, 150, 0.65) 25%,
-    #876f96 50%,
-    rgba(135, 111, 150, 0.65) 75%,
-    #876f96 100%
+    #56436f 0%,
+    rgba(86, 67, 111, 0.65) 25%,
+    #56436f 50%,
+    rgba(86, 67, 111, 0.65) 75%,
+    #56436f 100%
   );
   background-size: 200% 100%;
   background-position: 0% 50%;
@@ -322,15 +322,15 @@ h1, h2, h3, .font-display {
 @keyframes hero-cta-shift {
   0% {
     background-position: 0% 50%;
-    box-shadow: 0 4px 18px rgba(135, 111, 150, 0.18);
+    box-shadow: 0 4px 18px rgba(86, 67, 111, 0.18);
   }
   50% {
     background-position: 100% 50%;
-    box-shadow: 0 4px 18px rgba(135, 111, 150, 0.35);
+    box-shadow: 0 4px 18px rgba(86, 67, 111, 0.35);
   }
   100% {
     background-position: 0% 50%;
-    box-shadow: 0 4px 18px rgba(135, 111, 150, 0.18);
+    box-shadow: 0 4px 18px rgba(86, 67, 111, 0.18);
   }
 }
 
@@ -339,15 +339,15 @@ h1, h2, h3, .font-display {
   color: #fff;
   background-image: linear-gradient(
     90deg,
-    #876f96 0%,
-    rgba(135, 111, 150, 0.65) 25%,
-    #876f96 50%,
-    rgba(135, 111, 150, 0.65) 75%,
-    #876f96 100%
+    #56436f 0%,
+    rgba(86, 67, 111, 0.65) 25%,
+    #56436f 50%,
+    rgba(86, 67, 111, 0.65) 75%,
+    #56436f 100%
   );
   background-size: 200% 100%;
   background-position: 0% 50%;
-  box-shadow: 0 4px 18px rgba(135, 111, 150, 0.25);
+  box-shadow: 0 4px 18px rgba(86, 67, 111, 0.25);
   animation: hero-cta-shift 3s ease-in-out 750ms infinite;
 
   @media (prefers-reduced-motion: reduce) {
