@@ -580,7 +580,7 @@ function Index() {
               loading="lazy"
               width={1024}
               height={768}
-              className="h-40 w-full border-b border-border object-cover object-top lg:h-[186px]"
+              className="h-40 w-full border-b border-border object-cover object-top lg:h-[223px]"
             />
 
 
