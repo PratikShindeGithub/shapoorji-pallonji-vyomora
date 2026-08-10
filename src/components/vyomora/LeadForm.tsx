@@ -63,7 +63,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
   const line = variant === "line";
 
   const inputClass = line
-    ? "w-full border-0 border-b border-border bg-transparent px-1 py-2 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-gold"
+    ? "w-full border-0 border-b border-border bg-transparent px-1.5 py-3 text-base text-foreground outline-none transition placeholder:text-muted-foreground focus:border-gold"
     : "w-full rounded-md border border-border bg-card py-3 pl-11 pr-4 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
 
   const field = (key: TextKey, label: string, extra?: Record<string, string>) => {
@@ -76,7 +76,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
         <div className={line ? "flex items-stretch" : "relative"}>
           {line ? (
             key === "mobile" ? (
-              <span className="relative flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2 text-sm text-foreground">
+              <span className="relative flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2.5 text-base text-foreground">
                 <span aria-hidden>{country.flag}</span> +{country.dial}
                 <select
                   aria-label="Country code"
@@ -154,7 +154,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
         }
       }}
 
-      className={line ? (compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-1.5") : compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
+      className={line ? (compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-2.5") : compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
     >
       {field("name", line ? "Name" : "Full name", { autoComplete: "name", maxLength: "80" })}
       {field("mobile", line ? "Phone" : "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}

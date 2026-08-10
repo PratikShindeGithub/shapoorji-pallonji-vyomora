@@ -949,32 +949,33 @@ function Index() {
             >
               <X className="h-4 w-4" />
             </button>
-            <div className="grid md:grid-cols-[0.6fr_1.4fr]">
-              <div className="hidden flex-col items-center gap-2 bg-muted/50 px-3 py-4 text-center md:flex">
-                <p className="font-display text-base text-primary">We Promise</p>
+            <div className="grid md:grid-cols-[0.7fr_1.3fr]">
+              <div className="hidden flex-col items-center gap-4 bg-muted/50 px-4 py-6 text-center md:flex">
+                <p className="font-display text-xl text-primary">We Promise</p>
                 {PROMISES.map(({ icon: Icon, label }) => (
-                  <div key={label} className="space-y-0.5">
-                    <span className="mx-auto grid h-8 w-8 place-items-center rounded-full bg-primary/10 text-primary">
-                      <Icon className="h-3.5 w-3.5" />
+                  <div key={label} className="space-y-1.5">
+                    <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
+                      <Icon className="h-7 w-7" />
                     </span>
-                    <p className="text-[11px] font-semibold leading-tight text-foreground">{label}</p>
+                    <p className="text-sm font-semibold leading-tight text-foreground">{label}</p>
                   </div>
                 ))}
               </div>
-              <div className="px-4 py-3">
+              <div className="px-5 py-4">
                 <div className="flex flex-col items-center">
                   <div className="flex items-center">
                     <img
                       src={SP_LOGO_URL}
                       alt="Shapoorji Pallonji"
-                      className="h-10 w-auto object-contain"
+                      className="h-12 w-auto object-contain"
                     />
                   </div>
                 </div>
-                <p className="mt-1.5 text-center font-display text-base leading-snug text-foreground">
+                <p className="mt-2 text-center font-display text-lg leading-snug text-foreground">
                   Register here and avail the{" "}
                   <span className="text-gold">best offers!!</span>
                 </p>
+
                 <div className="mt-2">
                   <LeadForm
                     key={modal?.intent ?? "welcome"}
