@@ -341,11 +341,11 @@ function Index() {
                   ))}
 
                 </div>
-                <p className="mt-3.5 text-[13px] font-bold leading-snug text-muted-foreground">
+                <p className="mt-3.5 text-[15px] font-bold leading-snug text-muted-foreground">
                   Exclusive 2, 3 BHK &amp; Duplex Apartments
                 </p>
-                <p className="text-[12px] font-bold tracking-normal text-muted-foreground">Starting Price</p>
-                <p className="mt-1 font-sans text-base font-bold tracking-tight text-gold sm:text-lg">
+                <p className="text-[14px] font-bold tracking-normal text-muted-foreground">Starting Price</p>
+                <p className="mt-1 font-sans text-[20px] font-bold tracking-tight text-gold sm:text-[22px]">
                   {PROJECT.startingPrice} Onwards
                 </p>
                 <button
