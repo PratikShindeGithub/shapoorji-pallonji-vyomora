@@ -280,11 +280,11 @@ h1, h2, h3, .font-display {
   }
 }
 
-/* ---------- Hero strip + CTA entrance animations ---------- */
+/* ---------- Hero strip + CTA premium light animations ---------- */
 @keyframes hero-rise {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.97);
+    transform: translateY(18px) scale(0.98);
   }
   to {
     opacity: 1;
@@ -292,38 +292,75 @@ h1, h2, h3, .font-display {
   }
 }
 
-@keyframes hero-shimmer {
+@keyframes hero-rise-sm {
   from {
-    transform: translateX(-120%);
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
   }
   to {
-    transform: translateX(220%);
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-sweep {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(300%);
+  }
+}
+
+@keyframes hero-glow {
+  0% {
+    box-shadow: 0 0 0 rgba(135, 111, 150, 0);
+  }
+  40% {
+    box-shadow: 0 0 18px rgba(135, 111, 150, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(135, 111, 150, 0);
   }
 }
 
 @utility hero-strip {
+  --d: 0ms;
   position: relative;
   overflow: hidden;
   background-color: var(--gold);
   color: var(--ink, var(--foreground));
   opacity: 0;
   will-change: transform, opacity;
-  animation: hero-rise 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation:
+    hero-rise 600ms cubic-bezier(0.22, 1, 0.36, 1) var(--d) both,
+    hero-glow 900ms ease-in-out calc(var(--d) + 600ms) both;
 
   &::after {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
     pointer-events: none;
     background: linear-gradient(
-      100deg,
-      transparent 20%,
-      oklch(1 0 0 / 0.45) 50%,
-      transparent 80%
+      90deg,
+      transparent 0%,
+      rgba(135, 111, 150, 0.05) 25%,
+      rgba(135, 111, 150, 0.35) 50%,
+      rgba(135, 111, 150, 0.05) 75%,
+      transparent 100%
     );
-    transform: translateX(-120%);
-    animation: hero-shimmer 800ms ease-out both;
-    animation-delay: inherit;
+    filter: blur(6px);
+    transform: translateX(-150%);
+    animation: hero-sweep 900ms ease-in-out calc(var(--d) + 600ms) both;
+  }
+
+  @media (max-width: 640px) {
+    animation:
+      hero-rise-sm 600ms cubic-bezier(0.22, 1, 0.36, 1) var(--d) both,
+      hero-glow 900ms ease-in-out calc(var(--d) + 600ms) both;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -337,36 +374,40 @@ h1, h2, h3, .font-display {
 }
 
 @utility hero-cta {
-  opacity: 0;
-  will-change: transform, opacity;
-  animation: hero-rise 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: 1240ms;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: hero-rise-cta 650ms cubic-bezier(0.22, 1, 0.36, 1) 1380ms both;
   transition:
-    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 250ms ease,
+    box-shadow 250ms ease;
 
   &::after {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
     pointer-events: none;
     background: linear-gradient(
-      100deg,
-      transparent 20%,
-      oklch(1 0 0 / 0.5) 50%,
-      transparent 80%
+      90deg,
+      transparent 0%,
+      rgba(135, 111, 150, 0.05) 25%,
+      rgba(135, 111, 150, 0.35) 50%,
+      rgba(135, 111, 150, 0.05) 75%,
+      transparent 100%
     );
-    transform: translateX(-120%);
-    animation: hero-shimmer 900ms ease-out both;
-    animation-delay: 1840ms;
+    filter: blur(6px);
+    transform: translateX(-150%);
+    animation: hero-sweep 900ms ease-in-out 2030ms both;
   }
 
   @media (hover: hover) {
     &:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: var(--shadow-lift);
+      box-shadow: 0 6px 20px rgba(135, 111, 150, 0.28);
     }
   }
 
@@ -382,3 +423,15 @@ h1, h2, h3, .font-display {
     }
   }
 }
+
+@keyframes hero-rise-cta {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+

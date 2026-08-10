@@ -331,12 +331,13 @@ function Index() {
                   {HERO_STRIPS.map((s, i) => (
                     <p
                       key={s}
-                      style={{ animationDelay: `${i * 120}ms` }}
+                      style={{ ["--d" as string]: `${i * 140}ms` }}
                       className="hero-strip rounded-sm px-3 py-1.5 text-[11px] font-semibold tracking-normal"
                     >
                       {s}
                     </p>
                   ))}
+
                 </div>
                 <p className="mt-3 text-[13px] leading-snug text-muted-foreground">
                   Luxurious 2 &amp; 3 BHK Apartments &amp; Duplexes
