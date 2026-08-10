@@ -343,7 +343,7 @@ function Index() {
                 <p className="mt-3.5 text-[15px] leading-snug text-muted-foreground">
                   Exclusive 2, 3 BHK &amp; Duplex Apartments
                 </p>
-                <p className="text-[11px] tracking-normal text-muted-foreground">Starting Price</p>
+                <p className="text-[13px] tracking-normal text-muted-foreground">Starting Price</p>
                 <p className="mt-0.5 font-sans text-2xl font-bold tracking-tight text-gold sm:text-3xl">
                   {PROJECT.startingPrice} Onwards
                 </p>
