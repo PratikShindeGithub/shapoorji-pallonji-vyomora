@@ -911,21 +911,27 @@ function Index() {
       </div>
 
 
-      {/* Welcome popup (reference-style 3 column) */}
-      {welcome ? (
+      {/* Register popup — same form for welcome + every enquiry button */}
+      {welcome || modal ? (
         <div
           role="dialog"
           aria-modal="true"
           aria-label="Register for best offers"
-          className="fixed inset-0 z-[75] flex items-center justify-center bg-ink/70 p-4"
-          onClick={() => setWelcome(false)}
+          className="fixed inset-0 z-[95] flex items-center justify-center bg-ink/70 p-4"
+          onClick={() => {
+            setWelcome(false);
+            setModal(null);
+          }}
         >
           <div
             className="animate-scale-in relative w-full max-w-2xl overflow-hidden rounded-lg bg-card shadow-lift"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setWelcome(false)}
+              onClick={() => {
+                setWelcome(false);
+                setModal(null);
+              }}
               aria-label="Close"
               className="absolute right-2 top-2 z-10 rounded-full p-1 text-muted-foreground transition hover:bg-muted hover:text-foreground"
             >
@@ -958,7 +964,13 @@ function Index() {
                   <span className="text-gold">best offers!!</span>
                 </p>
                 <div className="mt-2">
-                  <LeadForm intent="welcome" cta="Submit" withCity onSuccess={handleSuccess} />
+                  <LeadForm
+                    key={modal?.intent ?? "welcome"}
+                    intent={modal?.intent ?? "welcome"}
+                    cta="Submit"
+                    withCity
+                    onSuccess={handleSuccess}
+                  />
                 </div>
               </div>
             </div>
@@ -968,27 +980,10 @@ function Index() {
             >
               <Phone className="h-3.5 w-3.5 text-gold" /> {PROJECT.phoneDisplay}
             </a>
-
           </div>
         </div>
       ) : null}
 
-
-      {/* Enquiry modal */}
-      <Modal open={Boolean(modal)} onClose={() => setModal(null)} label="Enquiry form">
-        <p className="eyebrow text-gold">Vyomora</p>
-        <h2 className="mt-2 text-2xl text-foreground">{modal?.title}</h2>
-        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{modal?.copy}</p>
-        <div className="mt-6">
-          <LeadForm
-            key={modal?.intent ?? "modal"}
-            intent={modal?.intent ?? "modal"}
-            cta={modal?.cta ?? "Submit Enquiry"}
-            withCity
-            onSuccess={handleSuccess}
-          />
-        </div>
-      </Modal>
 
       {/* Thank you page is a dedicated route at /thankyou.html for conversion tracking */}
 
