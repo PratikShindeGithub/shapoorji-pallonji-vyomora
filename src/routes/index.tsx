@@ -987,7 +987,7 @@ function Index() {
                   />
                 </div>
               </div>
-              <div className="hidden flex-col gap-4 bg-primary px-5 py-6 text-primary-foreground md:flex">
+              <div className="hidden flex-col gap-4 bg-ink px-5 py-6 text-secondary md:flex">
                 <p className="text-center font-display text-xl leading-snug">
                   Get Information On Availabilities
                 </p>
