@@ -358,7 +358,7 @@ function Index() {
               </div>
             </div>
 
-            {/* Price breakup CTA — opens the shared enquiry modal */}
+            {/* Price breakup form — inline on smaller screens, fixed panel on xl+ */}
             <div
               className="reveal w-full border-y border-gold/25 bg-card p-5 sm:p-7 lg:max-w-md lg:rounded-xl lg:border lg:bg-card/95 lg:shadow-lift lg:backdrop-blur xl:hidden"
               data-reveal
@@ -368,14 +368,10 @@ function Index() {
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                 Floor-wise pricing, charges, payment plan and brochure — sent instantly.
               </p>
-              <button
-                onClick={() => openEnquiry("hero", "Get Price Breakup", "Get the exact price breakup", "Floor-wise pricing, charges, payment plan and brochure — sent instantly.")}
-                className="hero-cta mt-5 w-full rounded-md py-2.5 text-sm font-bold"
-              >
-                Get Price Breakup
-              </button>
+              <div className="mt-5">
+                <LeadForm intent="hero" withCity onSuccess={handleSuccess} />
+              </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -420,17 +416,11 @@ function Index() {
         <div className="px-5 pb-6 pt-5">
         <img src={LOGO_URL} alt="Vyomora" className="mx-auto h-12 w-auto object-contain" />
         <h2 className="mt-3 text-center text-xl text-foreground">Enquire Now</h2>
-        <p className="mt-2 text-center text-xs leading-relaxed text-muted-foreground">
-          Get floor plans, cost sheet and payment plan on WhatsApp &amp; email.
-        </p>
-        <button
-          onClick={() => openEnquiry("sticky-panel", "Schedule a site visit", "Enquire Now", "Get floor plans, cost sheet and payment plan on WhatsApp and email.")}
-          className="hero-cta mt-4 w-full rounded-md py-2.5 text-sm font-bold"
-        >
-          Enquire Now
-        </button>
-        </div>
 
+        <div className="mt-4">
+          <LeadForm intent="sticky-panel" variant="line" withCity cta="Schedule a site visit" onSuccess={handleSuccess} />
+        </div>
+        </div>
 
       </aside>
 
