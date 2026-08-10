@@ -53,14 +53,14 @@ export const CONFIGS = [
 ];
 
 export const AMENITIES = [
-  { name: "Grand Clubhouse", detail: "32,000 sq.ft. of indoor leisure" },
-  { name: "Swimming Pool", detail: "Lap pool + toddlers' pool" },
-  { name: "Fitness Studio", detail: "Cardio, strength & yoga deck" },
-  { name: "Kids' Play Zone", detail: "Soft-play park & sandpit" },
-  { name: "Landscaped Gardens", detail: "Themed courts across 25 acres" },
-  { name: "Sports Facilities", detail: "Box cricket, tennis & pickleball" },
-  { name: "Co-work Lounge", detail: "Work-from-township cabins" },
-  { name: "Amphitheatre", detail: "Community screenings & festivals" },
+  { name: "Grand Clubhouse", detail: "" },
+  { name: "Swimming Pool", detail: "" },
+  { name: "Fitness Studio", detail: "" },
+  { name: "Kids' Play Zone", detail: "" },
+  { name: "Landscaped Gardens", detail: "" },
+  { name: "Sports Facilities", detail: "" },
+  { name: "Co-work Lounge", detail: "" },
+  { name: "Amphitheatre", detail: "" },
 ];
 
 export const LOCATION_GROUPS = [
