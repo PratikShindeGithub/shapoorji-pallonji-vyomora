@@ -1,21 +1,12 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  BedDouble,
-  Building2,
-  CalendarCheck,
   Download,
-  Dumbbell,
-  Flower2,
-  Gamepad2,
-  Laptop,
   MapPin,
   Menu,
   Phone,
   Sparkles,
   Trees,
-  Trophy,
-  Waves,
   X,
 } from "lucide-react";
 
@@ -43,6 +34,7 @@ import {
 } from "@/components/vyomora/layout-data";
 
 import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
+import { AMENITY_SLIDES } from "@/components/vyomora/amenity-slides";
 import { LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL, SP_VYOMORA_LOCKUP_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 
@@ -93,16 +85,6 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const AMENITY_ICONS = [
-  Building2,
-  Waves,
-  Dumbbell,
-  Gamepad2,
-  Flower2,
-  Trophy,
-  Laptop,
-  Sparkles,
-];
 
 
 
@@ -630,19 +612,27 @@ function Index() {
           </div>
           
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-
             {AMENITIES.map((a, i) => {
-              const Icon = AMENITY_ICONS[i % AMENITY_ICONS.length]!;
+              const img = AMENITY_SLIDES.find((s) => s.label === a.name) ?? AMENITY_SLIDES[i % AMENITY_SLIDES.length]!;
               return (
                 <div
                   key={a.name}
-                  className="reveal group rounded-lg border border-secondary/15 p-5 transition duration-300 hover:-translate-y-1.5 hover:border-gold/60 hover:bg-secondary/5"
+                  className="reveal group overflow-hidden rounded-lg border border-secondary/15 transition duration-300 hover:-translate-y-1.5 hover:border-gold/60"
                   data-reveal
                   data-reveal-delay={i * 70}
                 >
-                  <Icon className="h-6 w-6 text-gold transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="mt-4 text-base text-secondary">{a.name}</h3>
-                  {a.detail ? <p className="mt-1.5 text-xs leading-relaxed text-secondary/60">{a.detail}</p> : null}
+                  <div className="aspect-[4/3] w-full overflow-hidden">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="px-4 py-3">
+                    <h3 className="text-sm text-secondary sm:text-base">{a.name}</h3>
+                    {a.detail ? <p className="mt-1.5 text-xs leading-relaxed text-secondary/60">{a.detail}</p> : null}
+                  </div>
                 </div>
               );
             })}
