@@ -204,7 +204,7 @@ export function SitePlanSection({ onEnquire }: Props) {
           onClick={() =>
             setViewing({ ...MASTER_PLAN, intent: "master-plan" })
           }
-          className="reveal group block h-full w-full overflow-hidden rounded-xl bg-card text-left shadow-soft transition duration-500 hover:shadow-lift lg:col-span-2"
+          className="reveal group block h-full w-full overflow-hidden rounded-xl bg-card text-left transition duration-500 hover:shadow-lift lg:col-span-2"
           data-reveal
           aria-label="View master plan"
         >
