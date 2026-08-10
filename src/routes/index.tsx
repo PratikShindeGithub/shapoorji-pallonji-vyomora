@@ -480,7 +480,7 @@ function Index() {
         <span className="inline-flex rounded-full border-2 border-primary px-5 py-1.5 text-sm font-medium text-primary">
           Price
         </span>
-        <div className="mt-6 grid items-start gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
+        <div className="mt-6 grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
           {/* Mobile cards */}
           <div className="reveal grid gap-5 sm:hidden" data-reveal>
             {CONFIGS.map((c) => (
@@ -561,14 +561,14 @@ function Index() {
             </table>
           </div>
 
-          <div className="reveal w-full overflow-hidden border border-border bg-card" data-reveal data-reveal-delay="120">
+          <div className="reveal flex w-full flex-col overflow-hidden border border-border bg-card" data-reveal data-reveal-delay="120">
             <img
               src={COST_SHEET_IMAGE}
               alt="Sample Vyomora cost sheet with detail sheet and payment schedule"
               loading="lazy"
               width={1024}
               height={768}
-              className="h-52 w-full border-b border-border object-cover object-top"
+              className="min-h-52 w-full flex-1 border-b border-border object-cover object-top"
             />
 
             <button
