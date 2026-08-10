@@ -511,49 +511,57 @@ function Index() {
           </div>
 
           <div className="reveal hidden overflow-hidden border border-border bg-card sm:block" data-reveal>
-            <table className="w-full border-collapse text-left">
+            <table className="w-full table-fixed border-collapse text-left">
+              <colgroup>
+                <col className="w-[22%]" />
+                <col className="w-[23%]" />
+                <col className="w-[20%]" />
+                <col className="w-[35%]" />
+              </colgroup>
               <thead>
-                <tr className="border-b border-border">
-                  <th className="border-r border-border px-5 py-4 text-base font-normal text-foreground">
+                <tr className="border-b border-border bg-muted/40">
+                  <th className="border-r border-border px-5 py-4 text-left text-base font-medium text-foreground">
                     Type
                   </th>
-                  <th className="border-r border-border px-5 py-4 text-base font-normal text-foreground">
+                  <th className="border-r border-border px-5 py-4 text-left text-base font-medium text-foreground">
                     Carpet Area
                   </th>
-                  <th className="px-5 py-4 text-base font-normal text-foreground">Price</th>
+                  <th className="border-r border-border px-5 py-4 text-left text-base font-medium text-foreground">
+                    Price
+                  </th>
+                  <th className="px-5 py-4 text-center text-base font-medium text-foreground">
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {CONFIGS.map((c, i) => (
-                  <tr
-                    key={c.type}
-                    className={`border-b border-border last:border-0 ${i % 2 === 0 ? "bg-muted/40" : ""}`}
-                  >
-                    <td className="border-r border-border px-5 py-4 align-middle text-base text-foreground">
-                      {c.type}
+                {CONFIGS.map((c) => (
+                  <tr key={c.type} className="border-b border-border last:border-0">
+                    <td className="border-r border-border px-5 py-5 align-middle text-left text-base text-foreground">
+                      <span className="block truncate">{c.type}</span>
                     </td>
-                    <td className="border-r border-border px-5 py-4 align-middle text-base text-muted-foreground">
-                      {c.area}
+                    <td className="border-r border-border px-5 py-5 align-middle text-left text-base text-muted-foreground">
+                      <span className="block truncate">{c.area}</span>
                     </td>
-                    <td className="px-5 py-4 align-middle">
-                      <div className="flex flex-wrap items-center gap-4">
-                        <span className="font-sans text-lg font-semibold tracking-tight text-primary">
-                          {c.price} Onwards
-                        </span>
-                        <button
-                          onClick={() =>
-                            openEnquiry(
-                              `cost-sheet-${c.type}`,
-                              "Request For Price Breakup",
-                              `Price breakup — ${c.type}`,
-                              "We'll send the detailed cost sheet with all charges and the payment schedule.",
-                            )
-                          }
-                          className="shrink-0 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
-                        >
-                          Request For Price Breakup
-                        </button>
-                      </div>
+                    <td className="border-r border-border px-5 py-5 align-middle text-left">
+                      <span className="block font-sans text-lg font-bold tracking-tight text-primary">
+                        {c.price} Onwards
+                      </span>
+                    </td>
+                    <td className="px-5 py-5 text-center align-middle">
+                      <button
+                        onClick={() =>
+                          openEnquiry(
+                            `cost-sheet-${c.type}`,
+                            "Request For Price Breakup",
+                            `Price breakup — ${c.type}`,
+                            "We'll send the detailed cost sheet with all charges and the payment schedule.",
+                          )
+                        }
+                        className="mx-auto inline-flex w-[200px] items-center justify-center rounded-[10px] bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
+                      >
+                        Request For Price Breakup
+                      </button>
                     </td>
                   </tr>
                 ))}
