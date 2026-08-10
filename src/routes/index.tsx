@@ -571,8 +571,8 @@ function Index() {
           </div>
 
           <div className="reveal flex w-full flex-col self-start overflow-hidden border border-border bg-card" data-reveal data-reveal-delay="120">
-            <div className="border-b border-border bg-muted/40 px-3 py-2 text-left text-sm font-medium text-foreground">
-              Cost Sheet
+            <div className="border-b border-border bg-muted/40 px-3 py-2 text-left text-sm font-medium text-foreground h-[36.5px]">
+              &nbsp;
             </div>
             <img
               src={COST_SHEET_IMAGE}
