@@ -280,158 +280,80 @@ h1, h2, h3, .font-display {
   }
 }
 
-/* ---------- Hero strip + CTA premium light animations ---------- */
-@keyframes hero-rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes hero-rise-sm {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes hero-sweep {
-  from {
-    transform: translateX(-150%);
-  }
-  to {
-    transform: translateX(300%);
-  }
-}
-
-@keyframes hero-glow {
+/* ---------- Hero strip + CTA animated light gradient ---------- */
+@keyframes hero-light-shift {
   0% {
-    box-shadow: 0 0 0 rgba(135, 111, 150, 0);
+    background-position: 0% 50%;
+    opacity: 0.75;
   }
-  40% {
-    box-shadow: 0 0 18px rgba(135, 111, 150, 0.25);
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
   }
   100% {
-    box-shadow: 0 0 0 rgba(135, 111, 150, 0);
+    background-position: 0% 50%;
+    opacity: 0.75;
   }
 }
 
 @utility hero-strip {
   --d: 0ms;
   position: relative;
-  overflow: hidden;
-  background-color: var(--gold);
-  color: var(--ink, var(--foreground));
-  opacity: 0;
-  will-change: transform, opacity;
-  animation:
-    hero-rise 600ms cubic-bezier(0.22, 1, 0.36, 1) var(--d) both,
-    hero-glow 900ms ease-in-out calc(var(--d) + 600ms) both;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(135, 111, 150, 0.05) 25%,
-      rgba(135, 111, 150, 0.35) 50%,
-      rgba(135, 111, 150, 0.05) 75%,
-      transparent 100%
-    );
-    filter: blur(6px);
-    transform: translateX(-150%);
-    animation: hero-sweep 900ms ease-in-out calc(var(--d) + 600ms) both;
-  }
-
-  @media (max-width: 640px) {
-    animation:
-      hero-rise-sm 600ms cubic-bezier(0.22, 1, 0.36, 1) var(--d) both,
-      hero-glow 900ms ease-in-out calc(var(--d) + 600ms) both;
-  }
+  color: #fff;
+  background-image: linear-gradient(
+    90deg,
+    #876f96 0%,
+    rgba(135, 111, 150, 0.65) 25%,
+    #876f96 50%,
+    rgba(135, 111, 150, 0.65) 75%,
+    #876f96 100%
+  );
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  animation: hero-light-shift 3s ease-in-out var(--d) infinite;
 
   @media (prefers-reduced-motion: reduce) {
-    opacity: 1;
     animation: none;
-    &::after {
-      animation: none;
-      opacity: 0;
-    }
+    opacity: 1;
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes hero-cta-shift {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 4px 18px rgba(135, 111, 150, 0.18);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 4px 18px rgba(135, 111, 150, 0.35);
+  }
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 4px 18px rgba(135, 111, 150, 0.18);
   }
 }
 
 @utility hero-cta {
   position: relative;
-  overflow: hidden;
-  opacity: 0;
-  will-change: transform, opacity;
-  animation: hero-rise-cta 650ms cubic-bezier(0.22, 1, 0.36, 1) 1380ms both;
-  transition:
-    transform 250ms ease,
-    box-shadow 250ms ease;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(135, 111, 150, 0.05) 25%,
-      rgba(135, 111, 150, 0.35) 50%,
-      rgba(135, 111, 150, 0.05) 75%,
-      transparent 100%
-    );
-    filter: blur(6px);
-    transform: translateX(-150%);
-    animation: hero-sweep 900ms ease-in-out 2030ms both;
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 6px 20px rgba(135, 111, 150, 0.28);
-    }
-  }
+  color: #fff;
+  background-image: linear-gradient(
+    90deg,
+    #876f96 0%,
+    rgba(135, 111, 150, 0.65) 25%,
+    #876f96 50%,
+    rgba(135, 111, 150, 0.65) 75%,
+    #876f96 100%
+  );
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  box-shadow: 0 4px 18px rgba(135, 111, 150, 0.25);
+  animation: hero-cta-shift 3s ease-in-out 750ms infinite;
 
   @media (prefers-reduced-motion: reduce) {
-    opacity: 1;
     animation: none;
-    &::after {
-      animation: none;
-      opacity: 0;
-    }
-    &:hover {
-      transform: none;
-    }
+    background-position: 0% 50%;
   }
 }
 
-@keyframes hero-rise-cta {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
 
