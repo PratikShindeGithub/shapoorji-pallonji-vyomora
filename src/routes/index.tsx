@@ -145,15 +145,17 @@ function SectionHead({
   eyebrow,
   title,
   copy,
+  titleClassName,
 }: {
   eyebrow: string;
   title: string;
   copy?: string;
+  titleClassName?: string;
 }) {
   return (
     <div className="reveal mx-auto max-w-2xl text-center" data-reveal>
       <p className="eyebrow text-gold">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl leading-tight text-foreground sm:text-4xl">{title}</h2>
+      <h2 className={`mt-3 text-3xl leading-tight text-foreground sm:text-4xl ${titleClassName ?? ""}`}>{title}</h2>
       <div className="hairline mx-auto mt-5 w-24" />
       {copy ? <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{copy}</p> : null}
     </div>
