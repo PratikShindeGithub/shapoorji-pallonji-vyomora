@@ -371,9 +371,18 @@ h1, h2, h3, .font-display {
   box-shadow: 0 4px 18px rgba(86, 67, 111, 0.25);
   animation: hero-cta-shift 3s ease-in-out 750ms infinite;
 
+  &:hover {
+    animation: hero-blink 0.9s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     animation: none;
     background-position: 0% 50%;
+
+    &:hover {
+      animation: none;
+      opacity: 1;
+    }
   }
 }
 
