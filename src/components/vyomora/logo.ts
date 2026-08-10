@@ -6,9 +6,6 @@ import poolHeroAsset from "@/assets/vyomora-pool-hero.jpg.asset.json";
 
 export const HERO_IMAGE_URL: string = poolHeroAsset.url;
 
-import posterAsset from "@/assets/vyomora-rera-poster.jpg.asset.json";
-import towerAsset from "@/assets/vyomora-tower-exterior.jpg.asset.json";
-import livingAsset from "@/assets/vyomora-living-dining.jpg.asset.json";
 
 import heroPool2Asset from "@/assets/hero-pool-2.jpg.asset.json";
 import heroElevationAsset from "@/assets/hero-elevation.jpg.asset.json";
