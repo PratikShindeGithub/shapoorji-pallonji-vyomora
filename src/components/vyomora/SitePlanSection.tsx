@@ -200,8 +200,17 @@ export function SitePlanSection({ onEnquire }: Props) {
           ))}
 
           {/* Master plan */}
-          <div
-            className="reveal flex h-full flex-col justify-center overflow-hidden rounded-xl bg-card lg:col-span-2"
+          <button
+            type="button"
+            onClick={() =>
+              setViewing({
+                title: "Master Plan",
+                src: masterPlanAsset.url,
+                alt: "Vyomora Hinjawadi master layout plan",
+                intent: "Master Plan",
+              })
+            }
+            className="reveal group flex h-full cursor-zoom-in flex-col justify-center overflow-hidden rounded-xl bg-card transition duration-500 hover:scale-[1.01] motion-reduce:transform-none lg:col-span-2"
             data-reveal
             data-reveal-delay={(UNIT_PLANS.length + 1) * 120}
           >
@@ -210,9 +219,9 @@ export function SitePlanSection({ onEnquire }: Props) {
               alt="Vyomora Hinjawadi master layout plan"
               loading="lazy"
               decoding="async"
-              className="h-full max-h-[300px] w-full object-contain"
+              className="h-full max-h-[300px] w-full object-contain transition duration-700 group-hover:brightness-110 motion-reduce:transition-none"
             />
-          </div>
+          </button>
         </div>
 
 
