@@ -28,26 +28,26 @@ export const CONFIGS = [
   {
     type: "2 BHK Grand",
     area: "779 - 839 sq.ft.",
-    price: "₹100 L*",
+    price: "₹1 Cr*",
     notes: ["Corner layout", "Two full baths", "Deck balcony"],
     featured: true,
   },
   {
     type: "3 BHK Premium",
     area: "1050 - 1091 sq.ft.",
-    price: "₹136 L*",
+    price: "₹1.36 Cr*",
     notes: ["Master with walk-in", "Utility deck", "Podium-level views"],
   },
   {
     type: "3 BHK Imperial",
     area: "1186 sq.ft.",
-    price: "₹154 L*",
+    price: "₹1.54 Cr*",
     notes: ["Double-height living", "Private terrace", "Internal staircase"],
   },
   {
     type: "3 BHK Duplex",
     area: "1467 sq.ft.",
-    price: "₹196 L*",
+    price: "₹1.96 Cr*",
     notes: ["Duplex layout", "Private terrace", "Internal staircase"],
   },
 ];
