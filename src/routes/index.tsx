@@ -387,7 +387,12 @@ function Index() {
             rel="noreferrer"
             className="flex items-center justify-center gap-2 border-l border-primary-foreground/20 bg-ink px-3 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary"
           >
-            <WhatsAppIcon className="h-4 w-4" />
+            <span
+              className="grid h-5 w-5 shrink-0 place-items-center rounded-full"
+              style={{ backgroundColor: "#25D366", color: "#ffffff" }}
+            >
+              <WhatsAppIcon className="h-3.5 w-3.5" />
+            </span>
             WhatsApp Now
           </a>
         </div>
