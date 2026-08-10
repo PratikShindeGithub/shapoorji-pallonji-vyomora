@@ -10,17 +10,23 @@ import posterAsset from "@/assets/vyomora-rera-poster.jpg.asset.json";
 import towerAsset from "@/assets/vyomora-tower-exterior.jpg.asset.json";
 import livingAsset from "@/assets/vyomora-living-dining.jpg.asset.json";
 
+import heroPool2Asset from "@/assets/hero-pool-2.jpg.asset.json";
+import heroElevationAsset from "@/assets/hero-elevation.jpg.asset.json";
+import heroWormEyeAsset from "@/assets/hero-worm-eye.jpg.asset.json";
+
 export const HERO_SLIDES: { url: string; alt: string }[] = [
   {
-    url: poolHeroAsset.url,
-    alt: "Vyomora township towers illuminated at dusk beside the landscaped swimming pool deck",
+    url: heroPool2Asset.url,
+    alt: "Vyomora towers at dusk beside the landscaped swimming pool deck",
   },
   {
-    url: posterAsset.url,
-    alt: "Shapoorji Pallonji Vyomora Hinjawadi is now RERA registered",
+    url: heroElevationAsset.url,
+    alt: "Vyomora tower elevations viewed across the landscaped community",
   },
-  { url: towerAsset.url, alt: "Vyomora high-rise towers viewed from the podium level" },
-  { url: livingAsset.url, alt: "Vyomora sample apartment living and dining area" },
+  {
+    url: heroWormEyeAsset.url,
+    alt: "Vyomora high-rise tower seen from ground level amid flowering trees",
+  },
 ];
 
 import spLogoAsset from "@/assets/sp-logo-transparent.png.asset.json";
