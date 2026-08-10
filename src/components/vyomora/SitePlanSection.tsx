@@ -149,14 +149,11 @@ export function SitePlanSection({ onEnquire }: Props) {
           >
             Site &amp; Floor Plan
           </h2>
-          <div className="hairline mx-auto mt-5 w-24" />
-          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-            Explore the master plan and thoughtfully designed residences
-          </p>
+          <div className="hairline mx-auto mt-4 w-24" />
         </div>
 
         {/* Floor plans */}
-        <p className="reveal mt-12 text-center eyebrow text-primary" data-reveal>
+        <p className="reveal mt-8 text-center eyebrow text-primary" data-reveal>
           Floor Plans
         </p>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

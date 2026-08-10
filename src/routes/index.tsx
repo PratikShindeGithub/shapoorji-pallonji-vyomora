@@ -10,7 +10,7 @@ import {
   Gamepad2,
   Laptop,
   MapPin,
-  MessageCircle,
+  Menu,
   Phone,
   Sparkles,
   Trees,
@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
+import { WhatsAppIcon } from "@/components/vyomora/WhatsAppIcon";
 import { FLOOR_PLAN_URL } from "@/components/vyomora/floor-plan";
 import { SitePlanSection } from "@/components/vyomora/SitePlanSection";
 import { COST_SHEET_IMAGE } from "@/components/vyomora/cost-sheet";
@@ -190,6 +191,7 @@ function Index() {
 
 
 
+  const [menuOpen, setMenuOpen] = useState(false);
   const [welcome, setWelcome] = useState(false);
   useEffect(() => {
     const id = window.setTimeout(() => setWelcome(true), 1500);
@@ -245,7 +247,45 @@ function Index() {
               </ul>
             </nav>
 
+            <button
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              className="ml-auto grid h-10 w-10 shrink-0 place-items-center rounded-md border border-secondary/25 text-secondary transition hover:text-gold lg:hidden"
+            >
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
+
+          {menuOpen ? (
+            <nav aria-label="Mobile navigation" className="border-t border-secondary/15 lg:hidden">
+              <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 px-4 py-2 sm:px-6">
+                {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center gap-2 py-2 text-[13px] font-semibold tracking-wide text-secondary/90"
+                    >
+                      <Icon className="h-4 w-4 shrink-0 text-gold" /> {label}
+                    </a>
+                  </li>
+                ))}
+                <li className="col-span-2">
+                  <button
+                    onClick={() => {
+                      setMenuOpen(false);
+                      openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.");
+                    }}
+                    className="flex w-full items-center gap-2 py-2 text-[13px] font-semibold tracking-wide text-secondary/90"
+                  >
+                    <Download className="h-4 w-4 shrink-0 text-gold" /> Download Brochure
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          ) : null}
         </div>
       </header>
 
@@ -347,7 +387,7 @@ function Index() {
             rel="noreferrer"
             className="flex items-center justify-center gap-2 border-l border-primary-foreground/20 bg-ink px-3 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary"
           >
-            <MessageCircle className="h-4 w-4" />
+            <WhatsAppIcon className="h-4 w-4" />
             WhatsApp Now
           </a>
         </div>
@@ -375,6 +415,14 @@ function Index() {
         <div className="mt-4">
           <LeadForm intent="sticky-panel" variant="line" withCity cta="Schedule a site visit" onSuccess={handleSuccess} />
         </div>
+        <a
+          href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-4 flex items-center justify-center gap-2 rounded-md bg-[#25D366] py-2.5 text-sm font-bold text-white shadow-soft transition hover:brightness-95"
+        >
+          <WhatsAppIcon className="h-5 w-5" /> Chat on WhatsApp
+        </a>
         </div>
 
       </aside>
@@ -815,7 +863,7 @@ function Index() {
         {[
           {
             key: "wa",
-            icon: MessageCircle,
+            icon: WhatsAppIcon,
             label: "WhatsApp",
             href: `https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`,
           },
@@ -857,7 +905,7 @@ function Index() {
           rel="noreferrer"
           className="flex flex-col items-center gap-1 border-x border-border py-3 text-[11px] font-semibold text-foreground"
         >
-          <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp
+          <WhatsAppIcon className="h-4 w-4 text-primary" /> WhatsApp
         </a>
         <button
           onClick={() =>
