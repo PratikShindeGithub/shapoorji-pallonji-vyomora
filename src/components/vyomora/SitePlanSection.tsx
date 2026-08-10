@@ -170,7 +170,7 @@ export function SitePlanSection({ onEnquire }: Props) {
               alt={MASTER_PLAN.alt}
               loading="lazy"
               decoding="async"
-              className="mx-auto block max-h-[520px] w-full object-contain transition-transform duration-700 group-hover:scale-[1.03] motion-reduce:transform-none motion-reduce:transition-none"
+              className="mx-auto block max-h-[520px] w-full object-contain blur-md transition duration-700 group-hover:scale-[1.03] group-hover:blur-[3px] motion-reduce:transform-none motion-reduce:transition-none"
             />
             <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/0 opacity-0 transition duration-500 group-hover:bg-ink/40 group-hover:opacity-100 motion-reduce:transition-none">
               <span className="inline-flex items-center gap-2 rounded-md border border-secondary/70 px-6 py-2.5 text-xs font-bold tracking-widest text-secondary uppercase">
@@ -204,7 +204,7 @@ export function SitePlanSection({ onEnquire }: Props) {
                   alt={p.alt}
                   loading="lazy"
                   decoding="async"
-                  className="h-56 w-full object-contain transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transform-none motion-reduce:transition-none"
+                  className="h-56 w-full object-contain blur-md transition duration-700 group-hover:scale-[1.04] group-hover:blur-[3px] motion-reduce:transform-none motion-reduce:transition-none"
                 />
                 <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/0 opacity-0 transition duration-500 group-hover:bg-ink/45 group-hover:opacity-100 motion-reduce:transition-none">
                   <span className="rounded-md border border-secondary/70 px-5 py-2.5 text-xs font-bold tracking-widest text-secondary uppercase">
