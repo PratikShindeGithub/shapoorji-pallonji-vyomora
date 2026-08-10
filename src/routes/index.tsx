@@ -477,7 +477,7 @@ function Index() {
 
       {/* Pricing */}
       <section id="pricing" className="w-full px-4 py-8 sm:px-8 sm:py-10">
-        <span className="inline-flex rounded-full border-2 border-primary px-5 py-1.5 text-sm font-medium text-primary">
+        <span className="inline-flex rounded-full border-2 border-primary px-8 py-2.5 text-lg font-medium text-primary">
           Price
         </span>
         <div className="mt-6 grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
