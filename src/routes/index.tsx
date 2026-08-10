@@ -931,44 +931,45 @@ function Index() {
           onClick={() => setWelcome(false)}
         >
           <div
-            className="animate-scale-in relative w-full max-w-2xl overflow-hidden rounded-xl bg-card shadow-lift"
+            className="animate-scale-in relative w-full max-w-lg overflow-hidden rounded-lg bg-card shadow-lift"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setWelcome(false)}
               aria-label="Close"
-              className="absolute right-3 top-3 z-10 rounded-full p-1.5 text-muted-foreground transition hover:bg-muted hover:text-foreground"
+              className="absolute right-2 top-2 z-10 rounded-full p-1 text-muted-foreground transition hover:bg-muted hover:text-foreground"
             >
               <X className="h-4 w-4" />
             </button>
-            <div className="grid md:grid-cols-[0.8fr_1.2fr]">
-              <div className="hidden flex-col items-center gap-6 bg-muted/50 px-5 py-8 text-center md:flex">
-                <p className="font-display text-xl text-primary">We Promise</p>
+            <div className="grid md:grid-cols-[0.75fr_1.25fr]">
+              <div className="hidden flex-col items-center gap-3 bg-muted/50 px-3 py-5 text-center md:flex">
+                <p className="font-display text-base text-primary">We Promise</p>
                 {PROMISES.map(({ icon: Icon, label }) => (
-                  <div key={label} className="space-y-2">
-                    <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-primary/10 text-primary">
-                      <Icon className="h-5 w-5" />
+                  <div key={label} className="space-y-1">
+                    <span className="mx-auto grid h-9 w-9 place-items-center rounded-full bg-primary/10 text-primary">
+                      <Icon className="h-4 w-4" />
                     </span>
-                    <p className="text-xs font-semibold text-foreground">{label}</p>
+                    <p className="text-[11px] font-semibold leading-tight text-foreground">{label}</p>
                   </div>
                 ))}
               </div>
-              <div className="px-6 py-8">
-                <p className="text-center font-display text-2xl leading-tight text-foreground">
+              <div className="px-4 py-5">
+                <p className="text-center font-display text-lg leading-snug text-foreground">
                   Register here and avail the{" "}
                   <span className="text-gold">best offers!!</span>
                 </p>
-                <div className="mt-6">
+                <div className="mt-3">
                   <LeadForm intent="welcome" cta="Submit" withCity onSuccess={handleSuccess} />
                 </div>
               </div>
             </div>
             <a
               href={`tel:${PROJECT.phone}`}
-              className="flex items-center justify-center gap-2 bg-ink py-3 text-sm font-semibold text-secondary transition hover:text-gold"
+              className="flex items-center justify-center gap-2 bg-ink py-2 text-xs font-semibold text-secondary transition hover:text-gold"
             >
-              <Phone className="h-4 w-4 text-gold" /> {PROJECT.phoneDisplay}
+              <Phone className="h-3.5 w-3.5 text-gold" /> {PROJECT.phoneDisplay}
             </a>
+
           </div>
         </div>
       ) : null}
