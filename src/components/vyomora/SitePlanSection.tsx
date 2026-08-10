@@ -220,10 +220,9 @@ export function SitePlanSection({ onEnquire }: Props) {
                   </span>
                 </span>
               </span>
-              <span className="block border-t border-border px-5 py-4">
-                <span className="block text-sm font-semibold text-foreground">{p.title}</span>
-                <span className="mt-1 block text-xs text-muted-foreground">
-                  Enquire to receive the full plan
+              <span className="block bg-[linear-gradient(90deg,#0f5132_0%,#12507a_55%,#123f8a_100%)] px-5 py-3.5 text-center">
+                <span className="block text-lg font-semibold tracking-wide text-white">
+                  {p.label}
                 </span>
               </span>
             </button>

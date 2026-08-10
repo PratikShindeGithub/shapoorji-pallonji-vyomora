@@ -10,21 +10,24 @@ export const MASTER_PLAN = {
   alt: "Vyomora Hinjawadi master layout plan with towers, podium and landscape legend",
 };
 
-export type UnitPlan = { title: string; src: string; alt: string };
+export type UnitPlan = { title: string; label: string; src: string; alt: string };
 
 export const UNIT_PLANS: UnitPlan[] = [
   {
     title: "3 BHK - Signature Duplex",
+    label: "3 BHK",
     src: duplex.url as string,
     alt: "3 BHK Signature Duplex unit plan at Vyomora Hinjawadi",
   },
   {
     title: "3 BHK - Imperial",
+    label: "3 BHK",
     src: imperial.url as string,
     alt: "3 BHK Imperial unit plan at Vyomora Hinjawadi",
   },
   {
     title: "2 BHK - Grande",
+    label: "2 BHK",
     src: grande.url as string,
     alt: "2 BHK Grande unit plan at Vyomora Hinjawadi",
   },
