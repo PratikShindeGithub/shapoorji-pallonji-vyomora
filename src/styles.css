@@ -312,10 +312,31 @@ h1, h2, h3, .font-display {
   background-position: 0% 50%;
   animation: hero-light-shift 3s ease-in-out var(--d) infinite;
 
+  &:hover {
+    animation: hero-blink 0.9s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     animation: none;
     opacity: 1;
     background-position: 0% 50%;
+
+    &:hover {
+      animation: none;
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes hero-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
