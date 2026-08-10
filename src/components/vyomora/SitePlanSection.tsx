@@ -187,7 +187,7 @@ export function SitePlanSection({ onEnquire }: Props) {
                 />
                 <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/0 opacity-0 transition duration-500 group-hover:bg-ink/45 group-hover:opacity-100 motion-reduce:transition-none">
                   <span className="rounded-md border border-secondary/70 px-5 py-2.5 text-xs font-bold tracking-widest text-secondary uppercase">
-                    Enquire Now
+                    Request For Layout
                   </span>
                 </span>
               </span>
