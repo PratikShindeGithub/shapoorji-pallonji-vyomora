@@ -220,7 +220,7 @@ export function SitePlanSection({ onEnquire }: Props) {
                   </span>
                 </span>
               </span>
-              <span className="block bg-[linear-gradient(90deg,#0f5132_0%,#12507a_55%,#123f8a_100%)] px-5 py-3.5 text-center">
+              <span className="block bg-[linear-gradient(90deg,#544573_0%,#56436f_55%,#3d3258_100%)] px-5 py-3.5 text-center">
                 <span className="block text-lg font-semibold tracking-wide text-white">
                   {p.label}
                 </span>
