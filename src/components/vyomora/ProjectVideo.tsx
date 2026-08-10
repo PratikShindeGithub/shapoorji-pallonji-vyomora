@@ -23,7 +23,7 @@ export default function ProjectVideo() {
   }, [play]);
 
   return (
-    <section className="border-t border-gold/15 bg-ink py-20 sm:py-24">
+    <section className="border-t border-gold/15 bg-ink py-12 sm:py-14">
       <div ref={ref} className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="mb-8 text-center">
           <p className="eyebrow text-gold">Project film</p>

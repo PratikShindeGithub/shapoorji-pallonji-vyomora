@@ -136,7 +136,7 @@ export function SitePlanSection({ onEnquire }: Props) {
   return (
     <section
       id="plans"
-      className="bg-background pt-20 pb-10 sm:pt-24 sm:pb-12"
+      className="bg-background pt-10 pb-8 sm:pt-12 sm:pb-10"
       aria-labelledby="site-plan-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">

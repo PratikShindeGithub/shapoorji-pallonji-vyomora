@@ -601,7 +601,7 @@ function Index() {
       </section>
 
       {/* Amenities */}
-      <section id="amenities" className="bg-ink py-20 sm:py-24">
+      <section id="amenities" className="bg-ink py-12 sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="reveal mx-auto max-w-2xl text-center" data-reveal>
             <p className="eyebrow text-gold">Amenities</p>
@@ -635,7 +635,7 @@ function Index() {
 
 
       {/* Gallery */}
-      <section id="gallery" className="bg-secondary pt-10 pb-20 sm:pt-12 sm:pb-24">
+      <section id="gallery" className="bg-secondary py-12 sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHead eyebrow="Gallery" title="A Closer look at Vyomora" />
           <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -662,7 +662,7 @@ function Index() {
       </section>
 
       {/* Location */}
-      <section id="location" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+      <section id="location" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14">
         <SectionHead
           eyebrow="Location"
           title="Hinjawadi Phase 1, where the commute ends"
@@ -721,7 +721,7 @@ function Index() {
       </section>
 
       {/* Developer */}
-      <section className="bg-ink py-20 sm:py-24">
+      <section className="bg-ink py-12 sm:py-14">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="reveal" data-reveal>
             <p className="eyebrow text-gold">About the developer</p>
