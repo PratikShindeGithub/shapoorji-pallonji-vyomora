@@ -349,7 +349,7 @@ function Index() {
                 </p>
                 <button
                   onClick={() => openEnquiry("hero-card")}
-                  className="hero-cta mt-3.5 w-full rounded-md py-2.5 text-sm font-bold"
+                  className="hero-cta mt-4 w-full rounded-md py-3 text-base font-bold"
                 >
                   Enquire Now
                 </button>
