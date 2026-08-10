@@ -1,7 +1,8 @@
-import masterPlan from "@/assets/vyomora-master-plan.jpg.asset.json";
-import duplex from "@/assets/vyomora-plan-signature-duplex.jpg.asset.json";
-import imperial from "@/assets/vyomora-plan-3bhk-imperial.jpg.asset.json";
-import grande from "@/assets/vyomora-plan-2bhk-grande.jpg.asset.json";
+import masterPlan from "@/assets/vyomora-master-plan-v2.png.asset.json";
+import duplex from "@/assets/vyomora-plan-duplex-v2.png.asset.json";
+import imperial from "@/assets/vyomora-plan-imperial-v2.png.asset.json";
+import grande from "@/assets/vyomora-plan-grande-v2.png.asset.json";
+
 
 export const MASTER_PLAN = {
   title: "Master Plan",
