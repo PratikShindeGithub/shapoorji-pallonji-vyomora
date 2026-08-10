@@ -635,7 +635,7 @@ function Index() {
 
 
       {/* Gallery */}
-      <section id="gallery" className="bg-secondary py-20 sm:py-24">
+      <section id="gallery" className="bg-secondary pt-10 pb-20 sm:pt-12 sm:pb-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHead eyebrow="Gallery" title="A Closer look at Vyomora" />
           <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
