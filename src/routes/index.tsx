@@ -21,6 +21,7 @@ import {
 
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import { FLOOR_PLAN_URL } from "@/components/vyomora/floor-plan";
+import { SitePlanSection } from "@/components/vyomora/SitePlanSection";
 import { COST_SHEET_IMAGE } from "@/components/vyomora/cost-sheet";
 import reraQr1 from "@/assets/rera-qr-1.png.asset.json";
 import reraQr2 from "@/assets/rera-qr-2.png.asset.json";
@@ -41,9 +42,6 @@ import {
 } from "@/components/vyomora/layout-data";
 
 import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
-import plan2 from "@/assets/plan-2bhk.jpg";
-import plan3 from "@/assets/plan-3bhk.jpg";
-import planDuplex from "@/assets/plan-duplex.jpg";
 import { LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL, SP_VYOMORA_LOCKUP_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 import ProjectVideo from "@/components/vyomora/ProjectVideo";
@@ -107,11 +105,6 @@ const AMENITY_ICONS = [
 
 const GALLERY = GALLERY_ITEMS;
 
-const PLANS = [
-  { title: "2 BHK · 685 - 750 sq.ft.", src: plan2 },
-  { title: "3 BHK · 1050 - 1091 sq.ft.", src: plan3 },
-  { title: "3 BHK Imperial · 1186 sq.ft.", src: planDuplex },
-];
 
 /* ---------- helpers ---------- */
 
