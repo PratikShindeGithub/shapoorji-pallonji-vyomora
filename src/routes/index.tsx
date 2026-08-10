@@ -570,14 +570,14 @@ function Index() {
             </table>
           </div>
 
-          <div className="reveal flex w-full flex-col overflow-hidden border border-border bg-card" data-reveal data-reveal-delay="120">
+          <div className="reveal flex w-full flex-col self-start overflow-hidden border border-border bg-card" data-reveal data-reveal-delay="120">
             <img
               src={COST_SHEET_IMAGE}
               alt="Sample Vyomora cost sheet with detail sheet and payment schedule"
               loading="lazy"
               width={1024}
               height={768}
-              className="min-h-52 w-full flex-1 border-b border-border object-cover object-top"
+              className="h-40 w-full border-b border-border object-cover object-top"
             />
 
             <button
@@ -589,11 +589,12 @@ function Index() {
                   "Get the full detail sheet and payment schedule for your preferred configuration.",
                 )
               }
-              className="cta-blink w-full px-5 py-4 text-base font-semibold tracking-wide transition hover:-translate-y-0.5"
+              className="cta-blink w-full px-3 py-2.5 text-sm font-semibold tracking-wide transition hover:-translate-y-0.5"
             >
               Request Complete Costing Details
             </button>
           </div>
+
         </div>
 
 
