@@ -340,10 +340,10 @@ function Index() {
                   ))}
 
                 </div>
-                <p className="mt-3.5 text-[15px] leading-snug text-muted-foreground">
+                <p className="mt-3.5 text-[17px] font-bold leading-snug text-muted-foreground">
                   Exclusive 2, 3 BHK &amp; Duplex Apartments
                 </p>
-                <p className="text-[13px] font-bold tracking-normal text-muted-foreground">Starting Price</p>
+                <p className="text-[15px] font-bold tracking-normal text-muted-foreground">Starting Price</p>
                 <p className="mt-1 font-sans text-xl font-bold tracking-tight text-gold sm:text-2xl">
                   {PROJECT.startingPrice} Onwards
                 </p>
