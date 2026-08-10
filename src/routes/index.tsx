@@ -45,6 +45,8 @@ import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import { LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL, SP_VYOMORA_LOCKUP_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 import ProjectVideo from "@/components/vyomora/ProjectVideo";
+import VirtualExperience from "@/components/vyomora/VirtualExperience";
+
 
 
 export const Route = createFileRoute("/")({
@@ -719,6 +721,10 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <VirtualExperience />
+
+
 
       {/* Developer */}
       <section className="bg-ink py-12 sm:py-14">
