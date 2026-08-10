@@ -211,7 +211,7 @@ export function SitePlanSection({ onEnquire }: Props) {
                   alt={p.alt}
                   loading="lazy"
                   decoding="async"
-                  className="h-56 w-full scale-105 object-contain blur-xl transition duration-700 select-none group-hover:blur-md motion-reduce:transform-none motion-reduce:transition-none"
+                  className="h-56 w-full scale-105 object-contain blur-sm transition duration-700 select-none group-hover:blur-[2px] motion-reduce:transform-none motion-reduce:transition-none"
                   draggable={false}
                 />
                 <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/0 opacity-0 transition duration-500 group-hover:bg-ink/45 group-hover:opacity-100 motion-reduce:transition-none">
