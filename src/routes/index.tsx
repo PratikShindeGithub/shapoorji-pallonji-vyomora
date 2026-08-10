@@ -358,7 +358,7 @@ function Index() {
               </div>
             </div>
 
-            {/* Price breakup form — inline on smaller screens, fixed panel on xl+ */}
+            {/* Price breakup CTA — opens the shared enquiry modal */}
             <div
               className="reveal w-full border-y border-gold/25 bg-card p-5 sm:p-7 lg:max-w-md lg:rounded-xl lg:border lg:bg-card/95 lg:shadow-lift lg:backdrop-blur xl:hidden"
               data-reveal
@@ -368,10 +368,14 @@ function Index() {
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                 Floor-wise pricing, charges, payment plan and brochure — sent instantly.
               </p>
-              <div className="mt-5">
-                <LeadForm intent="hero" withCity onSuccess={handleSuccess} />
-              </div>
+              <button
+                onClick={() => openEnquiry("hero", "Get Price Breakup", "Get the exact price breakup", "Floor-wise pricing, charges, payment plan and brochure — sent instantly.")}
+                className="hero-cta mt-5 w-full rounded-md py-2.5 text-sm font-bold"
+              >
+                Get Price Breakup
+              </button>
             </div>
+
           </div>
         </div>
       </section>
