@@ -320,10 +320,10 @@ function Index() {
                   alt="Vyomora Hinjawadi"
                   className="mx-auto h-10 w-auto object-contain sm:h-12"
                 />
-                <p className="mt-1.5 inline-flex items-center gap-1.5 text-[13px] text-muted-foreground">
-                  <MapPin className="h-3.5 w-3.5 text-gold" /> {PROJECT.location}
+                <p className="mt-2 inline-flex items-center gap-1.5 text-[15px] text-muted-foreground">
+                  <MapPin className="h-4 w-4 text-gold" /> {PROJECT.location}
                 </p>
-                <ul className="mt-3 space-y-1 border-y border-border bg-muted/40 py-3 text-[13px] leading-snug text-foreground">
+                <ul className="mt-3 space-y-1.5 border-y border-border bg-muted/40 py-3.5 text-[15px] leading-snug text-foreground">
                   {HERO_FACTS.map((f) => (
                     <li key={f}>{f}</li>
                   ))}
@@ -333,23 +333,23 @@ function Index() {
                     <p
                       key={s}
                       style={{ ["--d" as string]: `${i * 250}ms` }}
-                      className="hero-strip rounded-sm px-3 py-1.5 text-[11px] font-semibold tracking-normal"
+                      className="hero-strip rounded-sm px-3 py-2 text-[13px] font-semibold tracking-normal"
                     >
                       {s}
                     </p>
                   ))}
 
                 </div>
-                <p className="mt-3 text-[13px] leading-snug text-muted-foreground">
+                <p className="mt-3.5 text-[15px] leading-snug text-muted-foreground">
                   Exclusive 2, 3 BHK &amp; Duplex Apartments
                 </p>
-                <p className="text-[11px] tracking-normal text-muted-foreground">Starting Price</p>
-                <p className="mt-0.5 font-sans text-2xl font-bold tracking-tight text-gold sm:text-3xl">
+                <p className="text-[13px] tracking-normal text-muted-foreground">Starting Price</p>
+                <p className="mt-1 font-sans text-3xl font-bold tracking-tight text-gold sm:text-4xl">
                   {PROJECT.startingPrice} Onwards
                 </p>
                 <button
                   onClick={() => openEnquiry("hero-card")}
-                  className="hero-cta mt-3.5 w-full rounded-md py-2.5 text-sm font-bold"
+                  className="hero-cta mt-4 w-full rounded-md py-3 text-base font-bold"
                 >
                   Enquire Now
                 </button>
