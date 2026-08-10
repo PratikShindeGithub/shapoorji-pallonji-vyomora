@@ -267,7 +267,7 @@ function Index() {
             </a>
             {/* Icon nav rail — same line as logo */}
             <nav aria-label="Section navigation" className="hidden flex-1 lg:block">
-              <ul className="flex items-stretch">
+              <ul className="flex items-stretch justify-end">
                 {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
                   <li key={label}>
                     <a
@@ -278,18 +278,19 @@ function Index() {
                     </a>
                   </li>
                 ))}
-                <li className="ml-auto">
+                <li>
                   <button
                     onClick={() =>
                       openEnquiry("nav-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
                     }
-                    className="cta-blink inline-flex h-full items-center gap-2 px-6 text-[13px] font-bold transition"
+                    className="inline-flex h-full items-center gap-1.5 px-3 py-5 text-[13px] font-semibold tracking-wide text-secondary/85 transition hover:text-gold"
                   >
-                    <Download className="icon-nudge h-4 w-4" /> Download Brochure
+                    <Download className="icon-nudge h-4 w-4 text-gold" /> Download Brochure
                   </button>
                 </li>
               </ul>
             </nav>
+
           </div>
         </div>
       </header>
