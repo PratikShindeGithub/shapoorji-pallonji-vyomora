@@ -94,16 +94,6 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const AMENITY_ICONS = [
-  Building2,
-  Waves,
-  Dumbbell,
-  Gamepad2,
-  Flower2,
-  Trophy,
-  Laptop,
-  Sparkles,
-];
 
 
 
