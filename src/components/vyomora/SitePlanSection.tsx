@@ -197,7 +197,23 @@ export function SitePlanSection({ onEnquire }: Props) {
               </span>
             </button>
           ))}
+
+          {/* Master plan */}
+          <div
+            className="reveal flex h-full flex-col justify-center overflow-hidden rounded-xl bg-card lg:col-span-2"
+            data-reveal
+            data-reveal-delay={(UNIT_PLANS.length + 1) * 120}
+          >
+            <img
+              src={masterPlanAsset.url}
+              alt="Vyomora Hinjawadi master layout plan"
+              loading="lazy"
+              decoding="async"
+              className="h-full max-h-[300px] w-full object-contain"
+            />
+          </div>
         </div>
+
 
 
         <div className="reveal mt-10 text-center" data-reveal>
