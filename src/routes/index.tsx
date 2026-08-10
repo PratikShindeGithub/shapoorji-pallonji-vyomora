@@ -625,7 +625,7 @@ function Index() {
       </section>
 
       {/* Location */}
-      <section id="location" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14">
+      <section id="location" className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
         <SectionHead
           eyebrow="Location"
           title="Hinjawadi Phase 1, where the commute ends"
