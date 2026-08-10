@@ -963,9 +963,6 @@ function Index() {
                       className="h-12 w-auto object-contain"
                     />
                   </div>
-                  <p className="mt-1 text-[10px] font-semibold tracking-wide text-muted-foreground">
-                    Authorized Channel Partner
-                  </p>
                 </div>
                 <p className="mt-3 text-center font-display text-lg leading-snug text-foreground">
                   Register here and avail the{" "}
