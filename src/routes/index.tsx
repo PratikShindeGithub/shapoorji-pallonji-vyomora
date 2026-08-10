@@ -476,13 +476,11 @@ function Index() {
 
 
       {/* Pricing */}
-      <section id="pricing" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
-        <SectionHead
-          eyebrow="Configurations"
-          title="Choose the home that fits your life"
-          copy="Efficient layouts with wide living spaces, deep balconies and cross-ventilation across every tower."
-        />
-        <div className="mt-8 flex flex-col gap-8">
+      <section id="pricing" className="w-full px-4 py-8 sm:px-8 sm:py-10">
+        <span className="inline-flex rounded-full border-2 border-primary px-5 py-1.5 text-sm font-medium text-primary">
+          Price
+        </span>
+        <div className="mt-6 grid items-start gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
           {/* Mobile cards */}
           <div className="reveal grid gap-5 sm:hidden" data-reveal>
             {CONFIGS.map((c) => (
@@ -499,35 +497,30 @@ function Index() {
                   onClick={() =>
                     openEnquiry(
                       `cost-sheet-${c.type}`,
-                      "View Floor Plan",
+                      "Request For Price Breakup",
                       `Price breakup — ${c.type}`,
                       "We'll send the detailed cost sheet with all charges and the payment schedule.",
                     )
                   }
                   className="mt-5 w-full rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition"
                 >
-                  View Floor Plan
+                  Request For Price Breakup
                 </button>
               </div>
             ))}
           </div>
 
-          <div className="reveal hidden overflow-hidden rounded-xl border border-border bg-card shadow-soft sm:block" data-reveal>
+          <div className="reveal hidden overflow-hidden border border-border bg-card sm:block" data-reveal>
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="px-4 py-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:px-6">
+                  <th className="border-r border-border px-5 py-4 text-base font-normal text-foreground">
                     Type
                   </th>
-                  <th className="px-4 py-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:px-6">
+                  <th className="border-r border-border px-5 py-4 text-base font-normal text-foreground">
                     Carpet Area
                   </th>
-                  <th className="px-4 py-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:px-6">
-                    Price
-                  </th>
-                  <th className="px-4 py-4 text-right text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:px-6">
-                    Price Breakup
-                  </th>
+                  <th className="px-5 py-4 text-base font-normal text-foreground">Price</th>
                 </tr>
               </thead>
               <tbody>
@@ -536,47 +529,46 @@ function Index() {
                     key={c.type}
                     className={`border-b border-border last:border-0 ${i % 2 === 0 ? "bg-muted/40" : ""}`}
                   >
-                    <td className="px-4 py-5 align-middle text-sm font-semibold text-foreground sm:px-6">
+                    <td className="border-r border-border px-5 py-4 align-middle text-base text-foreground">
                       {c.type}
                     </td>
-                    <td className="px-4 py-5 align-middle text-sm text-muted-foreground sm:px-6">
+                    <td className="border-r border-border px-5 py-4 align-middle text-base text-muted-foreground">
                       {c.area}
                     </td>
-                    <td className="px-4 py-5 align-middle sm:px-6">
-                      <span className="font-sans text-lg font-bold tracking-tight text-primary sm:text-xl">
-                        {c.price} Onwards
-                      </span>
+                    <td className="px-5 py-4 align-middle">
+                      <div className="flex flex-wrap items-center gap-4">
+                        <span className="font-sans text-lg font-semibold tracking-tight text-primary">
+                          {c.price} Onwards
+                        </span>
+                        <button
+                          onClick={() =>
+                            openEnquiry(
+                              `cost-sheet-${c.type}`,
+                              "Request For Price Breakup",
+                              `Price breakup — ${c.type}`,
+                              "We'll send the detailed cost sheet with all charges and the payment schedule.",
+                            )
+                          }
+                          className="shrink-0 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
+                        >
+                          Request For Price Breakup
+                        </button>
+                      </div>
                     </td>
-                    <td className="px-4 py-5 text-right align-middle sm:px-6">
-                      <button
-                        onClick={() =>
-                          openEnquiry(
-                            `cost-sheet-${c.type}`,
-                            "View Floor Plan",
-                            `Price breakup — ${c.type}`,
-                            "We'll send the detailed cost sheet with all charges and the payment schedule.",
-                          )
-                        }
-                        className="w-32 shrink-0 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
-                      >
-                        View Floor Plan
-                      </button>
-                    </td>
-
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <div className="reveal mx-auto w-full max-w-sm overflow-hidden rounded-xl border border-border bg-card shadow-soft" data-reveal data-reveal-delay="120">
+          <div className="reveal w-full overflow-hidden border border-border bg-card" data-reveal data-reveal-delay="120">
             <img
               src={COST_SHEET_IMAGE}
               alt="Sample Vyomora cost sheet with detail sheet and payment schedule"
               loading="lazy"
               width={1024}
               height={768}
-              className="h-40 w-full border-b border-border object-cover"
+              className="h-52 w-full border-b border-border object-cover object-top"
             />
 
             <button
@@ -588,12 +580,13 @@ function Index() {
                   "Get the full detail sheet and payment schedule for your preferred configuration.",
                 )
               }
-              className="cta-blink w-full px-5 py-4 text-sm font-semibold tracking-wide transition hover:-translate-y-0.5"
+              className="cta-blink w-full px-5 py-4 text-base font-semibold tracking-wide transition hover:-translate-y-0.5"
             >
               Request Complete Costing Details
             </button>
           </div>
         </div>
+
 
         <p className="reveal mt-8 text-center text-[11px] text-muted-foreground" data-reveal>
           {PROJECT.reraNote}
