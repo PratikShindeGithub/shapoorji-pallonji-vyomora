@@ -348,7 +348,7 @@ function Index() {
                 </p>
                 <button
                   onClick={() => openEnquiry("hero-card")}
-                  className="hero-cta mt-3.5 w-full rounded-md bg-gold py-2.5 text-sm font-bold text-gold-foreground"
+                  className="hero-cta mt-3.5 w-full rounded-md py-2.5 text-sm font-bold"
                 >
                   Enquire Now
                 </button>
