@@ -464,7 +464,7 @@ function Index() {
                 <p className="mt-3 text-base text-muted-foreground">
                   {c.area} <span className="text-sm">(Carpet Area)</span>
                 </p>
-                <p className="mt-2 font-display text-xl text-primary">{c.price} Onwards</p>
+                <p className="mt-2 font-sans text-xl font-bold tracking-tight text-primary">{c.price} Onwards</p>
                 <button
                   onClick={() =>
                     openEnquiry(
@@ -513,7 +513,7 @@ function Index() {
                       {c.area}
                     </td>
                     <td className="px-4 py-5 align-middle sm:px-6">
-                      <span className="font-display text-lg text-primary sm:text-xl">
+                      <span className="font-sans text-lg font-bold tracking-tight text-primary sm:text-xl">
                         {c.price} Onwards
                       </span>
                     </td>
