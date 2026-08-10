@@ -67,7 +67,7 @@ export const LOCATION_GROUPS = [
   {
     group: "IT & Business",
     items: [
-      "Rajiv Gandhi Infotech Park — 5 min",
+      "Infosys, Persistent - 5 min",
       "Blue Ridge Corporate Park — 8 min",
       "Embassy TechZone — 12 min",
       "Balewadi High Street — 18 min",
@@ -78,17 +78,17 @@ export const LOCATION_GROUPS = [
     items: [
       "Mercedes-Benz International — 6 min",
       "Blue Ridge Public School — 8 min",
-      "Akshara International — 12 min",
+      "Delhi Public School — 8 min",
       "VIIT & MIT Colleges — 20 min",
     ],
   },
   {
     group: "Healthcare",
     items: [
-      "Ruby Hall Clinic, Hinjawadi — 7 min",
+      "Ruby Hall Clinic — 7 min",
       "Lifepoint Multispeciality — 10 min",
       "Aditya Birla Memorial — 20 min",
-      "Sanjeevani Hospital — 9 min",
+      "Jupiter Hospital — 15 min",
     ],
   },
   {
