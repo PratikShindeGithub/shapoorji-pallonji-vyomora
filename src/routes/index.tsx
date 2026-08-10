@@ -316,9 +316,10 @@ function Index() {
               <div className="px-4 pb-4 pt-3">
                 <h1 className="sr-only">Vyomora — {PROJECT.location}</h1>
                 <img
-                  src={LOGO_URL}
-                  alt="Vyomora Hinjawadi"
-                  className="mx-auto h-9 w-auto object-contain sm:h-10"
+                  src={SP_VYOMORA_LOCKUP_URL}
+                  alt="Shapoorji Pallonji Vyomora Hinjawadi"
+                  className="mx-auto h-10 w-auto object-contain sm:h-12"
+
                 />
                 <p className="mt-2 inline-flex items-center gap-1.5 text-[12px] text-muted-foreground">
                   <MapPin className="h-4 w-4 text-gold" /> {PROJECT.location}
