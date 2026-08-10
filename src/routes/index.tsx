@@ -415,7 +415,8 @@ function Index() {
 
         <div className="px-5 pb-6 pt-5">
         <img src={LOGO_URL} alt="Vyomora" className="mx-auto h-12 w-auto object-contain" />
-        <h2 className="mt-3 text-center text-xl text-foreground">Enquire Now</h2>
+
+
 
         <div className="mt-4">
           <LeadForm intent="sticky-panel" variant="line" withCity cta="Schedule a site visit" onSuccess={handleSuccess} />
