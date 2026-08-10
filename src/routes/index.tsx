@@ -722,7 +722,7 @@ function Index() {
         </div>
       </section>
 
-      <VirtualExperience />
+      <VirtualExperience onEnquire={openEnquiry} />
 
 
 
