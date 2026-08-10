@@ -420,10 +420,11 @@ function Index() {
           target="_blank"
           rel="noreferrer"
           aria-label="Chat on WhatsApp"
-          className="ml-auto mt-6 flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-soft transition hover:brightness-95"
+          className="fixed bottom-6 right-6 z-50 hidden h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-soft transition hover:brightness-95 lg:flex"
         >
-          <WhatsAppIcon className="h-5 w-5" />
+          <WhatsAppIcon className="h-6 w-6" />
         </a>
+
         </div>
 
       </aside>
