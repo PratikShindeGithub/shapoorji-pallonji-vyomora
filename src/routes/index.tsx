@@ -449,7 +449,7 @@ function Index() {
 
       {/* Overview */}
       <section id="overview" className="bg-background">
-        <div className="w-full px-4 py-6 sm:px-8 sm:py-8 xl:pr-[22rem]">
+        <div className="w-full px-4 py-6 sm:px-8 sm:py-8">
           <span className="inline-flex rounded-full border-2 border-primary px-5 py-1.5 text-sm font-medium text-primary">
             Overview
           </span>
