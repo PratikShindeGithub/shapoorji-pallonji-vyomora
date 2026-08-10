@@ -154,7 +154,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
         }
       }}
 
-      className={line ? (compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-1.5") : compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
+      className={line ? (compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-2.5") : compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
     >
       {field("name", line ? "Name" : "Full name", { autoComplete: "name", maxLength: "80" })}
       {field("mobile", line ? "Phone" : "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}
