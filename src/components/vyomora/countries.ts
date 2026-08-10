@@ -78,4 +78,5 @@ export const COUNTRIES: Country[] = RAW.map(([name, iso, dial]) => ({
   flag: flagOf(iso),
 })).sort((a, b) => a.name.localeCompare(b.name));
 
-export const DEFAULT_COUNTRY = COUNTRIES.find((c) => c.iso === "IN") ?? COUNTRIES[0];
+export const DEFAULT_COUNTRY: Country =
+  COUNTRIES.find((c) => c.iso === "IN") ?? { name: "India", iso: "IN", dial: "91", flag: flagOf("IN") };
