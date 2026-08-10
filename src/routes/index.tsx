@@ -145,15 +145,17 @@ function SectionHead({
   eyebrow,
   title,
   copy,
+  titleClassName,
 }: {
   eyebrow: string;
   title: string;
   copy?: string;
+  titleClassName?: string;
 }) {
   return (
     <div className="reveal mx-auto max-w-2xl text-center" data-reveal>
       <p className="eyebrow text-gold">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl leading-tight text-foreground sm:text-4xl">{title}</h2>
+      <h2 className={`mt-3 text-3xl leading-tight text-foreground sm:text-4xl ${titleClassName ?? ""}`}>{title}</h2>
       <div className="hairline mx-auto mt-5 w-24" />
       {copy ? <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{copy}</p> : null}
     </div>
@@ -628,6 +630,7 @@ function Index() {
           eyebrow="Location"
           title="Hinjawadi Phase 1, where the commute ends"
           copy="Walk-to-work proximity to Pune's largest IT belt, with schools, hospitals and the metro corridor minutes away."
+          titleClassName="whitespace-nowrap text-xl sm:text-2xl"
         />
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="reveal overflow-hidden rounded-xl border border-border shadow-soft" data-reveal>
