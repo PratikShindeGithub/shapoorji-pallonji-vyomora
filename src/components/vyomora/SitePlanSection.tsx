@@ -202,7 +202,7 @@ export function SitePlanSection({ onEnquire }: Props) {
                   "Share your details and our sales desk will send the detailed floor plan right away.",
                 )
               }
-              className="reveal group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card text-left shadow-soft transition duration-500 hover:scale-[1.02] hover:shadow-lift motion-reduce:transform-none"
+              className="reveal group flex h-full flex-col overflow-hidden rounded-xl bg-card text-left transition duration-500 hover:scale-[1.02] motion-reduce:transform-none"
               data-reveal
               data-reveal-delay={(i + 1) * 120}
             >
