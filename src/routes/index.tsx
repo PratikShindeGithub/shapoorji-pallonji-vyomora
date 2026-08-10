@@ -347,7 +347,7 @@ function Index() {
             rel="noreferrer"
             className="flex items-center justify-center gap-2 border-l border-primary-foreground/20 bg-ink px-3 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary"
           >
-            <MessageCircle className="h-4 w-4" />
+            <WhatsAppIcon className="h-4 w-4" />
             WhatsApp Now
           </a>
         </div>
@@ -375,6 +375,14 @@ function Index() {
         <div className="mt-4">
           <LeadForm intent="sticky-panel" variant="line" withCity cta="Schedule a site visit" onSuccess={handleSuccess} />
         </div>
+        <a
+          href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-4 flex items-center justify-center gap-2 rounded-md bg-[#25D366] py-2.5 text-sm font-bold text-white shadow-soft transition hover:brightness-95"
+        >
+          <WhatsAppIcon className="h-5 w-5" /> Chat on WhatsApp
+        </a>
         </div>
 
       </aside>
@@ -857,7 +865,7 @@ function Index() {
           rel="noreferrer"
           className="flex flex-col items-center gap-1 border-x border-border py-3 text-[11px] font-semibold text-foreground"
         >
-          <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp
+          <WhatsAppIcon className="h-4 w-4 text-primary" /> WhatsApp
         </a>
         <button
           onClick={() =>
