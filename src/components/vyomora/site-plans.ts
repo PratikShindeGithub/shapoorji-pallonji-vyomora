@@ -32,4 +32,10 @@ export const UNIT_PLANS: UnitPlan[] = [
     src: duplex.url as string,
     alt: "3 BHK Signature Duplex unit plan at Vyomora Hinjawadi",
   },
+  {
+    title: "Jodi (Flat) - 1580 sq.ft",
+    label: "Jodi (Flat)",
+    src: jodi.url as string,
+    alt: "Jodi flat combined unit plan (1580 sq.ft) at Vyomora Hinjawadi Tower 5",
+  },
 ];
