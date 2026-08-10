@@ -255,8 +255,8 @@ function Index() {
   return (
     <div ref={pageRef} className="min-h-screen bg-background text-foreground xl:pr-[20rem]">
       {/* Header */}
-      <header className="fixed left-0 right-0 top-0 z-50 xl:right-[20rem]">
-        <div className="border-b border-secondary/15 bg-ink/70 shadow-soft backdrop-blur">
+      <header className="hero-strip fixed left-0 right-0 top-0 z-50 xl:right-[20rem]" style={{ ["--d" as string]: "0ms" }}>
+        <div className="border-b border-secondary/15 shadow-soft backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6">
             <a href="#top" className="flex shrink-0 items-center py-3">
               <img
@@ -272,7 +272,7 @@ function Index() {
                   <li key={label}>
                     <a
                       href={href}
-                      className="inline-flex items-center gap-1.5 px-3 py-5 text-[13px] font-semibold tracking-wide text-secondary/85 transition hover:text-gold"
+                      className="inline-flex items-center gap-1.5 px-3 py-5 text-[13px] font-semibold tracking-wide text-white/90 transition hover:text-gold"
                     >
                       <Icon className="h-4 w-4 text-gold" /> {label}
                     </a>
