@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
+  CheckCircle2,
   Download,
   MapPin,
   Menu,
@@ -936,7 +937,7 @@ function Index() {
           }}
         >
           <div
-            className="animate-scale-in relative w-full max-w-2xl overflow-hidden rounded-lg bg-card shadow-lift"
+            className="animate-scale-in relative w-full max-w-4xl overflow-hidden rounded-lg bg-card shadow-lift"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -945,11 +946,11 @@ function Index() {
                 setModal(null);
               }}
               aria-label="Close"
-              className="absolute right-2 top-2 z-10 rounded-full p-1 text-muted-foreground transition hover:bg-muted hover:text-foreground"
+              className="absolute right-2 top-2 z-10 rounded-full p-1 text-muted-foreground transition hover:bg-muted hover:text-foreground md:text-primary-foreground/80 md:hover:bg-primary-foreground/10 md:hover:text-primary-foreground"
             >
               <X className="h-4 w-4" />
             </button>
-            <div className="grid md:grid-cols-[0.7fr_1.3fr]">
+            <div className="grid md:grid-cols-[0.62fr_1.1fr_0.78fr]">
               <div className="hidden flex-col items-center gap-4 bg-muted/50 px-4 py-6 text-center md:flex">
                 <p className="font-display text-xl text-primary">We Promise</p>
                 {PROMISES.map(({ icon: Icon, label }) => (
@@ -986,7 +987,21 @@ function Index() {
                   />
                 </div>
               </div>
+              <div className="hidden flex-col gap-4 bg-primary px-5 py-6 text-primary-foreground md:flex">
+                <p className="text-center font-display text-xl leading-snug">
+                  Get Information On Availabilities
+                </p>
+                <ul className="mt-1 space-y-3.5">
+                  {["Available Units", "Payment Plan", "Floor Plans"].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-base font-semibold">
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-gold" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+
             <a
               href={`tel:${PROJECT.phone}`}
               className="flex items-center justify-center gap-2 bg-ink py-2 text-xs font-semibold text-secondary transition hover:text-gold"
