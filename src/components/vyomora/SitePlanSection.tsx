@@ -154,37 +154,6 @@ export function SitePlanSection({ onEnquire }: Props) {
           </p>
         </div>
 
-        {/* Master plan */}
-        <button
-          type="button"
-          onClick={() =>
-            setViewing({ ...MASTER_PLAN, intent: "master-plan" })
-          }
-          className="reveal group mx-auto mt-10 block w-full max-w-3xl overflow-hidden rounded-xl border border-border bg-card text-left shadow-soft transition duration-500 hover:shadow-lift"
-          data-reveal
-          aria-label="View master plan"
-        >
-          <span className="relative block overflow-hidden bg-secondary">
-            <img
-              src={MASTER_PLAN.src}
-              alt={MASTER_PLAN.alt}
-              loading="lazy"
-              decoding="async"
-              className="mx-auto block max-h-[320px] w-full object-contain transition duration-700 group-hover:scale-[1.03] motion-reduce:transform-none motion-reduce:transition-none"
-            />
-            <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/0 opacity-0 transition duration-500 group-hover:bg-ink/40 group-hover:opacity-100 motion-reduce:transition-none">
-              <span className="inline-flex items-center gap-2 rounded-md border border-secondary/70 px-6 py-2.5 text-xs font-bold tracking-widest text-secondary uppercase">
-                <Maximize2 className="h-4 w-4" /> View Master Plan
-              </span>
-            </span>
-          </span>
-          <span className="block bg-[linear-gradient(90deg,#544573_0%,#56436f_55%,#3d3258_100%)] px-5 py-3.5 text-center">
-            <span className="block text-lg font-semibold tracking-wide text-white">
-              &nbsp;
-            </span>
-          </span>
-        </button>
-
         {/* Floor plans */}
         <p className="reveal mt-12 text-center eyebrow text-primary" data-reveal>
           Floor Plans
@@ -229,6 +198,37 @@ export function SitePlanSection({ onEnquire }: Props) {
             </button>
           ))}
         </div>
+
+        {/* Master plan */}
+        <button
+          type="button"
+          onClick={() =>
+            setViewing({ ...MASTER_PLAN, intent: "master-plan" })
+          }
+          className="reveal group mx-auto mt-10 block w-full max-w-3xl overflow-hidden rounded-xl border border-border bg-card text-left shadow-soft transition duration-500 hover:shadow-lift"
+          data-reveal
+          aria-label="View master plan"
+        >
+          <span className="relative block overflow-hidden bg-secondary">
+            <img
+              src={MASTER_PLAN.src}
+              alt={MASTER_PLAN.alt}
+              loading="lazy"
+              decoding="async"
+              className="mx-auto block max-h-[320px] w-full object-contain transition duration-700 group-hover:scale-[1.03] motion-reduce:transform-none motion-reduce:transition-none"
+            />
+            <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/0 opacity-0 transition duration-500 group-hover:bg-ink/40 group-hover:opacity-100 motion-reduce:transition-none">
+              <span className="inline-flex items-center gap-2 rounded-md border border-secondary/70 px-6 py-2.5 text-xs font-bold tracking-widest text-secondary uppercase">
+                <Maximize2 className="h-4 w-4" /> View Master Plan
+              </span>
+            </span>
+          </span>
+          <span className="block bg-[linear-gradient(90deg,#544573_0%,#56436f_55%,#3d3258_100%)] px-5 py-3.5 text-center">
+            <span className="block text-lg font-semibold tracking-wide text-white">
+              &nbsp;
+            </span>
+          </span>
+        </button>
 
         <div className="reveal mt-10 text-center" data-reveal>
           <button
