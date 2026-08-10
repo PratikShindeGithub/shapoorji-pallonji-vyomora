@@ -76,7 +76,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
         <div className={line ? "flex items-stretch" : "relative"}>
           {line ? (
             key === "mobile" ? (
-              <span className="relative flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2 text-sm text-foreground">
+              <span className="relative flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2.5 text-base text-foreground">
                 <span aria-hidden>{country.flag}</span> +{country.dial}
                 <select
                   aria-label="Country code"
