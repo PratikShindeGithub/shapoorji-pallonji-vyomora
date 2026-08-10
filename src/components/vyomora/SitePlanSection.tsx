@@ -178,9 +178,10 @@ export function SitePlanSection({ onEnquire }: Props) {
               </span>
             </span>
           </span>
-          <span className="flex items-center justify-between gap-3 border-t border-border bg-[linear-gradient(90deg,#544573_0%,#56436f_55%,#3d3258_100%)] px-5 py-4">
-            <span className="text-sm font-semibold text-white">Master Plan</span>
-            <span className="text-xs text-white/70">Click to view full screen</span>
+          <span className="block bg-[linear-gradient(90deg,#544573_0%,#56436f_55%,#3d3258_100%)] px-5 py-3.5 text-center">
+            <span className="block text-lg font-semibold tracking-wide text-white">
+              Master Plan
+            </span>
           </span>
         </button>
 
