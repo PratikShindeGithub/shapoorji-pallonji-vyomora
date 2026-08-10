@@ -310,20 +310,20 @@ function Index() {
               className="reveal w-full overflow-hidden border-y border-gold/25 bg-card text-center lg:max-w-sm lg:rounded-xl lg:border lg:bg-card/92 lg:shadow-lift lg:backdrop-blur"
               data-reveal
             >
-              <p className="eyebrow bg-primary py-2 text-primary-foreground lg:bg-primary/10 lg:text-primary">
+              <p className="eyebrow bg-primary py-1.5 text-primary-foreground lg:bg-primary/10 lg:text-primary">
                 Booking Open
               </p>
-              <div className="px-5 pb-5 pt-4">
+              <div className="px-4 pb-4 pt-3">
                 <h1 className="sr-only">Vyomora — {PROJECT.location}</h1>
                 <img
                   src={LOGO_URL}
                   alt="Vyomora Hinjawadi"
-                  className="mx-auto h-10 w-auto object-contain sm:h-12"
+                  className="mx-auto h-9 w-auto object-contain sm:h-10"
                 />
-                <p className="mt-2 inline-flex items-center gap-1.5 text-[15px] text-muted-foreground">
+                <p className="mt-2 inline-flex items-center gap-1.5 text-[12px] text-muted-foreground">
                   <MapPin className="h-4 w-4 text-gold" /> {PROJECT.location}
                 </p>
-                <ul className="mt-3 space-y-1.5 border-y border-border bg-muted/40 py-3.5 text-[15px] leading-snug text-foreground">
+                <ul className="mt-3 space-y-1 border-y border-border bg-muted/40 py-2.5 text-[12px] leading-snug text-foreground">
                   {HERO_FACTS.map((f) => (
                     <li key={f}>{f}</li>
                   ))}
@@ -333,23 +333,23 @@ function Index() {
                     <p
                       key={s}
                       style={{ ["--d" as string]: `${i * 250}ms` }}
-                      className="hero-strip rounded-sm px-3 py-2 text-[13px] font-semibold tracking-normal"
+                      className="hero-strip rounded-sm px-2.5 py-1.5 text-[11px] font-semibold tracking-normal"
                     >
                       {s}
                     </p>
                   ))}
 
                 </div>
-                <p className="mt-3.5 text-[17px] font-bold leading-snug text-muted-foreground">
+                <p className="mt-3.5 text-[13px] font-bold leading-snug text-muted-foreground">
                   Exclusive 2, 3 BHK &amp; Duplex Apartments
                 </p>
-                <p className="text-[15px] font-bold tracking-normal text-muted-foreground">Starting Price</p>
-                <p className="mt-1 font-sans text-xl font-bold tracking-tight text-gold sm:text-2xl">
+                <p className="text-[12px] font-bold tracking-normal text-muted-foreground">Starting Price</p>
+                <p className="mt-1 font-sans text-base font-bold tracking-tight text-gold sm:text-lg">
                   {PROJECT.startingPrice} Onwards
                 </p>
                 <button
                   onClick={() => openEnquiry("hero-card")}
-                  className="hero-cta mt-4 w-full rounded-md py-3 text-base font-bold"
+                  className="hero-cta mt-4 w-full rounded-md py-2 text-sm font-bold"
                 >
                   Enquire Now
                 </button>
