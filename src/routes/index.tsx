@@ -344,7 +344,7 @@ function Index() {
                   Exclusive 2, 3 BHK &amp; Duplex Apartments
                 </p>
                 <p className="text-[13px] tracking-normal text-muted-foreground">Starting Price</p>
-                <p className="mt-1 font-sans text-3xl font-bold tracking-tight text-gold sm:text-4xl">
+                <p className="mt-1 font-sans text-xl font-bold tracking-tight text-gold sm:text-2xl">
                   {PROJECT.startingPrice} Onwards
                 </p>
                 <button
