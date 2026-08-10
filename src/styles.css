@@ -279,3 +279,106 @@ h1, h2, h3, .font-display {
     animation: none;
   }
 }
+
+/* ---------- Hero strip + CTA entrance animations ---------- */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-shimmer {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(220%);
+  }
+}
+
+@utility hero-strip {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--gold);
+  color: var(--ink, var(--foreground));
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: hero-rise 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      oklch(1 0 0 / 0.45) 50%,
+      transparent 80%
+    );
+    transform: translateX(-120%);
+    animation: hero-shimmer 800ms ease-out both;
+    animation-delay: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
+    &::after {
+      animation: none;
+      opacity: 0;
+    }
+  }
+}
+
+@utility hero-cta {
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: hero-rise 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 1240ms;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      oklch(1 0 0 / 0.5) 50%,
+      transparent 80%
+    );
+    transform: translateX(-120%);
+    animation: hero-shimmer 900ms ease-out both;
+    animation-delay: 1840ms;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: var(--shadow-lift);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
+    &::after {
+      animation: none;
+      opacity: 0;
+    }
+    &:hover {
+      transform: none;
+    }
+  }
+}
