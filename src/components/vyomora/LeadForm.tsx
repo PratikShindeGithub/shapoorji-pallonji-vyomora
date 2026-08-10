@@ -154,7 +154,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
         }
       }}
 
-      className={line ? (compact ? "grid gap-4 sm:grid-cols-3" : "grid gap-4") : compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
+      className={line ? (compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-2") : compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
     >
       {field("name", line ? "Name" : "Full name", { autoComplete: "name", maxLength: "80" })}
       {field("mobile", line ? "Phone" : "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}
@@ -165,7 +165,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
         disabled={busy}
         className={
           line
-            ? `${compact ? "sm:col-span-3" : ""} mx-auto mt-5 inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-sm font-semibold tracking-wide text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:opacity-70`
+            ? `${compact ? "sm:col-span-3" : ""} mx-auto mt-3 inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-sm font-semibold tracking-wide text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:opacity-70`
             : `${compact ? "sm:col-span-3" : ""} cta-blink mt-1 inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:animate-none disabled:bg-primary disabled:opacity-70`
         }
       >
@@ -176,7 +176,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
           Something went wrong. Please try again or call our sales desk.
         </p>
       ) : null}
-      <p className={`text-[11px] leading-relaxed text-muted-foreground ${line ? "mt-4 text-center" : ""}`}>
+      <p className={`text-[11px] leading-relaxed text-muted-foreground ${line ? "mt-2 text-center" : ""}`}>
         By submitting you authorise our sales desk to contact you regarding this project.
       </p>
 
