@@ -471,8 +471,6 @@ function Index() {
             Request Download Brochure
           </button>
         </div>
-
-        </div>
       </section>
 
 
