@@ -197,33 +197,8 @@ export function SitePlanSection({ onEnquire }: Props) {
               </span>
             </button>
           ))}
-
-        {/* Master plan */}
-        <button
-          type="button"
-          onClick={() =>
-            setViewing({ ...MASTER_PLAN, intent: "master-plan" })
-          }
-          className="reveal group block h-full w-full overflow-hidden rounded-xl bg-card text-left transition duration-500 hover:shadow-lift lg:col-span-2"
-          data-reveal
-          aria-label="View master plan"
-        >
-          <span className="relative block overflow-hidden bg-secondary">
-            <img
-              src={MASTER_PLAN.src}
-              alt={MASTER_PLAN.alt}
-              loading="lazy"
-              decoding="async"
-              className="mx-auto block h-56 w-full object-contain transition duration-700 group-hover:scale-[1.03] motion-reduce:transform-none motion-reduce:transition-none"
-            />
-            <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/0 opacity-0 transition duration-500 group-hover:bg-ink/40 group-hover:opacity-100 motion-reduce:transition-none">
-              <span className="inline-flex items-center gap-2 rounded-md border border-secondary/70 px-6 py-2.5 text-xs font-bold tracking-widest text-secondary uppercase">
-                <Maximize2 className="h-4 w-4" /> View Master Plan
-              </span>
-            </span>
-          </span>
-        </button>
         </div>
+
 
         <div className="reveal mt-10 text-center" data-reveal>
           <button
