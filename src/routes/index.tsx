@@ -927,7 +927,7 @@ function Index() {
           role="dialog"
           aria-modal="true"
           aria-label="Register for best offers"
-          className="fixed inset-0 z-[75] flex items-center justify-center bg-ink/70 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[75] flex items-center justify-center bg-ink/70 p-4"
           onClick={() => setWelcome(false)}
         >
           <div
@@ -953,7 +953,7 @@ function Index() {
                   </div>
                 ))}
               </div>
-              <div className="px-4 py-5">
+              <div className="px-4 py-4">
                 <p className="text-center font-display text-lg leading-snug text-foreground">
                   Register here and avail the{" "}
                   <span className="text-gold">best offers!!</span>
