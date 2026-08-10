@@ -30,3 +30,7 @@ export const SP_LOGO_URL: string = spLogoAsset.url;
 import mahareraAsset from "@/assets/maharera-qr.png.asset.json";
 
 export const MAHARERA_QR_URL: string = mahareraAsset.url;
+
+import spHeaderLogoAsset from "@/assets/sp-logo-header.png.asset.json";
+
+export const SP_HEADER_LOGO_URL: string = spHeaderLogoAsset.url;

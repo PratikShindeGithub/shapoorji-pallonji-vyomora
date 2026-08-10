@@ -44,7 +44,7 @@ import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
-import { LOGO_URL, SP_LOGO_URL } from "@/components/vyomora/logo";
+import { LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 import ProjectVideo from "@/components/vyomora/ProjectVideo";
 
@@ -260,7 +260,7 @@ function Index() {
           <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6">
             <a href="#top" className="flex shrink-0 items-center py-3">
               <img
-                src={SP_LOGO_URL}
+                src={SP_HEADER_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
                 className="h-14 w-auto shrink-0 sm:h-16"
               />
