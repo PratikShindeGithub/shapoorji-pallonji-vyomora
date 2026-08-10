@@ -136,7 +136,7 @@ export function SitePlanSection({ onEnquire }: Props) {
   return (
     <section
       id="plans"
-      className="bg-background py-20 sm:py-24"
+      className="bg-background pt-20 pb-10 sm:pt-24 sm:pb-12"
       aria-labelledby="site-plan-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -160,7 +160,7 @@ export function SitePlanSection({ onEnquire }: Props) {
           onClick={() =>
             setViewing({ ...MASTER_PLAN, intent: "master-plan" })
           }
-          className="reveal group mt-12 block w-full overflow-hidden rounded-xl border border-border bg-card text-left shadow-soft transition duration-500 hover:shadow-lift"
+          className="reveal group mx-auto mt-10 block w-full max-w-3xl overflow-hidden rounded-xl border border-border bg-card text-left shadow-soft transition duration-500 hover:shadow-lift"
           data-reveal
           aria-label="View master plan"
         >
@@ -170,7 +170,7 @@ export function SitePlanSection({ onEnquire }: Props) {
               alt={MASTER_PLAN.alt}
               loading="lazy"
               decoding="async"
-              className="mx-auto block max-h-[520px] w-full object-contain transition duration-700 group-hover:scale-[1.03] motion-reduce:transform-none motion-reduce:transition-none"
+              className="mx-auto block max-h-[320px] w-full object-contain transition duration-700 group-hover:scale-[1.03] motion-reduce:transform-none motion-reduce:transition-none"
             />
             <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/0 opacity-0 transition duration-500 group-hover:bg-ink/40 group-hover:opacity-100 motion-reduce:transition-none">
               <span className="inline-flex items-center gap-2 rounded-md border border-secondary/70 px-6 py-2.5 text-xs font-bold tracking-widest text-secondary uppercase">
@@ -185,7 +185,7 @@ export function SitePlanSection({ onEnquire }: Props) {
         </button>
 
         {/* Floor plans */}
-        <p className="reveal mt-16 text-center eyebrow text-primary" data-reveal>
+        <p className="reveal mt-12 text-center eyebrow text-primary" data-reveal>
           Floor Plans
         </p>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -222,7 +222,7 @@ export function SitePlanSection({ onEnquire }: Props) {
           ))}
         </div>
 
-        <div className="reveal mt-12 text-center" data-reveal>
+        <div className="reveal mt-10 text-center" data-reveal>
           <button
             type="button"
             onClick={() =>
