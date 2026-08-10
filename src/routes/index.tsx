@@ -521,16 +521,16 @@ function Index() {
               </colgroup>
               <thead>
                 <tr className="border-b border-border bg-muted/40">
-                  <th className="border-r border-border px-5 py-4 text-left text-sm font-medium text-foreground">
+                  <th className="border-r border-border px-3 py-2 text-left text-sm font-medium text-foreground">
                     Type
                   </th>
-                  <th className="border-r border-border px-5 py-4 text-left text-sm font-medium text-foreground">
+                  <th className="border-r border-border px-3 py-2 text-left text-sm font-medium text-foreground">
                     Carpet Area
                   </th>
-                  <th className="px-5 py-4 text-left text-sm font-medium text-foreground">
+                  <th className="px-3 py-2 text-left text-sm font-medium text-foreground">
                     Price
                   </th>
-                  <th className="px-5 py-4 text-center text-sm font-medium text-foreground">
+                  <th className="px-3 py-2 text-center text-sm font-medium text-foreground">
                     {"\n"}
                   </th>
                 </tr>
@@ -538,18 +538,18 @@ function Index() {
               <tbody>
                 {CONFIGS.map((c) => (
                   <tr key={c.type} className="border-b border-border last:border-0">
-                    <td className="border-r border-border px-5 py-5 align-middle text-left text-sm text-foreground">
+                    <td className="border-r border-border px-3 py-2 align-middle text-left text-sm text-foreground">
                       <span className="block truncate">{c.type}</span>
                     </td>
-                    <td className="border-r border-border px-5 py-5 align-middle text-left text-sm text-muted-foreground">
+                    <td className="border-r border-border px-3 py-2 align-middle text-left text-sm text-muted-foreground">
                       <span className="block truncate">{c.area}</span>
                     </td>
-                    <td className="px-5 py-5 align-middle text-left">
+                    <td className="px-3 py-2 align-middle text-left">
                       <span className="block whitespace-nowrap font-sans text-sm font-bold tracking-tight text-primary">
                         {c.price} Onwards
                       </span>
                     </td>
-                    <td className="px-5 py-5 text-center align-middle">
+                    <td className="px-3 py-2 text-center align-middle">
                       <button
                         onClick={() =>
                           openEnquiry(
