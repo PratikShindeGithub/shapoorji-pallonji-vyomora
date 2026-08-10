@@ -632,14 +632,12 @@ function Index() {
       </section>
 
       {/* Floor plans */}
-      <section id="plans" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
-        <SectionHead
-          eyebrow="Floor plans"
-          title="See Every Square foot Before you Decide"
-          copy="Enquire now and our sales desk will share the complete plan set instantly."
-        />
-        <div className="mt-14 grid gap-6 sm:grid-cols-3">
-          {PLANS.map((p, i) => (
+      <section id="plans" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <h2 className="text-center font-display text-2xl text-primary sm:text-4xl">
+          Site &amp; Floor Plan Of Shapoorji Pallonji Vyomora
+        </h2>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {PLANS.slice(0, 2).map((p, i) => (
             <button
               key={p.title}
               onClick={() =>
@@ -650,35 +648,43 @@ function Index() {
                   "Share your details and our sales desk will send the complete floor plan set for every configuration.",
                 )
               }
-              className="reveal group overflow-hidden rounded-xl border border-border bg-card text-left shadow-soft transition hover:-translate-y-1.5 hover:shadow-lift"
+              className="reveal group relative block overflow-hidden rounded-lg bg-muted"
               data-reveal
               data-reveal-delay={i * 100}
             >
-              <span className="relative block overflow-hidden bg-muted">
-                <img
-                  src={p.src}
-                  alt={`${p.title} floor plan layout`}
-                  width={1024}
-                  height={768}
-                  loading="lazy"
-                  className="h-52 w-full scale-105 object-cover blur-md transition duration-500"
-                />
-                <span className="absolute inset-0 grid place-items-center bg-ink/45">
-                  <span className="cta-blink rounded-md px-5 py-2.5 text-xs font-bold tracking-wide shadow-soft">
-                    Enquire Now
-                  </span>
-                </span>
-              </span>
-              <span className="block px-5 py-4">
-                <span className="block text-sm font-semibold text-foreground">{p.title}</span>
-                <span className="mt-1 block text-xs text-muted-foreground">
-                  Tap to enquire for plans
+              <img
+                src={p.src}
+                alt={`${p.title} floor plan layout`}
+                width={1024}
+                height={768}
+                loading="lazy"
+                className="h-56 w-full scale-105 object-cover blur-md transition duration-500 sm:h-64"
+              />
+              <span className="absolute inset-0 grid place-items-center bg-ink/35">
+                <span className="px-4 text-center text-base font-semibold text-primary-foreground sm:text-lg">
+                  {p.title}
                 </span>
               </span>
             </button>
           ))}
         </div>
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() =>
+              openEnquiry(
+                "floor-plan-view",
+                "Enquire Now",
+                "Enquire Now",
+                "Share your details and our sales desk will send the complete floor plan set for every configuration.",
+              )
+            }
+            className="rounded-md bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition hover:opacity-90"
+          >
+            View Floor Plan
+          </button>
+        </div>
       </section>
+
 
       {/* Gallery */}
       <section id="gallery" className="bg-secondary py-20 sm:py-24">
