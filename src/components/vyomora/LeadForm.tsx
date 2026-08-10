@@ -63,7 +63,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
   const line = variant === "line";
 
   const inputClass = line
-    ? "w-full border-0 border-b border-border bg-transparent px-1 py-2 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-gold"
+    ? "w-full border-0 border-b border-border bg-transparent px-1.5 py-3 text-base text-foreground outline-none transition placeholder:text-muted-foreground focus:border-gold"
     : "w-full rounded-md border border-border bg-card py-3 pl-11 pr-4 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
 
   const field = (key: TextKey, label: string, extra?: Record<string, string>) => {
