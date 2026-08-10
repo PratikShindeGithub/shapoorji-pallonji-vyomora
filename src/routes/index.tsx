@@ -625,14 +625,13 @@ function Index() {
       </section>
 
       {/* Location */}
-      <section id="location" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14">
+      <section id="location" className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
         <SectionHead
           eyebrow="Location"
           title="Hinjawadi Phase 1, where the commute ends"
-          copy="Walk-to-work proximity to Pune's largest IT belt, with schools, hospitals and the metro corridor minutes away."
           titleClassName="whitespace-nowrap text-xl sm:text-2xl"
         />
-        <div className="mt-14 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="reveal overflow-hidden rounded-xl border border-border shadow-soft" data-reveal>
             <div className="relative">
               <iframe
