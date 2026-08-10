@@ -43,6 +43,7 @@ import {
 } from "@/components/vyomora/layout-data";
 
 import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
+import { AMENITY_SLIDES } from "@/components/vyomora/amenity-slides";
 import { LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL, SP_VYOMORA_LOCKUP_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 
