@@ -3,6 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { User, Phone, Mail, MapPin, type LucideIcon } from "lucide-react";
 
 import { submitLead } from "@/lib/leads.functions";
+import { COUNTRIES, DEFAULT_COUNTRY } from "./countries";
 
 
 export type LeadValues = { name: string; mobile: string; email: string; city?: string };
@@ -29,13 +30,17 @@ const FIELD_ICONS: Record<TextKey, LucideIcon> = {
   city: MapPin,
 };
 
-const errorsFor = (v: LeadValues, withCity?: boolean) => {
+const errorsFor = (v: LeadValues, withCity?: boolean, dial = "91") => {
   const e: Errs = {};
   const name = v.name.trim();
   if (name.length < 2) e.name = "Please enter your full name";
   else if (name.length > 80) e.name = "Name is too long";
-  if (!/^[6-9]\d{9}$/.test(v.mobile.trim()))
-    e.mobile = "Enter a valid 10-digit Indian mobile number";
+  const mobile = v.mobile.trim();
+  if (dial === "91") {
+    if (!/^[6-9]\d{9}$/.test(mobile)) e.mobile = "Enter a valid 10-digit Indian mobile number";
+  } else if (!/^\d{6,15}$/.test(mobile)) {
+    e.mobile = "Enter a valid phone number";
+  }
   if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.email.trim()))
     e.email = "Enter a valid email address";
   else if (v.email.trim().length > 120) e.email = "Email is too long";
@@ -50,6 +55,7 @@ const errorsFor = (v: LeadValues, withCity?: boolean) => {
 export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = "line", onSuccess }: Props) {
   const [values, setValues] = useState<LeadValues>({ name: "", mobile: "", email: "", city: "" });
   const [errors, setErrors] = useState<Errs>({});
+  const [country, setCountry] = useState(DEFAULT_COUNTRY);
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
   const send = useServerFn(submitLead);
@@ -70,8 +76,24 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
         <div className={line ? "flex items-stretch" : "relative"}>
           {line ? (
             key === "mobile" ? (
-              <span className="flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2 text-sm text-foreground">
-                <span aria-hidden>🇮🇳</span> +91
+              <span className="relative flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2 text-sm text-foreground">
+                <span aria-hidden>{country.flag}</span> +{country.dial}
+                <select
+                  aria-label="Country code"
+                  value={country.iso}
+                  onChange={(ev) => {
+                    const next = COUNTRIES.find((c) => c.iso === ev.target.value);
+                    if (next) setCountry(next);
+                    setErrors((p) => ({ ...p, mobile: undefined }));
+                  }}
+                  className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                >
+                  {COUNTRIES.map((c) => (
+                    <option key={c.iso} value={c.iso}>
+                      {c.flag} {c.name} (+{c.dial})
+                    </option>
+                  ))}
+                </select>
               </span>
             ) : null
           ) : (
@@ -83,7 +105,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
             placeholder={label}
             aria-invalid={Boolean(errors[key])}
             onChange={(e) => {
-              const next = key === "mobile" ? e.target.value.replace(/\D/g, "").slice(0, 10) : e.target.value;
+              const next = key === "mobile" ? e.target.value.replace(/\D/g, "").slice(0, country.dial === "91" ? 10 : 15) : e.target.value;
               setValues((v) => ({ ...v, [key]: next }));
               setErrors((p) => ({ ...p, [key]: undefined }));
             }}
@@ -102,14 +124,14 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
       noValidate
       onSubmit={async (e) => {
         e.preventDefault();
-        const next = errorsFor(values, withCity);
+        const next = errorsFor(values, withCity, country.dial);
         setErrors(next);
         if (Object.keys(next).length > 0) return;
         setBusy(true);
         setFailed(false);
         const payload: LeadValues = {
           name: values.name.trim(),
-          mobile: values.mobile.trim(),
+          mobile: `+${country.dial}${values.mobile.trim()}`,
           email: values.email.trim(),
         };
         if (withCity) payload.city = values.city?.trim() ?? "";
