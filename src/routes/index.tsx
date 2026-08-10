@@ -497,14 +497,14 @@ function Index() {
                   onClick={() =>
                     openEnquiry(
                       `cost-sheet-${c.type}`,
-                      "Know More",
+                      "Request For Price Breakup",
                       `Price breakup — ${c.type}`,
                       "We'll send the detailed cost sheet with all charges and the payment schedule.",
                     )
                   }
                   className="mt-5 w-full rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition"
                 >
-                  Know More
+                  Request For Price Breakup
                 </button>
               </div>
             ))}
@@ -553,14 +553,14 @@ function Index() {
                         onClick={() =>
                           openEnquiry(
                             `cost-sheet-${c.type}`,
-                            "Know More",
+                            "Request For Price Breakup",
                             `Price breakup — ${c.type}`,
                             "We'll send the detailed cost sheet with all charges and the payment schedule.",
                           )
                         }
                         className="mx-auto inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
                       >
-                        Know More
+                        Request For Price Breakup
                       </button>
                     </td>
                   </tr>
