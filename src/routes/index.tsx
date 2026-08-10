@@ -406,7 +406,7 @@ function Index() {
           <span className="inline-flex rounded-full border-2 border-primary px-8 py-2.5 text-lg font-medium text-primary">
             Overview
           </span>
-          <h2 className="mt-5 font-display text-3xl text-primary sm:text-4xl">Shapoorji Pallonji Vyomora</h2>
+          <h2 className="mt-5 font-display text-3xl text-primary sm:text-4xl">Vyomora By Shapoorji Pallonji</h2>
           <p className="mt-1 text-xl font-medium text-foreground">At Hinjawadi Phase 1, Pune</p>
           <p className="mt-4 text-justify text-[15px] leading-relaxed text-muted-foreground">
             Spread across 25 acres, Shapoorji Pallonji Vyomora is designed for elevated everyday
