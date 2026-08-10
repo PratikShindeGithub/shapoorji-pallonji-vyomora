@@ -34,17 +34,12 @@ export default function ProjectVideo() {
         </div>
         <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-gold/25 bg-black shadow-lift">
           {play ? (
-            <>
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&playsinline=1&controls=0&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0`}
-                title="Vyomora Hinjawadi project film"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              />
-              {/* Masks to hide YouTube branding / title overlays */}
-              <div className="pointer-events-none absolute bottom-0 right-0 h-[14%] w-[32%] bg-black" />
-              <div className="pointer-events-none absolute left-0 top-0 h-[14%] w-full bg-black" />
-            </>
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&loop=1&playlist=${VIDEO_ID}&playsinline=1&rel=0`}
+              title="Vyomora Hinjawadi project film"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            />
           ) : null}
         </div>
       </div>
