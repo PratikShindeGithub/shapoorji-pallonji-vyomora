@@ -420,11 +420,17 @@ function Index() {
         <div className="px-5 pb-6 pt-5">
         <img src={LOGO_URL} alt="Vyomora" className="mx-auto h-12 w-auto object-contain" />
         <h2 className="mt-3 text-center text-xl text-foreground">Enquire Now</h2>
+        <p className="mt-2 text-center text-xs leading-relaxed text-muted-foreground">
+          Get floor plans, cost sheet and payment plan on WhatsApp &amp; email.
+        </p>
+        <button
+          onClick={() => openEnquiry("sticky-panel", "Schedule a site visit", "Enquire Now", "Get floor plans, cost sheet and payment plan on WhatsApp and email.")}
+          className="hero-cta mt-4 w-full rounded-md py-2.5 text-sm font-bold"
+        >
+          Enquire Now
+        </button>
+        </div>
 
-        <div className="mt-4">
-          <LeadForm intent="sticky-panel" variant="line" withCity cta="Schedule a site visit" onSuccess={handleSuccess} />
-        </div>
-        </div>
 
       </aside>
 
