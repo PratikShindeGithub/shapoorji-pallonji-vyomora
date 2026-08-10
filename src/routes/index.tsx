@@ -44,7 +44,7 @@ import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import plan2 from "@/assets/plan-2bhk.jpg";
 import plan3 from "@/assets/plan-3bhk.jpg";
 import planDuplex from "@/assets/plan-duplex.jpg";
-import { LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL } from "@/components/vyomora/logo";
+import { LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL, SP_VYOMORA_LOCKUP_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 import ProjectVideo from "@/components/vyomora/ProjectVideo";
 
