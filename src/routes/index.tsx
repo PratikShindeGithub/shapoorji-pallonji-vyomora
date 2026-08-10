@@ -341,7 +341,7 @@ function Index() {
 
                 </div>
                 <p className="mt-3 text-[13px] leading-snug text-muted-foreground">
-                  Luxurious 2 &amp; 3 BHK Apartments &amp; Duplexes
+                  Exclusive 2, 3 BHK &amp; Duplex Apartments
                 </p>
                 <p className="text-[11px] tracking-normal text-muted-foreground">Starting Price</p>
                 <p className="mt-0.5 font-sans text-2xl font-bold tracking-tight text-gold sm:text-3xl">
