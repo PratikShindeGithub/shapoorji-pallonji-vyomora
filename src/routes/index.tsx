@@ -136,53 +136,8 @@ function useReveal<T extends HTMLElement>() {
 }
 
 
-function Modal({
-  open,
-  onClose,
-  children,
-  label,
-}: {
-  open: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-  label: string;
-}) {
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [open, onClose]);
 
-  if (!open) return null;
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={label}
-      className="fixed inset-0 z-[70] flex items-center justify-center bg-ink/70 p-4 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        className="animate-scale-in relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-xl bg-card p-6 shadow-lift sm:p-8"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          onClick={onClose}
-          aria-label="Close"
-          className="absolute right-4 top-4 rounded-full p-1.5 text-muted-foreground transition hover:bg-muted hover:text-foreground"
-        >
-          <X className="h-4 w-4" />
-        </button>
-        {children}
-      </div>
-    </div>
-  );
-}
+
 
 function SectionHead({
   eyebrow,
