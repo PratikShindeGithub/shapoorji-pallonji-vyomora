@@ -394,16 +394,16 @@ function Index() {
             WhatsApp Now
           </a>
         </div>
-        <div className="bg-secondary px-4 py-4">
+        <div className="bg-secondary px-4 py-2.5">
           <a
             href={`tel:${PROJECT.phone}`}
-            className="block rounded-md border border-primary bg-card py-2.5 text-center text-sm font-semibold text-primary"
+            className="block rounded-md border border-primary bg-card py-2 text-center text-sm font-semibold text-primary"
           >
             Call : {PROJECT.phoneDisplay}
           </a>
           <button
             onClick={() => openEnquiry("call-back", "Request Call Back", "Request a call back", "Our sales desk will call you shortly.")}
-            className="mx-auto mt-3 flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition hover:bg-gold hover:text-gold-foreground"
+            className="mx-auto mt-1.5 flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-soft transition hover:bg-gold hover:text-gold-foreground"
           >
             <Phone className="h-4 w-4" />
             Request Call Back
