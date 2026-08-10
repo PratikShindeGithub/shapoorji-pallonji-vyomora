@@ -193,7 +193,14 @@ export function SitePlanSection({ onEnquire }: Props) {
             <button
               type="button"
               key={p.title}
-              onClick={() => setViewing({ ...p, intent: `floor-plan-${p.title}` })}
+              onClick={() =>
+                onEnquire(
+                  p.title,
+                  "Submit Enquiry",
+                  `${p.title} floor plan`,
+                  "Share your details and our sales desk will send the detailed floor plan right away.",
+                )
+              }
               className="reveal group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card text-left shadow-soft transition duration-500 hover:scale-[1.02] hover:shadow-lift motion-reduce:transform-none"
               data-reveal
               data-reveal-delay={(i + 1) * 120}
@@ -204,7 +211,8 @@ export function SitePlanSection({ onEnquire }: Props) {
                   alt={p.alt}
                   loading="lazy"
                   decoding="async"
-                  className="h-56 w-full object-contain blur-md transition duration-700 group-hover:scale-[1.04] group-hover:blur-[3px] motion-reduce:transform-none motion-reduce:transition-none"
+                  className="h-56 w-full scale-105 object-contain blur-xl transition duration-700 select-none motion-reduce:transform-none motion-reduce:transition-none"
+                  draggable={false}
                 />
                 <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/0 opacity-0 transition duration-500 group-hover:bg-ink/45 group-hover:opacity-100 motion-reduce:transition-none">
                   <span className="rounded-md border border-secondary/70 px-5 py-2.5 text-xs font-bold tracking-widest text-secondary uppercase">
@@ -215,7 +223,7 @@ export function SitePlanSection({ onEnquire }: Props) {
               <span className="block border-t border-border px-5 py-4">
                 <span className="block text-sm font-semibold text-foreground">{p.title}</span>
                 <span className="mt-1 block text-xs text-muted-foreground">
-                  Click to view the full plan
+                  Enquire to receive the full plan
                 </span>
               </span>
             </button>
