@@ -530,7 +530,7 @@ function Index() {
                     Price
                   </th>
                   <th className="px-5 py-4 text-center text-base font-medium text-foreground">
-                    Action
+                    {"\n"}
                   </th>
                 </tr>
               </thead>
