@@ -447,6 +447,37 @@ function Index() {
         </div>
       </section>
 
+      {/* Overview */}
+      <section id="overview" className="bg-background">
+        <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20 xl:pr-[21rem]">
+          <span className="inline-flex rounded-full border border-primary/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+            Overview
+          </span>
+          <h2 className="mt-5 font-display text-3xl text-primary sm:text-4xl">Shapoorji Pallonji Vyomora</h2>
+          <p className="mt-1 text-lg font-semibold text-foreground">At Hinjawadi Phase 1, Pune</p>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Spread across 25 acres, Shapoorji Pallonji Vyomora is designed for elevated everyday
+            living, and not just for weekends. Thoughtfully planned towers open into expansive green
+            and shared spaces, creating a community where life flows effortlessly between the indoor
+            and out.
+          </p>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            With something for everyone, from quiet corners to active zones, it's a place that
+            adapts to your rhythm. Open, connected, and full of possibility, this is an infinite way
+            of life and resort-style living experience, where every day feels more lived.
+          </p>
+          <button
+            onClick={() => openEnquiry("overview-brochure", "Request Brochure", "Request the brochure", "Share your details and we'll send the brochure instantly.")}
+            className="mt-7 inline-flex items-center gap-2 rounded-md border border-primary px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground"
+          >
+            <Download className="h-4 w-4" />
+            Request Download Brochure
+          </button>
+        </div>
+      </section>
+
+
+
       {/* Pricing */}
       <section id="pricing" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
         <SectionHead
