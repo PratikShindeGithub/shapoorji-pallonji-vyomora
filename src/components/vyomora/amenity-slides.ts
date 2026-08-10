@@ -5,7 +5,7 @@ import kids from "@/assets/am-kids.webp.asset.json";
 import gardens from "@/assets/am-gardens.webp.asset.json";
 import cowork from "@/assets/am-cowork.webp.asset.json";
 import amphitheatre from "@/assets/am-amphitheatre.webp.asset.json";
-import sports from "@/assets/am-sports.webp.asset.json";
+import sports from "@/assets/am-sports-v2.png.asset.json";
 
 export const AMENITY_SLIDES: { src: string; alt: string; label: string }[] = [
   { src: clubhouse.url, alt: "Grand clubhouse entrance lit at dusk at Vyomora", label: "Grand Clubhouse" },
