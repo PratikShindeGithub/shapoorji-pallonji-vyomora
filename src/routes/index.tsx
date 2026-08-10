@@ -320,10 +320,10 @@ function Index() {
                   alt="Vyomora Hinjawadi"
                   className="mx-auto h-10 w-auto object-contain sm:h-12"
                 />
-                <p className="mt-1.5 inline-flex items-center gap-1.5 text-[13px] text-muted-foreground">
-                  <MapPin className="h-3.5 w-3.5 text-gold" /> {PROJECT.location}
+                <p className="mt-2 inline-flex items-center gap-1.5 text-[15px] text-muted-foreground">
+                  <MapPin className="h-4 w-4 text-gold" /> {PROJECT.location}
                 </p>
-                <ul className="mt-3 space-y-1 border-y border-border bg-muted/40 py-3 text-[13px] leading-snug text-foreground">
+                <ul className="mt-3 space-y-1.5 border-y border-border bg-muted/40 py-3.5 text-[15px] leading-snug text-foreground">
                   {HERO_FACTS.map((f) => (
                     <li key={f}>{f}</li>
                   ))}
