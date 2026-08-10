@@ -331,8 +331,8 @@ function Index() {
                   {HERO_STRIPS.map((s, i) => (
                     <p
                       key={s}
-                      style={{ animationDelay: `${i * 0.35}s` }}
-                      className="strip-blink rounded-sm px-3 py-1.5 text-[11px] font-semibold tracking-normal"
+                      style={{ animationDelay: `${i * 120}ms` }}
+                      className="hero-strip rounded-sm px-3 py-1.5 text-[11px] font-semibold tracking-normal"
                     >
                       {s}
                     </p>
@@ -347,7 +347,7 @@ function Index() {
                 </p>
                 <button
                   onClick={() => openEnquiry("hero-card")}
-                  className="mt-3.5 w-full rounded-md bg-gold py-2.5 text-sm font-bold text-gold-foreground transition hover:-translate-y-0.5 hover:shadow-lift"
+                  className="hero-cta mt-3.5 w-full rounded-md bg-gold py-2.5 text-sm font-bold text-gold-foreground"
                 >
                   Enquire Now
                 </button>
