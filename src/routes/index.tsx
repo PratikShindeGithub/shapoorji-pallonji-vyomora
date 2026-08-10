@@ -545,7 +545,7 @@ function Index() {
                       <span className="block truncate">{c.area}</span>
                     </td>
                     <td className="px-5 py-5 align-middle text-left">
-                      <span className="block font-sans text-base font-bold tracking-tight text-primary">
+                      <span className="block whitespace-nowrap font-sans text-base font-bold tracking-tight text-primary">
                         {c.price} Onwards
                       </span>
                     </td>
