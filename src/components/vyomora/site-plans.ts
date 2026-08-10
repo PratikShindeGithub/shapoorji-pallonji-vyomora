@@ -27,7 +27,7 @@ export const UNIT_PLANS: UnitPlan[] = [
   },
   {
     title: "3 BHK - Signature Duplex",
-    label: "3 BHK",
+    label: "Duplex",
     src: duplex.url as string,
     alt: "3 BHK Signature Duplex unit plan at Vyomora Hinjawadi",
   },
