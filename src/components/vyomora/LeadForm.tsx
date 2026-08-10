@@ -176,9 +176,6 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
           Something went wrong. Please try again or call our sales desk.
         </p>
       ) : null}
-      <p className={`text-[11px] leading-relaxed text-muted-foreground ${line ? "mt-2 text-center" : ""}`}>
-        By submitting you authorise our sales desk to contact you regarding this project.
-      </p>
 
     </form>
   );
