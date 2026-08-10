@@ -2,6 +2,7 @@ import masterPlan from "@/assets/vyomora-master-plan-v2.png.asset.json";
 import duplex from "@/assets/vyomora-plan-duplex-v2.png.asset.json";
 import imperial from "@/assets/vyomora-plan-imperial-v2.png.asset.json";
 import grande from "@/assets/vyomora-plan-grande-v2.png.asset.json";
+import jodi from "@/assets/jodi-flat-plan.jpg.asset.json";
 
 
 export const MASTER_PLAN = {
