@@ -260,7 +260,7 @@ function Index() {
           <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6">
             <a href="#top" className="flex shrink-0 items-center py-3">
               <img
-                src={SP_LOGO_URL}
+                src={SP_HEADER_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
                 className="h-14 w-auto shrink-0 sm:h-16"
               />
