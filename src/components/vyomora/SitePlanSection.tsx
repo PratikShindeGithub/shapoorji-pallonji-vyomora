@@ -114,7 +114,7 @@ function PlanLightbox({
             onClose();
             onEnquire(item.intent, "Enquire Now", "Enquire Now", ENQUIRY_COPY);
           }}
-          className="rounded-md bg-gold px-6 py-2.5 text-xs font-bold tracking-widest text-ink uppercase shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
+          className="hero-cta rounded-md px-6 py-2.5 text-xs font-bold tracking-widest uppercase shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
         >
           Enquire Now
         </button>
@@ -234,7 +234,7 @@ export function SitePlanSection({ onEnquire }: Props) {
                 "Share your details and our sales desk will send the complete floor plan set for every configuration.",
               )
             }
-            className="inline-flex items-center justify-center rounded-md border border-primary px-8 py-3.5 text-xs font-bold tracking-widest text-primary uppercase transition hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground hover:shadow-lift"
+            className="hero-cta inline-flex items-center justify-center rounded-md px-8 py-3.5 text-xs font-bold tracking-widest uppercase transition hover:-translate-y-0.5 hover:shadow-lift"
           >
             Request for More Floor Plans
           </button>
