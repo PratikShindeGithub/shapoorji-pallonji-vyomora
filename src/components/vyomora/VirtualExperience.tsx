@@ -46,9 +46,7 @@ export default function VirtualExperience({ onEnquire }: Props) {
             Experience It Before You Live It
           </h2>
           <div className="hairline mx-auto mt-5 w-24" />
-          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-            Take a closer look at your future home and explore the project from anywhere.
-          </p>
+
         </div>
 
         <div className="mt-10 grid gap-6 sm:gap-8 md:grid-cols-2">
