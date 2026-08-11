@@ -742,16 +742,20 @@ function Index() {
 
       {/* Developer + Project film */}
       <section className="border-t border-gold/15 bg-ink py-12 sm:py-14">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
-          <div className="reveal order-2 lg:order-1" data-reveal>
-            <ProjectVideo />
-          </div>
-          <div className="reveal order-1 lg:order-2" data-reveal data-reveal-delay="100">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="reveal text-center" data-reveal>
             <p className="eyebrow text-gold uppercase tracking-wider">ABOUT SHAPOORJI PALLONJI REAL ESTATE.</p>
             <h2 className="mt-3 text-2xl leading-tight text-secondary sm:text-3xl uppercase font-bold tracking-tight">
                LEGACY THAT BUILDS THE FUTURE...
             </h2>
-            <div className="hairline mt-5 w-24" />
+            <div className="hairline mx-auto mt-5 w-24" />
+          </div>
+        </div>
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 mt-10">
+          <div className="reveal order-2 lg:order-1" data-reveal>
+            <ProjectVideo />
+          </div>
+          <div className="reveal order-1 lg:order-2" data-reveal data-reveal-delay="100">
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-secondary/70">
               <p>
                 At Shapoorji Pallonji Real Estate, we don't just build - we create legacies. our homes transcend more structures, transforming into timeless landmarks defined by impeccable design, masterful craftmanship, and unwavering precision.
