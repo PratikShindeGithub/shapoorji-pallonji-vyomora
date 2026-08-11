@@ -763,23 +763,26 @@ function Index() {
               <p>
                 Shapoorji Pallonji and Company Pvt. Ltd. is a global, diversified organization of 15 major companies. We deliver end-to-end solutions in 6 business segments, including engineering & construction, infrastructure, real estate, water, energy and financial services. Our dedicated workforce of over 37,000+ people in over 40+ countries is focused on sustainable development while developing megastructures and iconic landmarks.
               </p>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-6 pt-5">
-                {[
-                  { icon: MapPin, v: "Creating landmarks for over 160 years" },
-                  { icon: Globe, v: "Global presence in more than 40 countries" },
-                  { icon: Users, v: "Over 35,000 employee base" },
-                  { icon: Maximize2, v: "Over 170M sq.ft. of global commercial space." },
-                ].map(({ icon: Icon, v }) => (
-                  <div key={v} className="flex flex-col items-center text-center">
-                    <Icon className="h-8 w-8 text-gold" strokeWidth={1.5} />
-                    <p className="mt-2.5 text-[13px] leading-snug text-secondary/85">{v}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
+        <div className="mx-auto mt-10 max-w-6xl px-4 sm:px-6">
+          <div className="reveal grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4" data-reveal>
+            {[
+              { icon: MapPin, v: "Creating landmarks for over 160 years" },
+              { icon: Globe, v: "Global presence in more than 40 countries" },
+              { icon: Users, v: "Over 35,000 employee base" },
+              { icon: Maximize2, v: "Over 170M sq.ft. of global commercial space." },
+            ].map(({ icon: Icon, v }) => (
+              <div key={v} className="flex flex-col items-center text-center">
+                <Icon className="h-8 w-8 text-gold" strokeWidth={1.5} />
+                <p className="mt-2.5 text-[13px] leading-snug text-secondary/85">{v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
+
 
 
 
