@@ -577,7 +577,7 @@ function Index() {
               loading="lazy"
               width={1024}
               height={768}
-              className="h-40 w-full border-b border-border object-cover object-top lg:h-[223px]"
+              className="h-40 w-full border-b border-border object-cover object-top blur-[3px] lg:h-[223px]"
             />
 
 
@@ -590,7 +590,7 @@ function Index() {
                   "Get the full detail sheet and payment schedule for your preferred configuration.",
                 )
               }
-              className="cta-blink w-full px-3 py-2.5 text-sm font-semibold tracking-wide transition hover:-translate-y-0.5"
+              className="shine-bar w-full px-3 py-2.5 text-sm font-semibold tracking-wide transition hover:-translate-y-0.5"
             >
               Request Complete Costing Details
             </button>
