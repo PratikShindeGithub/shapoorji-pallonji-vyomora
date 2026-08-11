@@ -391,7 +391,7 @@ function Index() {
           </a>
           <button
             onClick={() => openEnquiry("call-back", "Request Call Back", "Request a call back", "Our sales desk will call you shortly.")}
-            className="mx-auto mt-1.5 flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-soft transition hover:bg-gold hover:text-gold-foreground"
+            className="hero-cta mx-auto mt-1.5 flex items-center justify-center gap-2 rounded-md px-5 py-2 text-sm font-semibold shadow-soft transition"
           >
             <Phone className="h-4 w-4" />
             Request Call Back
@@ -500,7 +500,7 @@ function Index() {
                       "We'll send the detailed cost sheet with all charges and the payment schedule.",
                     )
                   }
-                  className="mt-5 w-full rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition"
+                  className="hero-cta mt-5 w-full rounded-md px-5 py-3 text-sm font-semibold shadow-soft transition"
                 >
                   Request For Price Breakup
                 </button>
@@ -556,7 +556,7 @@ function Index() {
                             "We'll send the detailed cost sheet with all charges and the payment schedule.",
                           )
                         }
-                        className="mx-auto inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5"
+                        className="hero-cta mx-auto inline-flex items-center justify-center rounded-md px-5 py-2 text-sm font-semibold shadow-soft transition hover:-translate-y-0.5"
                       >
                         Request For Price Breakup
                       </button>
