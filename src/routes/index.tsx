@@ -747,14 +747,10 @@ function Index() {
             <div className="hairline mt-5 w-24" />
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-secondary/70">
               <p>
-                Vyomora is planned as an integrated 25-acre neighbourhood rather than a cluster of
-                towers — with landscaped spines, a central clubhouse district and internal roads that
-                keep vehicles away from where children play.
+                At Shapoorji Pallonji Real Estate, we don't just build - we create legacies. our homes transcend more structures, transforming into timeless landmarks defined by impeccable design, masterful craftmanship, and unwavering precision.
               </p>
               <p>
-                Construction follows RCC shear-wall technology with third-party quality audits at every
-                slab, and each phase is handed over tower-by-tower so early residents move into a
-                finished, functioning community.
+                Shapoorji Pallonji and Company Pvt. Ltd. is a global, diversified organization of 15 major companies. We deliver end-to-end solutions in 6 business segments, including engineering & construction, infrastructure, real estate, water, energy and financial services. Our dedicated workforce of over 37,000+ people in over 40+ countries is focused on sustainable development while developing megastructures and iconic landmarks.
               </p>
               <div className="grid grid-cols-3 gap-4 pt-4">
                 {[
