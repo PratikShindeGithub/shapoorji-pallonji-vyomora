@@ -385,7 +385,7 @@ function Index() {
         <div className="bg-secondary px-4 py-2.5">
           <a
             href={`tel:${PROJECT.phone}`}
-            className="block rounded-md border border-primary bg-card py-2 text-center text-sm font-semibold text-primary"
+            className="block rounded-md border border-primary bg-card py-2.5 text-center text-lg font-bold tracking-tight text-primary"
           >
             Call : {PROJECT.phoneDisplay}
           </a>
