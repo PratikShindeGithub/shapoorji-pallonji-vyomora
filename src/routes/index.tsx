@@ -740,9 +740,9 @@ function Index() {
             <ProjectVideo />
           </div>
           <div className="reveal order-1 lg:order-2" data-reveal data-reveal-delay="100">
-            <p className="eyebrow text-gold">About the developer</p>
-            <h2 className="mt-3 text-3xl leading-tight text-secondary sm:text-4xl">
-              Township building, done the patient way
+            <p className="eyebrow text-gold uppercase tracking-wider">ABOUT SHAPOORJI PALLONJI REAL ESTATE.</p>
+            <h2 className="mt-3 text-3xl leading-tight text-secondary sm:text-4xl uppercase font-bold tracking-tight">
+               LEGACY THAT BUILDS THE FUTURE...
             </h2>
             <div className="hairline mt-5 w-24" />
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-secondary/70">
