@@ -314,7 +314,7 @@ function Index() {
                     <p
                       key={s}
                       style={{ ["--d" as string]: `${i * 250}ms` }}
-                      className="hero-strip rounded-sm px-2.5 py-1.5 text-[11px] font-semibold tracking-normal"
+                      className="shine-bar rounded-sm px-2.5 py-1.5 text-center text-[11px] font-semibold tracking-normal"
                     >
                       {s}
                     </p>
@@ -330,7 +330,7 @@ function Index() {
                 </p>
                 <button
                   onClick={() => openEnquiry("hero-card")}
-                  className="hero-cta mt-4 w-full rounded-md py-2 text-sm font-bold"
+                  className="shine-bar mt-4 w-full rounded-md py-2 text-center text-sm font-bold"
                 >
                   Enquire Now
                 </button>

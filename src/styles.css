@@ -386,4 +386,26 @@ h1, h2, h3, .font-display {
   }
 }
 
+/* ---------- Shimmering shine bar ---------- */
+@keyframes shine-slide {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@utility shine-bar {
+  background: linear-gradient(90deg, #4a3a5c, #8b7a99, #4a3a5c, #8b7a99);
+  background-size: 300% 100%;
+  color: #fff;
+  animation: shine-slide 3.5s ease-in-out infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    background-position: 0% 50%;
+  }
+}
+
 
