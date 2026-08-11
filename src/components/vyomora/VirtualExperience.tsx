@@ -98,12 +98,6 @@ export default function VirtualExperience({ onEnquire }: Props) {
                 >
                   {item.title}
                 </span>
-                <span
-                  className="mt-1 block truncate text-xs text-white/85 sm:text-sm"
-                  style={{ textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}
-                >
-                  {item.subtitle}
-                </span>
               </span>
             </button>
           ))}
