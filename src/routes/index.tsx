@@ -703,10 +703,11 @@ function Index() {
                 src="https://www.google.com/maps?q=Hinjawadi%20Phase%201%2C%20Pune&output=embed"
                 loading="lazy"
                 tabIndex={-1}
-                className="pointer-events-none h-[420px] w-full scale-105 border-0 blur-md"
+                className="pointer-events-none h-[420px] w-full scale-105 border-0 blur-[2px]"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <span className="absolute inset-0 z-10 bg-ink/40 backdrop-blur-[2px]" />
+              <span className="absolute inset-0 z-10 bg-ink/10" />
+
             </span>
             <span className="hero-cta block px-5 py-3.5 text-center">
               <span className="block text-lg font-semibold tracking-wide text-white">
