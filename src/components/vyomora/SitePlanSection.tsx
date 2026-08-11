@@ -153,9 +153,7 @@ export function SitePlanSection({ onEnquire }: Props) {
         </div>
 
         {/* Floor plans */}
-        <p className="reveal mt-8 text-center eyebrow text-primary" data-reveal>
-          Floor Plans
-        </p>
+
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {UNIT_PLANS.map((p, i) => (
             <button
