@@ -46,7 +46,7 @@ export default function VirtualExperience({ onEnquire }: Props) {
             Experience It Before You Live It
           </h2>
           <div className="hairline mx-auto mt-5 w-24" />
-          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">Take a closer look at your future home and e</p>
+          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{"\n"}</p>
 
         </div>
 
