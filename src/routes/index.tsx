@@ -3,7 +3,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   CheckCircle2,
   Download,
+  Globe,
   MapPin,
+  Maximize2,
+  Users,
   Menu,
   Phone,
   Sparkles,
