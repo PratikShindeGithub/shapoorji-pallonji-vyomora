@@ -314,7 +314,7 @@ function Index() {
                     <p
                       key={s}
                       style={{ ["--d" as string]: `${i * 250}ms` }}
-                      className="hero-strip rounded-sm px-2.5 py-1.5 text-[11px] font-semibold tracking-normal"
+                      className="shine-bar rounded-sm px-2.5 py-1.5 text-center text-[11px] font-semibold tracking-normal"
                     >
                       {s}
                     </p>
