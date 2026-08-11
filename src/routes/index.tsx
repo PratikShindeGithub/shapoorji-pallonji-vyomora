@@ -1004,9 +1004,9 @@ function Index() {
 
             <a
               href={`tel:${PROJECT.phone}`}
-              className="flex items-center justify-center gap-2 bg-ink py-3 text-sm font-semibold text-secondary transition hover:text-gold"
+              className="flex items-center justify-center gap-2 bg-ink py-2.5 text-xs font-semibold text-secondary transition hover:text-gold"
             >
-              <Phone className="h-4 w-4 text-gold" /> {PROJECT.phoneDisplay}
+              <Phone className="h-3.5 w-3.5 text-gold" /> {PROJECT.phoneDisplay}
             </a>
           </div>
         </div>
