@@ -733,40 +733,41 @@ function Index() {
 
       <VirtualExperience onEnquire={openEnquiry} />
 
-      <ProjectVideo />
-
-      {/* Developer */}
-      <section className="bg-ink py-12 sm:py-14">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div className="reveal" data-reveal>
+      {/* Developer + Project film */}
+      <section className="border-t border-gold/15 bg-ink py-12 sm:py-14">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
+          <div className="reveal order-2 lg:order-1" data-reveal>
+            <ProjectVideo />
+          </div>
+          <div className="reveal order-1 lg:order-2" data-reveal data-reveal-delay="100">
             <p className="eyebrow text-gold">About the developer</p>
             <h2 className="mt-3 text-3xl leading-tight text-secondary sm:text-4xl">
               Township building, done the patient way
             </h2>
             <div className="hairline mt-5 w-24" />
-          </div>
-          <div className="reveal space-y-4 text-sm leading-relaxed text-secondary/70" data-reveal data-reveal-delay="100">
-            <p>
-              Vyomora is planned as an integrated 25-acre neighbourhood rather than a cluster of
-              towers — with landscaped spines, a central clubhouse district and internal roads that
-              keep vehicles away from where children play.
-            </p>
-            <p>
-              Construction follows RCC shear-wall technology with third-party quality audits at every
-              slab, and each phase is handed over tower-by-tower so early residents move into a
-              finished, functioning community.
-            </p>
-            <div className="grid grid-cols-3 gap-4 pt-4">
-              {[
-                { k: "25", v: "Acres planned" },
-                { k: "70%", v: "Open landscape" },
-                { k: "RERA", v: "Registered project" },
-              ].map((s) => (
-                <div key={s.v} className="border-l border-gold/40 pl-3">
-                  <p className="font-display text-xl text-gold">{s.k}</p>
-                  <p className="mt-1 text-[11px] text-secondary/60">{s.v}</p>
-                </div>
-              ))}
+            <div className="mt-5 space-y-4 text-sm leading-relaxed text-secondary/70">
+              <p>
+                Vyomora is planned as an integrated 25-acre neighbourhood rather than a cluster of
+                towers — with landscaped spines, a central clubhouse district and internal roads that
+                keep vehicles away from where children play.
+              </p>
+              <p>
+                Construction follows RCC shear-wall technology with third-party quality audits at every
+                slab, and each phase is handed over tower-by-tower so early residents move into a
+                finished, functioning community.
+              </p>
+              <div className="grid grid-cols-3 gap-4 pt-4">
+                {[
+                  { k: "25", v: "Acres planned" },
+                  { k: "70%", v: "Open landscape" },
+                  { k: "RERA", v: "Registered project" },
+                ].map((s) => (
+                  <div key={s.v} className="border-l border-gold/40 pl-3">
+                    <p className="font-display text-xl text-gold">{s.k}</p>
+                    <p className="mt-1 text-[11px] text-secondary/60">{s.v}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
