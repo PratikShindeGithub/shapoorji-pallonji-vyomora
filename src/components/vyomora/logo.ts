@@ -26,7 +26,7 @@ export const HERO_SLIDES: { url: string; alt: string }[] = [
   },
 ];
 
-import spLogoAsset from "@/assets/sp-logo-v2.png.asset.json";
+import spLogoAsset from "@/assets/sp-logo-v3.png.asset.json";
 
 export const SP_LOGO_URL: string = spLogoAsset.url;
 
