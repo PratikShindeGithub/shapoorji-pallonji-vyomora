@@ -3,7 +3,7 @@ export const PROJECT = {
   tagline: "A 25-acre township rising in Hinjawadi Phase 1",
   location: "Hinjawadi Phase 1, Pune",
   startingPrice: "₹88 Lakhs*",
-  reraNote: "Prices are indicative and subject to change. T&C apply.",
+  reraNote: "\n",
   phone: "+919175892774",
   phoneDisplay: "+91 91758 92774",
   whatsapp: "919175892774",
