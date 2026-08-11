@@ -153,9 +153,7 @@ export function SitePlanSection({ onEnquire }: Props) {
         </div>
 
         {/* Floor plans */}
-        <p className="reveal mt-8 text-center eyebrow text-primary" data-reveal>
-          Floor Plans
-        </p>
+
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {UNIT_PLANS.map((p, i) => (
             <button
@@ -234,7 +232,7 @@ export function SitePlanSection({ onEnquire }: Props) {
                 "Share your details and our sales desk will send the complete floor plan set for every configuration.",
               )
             }
-            className="hero-cta inline-flex items-center justify-center rounded-md px-8 py-3.5 text-xs font-bold tracking-widest uppercase transition hover:-translate-y-0.5 hover:shadow-lift"
+            className="shine-bar inline-flex items-center justify-center rounded-md px-8 py-3.5 text-xs font-bold tracking-widest text-white uppercase shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
           >
             Request for More Floor Plans
           </button>
