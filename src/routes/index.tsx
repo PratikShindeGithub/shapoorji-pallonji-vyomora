@@ -937,7 +937,7 @@ function Index() {
           }}
         >
           <div
-            className="animate-scale-in relative w-full max-w-4xl overflow-hidden rounded-lg bg-card shadow-lift"
+            className="animate-scale-in relative w-full max-w-2xl overflow-hidden rounded-lg bg-card shadow-lift"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -950,34 +950,34 @@ function Index() {
             >
               <X className="h-4 w-4" />
             </button>
-            <div className="grid md:grid-cols-[0.62fr_1.1fr_0.78fr]">
-              <div className="hidden flex-col items-center gap-4 bg-muted/50 px-4 py-6 text-center md:flex">
-                <p className="font-display text-xl text-primary">We Promise</p>
+            <div className="grid md:grid-cols-[0.55fr_1fr_0.7fr]">
+              <div className="hidden flex-col items-center gap-3 bg-muted/50 px-3 py-4 text-center md:flex">
+                <p className="font-display text-base text-primary">We Promise</p>
                 {PROMISES.map(({ icon: Icon, label }) => (
-                  <div key={label} className="space-y-1.5">
-                    <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
-                      <Icon className="h-7 w-7" />
+                  <div key={label} className="space-y-1">
+                    <span className="mx-auto grid h-10 w-10 place-items-center rounded-full bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
                     </span>
-                    <p className="text-sm font-semibold leading-tight text-foreground">{label}</p>
+                    <p className="text-xs font-semibold leading-tight text-foreground">{label}</p>
                   </div>
                 ))}
               </div>
-              <div className="px-5 py-4">
+              <div className="px-4 py-3">
                 <div className="flex flex-col items-center">
                   <div className="flex items-center">
                     <img
                       src={SP_LOGO_URL}
                       alt="Shapoorji Pallonji"
-                      className="h-12 w-auto object-contain"
+                      className="h-9 w-auto object-contain"
                     />
                   </div>
                 </div>
-                <p className="mt-2 text-center font-display text-lg leading-snug text-foreground">
+                <p className="mt-1.5 text-center font-display text-sm leading-snug text-foreground">
                   Register here and avail the{" "}
                   <span className="text-gold">best offers!!</span>
                 </p>
 
-                <div className="mt-2">
+                <div className="mt-1.5">
                   <LeadForm
                     key={modal?.intent ?? "welcome"}
                     intent={modal?.intent ?? "welcome"}
@@ -987,14 +987,14 @@ function Index() {
                   />
                 </div>
               </div>
-              <div className="hidden flex-col gap-4 bg-ink px-5 py-6 text-secondary md:flex">
-                <p className="text-center font-display text-xl leading-snug">
+              <div className="hidden flex-col gap-3 bg-ink px-4 py-4 text-secondary md:flex">
+                <p className="text-center font-display text-base leading-snug">
                   Get Information On Availabilities
                 </p>
-                <ul className="mt-1 space-y-3.5">
+                <ul className="mt-0.5 space-y-2.5">
                   {["Available Units", "Payment Plan", "Floor Plans"].map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 text-base font-semibold">
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-gold" />
+                    <li key={item} className="flex items-center gap-2 text-sm font-semibold">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-gold" />
                       {item}
                     </li>
                   ))}
@@ -1004,9 +1004,9 @@ function Index() {
 
             <a
               href={`tel:${PROJECT.phone}`}
-              className="flex items-center justify-center gap-2 bg-ink py-3 text-sm font-semibold text-secondary transition hover:text-gold"
+              className="flex items-center justify-center gap-2 bg-ink py-2.5 text-xs font-semibold text-secondary transition hover:text-gold"
             >
-              <Phone className="h-4 w-4 text-gold" /> {PROJECT.phoneDisplay}
+              <Phone className="h-3.5 w-3.5 text-gold" /> {PROJECT.phoneDisplay}
             </a>
           </div>
         </div>
