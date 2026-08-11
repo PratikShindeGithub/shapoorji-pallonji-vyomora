@@ -683,34 +683,37 @@ function Index() {
           titleClassName="whitespace-nowrap text-xl sm:text-2xl"
         />
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="reveal overflow-hidden rounded-xl border border-border shadow-soft" data-reveal>
-            <div className="relative">
+          <button
+            type="button"
+            onClick={() =>
+              openEnquiry(
+                "location-map",
+                "View Location Map",
+                "View Location Map",
+                "Share your details and our sales desk will send the exact location map, connectivity details and site visit options.",
+              )
+            }
+            aria-label="View location map"
+            className="reveal group flex flex-col overflow-hidden rounded-xl border border-border shadow-soft transition duration-500 hover:shadow-lift"
+            data-reveal
+          >
+            <span className="relative block flex-1">
               <iframe
                 title="Map of Hinjawadi Phase 1, Pune"
                 src="https://www.google.com/maps?q=Hinjawadi%20Phase%201%2C%20Pune&output=embed"
                 loading="lazy"
-                className="h-[420px] w-full scale-105 border-0 blur-md"
+                tabIndex={-1}
+                className="pointer-events-none h-[420px] w-full scale-105 border-0 blur-md"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <button
-                onClick={() =>
-                  openEnquiry(
-                    "location-map",
-                    "View Location Map",
-                    "View Location Map",
-                    "Share your details and our sales desk will send the exact location map, connectivity details and site visit options.",
-                  )
-                }
-                className="absolute inset-0 z-10 flex items-center justify-center bg-ink/40 backdrop-blur-[2px]"
-                aria-label="View location map"
-              >
-                <span className="rounded-full bg-gold px-6 py-3 text-sm font-bold text-gold-foreground shadow-lift transition hover:-translate-y-0.5">
-                  View Location Map
-                </span>
-              </button>
-
-            </div>
-          </div>
+              <span className="absolute inset-0 z-10 bg-ink/40 backdrop-blur-[2px]" />
+            </span>
+            <span className="hero-cta block px-5 py-3.5 text-center">
+              <span className="block text-lg font-semibold tracking-wide text-white">
+                View Location Map
+              </span>
+            </span>
+          </button>
           <div className="grid gap-6 sm:grid-cols-2">
             {LOCATION_GROUPS.map((g, i) => (
               <div
