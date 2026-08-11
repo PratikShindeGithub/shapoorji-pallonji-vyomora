@@ -29,9 +29,9 @@ export const HERO_FACTS = [
 ];
 
 export const HERO_STRIPS = [
-  "Limited Time Pre-Launch Offers",
-  "Double-Height Sky Lobbies",
-  "High Speed Elevators",
+  "Exclusive Launch Offers",
+  "Low Density Project\u00a0",
+  "Attractive Payment Plans",
 ];
 
 export const PROMISES = [
