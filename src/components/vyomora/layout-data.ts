@@ -17,7 +17,7 @@ export const NAV_ITEMS = [
   { label: "Amenities", href: "#amenities", icon: Wifi },
   { label: "Gallery", href: "#gallery", icon: Images },
   { label: "Location", href: "#location", icon: MapPin },
-  { label: "Walkthrough", href: "#gallery", icon: PlayCircle },
+  { label: "Walkthrough", href: "#experience", icon: PlayCircle },
 ];
 
 export const HERO_FACTS = [
