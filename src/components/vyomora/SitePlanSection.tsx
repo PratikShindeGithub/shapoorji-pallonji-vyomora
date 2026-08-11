@@ -232,7 +232,7 @@ export function SitePlanSection({ onEnquire }: Props) {
                 "Share your details and our sales desk will send the complete floor plan set for every configuration.",
               )
             }
-            className="hero-cta inline-flex items-center justify-center rounded-md px-8 py-3.5 text-xs font-bold tracking-widest uppercase transition hover:-translate-y-0.5 hover:shadow-lift"
+            className="shine-bar inline-flex items-center justify-center rounded-md px-8 py-3.5 text-xs font-bold tracking-widest text-white uppercase shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
           >
             Request for More Floor Plans
           </button>
