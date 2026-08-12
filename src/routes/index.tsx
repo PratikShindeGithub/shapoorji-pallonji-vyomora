@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import { WhatsAppIcon } from "@/components/vyomora/WhatsAppIcon";
 import { FLOOR_PLAN_URL } from "@/components/vyomora/floor-plan";
