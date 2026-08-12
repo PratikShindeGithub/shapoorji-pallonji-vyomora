@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import { WhatsAppIcon } from "@/components/vyomora/WhatsAppIcon";
 import { FLOOR_PLAN_URL } from "@/components/vyomora/floor-plan";
+import { SitePlanSection } from "@/components/vyomora/SitePlanSection";
 import { CountUp } from "@/components/vyomora/CountUp";
 import { COST_SHEET_IMAGE } from "@/components/vyomora/cost-sheet";
 import reraQr1 from "@/assets/rera-qr-1.png.asset.json";
