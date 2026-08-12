@@ -926,13 +926,13 @@ function Index() {
           onClick={() =>
             openEnquiry("mobile-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
           }
-          className="cta-blink flex flex-col items-center gap-1 border-r border-border py-3 text-[11px] font-bold"
+          className="shine-bar flex flex-col items-center gap-1 border-r border-border py-3 text-[11px] font-bold"
         >
           <Download className="icon-nudge h-4 w-4" /> Brochure
         </button>
         <button
           onClick={() => openEnquiry("mobile-bar")}
-          className="flex flex-col items-center gap-1 bg-gold py-3 text-[11px] font-bold text-gold-foreground"
+          className="shine-bar flex flex-col items-center gap-1 py-3 text-[11px] font-bold"
         >
           <Sparkles className="h-4 w-4" /> Enquire
         </button>
