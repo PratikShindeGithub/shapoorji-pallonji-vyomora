@@ -970,7 +970,7 @@ function Index() {
                 <p className="font-display text-base text-primary">We Promise</p>
                 {PROMISES.map(({ icon: Icon, label }) => (
                   <div key={label} className="w-full">
-                    <span className="hero-cta inline-flex w-full items-center gap-2 rounded-md px-3 py-2.5 text-sm font-semibold shadow-soft">
+                    <span className="hero-cta inline-flex w-full items-center justify-center gap-2 rounded-md px-3 py-2.5 text-center text-sm font-semibold shadow-soft">
                       <Icon className="h-5 w-5 shrink-0" />
                       {label}
                     </span>
