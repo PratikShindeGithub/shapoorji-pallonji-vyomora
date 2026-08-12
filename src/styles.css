@@ -412,4 +412,32 @@ h1, h2, h3, .font-display {
   }
 }
 
+/* ---------- Offer box with shimmer + float ---------- */
+@keyframes float-bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@utility offer-box {
+  background: linear-gradient(90deg, #4a3a5c, #8b7a99, #4a3a5c, #8b7a99);
+  background-size: 300% 100%;
+  color: #fff;
+  animation: shine-slide 3.5s ease-in-out infinite, float-bob 2.2s ease-in-out infinite;
+
+  &:hover {
+    animation-play-state: paused, paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    background-position: 0% 50%;
+    transform: none;
+  }
+}
+
+
 
