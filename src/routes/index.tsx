@@ -142,7 +142,7 @@ function SectionHead({
   return (
     <div className="reveal mx-auto max-w-2xl text-center" data-reveal>
       <p className="eyebrow text-gold">{eyebrow}</p>
-      <h2 className={`mt-3 text-3xl leading-tight text-foreground sm:text-4xl ${titleClassName ?? ""}`}>{title}</h2>
+      <h2 className={cn("mt-3 text-3xl leading-tight text-foreground sm:text-4xl", titleClassName)}>{title}</h2>
       <div className="hairline mx-auto mt-5 w-24" />
       {copy ? <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{copy}</p> : null}
     </div>
@@ -200,11 +200,11 @@ function Index() {
       <header className="fixed left-0 right-0 top-0 z-50 xl:right-[20rem]">
         <div className="border-b border-secondary/15 bg-ink/70 shadow-soft backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6">
-            <a href="#top" className="flex shrink-0 items-center py-3">
+            <a href="#top" className="flex min-w-0 items-center py-3">
               <img
                 src={SP_HEADER_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
-                className="h-14 w-auto shrink-0 sm:h-16"
+                className="h-11 w-auto max-w-[55vw] object-contain sm:h-14 lg:h-16"
               />
             </a>
             {/* Icon nav rail — same line as logo */}
@@ -680,7 +680,7 @@ function Index() {
         <SectionHead
           eyebrow="Location"
           title="Hinjawadi Phase 1, where the commute ends"
-          titleClassName="whitespace-nowrap text-xl sm:text-2xl"
+          titleClassName="text-2xl sm:text-3xl"
         />
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <button
