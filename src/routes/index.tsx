@@ -349,7 +349,7 @@ function Index() {
                 Register here and avail the <span className="text-gold">best offers!!</span>
               </h2>
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                Floor-wise pricing, charges, payment plan and brochure — sent instantly.
+                {"\n"}
               </p>
               <div className="mt-5">
                 <LeadForm intent="hero" withCity onSuccess={handleSuccess} />
