@@ -142,12 +142,12 @@ export function SitePlanSection({ onEnquire }: Props) {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="reveal mx-auto max-w-2xl text-center" data-reveal>
-          <p className="eyebrow text-gold">Plans</p>
+          <p className="eyebrow text-gold">{"\n"}</p>
           <h2
             id="site-plan-heading"
             className="mt-3 text-3xl leading-tight text-foreground sm:text-4xl"
           >
-            Site &amp; Floor Plan
+            Floor Plans
           </h2>
           <div className="hairline mx-auto mt-4 w-24" />
         </div>
