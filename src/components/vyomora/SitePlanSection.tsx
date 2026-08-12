@@ -186,7 +186,10 @@ export function SitePlanSection({ onEnquire }: Props) {
                   </span>
                 </span>
               </span>
-              <span className="block bg-[linear-gradient(90deg,#544573_0%,#56436f_55%,#3d3258_100%)] px-5 py-3.5 text-center">
+              <span
+                style={{ animationDelay: `0s, ${i * 0.2}s` }}
+                className="offer-box block px-5 py-3.5 text-center"
+              >
                 <span className="block text-lg font-semibold tracking-wide text-white">
                   {p.label}
                 </span>
