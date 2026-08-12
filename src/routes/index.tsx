@@ -345,7 +345,9 @@ function Index() {
               data-reveal
               data-reveal-delay="120"
             >
-              <h2 className="text-xl text-foreground">Register here and avail the best offers!!</h2>
+              <h2 className="text-xl text-foreground">
+                Register here and avail the <span className="text-gold">best offers!!</span>
+              </h2>
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                 Floor-wise pricing, charges, payment plan and brochure — sent instantly.
               </p>
