@@ -468,7 +468,7 @@ function Index() {
             onClick={() => openEnquiry("overview-brochure", "Request Brochure", "Request the brochure", "Share your details and we'll send the brochure instantly.")}
             className="hero-cta mt-6 inline-flex items-center gap-3 rounded-md px-6 py-3 text-base font-medium transition hover:-translate-y-0.5"
           >
-            <Download className="h-5 w-5" />
+            <Download className="icon-nudge h-5 w-5" />
             Request Download Brochure
           </button>
         </div>
