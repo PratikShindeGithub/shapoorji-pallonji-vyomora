@@ -970,7 +970,7 @@ function Index() {
                 <p className="font-display text-base text-primary">We Promise</p>
                 {PROMISES.map(({ icon: Icon, label }) => (
                   <div key={label} className="space-y-1">
-                    <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
+                    <span className="shine-bar mx-auto grid h-14 w-14 place-items-center rounded-full">
                       <Icon className="h-7 w-7" />
                     </span>
                     <p className="text-xs font-semibold leading-tight text-foreground">{label}</p>
