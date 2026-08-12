@@ -440,7 +440,13 @@ function Index() {
               data-reveal
               data-reveal-delay={i * 90}
             >
-              <p className="font-display text-3xl text-primary sm:text-4xl">{h.value}</p>
+              <p className="font-display text-3xl text-primary sm:text-4xl">
+                {i === 0 && h.value === "160+" ? (
+                  <CountUp target={160} />
+                ) : (
+                  h.value
+                )}
+              </p>
               <p className="mt-2 text-xs leading-relaxed text-secondary-foreground/70">
                 {h.label}
               </p>
