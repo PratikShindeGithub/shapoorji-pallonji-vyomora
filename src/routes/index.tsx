@@ -865,9 +865,9 @@ function Index() {
       {/* Floating "Enquire Now" button — visible anywhere on the page after scrolling */}
       <button
         onClick={() => openEnquiry("floating-enquire", "Enquire Now", "Enquire Now", "Share your details and our sales desk will send the cost sheet, floor plans and brochure within minutes.")}
-        className={`fixed bottom-20 right-4 z-[45] rounded-full xl:hidden px-5 py-3 text-sm font-bold tracking-wide shadow-lift transition-all duration-300 hover:-translate-y-0.5 lg:bottom-4 ${
+        className={`shine-bar fixed bottom-20 right-4 z-[45] rounded-full xl:hidden px-5 py-3 text-sm font-bold tracking-wide shadow-lift transition-all duration-300 hover:-translate-y-0.5 lg:bottom-4 ${
           scrolled ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none"
-        } cta-blink`}
+        }`}
         aria-label="Enquire Now"
       >
         Enquire Now
@@ -926,13 +926,13 @@ function Index() {
           onClick={() =>
             openEnquiry("mobile-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
           }
-          className="cta-blink flex flex-col items-center gap-1 border-r border-border py-3 text-[11px] font-bold"
+          className="shine-bar flex flex-col items-center gap-1 border-r border-border py-3 text-[11px] font-bold"
         >
           <Download className="icon-nudge h-4 w-4" /> Brochure
         </button>
         <button
           onClick={() => openEnquiry("mobile-bar")}
-          className="flex flex-col items-center gap-1 bg-gold py-3 text-[11px] font-bold text-gold-foreground"
+          className="shine-bar flex flex-col items-center gap-1 py-3 text-[11px] font-bold"
         >
           <Sparkles className="h-4 w-4" /> Enquire
         </button>
