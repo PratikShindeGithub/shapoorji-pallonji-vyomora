@@ -19,6 +19,7 @@ import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import { WhatsAppIcon } from "@/components/vyomora/WhatsAppIcon";
 import { FLOOR_PLAN_URL } from "@/components/vyomora/floor-plan";
 import { SitePlanSection } from "@/components/vyomora/SitePlanSection";
+import { CountUp } from "@/components/vyomora/CountUp";
 import { COST_SHEET_IMAGE } from "@/components/vyomora/cost-sheet";
 import reraQr1 from "@/assets/rera-qr-1.png.asset.json";
 import reraQr2 from "@/assets/rera-qr-2.png.asset.json";
@@ -439,7 +440,13 @@ function Index() {
               data-reveal
               data-reveal-delay={i * 90}
             >
-              <p className="font-display text-3xl text-primary sm:text-4xl">{h.value}</p>
+              <p className="font-display text-3xl text-primary sm:text-4xl">
+                {i === 0 && h.value === "160+" ? (
+                  <CountUp target={160} />
+                ) : (
+                  h.value
+                )}
+              </p>
               <p className="mt-2 text-xs leading-relaxed text-secondary-foreground/70">
                 {h.label}
               </p>
