@@ -312,11 +312,10 @@ function Index() {
                   ))}
                 </ul>
                 <div className="mt-3 space-y-1">
-                  {HERO_STRIPS.map((s, i) => (
+                  {HERO_STRIPS.map((s) => (
                     <p
                       key={s}
-                      style={{ animationDelay: `0s, ${i * 0.2}s` }}
-                      className="offer-box rounded-sm px-2.5 py-1.5 text-center text-[11px] font-semibold tracking-normal"
+                      className="shine-bar rounded-sm px-2.5 py-1.5 text-center text-[11px] font-semibold tracking-normal"
                     >
                       {s}
                     </p>
