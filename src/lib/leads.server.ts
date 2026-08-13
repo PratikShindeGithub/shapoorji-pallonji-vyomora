@@ -38,7 +38,7 @@ export async function markLeadEmailed(id: string) {
  */
 export async function sendLeadEmails(id: string, input: LeadInput) {
   const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
-  const salesInbox = process.env["LEAD_NOTIFY_EMAIL"];
+  const salesInbox = "shrikant@homelogic.co.in";
   const submittedAt = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
   let emailed = false;
 
