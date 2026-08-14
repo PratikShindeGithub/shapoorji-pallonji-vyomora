@@ -825,7 +825,7 @@ function Index() {
 
           {/* RERA registration notice */}
           <div className="mt-5 w-full text-center text-[12px] font-medium text-secondary/70">
-            This project is RERA registered. | Authorized Channel Partner | Channel Partner RERA Number : A031262400404 | Project RERA Number : PR1260002600999
+            This project is MahaRERA registered. | Authorized Channel Partner | Channel Partner MahaRERA Number : A031262400404 | Project MahaRERA Number : PR1260002600999
           </div>
 
           {/* Disclaimer */}
