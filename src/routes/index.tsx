@@ -75,12 +75,6 @@ export const Route = createFileRoute("/")({
     links: [
       { rel: "canonical", href: "/" },
       { rel: "preload", as: "image", href: HERO_SLIDES[0]!.url, fetchpriority: "high" } as never,
-      {
-        rel: "preload",
-        as: "image",
-        href: HERO_SLIDES[0]!.url,
-        fetchpriority: "high",
-      } as never,
     ],
   }),
 });
