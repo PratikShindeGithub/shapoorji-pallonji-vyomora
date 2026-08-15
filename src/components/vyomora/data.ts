@@ -102,29 +102,3 @@ export const LOCATION_GROUPS = [
   },
 ];
 
-export const FAQS = [
-  {
-    q: "Where exactly is Vyomora located?",
-    a: "Vyomora is a 25-acre township in Hinjawadi Phase 1, Pune, within minutes of Rajiv Gandhi Infotech Park and the upcoming Hinjawadi metro corridor.",
-  },
-  {
-    q: "What configurations are available?",
-    a: "2 BHK and 3 BHK apartments from 685 to 1186 sq.ft., including premium 3 BHK imperial residences.",
-  },
-  {
-    q: "What is the starting price?",
-    a: "Homes start at ₹88 Lakhs* for the 2 BHK compact layout. Share your details to receive the complete cost sheet with taxes, charges and payment plan.",
-  },
-  {
-    q: "Is the project RERA registered?",
-    a: "Yes. The MahaRERA registration number and approved plans are shared along with the cost sheet during your site visit or call with our sales desk.",
-  },
-  {
-    q: "What is the possession timeline?",
-    a: "The first phase is scheduled for phased handover, with tower-wise possession dates confirmed at the time of booking.",
-  },
-  {
-    q: "Can I book a site visit?",
-    a: "Absolutely. Submit the enquiry form or call our sales desk and we will arrange a guided site visit, including complimentary cab pickup within Pune.",
-  },
-];
