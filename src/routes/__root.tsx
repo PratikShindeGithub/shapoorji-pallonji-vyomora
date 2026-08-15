@@ -12,6 +12,12 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+// Trimmed to the weights actually used (was 7 font files, now 3) and loaded
+// without blocking first render.
+const FONT_CSS_HREF =
+  "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fira+Sans:wght@400;600&display=swap";
+
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -92,17 +98,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
         href: "https://fonts.gstatic.com",
         crossOrigin: "anonymous",
       },
+      // Non-blocking font load: fetched at high priority but does not block render.
+      {
+        rel: "preload",
+        as: "style",
+        href: FONT_CSS_HREF,
+      },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
+        href: FONT_CSS_HREF,
+        media: "print",
+        // flipped to "all" by the inline script below once loaded
+        "data-font-css": "true",
+      } as never,
+    ],
+    scripts: [
+      {
+        children:
+          "(function(){var l=document.querySelector('link[data-font-css]');if(!l)return;var f=function(){l.media='all'};if(l.sheet)f();else l.addEventListener('load',f);setTimeout(f,2000)})()",
       },
     ],
+
   }),
 
   shellComponent: RootShell,
