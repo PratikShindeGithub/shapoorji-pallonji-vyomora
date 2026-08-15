@@ -21,6 +21,8 @@ export function HeroSlideshow() {
           width={1920}
           height={1280}
           loading={i === 0 ? "eager" : "lazy"}
+          fetchPriority={i === 0 ? "high" : "low"}
+          decoding={i === 0 ? "sync" : "async"}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
             i === active ? "opacity-100" : "opacity-0"
           }`}
