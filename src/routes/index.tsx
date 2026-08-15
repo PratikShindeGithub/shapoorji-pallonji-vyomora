@@ -27,7 +27,6 @@ import reraQr2 from "@/assets/rera-qr-2.png.asset.json";
 import {
   AMENITIES,
   CONFIGS,
-  FAQS,
   HIGHLIGHTS,
   LOCATION_GROUPS,
   PROJECT,
