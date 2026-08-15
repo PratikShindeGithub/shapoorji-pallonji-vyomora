@@ -72,7 +72,16 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preconnect", href: new URL(HERO_SLIDES[0]!.url).origin },
+      {
+        rel: "preload",
+        as: "image",
+        href: HERO_SLIDES[0]!.url,
+        fetchpriority: "high",
+      } as never,
+    ],
   }),
 });
 
