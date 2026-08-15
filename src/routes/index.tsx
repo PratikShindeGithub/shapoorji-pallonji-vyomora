@@ -692,17 +692,18 @@ function Index() {
             className="reveal group flex flex-col overflow-hidden rounded-xl border border-border shadow-soft transition duration-500 hover:shadow-lift"
             data-reveal
           >
-            <span className="relative block flex-1">
-              <iframe
-                title="Map of Hinjawadi Phase 1, Pune"
-                src="https://www.google.com/maps?q=Hinjawadi%20Phase%201%2C%20Pune&output=embed"
-                loading="lazy"
-                tabIndex={-1}
-                className="pointer-events-none h-[420px] w-full scale-105 border-0 blur-[2px]"
-                referrerPolicy="no-referrer-when-downgrade"
+            <span className="relative block flex-1 overflow-hidden">
+              {/* Lightweight static map placeholder — replaces Google Maps iframe to avoid ~400 KiB of unused JS */}
+              <div
+                className="pointer-events-none h-[420px] w-full scale-105 bg-[#f0f2f5] blur-[2px]"
+                style={{
+                  backgroundImage:
+                    "repeating-linear-gradient(0deg, transparent, transparent 39px, #e1e4e8 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, #e1e4e8 40px), radial-gradient(circle at 60% 40%, rgba(86, 67, 111, 0.12), transparent 55%)",
+                }}
               />
-              <span className="absolute inset-0 z-10 bg-ink/10" />
-
+              <span className="absolute inset-0 z-10 flex items-center justify-center bg-ink/10">
+                <MapPin className="h-10 w-10 text-primary/60" />
+              </span>
             </span>
             <span className="hero-cta block px-5 py-3.5 text-center">
               <span className="block text-lg font-semibold tracking-wide text-white">
