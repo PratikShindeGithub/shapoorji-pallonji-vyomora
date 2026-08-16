@@ -10,18 +10,27 @@ export const HERO_IMAGE_URL: string = poolHeroAsset.url;
 import heroPool2Asset from "@/assets/hero-pool-2-opt.webp.asset.json";
 import heroElevationAsset from "@/assets/hero-elevation-opt.webp.asset.json";
 import heroWormEyeAsset from "@/assets/hero-worm-eye-opt.webp.asset.json";
+import heroPool2_800 from "@/assets/hero-pool-2-800.webp.asset.json";
+import heroPool2_1200 from "@/assets/hero-pool-2-1200.webp.asset.json";
+import heroElevation800 from "@/assets/hero-elevation-800.webp.asset.json";
+import heroElevation1200 from "@/assets/hero-elevation-1200.webp.asset.json";
+import heroWormEye800 from "@/assets/hero-worm-eye-800.webp.asset.json";
+import heroWormEye1200 from "@/assets/hero-worm-eye-1200.webp.asset.json";
 
-export const HERO_SLIDES: { url: string; alt: string }[] = [
+export const HERO_SLIDES: { url: string; srcSet: string; alt: string }[] = [
   {
     url: heroPool2Asset.url,
+    srcSet: `${heroPool2_800.url} 800w, ${heroPool2_1200.url} 1200w, ${heroPool2Asset.url} 1600w`,
     alt: "Vyomora towers at dusk beside the landscaped swimming pool deck",
   },
   {
     url: heroElevationAsset.url,
+    srcSet: `${heroElevation800.url} 800w, ${heroElevation1200.url} 1200w, ${heroElevationAsset.url} 1600w`,
     alt: "Vyomora tower elevations viewed across the landscaped community",
   },
   {
     url: heroWormEyeAsset.url,
+    srcSet: `${heroWormEye800.url} 800w, ${heroWormEye1200.url} 1200w, ${heroWormEyeAsset.url} 1600w`,
     alt: "Vyomora high-rise tower seen from ground level amid flowering trees",
   },
 ];
