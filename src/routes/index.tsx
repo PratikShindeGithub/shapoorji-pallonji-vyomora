@@ -70,11 +70,18 @@ export const Route = createFileRoute("/")({
         content:
           "25-acre township in Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK homes and duplexes with 85+ amenities. Request the price breakup today.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://shapoorjipallonjivyomora.site/" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
-      { rel: "preload", as: "image", href: HERO_SLIDES[0]!.url, fetchpriority: "high" } as never,
+      { rel: "canonical", href: "https://shapoorjipallonjivyomora.site/" },
+      {
+        rel: "preload",
+        as: "image",
+        href: HERO_SLIDES[0]!.url,
+        imagesrcset: HERO_SLIDES[0]!.srcSet,
+        imagesizes: "100vw",
+        fetchpriority: "high",
+      } as never,
     ],
   }),
 });
