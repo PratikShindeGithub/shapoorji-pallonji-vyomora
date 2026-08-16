@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Download, Minus, Plus, X } from "lucide-react";
 
-import masterPlanAsset from "@/assets/master-plan-layout.png.asset.json";
+import masterPlanAsset from "@/assets/master-plan-layout-opt.webp.asset.json";
 import { UNIT_PLANS } from "./site-plans";
 
 type Props = {
