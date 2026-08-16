@@ -19,7 +19,11 @@ export const Route = createFileRoute("/privacy-policy.html")({
           "How we collect, use, store and protect the personal information you share while enquiring about Vyomora, Hinjawadi Phase 1.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://shapoorjipallonjivyomora.site/privacy-policy.html" },
       { name: "twitter:card", content: "summary" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://shapoorjipallonjivyomora.site/privacy-policy.html" },
     ],
   }),
   component: PrivacyPolicyPage,
