@@ -1,11 +1,11 @@
-import clubhouse from "@/assets/am-clubhouse-v2.png.asset.json";
-import pool from "@/assets/am-pool-v2.png.asset.json";
-import gym from "@/assets/am-gym-v2.png.asset.json";
-import kids from "@/assets/am-kids-v2.png.asset.json";
-import gardens from "@/assets/am-gardens-v2.png.asset.json";
-import cowork from "@/assets/am-cowork-v2.png.asset.json";
-import amphitheatre from "@/assets/am-amphitheatre-v2.png.asset.json";
-import sports from "@/assets/am-sports-v3.png.asset.json";
+import clubhouse from "@/assets/am-clubhouse-opt.webp.asset.json";
+import pool from "@/assets/am-pool-opt.webp.asset.json";
+import gym from "@/assets/am-gym-opt.webp.asset.json";
+import kids from "@/assets/am-kids-opt.webp.asset.json";
+import gardens from "@/assets/am-gardens-opt.webp.asset.json";
+import cowork from "@/assets/am-cowork-opt.webp.asset.json";
+import amphitheatre from "@/assets/am-amphitheatre-opt.webp.asset.json";
+import sports from "@/assets/am-sports-opt.webp.asset.json";
 
 export const AMENITY_SLIDES: { src: string; alt: string; label: string }[] = [
   { src: clubhouse.url, alt: "Grand clubhouse entrance lit at dusk at Vyomora", label: "Grand Clubhouse" },
@@ -17,4 +17,3 @@ export const AMENITY_SLIDES: { src: string; alt: string; label: string }[] = [
   { src: cowork.url, alt: "Co-work lounge with focus cabins at Vyomora", label: "Co-work Lounge" },
   { src: amphitheatre.url, alt: "Open-air amphitheatre with community screening at Vyomora", label: "Amphitheatre" },
 ];
-
