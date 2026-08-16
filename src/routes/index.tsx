@@ -811,13 +811,14 @@ function Index() {
           </div>
 
           {/* RERA registration notice */}
-          <div className="mt-5 w-full text-center text-[12px] font-medium text-secondary/70">
+          <div className="mt-5 w-full text-center text-[12px] font-medium text-secondary">
             This project is MahaRERA registered. | Authorized Channel Partner | Channel Partner MahaRERA Number : A031262400404 | Project MahaRERA Number : PR1260002600999
           </div>
 
           {/* Disclaimer */}
-          <div className="mt-5 w-full text-left text-[11px] leading-relaxed text-secondary/45">
-            <p>
+          <div className="mt-5 w-full text-[11px] leading-relaxed text-secondary/85">
+            <p className="text-justify hyphens-auto">
+
               Disclaimer: The content presented on this website is solely for informational purposes and does not
               constitute a service offer. Prices mentioned here are subject to change without prior
               notification, and the availability of the listed properties is not assured. Images
@@ -842,7 +843,7 @@ function Index() {
 
 
           {/* Legal links */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-secondary/15 pt-5 text-xs text-secondary/60">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-secondary/25 pt-5 text-xs text-secondary">
             <a href="/privacy-policy.html" className="hover:text-gold hover:underline">
               Privacy Policy
             </a>
@@ -850,9 +851,10 @@ function Index() {
               Terms &amp; Conditions
             </a>
           </div>
-          <div className="mt-3 text-center text-xs text-secondary/50">
+          <div className="mt-3 text-center text-xs text-secondary">
             &copy; 2026 All rights reserved.
           </div>
+
         </div>
       </footer>
 
