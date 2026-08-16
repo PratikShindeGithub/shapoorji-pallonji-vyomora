@@ -30,7 +30,7 @@ export function HeroSlideshow() {
           }`}
         />
       ))}
-      <div className="absolute inset-x-0 bottom-3 z-10 flex justify-center gap-2 lg:bottom-6">
+      <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center lg:bottom-2">
         {HERO_SLIDES.map((slide, i) => (
           <button
             key={slide.url}
@@ -38,10 +38,14 @@ export function HeroSlideshow() {
             aria-label={`Show slide ${i + 1}`}
             aria-current={i === active}
             onClick={() => setActive(i)}
-            className={`h-1.5 rounded-full transition-all ${
-              i === active ? "w-6 bg-gold" : "w-1.5 bg-background/70"
-            }`}
-          />
+            className="flex h-11 min-w-11 items-center justify-center"
+          >
+            <span
+              className={`block h-1.5 rounded-full transition-all ${
+                i === active ? "w-6 bg-gold" : "w-1.5 bg-background/70"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
