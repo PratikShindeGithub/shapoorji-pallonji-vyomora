@@ -17,9 +17,11 @@ export function HeroSlideshow() {
         <img
           key={slide.url}
           src={slide.url}
+          srcSet={slide.srcSet}
+          sizes="(max-width: 1023px) 100vw, 55vw"
           alt={slide.alt}
-          width={1920}
-          height={1280}
+          width={1600}
+          height={1067}
           loading={i === 0 ? "eager" : "lazy"}
           fetchPriority={i === 0 ? "high" : "low"}
           decoding={i === 0 ? "sync" : "async"}
