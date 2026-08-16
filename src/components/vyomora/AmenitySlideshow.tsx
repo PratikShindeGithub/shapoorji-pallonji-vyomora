@@ -31,7 +31,7 @@ export function AmenitySlideshow() {
           </p>
         </div>
       </div>
-      <div className="mt-3 flex justify-center gap-1.5">
+      <div className="flex justify-center">
         {AMENITY_SLIDES.map((slide, i) => (
           <button
             key={slide.src}
@@ -39,10 +39,14 @@ export function AmenitySlideshow() {
             aria-label={`Show ${slide.label}`}
             aria-current={i === active}
             onClick={() => setActive(i)}
-            className={`h-1.5 rounded-full transition-all ${
-              i === active ? "w-5 bg-gold" : "w-1.5 bg-secondary/40"
-            }`}
-          />
+            className="flex h-11 min-w-11 items-center justify-center"
+          >
+            <span
+              className={`block h-1.5 rounded-full transition-all ${
+                i === active ? "w-5 bg-gold" : "w-1.5 bg-secondary/40"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
