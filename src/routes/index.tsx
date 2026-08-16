@@ -795,7 +795,7 @@ function Index() {
           {/* RERA QR codes + logos */}
           <div className="flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-5">
             <div className="flex items-center gap-4">
-              <img src={reraQr1.url} alt="Channel Partner RERA QR code" className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
+              <img src={reraQr1.url} alt="Channel Partner RERA QR code" width={330} height={332} className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
               <img src={reraQr2.url} alt="Project RERA QR code" width={716} height={702} className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
             </div>
             <div className="flex items-center gap-5">
