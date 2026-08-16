@@ -10,11 +10,11 @@ export const HERO_IMAGE_URL: string = poolHeroAsset.url;
 import heroPool2Asset from "@/assets/hero-pool-2-opt.webp.asset.json";
 import heroElevationAsset from "@/assets/hero-elevation-opt.webp.asset.json";
 import heroWormEyeAsset from "@/assets/hero-worm-eye-opt.webp.asset.json";
-import heroPool2_800 from "@/assets/hero-pool-2-800.webp.asset.json";
+import heroPool2_800 from "@/assets/hero-pool-2-800c.webp.asset.json";
 import heroPool2_1200 from "@/assets/hero-pool-2-1200.webp.asset.json";
-import heroElevation800 from "@/assets/hero-elevation-800.webp.asset.json";
+import heroElevation800 from "@/assets/hero-elevation-800c.webp.asset.json";
 import heroElevation1200 from "@/assets/hero-elevation-1200.webp.asset.json";
-import heroWormEye800 from "@/assets/hero-worm-eye-800.webp.asset.json";
+import heroWormEye800 from "@/assets/hero-worm-eye-800c.webp.asset.json";
 import heroWormEye1200 from "@/assets/hero-worm-eye-1200.webp.asset.json";
 
 export const HERO_SLIDES: { url: string; srcSet: string; alt: string }[] = [
@@ -35,7 +35,7 @@ export const HERO_SLIDES: { url: string; srcSet: string; alt: string }[] = [
   },
 ];
 
-import spLogoAsset from "@/assets/sp-logo-v3-opt.webp.asset.json";
+import spLogoAsset from "@/assets/sp-logo-v3-sm.webp.asset.json";
 
 export const SP_LOGO_URL: string = spLogoAsset.url;
 
@@ -43,10 +43,10 @@ import mahareraAsset from "@/assets/maharera-qr.png.asset.json";
 
 export const MAHARERA_QR_URL: string = mahareraAsset.url;
 
-import spHeaderLogoAsset from "@/assets/sp-logo-header-opt.webp.asset.json";
+import spHeaderLogoAsset from "@/assets/sp-logo-header-sm.webp.asset.json";
 
 export const SP_HEADER_LOGO_URL: string = spHeaderLogoAsset.url;
 
-import spVyomoraLockupAsset from "@/assets/vyomora-sp-lockup-opt.webp.asset.json";
+import spVyomoraLockupAsset from "@/assets/vyomora-sp-lockup-sm.webp.asset.json";
 
 export const SP_VYOMORA_LOCKUP_URL: string = spVyomoraLockupAsset.url;
