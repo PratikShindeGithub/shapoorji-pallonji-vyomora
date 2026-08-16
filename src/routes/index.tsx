@@ -77,9 +77,10 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
+        type: "image/webp",
         href: HERO_SLIDES[0]!.url,
         imagesrcset: HERO_SLIDES[0]!.srcSet,
-        imagesizes: "100vw",
+        imagesizes: "(max-width: 1023px) 100vw, 55vw",
         fetchpriority: "high",
       } as never,
     ],
