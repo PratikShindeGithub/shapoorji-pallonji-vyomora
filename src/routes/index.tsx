@@ -843,7 +843,7 @@ function Index() {
 
 
           {/* Legal links */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-secondary/15 pt-5 text-xs text-secondary/60">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-secondary/25 pt-5 text-xs text-secondary">
             <a href="/privacy-policy.html" className="hover:text-gold hover:underline">
               Privacy Policy
             </a>
@@ -851,9 +851,10 @@ function Index() {
               Terms &amp; Conditions
             </a>
           </div>
-          <div className="mt-3 text-center text-xs text-secondary/50">
+          <div className="mt-3 text-center text-xs text-secondary">
             &copy; 2026 All rights reserved.
           </div>
+
         </div>
       </footer>
 
