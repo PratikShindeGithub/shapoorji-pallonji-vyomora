@@ -202,8 +202,8 @@ function Index() {
               <img
                 src={SP_HEADER_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
-                width={480}
-                height={271}
+                width={300}
+                height={169}
                 className="h-11 w-auto max-w-[55vw] object-contain sm:h-14 lg:h-16"
               />
             </a>
@@ -298,8 +298,8 @@ function Index() {
                 <img
                   src={SP_VYOMORA_LOCKUP_URL}
                   alt="Shapoorji Pallonji Vyomora Hinjawadi"
-                  width={640}
-                  height={223}
+                  width={440}
+                  height={153}
                   className="mx-auto h-10 w-auto object-contain sm:h-12"
 
                 />
@@ -810,8 +810,8 @@ function Index() {
               <img
                 src={SP_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
-                width={400}
-                height={223}
+                width={260}
+                height={145}
                 className="h-14 w-auto"
               />
 
@@ -995,8 +995,8 @@ function Index() {
                     <img
                       src={SP_LOGO_URL}
                       alt="Shapoorji Pallonji"
-                      width={400}
-                      height={223}
+                      width={260}
+                      height={145}
                       className="h-9 w-auto object-contain"
                     />
                   </div>
