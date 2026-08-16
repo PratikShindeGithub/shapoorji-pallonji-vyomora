@@ -194,6 +194,8 @@ function Index() {
               <img
                 src={SP_HEADER_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
+                width={480}
+                height={271}
                 className="h-11 w-auto max-w-[55vw] object-contain sm:h-14 lg:h-16"
               />
             </a>
@@ -288,6 +290,8 @@ function Index() {
                 <img
                   src={SP_VYOMORA_LOCKUP_URL}
                   alt="Shapoorji Pallonji Vyomora Hinjawadi"
+                  width={640}
+                  height={223}
                   className="mx-auto h-10 w-auto object-contain sm:h-12"
 
                 />
@@ -391,7 +395,7 @@ function Index() {
         </div>
 
         <div className="px-5 pb-6 pt-5">
-        <img src={LOGO_URL} alt="Vyomora" className="mx-auto h-12 w-auto object-contain" />
+        <img src={LOGO_URL} alt="Vyomora" width={693} height={316} className="mx-auto h-12 w-auto object-contain" />
 
 
 
@@ -792,12 +796,14 @@ function Index() {
           <div className="flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-5">
             <div className="flex items-center gap-4">
               <img src={reraQr1.url} alt="Channel Partner RERA QR code" className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
-              <img src={reraQr2.url} alt="Project RERA QR code" className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
+              <img src={reraQr2.url} alt="Project RERA QR code" width={716} height={702} className="h-24 w-24 rounded bg-white p-1" loading="lazy" />
             </div>
             <div className="flex items-center gap-5">
               <img
                 src={SP_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
+                width={400}
+                height={223}
                 className="h-14 w-auto"
               />
 
@@ -805,6 +811,8 @@ function Index() {
               <img
                 src={LOGO_URL}
                 alt="Shapoorji Pallonji Vyomora, Hinjawadi"
+                width={693}
+                height={316}
                 className="h-14 w-auto brightness-0 invert"
               />
             </div>
@@ -979,6 +987,8 @@ function Index() {
                     <img
                       src={SP_LOGO_URL}
                       alt="Shapoorji Pallonji"
+                      width={400}
+                      height={223}
                       className="h-9 w-auto object-contain"
                     />
                   </div>
