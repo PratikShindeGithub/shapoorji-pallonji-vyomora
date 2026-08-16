@@ -19,8 +19,10 @@ export const Route = createFileRoute("/terms.html")({
           "Terms and conditions governing your use of this Vyomora Hinjawadi Phase 1 information website and the enquiries you submit through it.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://shapoorjipallonjivyomora.site/terms.html" },
       { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "canonical", href: "https://shapoorjipallonjivyomora.site/terms.html" }],
   }),
   component: TermsPage,
 });
