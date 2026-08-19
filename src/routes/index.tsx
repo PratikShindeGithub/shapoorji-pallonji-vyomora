@@ -330,13 +330,6 @@ function Index() {
                 <p className="mt-1 font-sans text-[21px] font-bold tracking-tight text-gold sm:text-[23px]">
                   {PROJECT.startingPrice} Onwards
                 </p>
-                <button
-                  onClick={() => openEnquiry("hero-card")}
-                  style={{ animationDelay: "0s, 0.3s" }}
-                  className="offer-box mt-4 w-full rounded-md py-2 text-center text-sm font-bold"
-                >
-                  Enquire Now
-                </button>
 
               </div>
             </div>
@@ -354,7 +347,7 @@ function Index() {
                 {"\n"}
               </p>
               <div className="mt-5">
-                <LeadForm intent="hero" withCity onSuccess={handleSuccess} />
+                <LeadForm intent="hero" withCity hideSubmit onSuccess={handleSuccess} />
               </div>
             </div>
           </div>
