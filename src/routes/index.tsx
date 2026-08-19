@@ -920,20 +920,6 @@ function Index() {
 
       {/* Sticky mobile bar */}
       <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-border bg-card/95 backdrop-blur lg:hidden">
-        <a
-          href={`tel:${PROJECT.phone}`}
-          className="flex flex-col items-center gap-1 py-3 text-[11px] font-semibold text-foreground"
-        >
-          <Phone className="h-4 w-4 text-primary" /> Call
-        </a>
-        <a
-          href={`https://wa.me/${PROJECT.whatsapp}`}
-          target="_blank"
-          rel="noreferrer"
-          className="shine-bar flex flex-col items-center gap-1 border-x border-border py-3 text-[11px] font-bold"
-        >
-          <WhatsAppIcon className="h-4 w-4" /> WhatsApp
-        </a>
         <button
           onClick={() =>
             openEnquiry("mobile-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
@@ -942,6 +928,20 @@ function Index() {
         >
           <Download className="icon-nudge h-4 w-4" /> Brochure
         </button>
+        <a
+          href={`https://wa.me/${PROJECT.whatsapp}`}
+          target="_blank"
+          rel="noreferrer"
+          className="shine-bar flex flex-col items-center gap-1 border-x border-border py-3 text-[11px] font-bold"
+        >
+          <WhatsAppIcon className="h-4 w-4" /> WhatsApp
+        </a>
+        <a
+          href={`tel:${PROJECT.phone}`}
+          className="flex flex-col items-center gap-1 py-3 text-[11px] font-semibold text-foreground"
+        >
+          <Phone className="h-4 w-4 text-primary" /> Call
+        </a>
       </div>
 
 
