@@ -15,6 +15,7 @@ type Props = {
   withCity?: boolean;
   /** "line": underline-only fields, +91 phone prefix, centered submit */
   variant?: "boxed" | "line";
+  hideSubmit?: boolean;
   onSuccess: (values: LeadValues, intent?: string) => void;
 };
 
