@@ -919,7 +919,7 @@ function Index() {
       </div>
 
       {/* Sticky mobile bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-border bg-card/95 backdrop-blur lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-border bg-card/95 backdrop-blur lg:hidden">
         <a
           href={`tel:${PROJECT.phone}`}
           className="flex flex-col items-center gap-1 py-3 text-[11px] font-semibold text-foreground"
@@ -930,23 +930,17 @@ function Index() {
           href={`https://wa.me/${PROJECT.whatsapp}`}
           target="_blank"
           rel="noreferrer"
-          className="flex flex-col items-center gap-1 border-x border-border py-3 text-[11px] font-semibold text-foreground"
+          className="shine-bar flex flex-col items-center gap-1 border-x border-border py-3 text-[11px] font-bold"
         >
-          <WhatsAppIcon className="h-4 w-4 text-primary" /> WhatsApp
+          <WhatsAppIcon className="h-4 w-4" /> WhatsApp
         </a>
         <button
           onClick={() =>
             openEnquiry("mobile-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
           }
-          className="shine-bar flex flex-col items-center gap-1 border-r border-border py-3 text-[11px] font-bold"
-        >
-          <Download className="icon-nudge h-4 w-4" /> Brochure
-        </button>
-        <button
-          onClick={() => openEnquiry("mobile-bar")}
           className="shine-bar flex flex-col items-center gap-1 py-3 text-[11px] font-bold"
         >
-          <Sparkles className="h-4 w-4" /> Enquire
+          <Download className="icon-nudge h-4 w-4" /> Brochure
         </button>
       </div>
 
