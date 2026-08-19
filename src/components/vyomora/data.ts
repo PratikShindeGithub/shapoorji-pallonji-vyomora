@@ -47,13 +47,13 @@ export const CONFIGS = [
   {
     type: "3 BHK Duplex",
     area: "1467 sq.ft.",
-    price: "₹1.84 Cr*",
+    price: "₹1.96 Cr*",
     notes: ["Duplex layout", "Private terrace", "Internal staircase"],
   },
   {
     type: "4 BHK Luxury",
     area: "1382 - 1691 sq.ft.",
-    price: "₹1.96 Cr*",
+    price: "₹1.84 Cr*",
     notes: ["Four bedrooms", "Two balconies", "Premium tower floors"],
   },
   {
