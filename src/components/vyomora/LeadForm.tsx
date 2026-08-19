@@ -161,17 +161,19 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
       {field("mobile", line ? "Phone" : "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}
       {field("email", line ? "E-Mail Address" : "Email address", { type: "email", autoComplete: "email", maxLength: "120" })}
       {withCity ? field("city", "Current city", { autoComplete: "address-level2", maxLength: "60" }) : null}
-      <button
-        type="submit"
-        disabled={busy}
-        className={
-          line
-            ? `${compact ? "sm:col-span-3" : ""} offer-box mx-auto mt-3 inline-flex items-center justify-center rounded-md px-10 py-3 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:opacity-70`
-            : `${compact ? "sm:col-span-3" : ""} cta-blink mt-1 inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:animate-none disabled:bg-primary disabled:opacity-70`
-        }
-      >
-        {busy ? "Sending…" : cta}
-      </button>
+      {!hideSubmit ? (
+        <button
+          type="submit"
+          disabled={busy}
+          className={
+            line
+              ? `${compact ? "sm:col-span-3" : ""} offer-box mx-auto mt-3 inline-flex items-center justify-center rounded-md px-10 py-3 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:opacity-70`
+              : `${compact ? "sm:col-span-3" : ""} cta-blink mt-1 inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:animate-none disabled:bg-primary disabled:opacity-70`
+          }
+        >
+          {busy ? "Sending…" : cta}
+        </button>
+      ) : null}
       {failed ? (
         <p className="mt-2 text-xs text-destructive">
           Something went wrong. Please try again or call our sales desk.
