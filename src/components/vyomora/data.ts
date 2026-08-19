@@ -50,6 +50,18 @@ export const CONFIGS = [
     price: "₹1.96 Cr*",
     notes: ["Duplex layout", "Private terrace", "Internal staircase"],
   },
+  {
+    type: "4 BHK Luxury",
+    area: "1382 - 1691 sq.ft.",
+    price: "On Request",
+    notes: ["Four bedrooms", "Two balconies", "Premium tower floors"],
+  },
+  {
+    type: "4 BHK Grand",
+    area: "2115 - 2356 sq.ft.",
+    price: "On Request",
+    notes: ["Expansive living-dining", "Private deck", "Top-floor views"],
+  },
 ];
 
 export const AMENITIES = [
