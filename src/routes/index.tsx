@@ -9,7 +9,6 @@ import {
   Users,
   Menu,
   Phone,
-  Sparkles,
   Trees,
   X,
 } from "lucide-react";
