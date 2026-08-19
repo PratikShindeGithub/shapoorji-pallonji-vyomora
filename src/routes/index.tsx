@@ -347,7 +347,7 @@ function Index() {
                 {"\n"}
               </p>
               <div className="mt-5">
-                <LeadForm intent="hero" withCity onSuccess={handleSuccess} />
+                <LeadForm intent="hero" withCity hideSubmit onSuccess={handleSuccess} />
               </div>
             </div>
           </div>
