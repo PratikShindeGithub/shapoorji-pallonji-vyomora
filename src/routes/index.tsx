@@ -874,16 +874,18 @@ function Index() {
         </div>
       </footer>
 
-      {/* Floating "Enquire Now" button — visible anywhere on the page after scrolling */}
-      <button
-        onClick={() => openEnquiry("floating-enquire", "Enquire Now", "Enquire Now", "Share your details and our sales desk will send the cost sheet, floor plans and brochure within minutes.")}
-        className={`shine-bar fixed bottom-20 right-4 z-[45] rounded-full xl:hidden px-5 py-3 text-sm font-bold tracking-wide shadow-lift transition-all duration-300 hover:-translate-y-0.5 lg:bottom-4 ${
+      {/* Floating WhatsApp button — visible anywhere on the page after scrolling */}
+      <a
+        href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+        target="_blank"
+        rel="noreferrer"
+        className={`fixed bottom-20 right-4 z-[45] grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lift transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 lg:bottom-4 ${
           scrolled ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none"
         }`}
-        aria-label="Enquire Now"
+        aria-label="Chat on WhatsApp"
       >
-        Enquire Now
-      </button>
+        <WhatsAppIcon className="h-6 w-6" />
+      </a>
 
       {/* Floating CTAs (desktop) */}
       <div className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 lg:flex xl:hidden">
