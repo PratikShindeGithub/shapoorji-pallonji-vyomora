@@ -165,7 +165,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
         disabled={busy}
         className={
           line
-            ? `${compact ? "sm:col-span-3" : ""} hero-cta mx-auto mt-3 inline-flex items-center justify-center rounded-md px-10 py-3 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:opacity-70`
+            ? `${compact ? "sm:col-span-3" : ""} offer-box mx-auto mt-3 inline-flex items-center justify-center rounded-md px-10 py-3 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:opacity-70`
             : `${compact ? "sm:col-span-3" : ""} cta-blink mt-1 inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold tracking-wide shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:animate-none disabled:bg-primary disabled:opacity-70`
         }
       >
