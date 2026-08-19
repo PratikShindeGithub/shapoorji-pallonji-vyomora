@@ -332,7 +332,8 @@ function Index() {
                 </p>
                 <button
                   onClick={() => openEnquiry("hero-card")}
-                  className="shine-bar mt-4 w-full rounded-md py-2 text-center text-sm font-bold"
+                  style={{ animationDelay: "0s, 0.3s" }}
+                  className="offer-box mt-4 w-full rounded-md py-2 text-center text-sm font-bold"
                 >
                   Enquire Now
                 </button>
