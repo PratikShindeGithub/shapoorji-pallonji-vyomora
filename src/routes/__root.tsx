@@ -119,6 +119,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       } as never,
     ],
     scripts: [
+      // Google Tag Manager — load first so dataLayer is available early.
+      {
+        children:
+          "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THZD3RXP');",
+      },
       {
         children:
           "(function(){var l=document.querySelector('link[data-font-css]');if(!l)return;var f=function(){l.media='all'};if(l.sheet)f();else l.addEventListener('load',f);setTimeout(f,2000)})()",
@@ -140,6 +145,17 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-THZD3RXP"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         {children}
         <Scripts />
       </body>
