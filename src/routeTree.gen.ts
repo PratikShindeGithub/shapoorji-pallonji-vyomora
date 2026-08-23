@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as PrivacyPolicyDothtmlRouteImport } from './routes/privacy-policy[.]html'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsDothtmlRouteImport } from './routes/terms[.]html'
@@ -19,6 +20,11 @@ import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/l
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyDothtmlRoute = PrivacyPolicyDothtmlRouteImport.update({
@@ -50,6 +56,7 @@ const LovableEmailTransactionalPreviewRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms.html': typeof TermsDothtmlRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms.html': typeof TermsDothtmlRoute
@@ -67,6 +75,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/privacy-policy.html': typeof PrivacyPolicyDothtmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms.html': typeof TermsDothtmlRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/privacy-policy.html'
     | '/sitemap.xml'
     | '/terms.html'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/privacy-policy.html'
     | '/sitemap.xml'
     | '/terms.html'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/privacy-policy.html'
     | '/sitemap.xml'
     | '/terms.html'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   PrivacyPolicyDothtmlRoute: typeof PrivacyPolicyDothtmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsDothtmlRoute: typeof TermsDothtmlRoute
@@ -116,6 +129,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy.html': {
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   PrivacyPolicyDothtmlRoute: PrivacyPolicyDothtmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsDothtmlRoute: TermsDothtmlRoute,
