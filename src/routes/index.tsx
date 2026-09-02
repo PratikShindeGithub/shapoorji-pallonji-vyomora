@@ -931,7 +931,7 @@ function Index() {
           <Download className="icon-nudge h-4 w-4" /> Brochure
         </button>
         <a
-          href={`https://wa.me/${PROJECT.whatsapp}`}
+          href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
           target="_blank"
           rel="noreferrer"
           className="shine-bar flex flex-col items-center gap-1 border-x border-border py-3 text-[11px] font-bold"
