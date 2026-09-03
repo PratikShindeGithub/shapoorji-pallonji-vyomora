@@ -267,7 +267,7 @@ function Dashboard({
       const d = new Date(Date.now() - i * DAY_MS);
       buckets.set(d.toISOString().slice(0, 10), 0);
     }
-    const clickBuckets = new Map(Array.from(buckets, ([k]) => [k, 0] as const));
+    const clickBuckets = new Map<string, number>(Array.from(buckets, ([k]) => [k, 0]));
     for (const lead of leads) {
       const key = new Date(lead.created_at).toISOString().slice(0, 10);
       if (buckets.has(key)) buckets.set(key, (buckets.get(key) ?? 0) + 1);
