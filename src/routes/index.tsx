@@ -16,6 +16,7 @@ import {
 import { cn } from "@/lib/utils";
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import { WhatsAppIcon } from "@/components/vyomora/WhatsAppIcon";
+import { trackWhatsapp } from "@/lib/whatsapp-track";
 import { FLOOR_PLAN_URL } from "@/components/vyomora/floor-plan";
 import { SitePlanSection } from "@/components/vyomora/SitePlanSection";
 import { CountUp } from "@/components/vyomora/CountUp";
@@ -373,6 +374,7 @@ function Index() {
           </button>
           <a
             href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+            onClick={() => trackWhatsapp("sidebar-whatsapp-now")}
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center gap-2 border-l border-primary-foreground/20 bg-ink px-3 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary"
@@ -412,6 +414,7 @@ function Index() {
         </div>
         <a
           href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+          onClick={() => trackWhatsapp("sidebar-float")}
           target="_blank"
           rel="noreferrer"
           aria-label="Chat on WhatsApp"
@@ -877,6 +880,7 @@ function Index() {
       {/* Floating WhatsApp button — visible anywhere on the page after scrolling */}
       <a
         href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+        onClick={() => trackWhatsapp("floating-scroll")}
         target="_blank"
         rel="noreferrer"
         className={`fixed bottom-20 right-4 z-[45] grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lift transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 lg:bottom-4 ${
@@ -901,6 +905,7 @@ function Index() {
           <a
             key={key}
             href={href}
+            onClick={() => { if (key === "wa") trackWhatsapp("desktop-rail"); }}
             target={key === "wa" ? "_blank" : undefined}
             rel={key === "wa" ? "noreferrer" : undefined}
             aria-label={label}
@@ -932,6 +937,7 @@ function Index() {
         </button>
         <a
           href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+          onClick={() => trackWhatsapp("mobile-sticky")}
           target="_blank"
           rel="noreferrer"
           className="shine-bar flex flex-col items-center gap-1 border-x border-border py-3 text-[11px] font-bold"
