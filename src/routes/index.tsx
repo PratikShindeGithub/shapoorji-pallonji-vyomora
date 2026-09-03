@@ -905,6 +905,7 @@ function Index() {
           <a
             key={key}
             href={href}
+            onClick={() => { if (key === "wa") trackWhatsapp("desktop-rail"); }}
             target={key === "wa" ? "_blank" : undefined}
             rel={key === "wa" ? "noreferrer" : undefined}
             aria-label={label}
@@ -936,7 +937,7 @@ function Index() {
         </button>
         <a
           href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
-          onClick={() => trackWhatsapp("desktop-rail")}
+          onClick={() => trackWhatsapp("mobile-sticky")}
           target="_blank"
           rel="noreferrer"
           className="shine-bar flex flex-col items-center gap-1 border-x border-border py-3 text-[11px] font-bold"
