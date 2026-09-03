@@ -1,6 +1,8 @@
 import { createServerFn } from "@tanstack/react-start";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import type { Database } from "@/integrations/supabase/types";
 
 export type AdminLead = {
   id: string;
@@ -13,7 +15,7 @@ export type AdminLead = {
 };
 
 async function verifyAdmin(
-  supabase: Parameters<Parameters<typeof requireSupabaseAuth>[0]>[0]["context"]["supabase"],
+  supabase: SupabaseClient<Database>,
   userId: string,
 ) {
   const { data, error } = await supabase
