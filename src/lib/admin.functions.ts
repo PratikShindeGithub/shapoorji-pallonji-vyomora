@@ -12,6 +12,20 @@ export type AdminLead = {
   created_at: string;
 };
 
+async function verifyAdmin(
+  supabase: Parameters<Parameters<typeof requireSupabaseAuth>[0]>[0]["context"]["supabase"],
+  userId: string,
+) {
+  const { data, error } = await supabase
+    .from("user_roles")
+    .select("role")
+    .eq("user_id", userId)
+    .eq("role", "admin")
+    .maybeSingle();
+  if (error) throw error;
+  if (!data) throw new Response("Forbidden", { status: 403 });
+}
+
 /** True when the signed-in caller has the admin role. */
 export const isAdmin = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
@@ -57,7 +71,9 @@ export type WhatsappClick = {
 export const listWhatsappClicks = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const { data, error } = await context.supabase
+    await verifyAdmin(context.supabase, context.userId);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data, error } = await supabaseAdmin
       .from("whatsapp_clicks")
       .select("id, source, section, unit, scroll_depth, device, created_at")
       .order("created_at", { ascending: false })
@@ -70,7 +86,9 @@ export const listWhatsappClicks = createServerFn({ method: "POST" })
 export const listLeads = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const { data, error } = await context.supabase
+    await verifyAdmin(context.supabase, context.userId);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data, error } = await supabaseAdmin
       .from("leads")
       .select("id, name, mobile, email, city, intent, created_at")
       .order("created_at", { ascending: false })
