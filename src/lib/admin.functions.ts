@@ -43,6 +43,29 @@ export const claimFirstAdmin = createServerFn({ method: "POST" })
     return { granted: true };
   });
 
+export type WhatsappClick = {
+  id: string;
+  source: string;
+  section: string | null;
+  unit: string | null;
+  scroll_depth: number | null;
+  device: string | null;
+  created_at: string;
+};
+
+/** WhatsApp click events for the admin dashboard. RLS restricts this to admins. */
+export const listWhatsappClicks = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { data, error } = await context.supabase
+      .from("whatsapp_clicks")
+      .select("id, source, section, unit, scroll_depth, device, created_at")
+      .order("created_at", { ascending: false })
+      .limit(5000);
+    if (error) throw error;
+    return { clicks: (data ?? []) as WhatsappClick[] };
+  });
+
 /** Lead list for the admin dashboard. RLS restricts this to admins. */
 export const listLeads = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
