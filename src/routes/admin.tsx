@@ -13,7 +13,14 @@ import {
 import { LogOut, RefreshCw, TrendingUp, Users, CalendarDays, MapPin } from "lucide-react";
 
 import { supabase } from "@/integrations/supabase/client";
-import { claimFirstAdmin, isAdmin, listLeads, type AdminLead } from "@/lib/admin.functions";
+import {
+  claimFirstAdmin,
+  isAdmin,
+  listLeads,
+  listWhatsappClicks,
+  type AdminLead,
+  type WhatsappClick,
+} from "@/lib/admin.functions";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({
@@ -33,12 +40,14 @@ function AdminPage() {
   const [signedIn, setSignedIn] = useState(false);
   const [admin, setAdmin] = useState(false);
   const [leads, setLeads] = useState<AdminLead[]>([]);
+  const [clicks, setClicks] = useState<WhatsappClick[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const checkAdmin = useServerFn(isAdmin);
   const claimAdmin = useServerFn(claimFirstAdmin);
   const fetchLeads = useServerFn(listLeads);
+  const fetchClicks = useServerFn(listWhatsappClicks);
 
   const load = async () => {
     setLoading(true);
@@ -51,8 +60,12 @@ function AdminPage() {
       }
       setAdmin(ok);
       if (ok) {
-        const { leads: rows } = await fetchLeads({});
+        const [{ leads: rows }, { clicks: clickRows }] = await Promise.all([
+          fetchLeads({}),
+          fetchClicks({}),
+        ]);
         setLeads(rows);
+        setClicks(clickRows);
       }
     } catch {
       setError("Could not load leads. Please try again.");
@@ -74,6 +87,7 @@ function AdminPage() {
       if (!session) {
         setAdmin(false);
         setLeads([]);
+        setClicks([]);
       }
     });
     return () => {
@@ -115,6 +129,7 @@ function AdminPage() {
   return (
     <Dashboard
       leads={leads}
+      clicks={clicks}
       loading={loading}
       error={error}
       onRefresh={() => void load()}
@@ -214,12 +229,14 @@ const DAY_MS = 86_400_000;
 
 function Dashboard({
   leads,
+  clicks,
   loading,
   error,
   onRefresh,
   onSignOut,
 }: {
   leads: AdminLead[];
+  clicks: WhatsappClick[];
   loading: boolean;
   error: string | null;
   onRefresh: () => void;
