@@ -10,7 +10,16 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { LogOut, RefreshCw, TrendingUp, Users, CalendarDays, MapPin } from "lucide-react";
+import {
+  LogOut,
+  RefreshCw,
+  TrendingUp,
+  Users,
+  CalendarDays,
+  MapPin,
+  MessageCircle,
+  MousePointerClick,
+} from "lucide-react";
 
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -258,16 +267,50 @@ function Dashboard({
       const d = new Date(Date.now() - i * DAY_MS);
       buckets.set(d.toISOString().slice(0, 10), 0);
     }
+    const clickBuckets = new Map(Array.from(buckets, ([k]) => [k, 0] as const));
     for (const lead of leads) {
       const key = new Date(lead.created_at).toISOString().slice(0, 10);
       if (buckets.has(key)) buckets.set(key, (buckets.get(key) ?? 0) + 1);
+    }
+    for (const click of clicks) {
+      const key = new Date(click.created_at).toISOString().slice(0, 10);
+      if (clickBuckets.has(key)) clickBuckets.set(key, (clickBuckets.get(key) ?? 0) + 1);
     }
     return Array.from(buckets, ([date, count]) => ({
       date,
       label: new Date(date).toLocaleDateString("en-IN", { day: "2-digit", month: "short" }),
       count,
+      clicks: clickBuckets.get(date) ?? 0,
     }));
-  }, [leads]);
+  }, [leads, clicks]);
+
+  const waStats = useMemo(() => {
+    const now = Date.now();
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+    const today = clicks.filter((c) => new Date(c.created_at).getTime() >= startOfToday.getTime()).length;
+    const week = clicks.filter((c) => now - new Date(c.created_at).getTime() <= 7 * DAY_MS).length;
+    const depths = clicks.map((c) => c.scroll_depth).filter((d): d is number => typeof d === "number");
+    const avgDepth = depths.length ? Math.round(depths.reduce((a, b) => a + b, 0) / depths.length) : 0;
+    const mobile = clicks.filter((c) => c.device === "mobile").length;
+    const tally = (pick: (c: WhatsappClick) => string | null) => {
+      const map = new Map<string, number>();
+      for (const c of clicks) {
+        const key = (pick(c) ?? "unknown").trim() || "unknown";
+        map.set(key, (map.get(key) ?? 0) + 1);
+      }
+      return Array.from(map, ([label, count]) => ({ label, count })).sort((a, b) => b.count - a.count);
+    };
+    return {
+      total: clicks.length,
+      today,
+      week,
+      avgDepth,
+      mobile,
+      bySection: tally((c) => c.section),
+      bySource: tally((c) => c.source),
+    };
+  }, [clicks]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -322,12 +365,48 @@ function Dashboard({
                 <Tooltip
                   contentStyle={{ fontSize: 12, borderRadius: 8 }}
                   labelFormatter={(label) => `Date: ${label}`}
-                  formatter={(value) => [value as number, "Leads"]}
+                  formatter={(value, name) => [value as number, name as string]}
                 />
-                <Area type="monotone" dataKey="count" stroke="#56436f" strokeWidth={2} fill="url(#leadFill)" />
+                <Area type="monotone" dataKey="count" name="Leads" stroke="#56436f" strokeWidth={2} fill="url(#leadFill)" />
+                <Area type="monotone" dataKey="clicks" name="WhatsApp clicks" stroke="#25D366" strokeWidth={2} fill="none" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-sm font-semibold text-foreground">WhatsApp engagement</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <StatCard icon={<MessageCircle className="h-4 w-4" />} label="WhatsApp clicks" value={waStats.total} />
+            <StatCard icon={<CalendarDays className="h-4 w-4" />} label="Clicks today" value={waStats.today} />
+            <StatCard icon={<TrendingUp className="h-4 w-4" />} label="Clicks last 7 days" value={waStats.week} />
+            <StatCard
+              icon={<MousePointerClick className="h-4 w-4" />}
+              label="Avg. scroll depth %"
+              value={waStats.avgDepth}
+            />
+          </div>
+
+          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+            <BreakdownCard
+              title="Where they clicked (drop-off point)"
+              hint="Section of the page the visitor was viewing"
+              rows={waStats.bySection}
+              total={waStats.total}
+            />
+            <BreakdownCard
+              title="Which button they used"
+              hint="Sidebar, floating, sticky bar and rail buttons"
+              rows={waStats.bySource}
+              total={waStats.total}
+            />
+          </div>
+
+          <p className="mt-3 text-xs text-muted-foreground">
+            {waStats.total > 0
+              ? `${Math.round((leads.length / waStats.total) * 100)}% of WhatsApp clicks are matched by a submitted lead form · ${waStats.mobile} of ${waStats.total} clicks came from mobile.`
+              : "No WhatsApp clicks recorded yet."}
+          </p>
         </section>
 
         <section className="mt-8 rounded-xl border border-border bg-card">
@@ -391,6 +470,47 @@ function StatCard({ icon, label, value }: { icon: React.ReactNode; label: string
         <span className="text-xs font-semibold uppercase tracking-wide">{label}</span>
       </div>
       <p className="mt-3 text-3xl font-semibold text-foreground">{value}</p>
+    </div>
+  );
+}
+
+function BreakdownCard({
+  title,
+  hint,
+  rows,
+  total,
+}: {
+  title: string;
+  hint: string;
+  rows: { label: string; count: number }[];
+  total: number;
+}) {
+  return (
+    <div className="rounded-xl border border-border bg-card p-5">
+      <h3 className="text-sm font-semibold text-foreground">{title}</h3>
+      <p className="mt-1 text-xs text-muted-foreground">{hint}</p>
+      <ul className="mt-4 space-y-3">
+        {rows.length === 0 ? (
+          <li className="text-sm text-muted-foreground">No data yet.</li>
+        ) : (
+          rows.map((row) => {
+            const pct = total ? Math.round((row.count / total) * 100) : 0;
+            return (
+              <li key={row.label}>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-medium text-foreground">{row.label}</span>
+                  <span className="text-muted-foreground">
+                    {row.count} · {pct}%
+                  </span>
+                </div>
+                <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-secondary">
+                  <div className="h-full rounded-full bg-primary" style={{ width: `${pct}%` }} />
+                </div>
+              </li>
+            );
+          })
+        )}
+      </ul>
     </div>
   );
 }
