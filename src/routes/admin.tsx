@@ -69,12 +69,13 @@ function AdminPage() {
       }
       setAdmin(ok);
       if (ok) {
-        const [{ leads: rows }, { clicks: clickRows }] = await Promise.all([
+        const [leadResult, clickResult] = await Promise.allSettled([
           fetchLeads({}),
           fetchClicks({}),
         ]);
-        setLeads(rows);
-        setClicks(clickRows);
+        if (leadResult.status === "fulfilled") setLeads(leadResult.value.leads);
+        else setError("Could not load leads. Please try again.");
+        if (clickResult.status === "fulfilled") setClicks(clickResult.value.clicks);
       }
     } catch {
       setError("Could not load leads. Please try again.");
@@ -82,6 +83,7 @@ function AdminPage() {
       setLoading(false);
     }
   };
+
 
   useEffect(() => {
     let active = true;
