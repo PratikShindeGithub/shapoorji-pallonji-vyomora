@@ -264,6 +264,7 @@ function Dashboard({
   error,
   onRefresh,
   onSignOut,
+  onDeleted,
 }: {
   leads: AdminLead[];
   clicks: WhatsappClick[];
@@ -271,7 +272,30 @@ function Dashboard({
   error: string | null;
   onRefresh: () => void;
   onSignOut: () => void;
+  onDeleted: (id: string) => void;
 }) {
+  const [pendingDelete, setPendingDelete] = useState<AdminLead | null>(null);
+  const [confirmText, setConfirmText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
+  const removeLead = useServerFn(deleteLead);
+
+  const confirmDelete = async () => {
+    if (!pendingDelete || confirmText.trim().toLowerCase() !== "delete") return;
+    setDeleting(true);
+    setDeleteError(null);
+    try {
+      await removeLead({ data: { id: pendingDelete.id } });
+      onDeleted(pendingDelete.id);
+      setPendingDelete(null);
+      setConfirmText("");
+    } catch {
+      setDeleteError("Could not delete this lead. Please try again.");
+    } finally {
+      setDeleting(false);
+    }
+  };
+
   const stats = useMemo(() => {
     const now = Date.now();
     const startOfToday = new Date();
