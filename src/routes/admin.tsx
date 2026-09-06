@@ -481,6 +481,7 @@ function Dashboard({
                   <th className="px-5 py-3 font-semibold">City</th>
                   <th className="px-5 py-3 font-semibold">Source</th>
                   <th className="px-5 py-3 font-semibold">Received</th>
+                  <th className="px-5 py-3 font-semibold">Action</th>
                 </tr>
               </thead>
               <tbody>
