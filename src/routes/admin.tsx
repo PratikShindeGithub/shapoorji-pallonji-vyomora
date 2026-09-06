@@ -514,6 +514,19 @@ function Dashboard({
                       <td className="px-5 py-3 text-muted-foreground">
                         {new Date(lead.created_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}
                       </td>
+                      <td className="px-5 py-3">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setPendingDelete(lead);
+                            setConfirmText("");
+                            setDeleteError(null);
+                          }}
+                          className="rounded-md border border-destructive/40 px-3 py-1.5 text-xs font-semibold text-destructive transition hover:bg-destructive/10"
+                        >
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   ))
                 )}
