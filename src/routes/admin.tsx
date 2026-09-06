@@ -245,12 +245,9 @@ function sourceLabel(intent: string | null): string {
   if (raw === "welcome") return "Popup";
   if (raw.startsWith("hero")) return "Hero";
   if (raw === "sticky-panel" || raw === "call-back" || raw === "site-visit") return "Side Form";
-  if (raw.startsWith("cost-sheet") || raw === "complete-costing" || /\d\s*bhk/.test(raw)) {
-    if (raw.startsWith("floor-plan") || raw.includes("duplex") && raw.startsWith("floor")) return "Floor Plan";
-    return "Pricing";
-  }
   if (raw.includes("brochure")) return "Request Brochure";
   if (raw.startsWith("floor-plan") || raw.includes("jodi") || raw.includes("layout")) return "Floor Plan";
+  if (raw.startsWith("cost-sheet") || raw === "complete-costing" || /\d\s*bhk/.test(raw)) return "Pricing";
   if (raw.includes("location")) return "Location Map";
   if (raw.includes("apartment") || raw.includes("tour") || raw.includes("walkthrough") || raw.includes("experience"))
     return "Experience";
