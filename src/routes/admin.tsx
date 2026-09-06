@@ -505,6 +505,11 @@ function Dashboard({
                         </a>
                       </td>
                       <td className="px-5 py-3 text-muted-foreground">{lead.city || "—"}</td>
+                      <td className="px-5 py-3">
+                        <span className="inline-flex rounded-full border border-border bg-secondary px-2.5 py-1 text-xs font-semibold text-foreground">
+                          {sourceLabel(lead.intent)}
+                        </span>
+                      </td>
                       <td className="px-5 py-3 text-muted-foreground">
                         {new Date(lead.created_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}
                       </td>
