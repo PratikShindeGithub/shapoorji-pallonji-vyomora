@@ -147,6 +147,7 @@ function AdminPage() {
       error={error}
       onRefresh={() => void load()}
       onSignOut={() => void supabase.auth.signOut()}
+      onDeleted={(id) => setLeads((prev) => prev.filter((l) => l.id !== id))}
     />
   );
 }
