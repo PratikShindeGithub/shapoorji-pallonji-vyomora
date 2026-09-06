@@ -330,6 +330,28 @@ function Dashboard({
     };
   }, [clicks]);
 
+  const [search, setSearch] = useState("");
+
+  const leadsBySource = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const lead of leads) {
+      const key = sourceLabel(lead.intent);
+      map.set(key, (map.get(key) ?? 0) + 1);
+    }
+    return Array.from(map, ([label, count]) => ({ label, count })).sort((a, b) => b.count - a.count);
+  }, [leads]);
+
+  const visibleLeads = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return leads;
+    return leads.filter((lead) =>
+      [lead.name, lead.mobile, lead.email, lead.city ?? "", sourceLabel(lead.intent)]
+        .join(" ")
+        .toLowerCase()
+        .includes(q),
+    );
+  }, [leads, search]);
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card">
