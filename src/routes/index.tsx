@@ -467,7 +467,7 @@ function Index() {
           <h2 className="mt-5 font-display text-3xl text-primary sm:text-4xl">Vyomora <span className="text-xl font-normal sm:text-2xl">by Shapoorji Pallonji</span></h2>
           <p className="mt-1 text-xl font-medium text-foreground">At Hinjawadi Phase 1, Pune</p>
           <p className="mt-4 text-justify text-[15px] leading-relaxed text-muted-foreground">
-            Spread across 25 acres, Shapoorji Pallonji Vyomora is designed for elevated everyday
+             Spread across 25 acres, Shapoorji Pallonji Vyomora (previously Joyville Hinjawadi Shapoorji Pallonji) is designed for elevated everyday
             living, and not just for weekends. Thoughtfully planned towers open into expansive green
             and shared spaces, creating a community where life flows effortlessly between the indoor
             and out. With something for everyone, from quiet corners to active zones, it's a place
