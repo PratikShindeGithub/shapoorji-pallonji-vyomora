@@ -52,11 +52,32 @@ function AdminPage() {
   const [clicks, setClicks] = useState<WhatsappClick[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [pendingDelete, setPendingDelete] = useState<AdminLead | null>(null);
+  const [confirmText, setConfirmText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   const checkAdmin = useServerFn(isAdmin);
   const claimAdmin = useServerFn(claimFirstAdmin);
   const fetchLeads = useServerFn(listLeads);
   const fetchClicks = useServerFn(listWhatsappClicks);
+  const removeLead = useServerFn(deleteLead);
+
+  const confirmDelete = async () => {
+    if (!pendingDelete || confirmText.trim().toLowerCase() !== "delete") return;
+    setDeleting(true);
+    setDeleteError(null);
+    try {
+      await removeLead({ data: { id: pendingDelete.id } });
+      setLeads((prev) => prev.filter((l) => l.id !== pendingDelete.id));
+      setPendingDelete(null);
+      setConfirmText("");
+    } catch {
+      setDeleteError("Could not delete this lead. Please try again.");
+    } finally {
+      setDeleting(false);
+    }
+  };
 
   const load = async () => {
     setLoading(true);
