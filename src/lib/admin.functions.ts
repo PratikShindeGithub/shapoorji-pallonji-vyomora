@@ -98,3 +98,20 @@ export const listLeads = createServerFn({ method: "POST" })
     if (error) throw error;
     return { leads: (data ?? []) as AdminLead[] };
   });
+
+/** Permanently deletes one lead. Admin only. */
+export const deleteLead = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: { id: string }) => {
+    if (!data || typeof data.id !== "string" || data.id.length < 10) {
+      throw new Response("Invalid lead id", { status: 400 });
+    }
+    return { id: data.id };
+  })
+  .handler(async ({ context, data }) => {
+    await verifyAdmin(context.supabase, context.userId);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin.from("leads").delete().eq("id", data.id);
+    if (error) throw error;
+    return { deleted: true };
+  });

@@ -25,6 +25,7 @@ import { supabase } from "@/integrations/supabase/client";
 import {
   claimFirstAdmin,
   isAdmin,
+  deleteLead,
   listLeads,
   listWhatsappClicks,
   type AdminLead,
@@ -57,6 +58,7 @@ function AdminPage() {
   const claimAdmin = useServerFn(claimFirstAdmin);
   const fetchLeads = useServerFn(listLeads);
   const fetchClicks = useServerFn(listWhatsappClicks);
+
 
   const load = async () => {
     setLoading(true);
@@ -145,6 +147,7 @@ function AdminPage() {
       error={error}
       onRefresh={() => void load()}
       onSignOut={() => void supabase.auth.signOut()}
+      onDeleted={(id) => setLeads((prev) => prev.filter((l) => l.id !== id))}
     />
   );
 }
@@ -261,6 +264,7 @@ function Dashboard({
   error,
   onRefresh,
   onSignOut,
+  onDeleted,
 }: {
   leads: AdminLead[];
   clicks: WhatsappClick[];
@@ -268,7 +272,30 @@ function Dashboard({
   error: string | null;
   onRefresh: () => void;
   onSignOut: () => void;
+  onDeleted: (id: string) => void;
 }) {
+  const [pendingDelete, setPendingDelete] = useState<AdminLead | null>(null);
+  const [confirmText, setConfirmText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
+  const removeLead = useServerFn(deleteLead);
+
+  const confirmDelete = async () => {
+    if (!pendingDelete || confirmText.trim().toLowerCase() !== "delete") return;
+    setDeleting(true);
+    setDeleteError(null);
+    try {
+      await removeLead({ data: { id: pendingDelete.id } });
+      onDeleted(pendingDelete.id);
+      setPendingDelete(null);
+      setConfirmText("");
+    } catch {
+      setDeleteError("Could not delete this lead. Please try again.");
+    } finally {
+      setDeleting(false);
+    }
+  };
+
   const stats = useMemo(() => {
     const now = Date.now();
     const startOfToday = new Date();
@@ -481,12 +508,13 @@ function Dashboard({
                   <th className="px-5 py-3 font-semibold">City</th>
                   <th className="px-5 py-3 font-semibold">Source</th>
                   <th className="px-5 py-3 font-semibold">Received</th>
+                  <th className="px-5 py-3 font-semibold">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {visibleLeads.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="px-5 py-8 text-center text-muted-foreground">
+                    <td colSpan={7} className="px-5 py-8 text-center text-muted-foreground">
                       {loading ? "Loading leads…" : leads.length === 0 ? "No leads yet." : "No matching leads."}
                     </td>
                   </tr>
@@ -513,6 +541,19 @@ function Dashboard({
                       <td className="px-5 py-3 text-muted-foreground">
                         {new Date(lead.created_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}
                       </td>
+                      <td className="px-5 py-3">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setPendingDelete(lead);
+                            setConfirmText("");
+                            setDeleteError(null);
+                          }}
+                          className="rounded-md border border-destructive/40 px-3 py-1.5 text-xs font-semibold text-destructive transition hover:bg-destructive/10"
+                        >
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   ))
                 )}
@@ -521,6 +562,47 @@ function Dashboard({
           </div>
         </section>
       </main>
+
+      {pendingDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+          <div className="w-full max-w-md rounded-xl border border-border bg-card p-6">
+            <h3 className="text-base font-semibold text-foreground">Delete this lead?</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {pendingDelete.name} · {pendingDelete.mobile}. This cannot be undone. Type{" "}
+              <span className="font-semibold text-foreground">delete</span> to confirm.
+            </p>
+            <input
+              autoFocus
+              value={confirmText}
+              onChange={(e) => setConfirmText(e.target.value)}
+              placeholder="delete"
+              className="mt-4 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+            />
+            {deleteError && <p className="mt-2 text-xs text-destructive">{deleteError}</p>}
+            <div className="mt-5 flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setPendingDelete(null);
+                  setConfirmText("");
+                  setDeleteError(null);
+                }}
+                className="rounded-md border border-border px-4 py-2 text-sm text-foreground"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={deleting || confirmText.trim().toLowerCase() !== "delete"}
+                onClick={confirmDelete}
+                className="rounded-md bg-destructive px-4 py-2 text-sm font-semibold text-destructive-foreground disabled:opacity-50"
+              >
+                {deleting ? "Deleting…" : "Delete lead"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
