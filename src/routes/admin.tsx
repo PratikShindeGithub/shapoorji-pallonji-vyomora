@@ -449,31 +449,49 @@ function Dashboard({
           </p>
         </section>
 
+        <section className="mt-8">
+          <BreakdownCard
+            title="Leads by source"
+            hint="Which form on the site the lead came from"
+            rows={leadsBySource}
+            total={leads.length}
+          />
+        </section>
+
         <section className="mt-8 rounded-xl border border-border bg-card">
-          <div className="flex items-center justify-between border-b border-border px-5 py-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4">
             <h2 className="text-sm font-semibold text-foreground">Lead details</h2>
-            <span className="text-xs text-muted-foreground">{leads.length} records</span>
+            <div className="flex items-center gap-3">
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search name, phone, city, source…"
+                className="w-56 rounded-md border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-primary"
+              />
+              <span className="text-xs text-muted-foreground">{visibleLeads.length} records</span>
+            </div>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[720px] text-left text-sm">
+            <table className="w-full min-w-[820px] text-left text-sm">
               <thead className="bg-secondary text-xs uppercase tracking-wide text-muted-foreground">
                 <tr>
                   <th className="px-5 py-3 font-semibold">Name</th>
                   <th className="px-5 py-3 font-semibold">Phone</th>
                   <th className="px-5 py-3 font-semibold">Email</th>
                   <th className="px-5 py-3 font-semibold">City</th>
+                  <th className="px-5 py-3 font-semibold">Source</th>
                   <th className="px-5 py-3 font-semibold">Received</th>
                 </tr>
               </thead>
               <tbody>
-                {leads.length === 0 ? (
+                {visibleLeads.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="px-5 py-8 text-center text-muted-foreground">
-                      {loading ? "Loading leads…" : "No leads yet."}
+                    <td colSpan={6} className="px-5 py-8 text-center text-muted-foreground">
+                      {loading ? "Loading leads…" : leads.length === 0 ? "No leads yet." : "No matching leads."}
                     </td>
                   </tr>
                 ) : (
-                  leads.map((lead) => (
+                  visibleLeads.map((lead) => (
                     <tr key={lead.id} className="border-t border-border">
                       <td className="px-5 py-3 font-medium text-foreground">{lead.name}</td>
                       <td className="px-5 py-3 text-muted-foreground">
