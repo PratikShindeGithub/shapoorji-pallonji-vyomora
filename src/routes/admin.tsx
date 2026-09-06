@@ -25,6 +25,7 @@ import { supabase } from "@/integrations/supabase/client";
 import {
   claimFirstAdmin,
   isAdmin,
+  deleteLead,
   listLeads,
   listWhatsappClicks,
   type AdminLead,
