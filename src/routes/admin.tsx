@@ -557,6 +557,47 @@ function Dashboard({
           </div>
         </section>
       </main>
+
+      {pendingDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+          <div className="w-full max-w-md rounded-xl border border-border bg-card p-6">
+            <h3 className="text-base font-semibold text-foreground">Delete this lead?</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {pendingDelete.name} · {pendingDelete.mobile}. This cannot be undone. Type{" "}
+              <span className="font-semibold text-foreground">delete</span> to confirm.
+            </p>
+            <input
+              autoFocus
+              value={confirmText}
+              onChange={(e) => setConfirmText(e.target.value)}
+              placeholder="delete"
+              className="mt-4 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+            />
+            {deleteError && <p className="mt-2 text-xs text-destructive">{deleteError}</p>}
+            <div className="mt-5 flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setPendingDelete(null);
+                  setConfirmText("");
+                  setDeleteError(null);
+                }}
+                className="rounded-md border border-border px-4 py-2 text-sm text-foreground"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={deleting || confirmText.trim().toLowerCase() !== "delete"}
+                onClick={confirmDelete}
+                className="rounded-md bg-destructive px-4 py-2 text-sm font-semibold text-destructive-foreground disabled:opacity-50"
+              >
+                {deleting ? "Deleting…" : "Delete lead"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
