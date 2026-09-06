@@ -238,6 +238,22 @@ function AdminLogin({ onSignedIn }: { onSignedIn: () => Promise<void> }) {
 
 const DAY_MS = 86_400_000;
 
+/** Maps the stored form origin onto a friendly source label. */
+function sourceLabel(intent: string | null): string {
+  const raw = (intent ?? "").trim().toLowerCase();
+  if (!raw) return "Other";
+  if (raw === "welcome") return "Popup";
+  if (raw.startsWith("hero")) return "Hero";
+  if (raw === "sticky-panel" || raw === "call-back" || raw === "site-visit") return "Side Form";
+  if (raw.includes("brochure")) return "Request Brochure";
+  if (raw.startsWith("floor-plan") || raw.includes("jodi") || raw.includes("layout")) return "Floor Plan";
+  if (raw.startsWith("cost-sheet") || raw === "complete-costing" || /\d\s*bhk/.test(raw)) return "Pricing";
+  if (raw.includes("location")) return "Location Map";
+  if (raw.includes("apartment") || raw.includes("tour") || raw.includes("walkthrough") || raw.includes("experience"))
+    return "Experience";
+  return "Other";
+}
+
 function Dashboard({
   leads,
   clicks,
@@ -313,6 +329,28 @@ function Dashboard({
       bySource: tally((c) => c.source),
     };
   }, [clicks]);
+
+  const [search, setSearch] = useState("");
+
+  const leadsBySource = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const lead of leads) {
+      const key = sourceLabel(lead.intent);
+      map.set(key, (map.get(key) ?? 0) + 1);
+    }
+    return Array.from(map, ([label, count]) => ({ label, count })).sort((a, b) => b.count - a.count);
+  }, [leads]);
+
+  const visibleLeads = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return leads;
+    return leads.filter((lead) =>
+      [lead.name, lead.mobile, lead.email, lead.city ?? "", sourceLabel(lead.intent)]
+        .join(" ")
+        .toLowerCase()
+        .includes(q),
+    );
+  }, [leads, search]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -411,31 +449,49 @@ function Dashboard({
           </p>
         </section>
 
+        <section className="mt-8">
+          <BreakdownCard
+            title="Leads by source"
+            hint="Which form on the site the lead came from"
+            rows={leadsBySource}
+            total={leads.length}
+          />
+        </section>
+
         <section className="mt-8 rounded-xl border border-border bg-card">
-          <div className="flex items-center justify-between border-b border-border px-5 py-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4">
             <h2 className="text-sm font-semibold text-foreground">Lead details</h2>
-            <span className="text-xs text-muted-foreground">{leads.length} records</span>
+            <div className="flex items-center gap-3">
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search name, phone, city, source…"
+                className="w-56 rounded-md border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-primary"
+              />
+              <span className="text-xs text-muted-foreground">{visibleLeads.length} records</span>
+            </div>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[720px] text-left text-sm">
+            <table className="w-full min-w-[820px] text-left text-sm">
               <thead className="bg-secondary text-xs uppercase tracking-wide text-muted-foreground">
                 <tr>
                   <th className="px-5 py-3 font-semibold">Name</th>
                   <th className="px-5 py-3 font-semibold">Phone</th>
                   <th className="px-5 py-3 font-semibold">Email</th>
                   <th className="px-5 py-3 font-semibold">City</th>
+                  <th className="px-5 py-3 font-semibold">Source</th>
                   <th className="px-5 py-3 font-semibold">Received</th>
                 </tr>
               </thead>
               <tbody>
-                {leads.length === 0 ? (
+                {visibleLeads.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="px-5 py-8 text-center text-muted-foreground">
-                      {loading ? "Loading leads…" : "No leads yet."}
+                    <td colSpan={6} className="px-5 py-8 text-center text-muted-foreground">
+                      {loading ? "Loading leads…" : leads.length === 0 ? "No leads yet." : "No matching leads."}
                     </td>
                   </tr>
                 ) : (
-                  leads.map((lead) => (
+                  visibleLeads.map((lead) => (
                     <tr key={lead.id} className="border-t border-border">
                       <td className="px-5 py-3 font-medium text-foreground">{lead.name}</td>
                       <td className="px-5 py-3 text-muted-foreground">
@@ -449,6 +505,11 @@ function Dashboard({
                         </a>
                       </td>
                       <td className="px-5 py-3 text-muted-foreground">{lead.city || "—"}</td>
+                      <td className="px-5 py-3">
+                        <span className="inline-flex rounded-full border border-border bg-secondary px-2.5 py-1 text-xs font-semibold text-foreground">
+                          {sourceLabel(lead.intent)}
+                        </span>
+                      </td>
                       <td className="px-5 py-3 text-muted-foreground">
                         {new Date(lead.created_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}
                       </td>
