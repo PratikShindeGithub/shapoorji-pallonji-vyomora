@@ -107,7 +107,7 @@ export const LOCATION_GROUPS = [
     group: "Connectivity",
     items: [
       "Mumbai–Bengaluru Highway — 10 min",
-      "Hinjawadi Metro Line 3 — 6 min",
+      "Hinjewadi Metro Line 3 — 6 min",
       "Wakad Chowk — 12 min",
       "Pune Airport — 45 min",
     ],
