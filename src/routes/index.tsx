@@ -692,7 +692,7 @@ function Index() {
       <section id="location" className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
         <SectionHead
           eyebrow="Location"
-          title="Hinjawadi Phase 1, where the commute ends"
+          title="Hinjewadi Phase 1, where the commute ends"
           titleClassName="text-2xl sm:text-3xl"
         />
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
