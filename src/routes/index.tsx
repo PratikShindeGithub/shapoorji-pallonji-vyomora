@@ -43,6 +43,11 @@ import { AMENITY_SLIDES } from "@/components/vyomora/amenity-slides";
 import { HERO_SLIDES, LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL, SP_VYOMORA_LOCKUP_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
 
+declare global {
+  interface Window {
+    dataLayer?: Record<string, unknown>[];
+  }
+}
 
 import ProjectVideo from "@/components/vyomora/ProjectVideo";
 import VirtualExperience from "@/components/vyomora/VirtualExperience";
