@@ -189,10 +189,13 @@ function Index() {
 
   const handleSuccess = (values: LeadValues, intent?: string) => {
     if (typeof window !== "undefined") {
-      const dataLayer = (window as any).dataLayer;
-      if (Array.isArray(dataLayer)) {
-        dataLayer.push({ event: "lead_form_submit", form_id: intent ?? "unknown" });
-      }
+      window.dataLayer = window.dataLayer || [];
+      const formId = intent === "hero" ? "hero" : intent === "sticky-panel" ? "sticky_panel" : "modal";
+      window.dataLayer.push({
+        event: "lead_form_submit",
+        form_id: formId,
+        ...(intent && formId !== intent ? { form_intent: intent } : {}),
+      });
     }
     setModal(null);
     setWelcome(false);
