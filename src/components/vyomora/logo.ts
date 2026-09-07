@@ -26,7 +26,7 @@ export const HERO_SLIDES: { url: string; srcSet: string; alt: string }[] = [
   {
     url: heroElevationAsset.url,
     srcSet: `${heroElevation800.url} 800w, ${heroElevation1200.url} 1200w, ${heroElevationAsset.url} 1600w`,
-    alt: "Vyomora tower elevations viewed across the landscaped community",
+    alt: "Shapoorji Pallonji Vyomora Hinjewadi tower elevation",
   },
   {
     url: heroWormEyeAsset.url,
