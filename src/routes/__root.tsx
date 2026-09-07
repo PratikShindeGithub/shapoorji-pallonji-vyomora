@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { pushLeadFormSubmit } from "@/lib/utils";
 
 // Trimmed to the weights actually used (was 7 font files, now 3) and loaded
 // without blocking first render.
@@ -170,6 +171,14 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Keep the lead conversion helper in the initial client bundle so it is
+      // available when GTM is loaded, without emitting a conversion here.
+      (window as any).__pushLeadFormSubmit = pushLeadFormSubmit;
+    }
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
