@@ -182,7 +182,13 @@ function Index() {
     return () => window.clearTimeout(id);
   }, []);
 
-  const handleSuccess = (values: LeadValues) => {
+  const handleSuccess = (values: LeadValues, intent?: string) => {
+    if (typeof window !== "undefined") {
+      const dataLayer = (window as any).dataLayer;
+      if (Array.isArray(dataLayer)) {
+        dataLayer.push({ event: "lead_form_submit", form_id: intent ?? "unknown" });
+      }
+    }
     setModal(null);
     setWelcome(false);
     navigate({
