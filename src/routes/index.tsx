@@ -13,7 +13,7 @@ import {
   X,
 } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, pushLeadFormSubmit } from "@/lib/utils";
 import { LeadForm, type LeadValues } from "@/components/vyomora/LeadForm";
 import { WhatsAppIcon } from "@/components/vyomora/WhatsAppIcon";
 import { trackWhatsapp } from "@/lib/whatsapp-track";
@@ -42,7 +42,6 @@ import { GALLERY_ITEMS } from "@/components/vyomora/gallery";
 import { AMENITY_SLIDES } from "@/components/vyomora/amenity-slides";
 import { HERO_SLIDES, LOGO_URL, SP_HEADER_LOGO_URL, SP_LOGO_URL, SP_VYOMORA_LOCKUP_URL } from "@/components/vyomora/logo";
 import { HeroSlideshow } from "@/components/vyomora/HeroSlideshow";
-
 
 import ProjectVideo from "@/components/vyomora/ProjectVideo";
 import VirtualExperience from "@/components/vyomora/VirtualExperience";
@@ -183,12 +182,9 @@ function Index() {
   }, []);
 
   const handleSuccess = (values: LeadValues, intent?: string) => {
-    if (typeof window !== "undefined") {
-      const dataLayer = (window as any).dataLayer;
-      if (Array.isArray(dataLayer)) {
-        dataLayer.push({ event: "lead_form_submit", form_id: intent ?? "unknown" });
-      }
-    }
+    const formId = intent === "hero" ? "hero" : intent === "sticky-panel" ? "sticky_panel" : "modal";
+    pushLeadFormSubmit(formId, intent);
+
     setModal(null);
     setWelcome(false);
     navigate({
