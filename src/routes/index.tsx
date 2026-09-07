@@ -54,21 +54,21 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Vyomora Hinjawadi Phase 1 | 2 & 3 BHK from ₹88 L*",
+        title: "Shapoorji Pallonji Vyomora | 2 & 3 BHK Flats in Hinjewadi Phase 1",
       },
       {
         name: "description",
         content:
-          "Vyomora, a 25-acre township in Hinjawadi Phase 1, Pune. 2 & 3 BHK apartments and duplexes from ₹88 Lakhs*. Get the cost sheet, floor plans and site visit slot.",
+          "Explore Shapoorji Pallonji Vyomora at Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK apartments starting ₹88 L*. Minutes from Hinjewadi IT Park.",
       },
       {
         property: "og:title",
-        content: "Vyomora Hinjawadi Phase 1 | 2 & 3 BHK from ₹88 L*",
+        content: "Shapoorji Pallonji Vyomora | 2 & 3 BHK Flats in Hinjewadi Phase 1",
       },
       {
         property: "og:description",
         content:
-          "25-acre township in Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK homes and duplexes with 85+ amenities. Request the price breakup today.",
+          "Explore Shapoorji Pallonji Vyomora at Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK apartments starting ₹88 L*. Minutes from Hinjewadi IT Park.",
       },
       { property: "og:url", content: "https://shapoorjipallonjivyomora.site/" },
     ],
