@@ -451,11 +451,11 @@ export function VyomoraLanding({
                   {PROJECT.startingPrice} Onwards
                 </p>
                 <button
-                  onClick={() => openEnquiry("hero-card")}
+                  onClick={() => (heroCtaFocusesForm ? focusLeadForm() : openEnquiry("hero-card"))}
                   style={{ animationDelay: "0s, 0.3s" }}
                   className="offer-box mt-4 w-full rounded-md py-2 text-center text-sm font-bold"
                 >
-                  Enquire Now
+                  {heroCtaLabel ?? "Enquire Now"}
                 </button>
 
               </div>
