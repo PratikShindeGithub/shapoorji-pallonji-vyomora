@@ -540,7 +540,7 @@ export function VyomoraLanding({
 
 
         <div className="mt-4">
-          <LeadForm intent="sticky-panel" variant="line" withCity cta={formCta ?? "Schedule a site visit"} {...(formVariant ? { interestedVariant: formVariant } : {})} onSuccess={handleSuccess} />
+          <LeadForm intent="sticky-panel" variant="line" withCity cta={formCta ?? "Schedule a site visit"} {...(formVariant ? { interestedVariant: formVariant } : {})} {...(indianMobileOnly ? { indianMobileOnly: true } : {})} onSuccess={handleSuccess} />
         </div>
         <a
           href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
