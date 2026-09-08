@@ -131,14 +131,14 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, interested
       noValidate
       onSubmit={async (e) => {
         e.preventDefault();
-        const next = errorsFor(values, withCity, country.dial);
+        const next = errorsFor(values, withCity, activeCountry.dial);
         setErrors(next);
         if (Object.keys(next).length > 0) return;
         setBusy(true);
         setFailed(false);
         const payload: LeadValues = {
           name: values.name.trim(),
-          mobile: `+${country.dial}${values.mobile.trim()}`,
+          mobile: `+${activeCountry.dial}${values.mobile.trim()}`,
           email: values.email.trim(),
         };
         if (withCity) payload.city = values.city?.trim() ?? "";
