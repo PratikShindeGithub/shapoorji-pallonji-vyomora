@@ -152,6 +152,7 @@ export function VyomoraLanding({
   heroCtaLabel,
   heroCtaFocusesForm = false,
   staticHighlights = false,
+  indianMobileOnly = false,
   highlights = HIGHLIGHTS,
 }: LandingOptions = {}) {
   const pageRef = useReveal<HTMLDivElement>();
