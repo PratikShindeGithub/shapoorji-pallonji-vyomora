@@ -537,7 +537,7 @@ export function VyomoraLanding({
       {/* Highlights */}
       <section className="border-y border-border bg-secondary">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-5 px-4 py-6 sm:px-6 lg:grid-cols-4">
-          {HIGHLIGHTS.map((h, i) => (
+          {highlights.map((h, i) => (
             <div
               key={h.label}
               className="reveal text-center"
