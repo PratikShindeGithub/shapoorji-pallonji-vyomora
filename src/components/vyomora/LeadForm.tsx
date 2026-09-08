@@ -82,23 +82,25 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, interested
           {line ? (
             key === "mobile" ? (
               <span className="relative flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2.5 text-base text-foreground">
-                <span aria-hidden>{country.flag}</span> +{country.dial}
-                <select
-                  aria-label="Country code"
-                  value={country.iso}
-                  onChange={(ev) => {
-                    const next = COUNTRIES.find((c) => c.iso === ev.target.value);
-                    if (next) setCountry(next);
-                    setErrors((p) => ({ ...p, mobile: undefined }));
-                  }}
-                  className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                >
-                  {COUNTRIES.map((c) => (
-                    <option key={c.iso} value={c.iso}>
-                      {c.flag} {c.name} (+{c.dial})
-                    </option>
-                  ))}
-                </select>
+                <span aria-hidden>{activeCountry.flag}</span> +{activeCountry.dial}
+                {indianMobileOnly ? null : (
+                  <select
+                    aria-label="Country code"
+                    value={country.iso}
+                    onChange={(ev) => {
+                      const next = COUNTRIES.find((c) => c.iso === ev.target.value);
+                      if (next) setCountry(next);
+                      setErrors((p) => ({ ...p, mobile: undefined }));
+                    }}
+                    className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                  >
+                    {COUNTRIES.map((c) => (
+                      <option key={c.iso} value={c.iso}>
+                        {c.flag} {c.name} (+{c.dial})
+                      </option>
+                    ))}
+                  </select>
+                )}
               </span>
             ) : null
           ) : (
