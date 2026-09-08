@@ -58,6 +58,28 @@ export const UNIT_PLANS_2BHK: UnitPlan[] = [
   },
 ];
 
+/** 3 BHK Duplex dedicated landing page: lower level, upper level and master layout. */
+export const UNIT_PLANS_DUPLEX: UnitPlan[] = [
+  {
+    title: "3 BHK Duplex (Lower Level)",
+    label: "Duplex Lower",
+    src: duplex.url as string,
+    alt: "3 BHK Duplex lower level unit plan at Vyomora Hinjawadi Phase 1",
+  },
+  {
+    title: "3 BHK Duplex (Upper Level)",
+    label: "Duplex Upper",
+    src: duplex.url as string,
+    alt: "3 BHK Duplex upper level unit plan at Vyomora Hinjawadi Phase 1",
+  },
+  {
+    title: "Master Layout Plan",
+    label: "Master Plan",
+    src: masterPlan.url as string,
+    alt: "Vyomora Hinjawadi master layout plan with towers, podium and landscape legend",
+  },
+];
+
 /** 3 BHK dedicated landing page: only the two 3 BHK layouts. */
 export const UNIT_PLANS_3BHK: UnitPlan[] = [
   {
