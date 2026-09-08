@@ -353,7 +353,14 @@ export function VyomoraLanding({
                 Booking Open
               </p>
               <div className="px-4 pb-4 pt-3">
-                <h1 className="sr-only">Vyomora — {PROJECT.location}</h1>
+                {heading ? (
+                  <h1 className="mt-2 font-display text-[19px] leading-snug text-foreground sm:text-[21px]">
+                    {heading}
+                  </h1>
+                ) : (
+                  <h1 className="sr-only">Vyomora — {PROJECT.location}</h1>
+                )}
+
                 <img
                   src={SP_VYOMORA_LOCKUP_URL}
                   alt="Shapoorji Pallonji Vyomora Hinjawadi"
