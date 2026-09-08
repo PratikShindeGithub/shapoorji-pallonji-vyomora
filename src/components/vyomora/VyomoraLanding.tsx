@@ -389,9 +389,22 @@ export function VyomoraLanding({
               </p>
               <div className="px-4 pb-4 pt-3">
                 {heading ? (
-                  <h1 className="mt-2 font-display text-[19px] leading-snug text-foreground sm:text-[21px]">
-                    {heading}
-                  </h1>
+                  <>
+                    <h1 className="mt-2 font-display text-[19px] leading-snug text-foreground sm:text-[21px]">
+                      {heading}
+                    </h1>
+                    <p className="mt-2 text-[11px] font-semibold leading-snug text-foreground">
+                      MahaRERA Reg. No: PR1260002600999 |{" "}
+                      <a
+                        href="https://maharera.maharashtra.gov.in"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-gold hover:underline"
+                      >
+                        maharera.maharashtra.gov.in
+                      </a>
+                    </p>
+                  </>
                 ) : (
                   <h1 className="sr-only">Vyomora — {PROJECT.location}</h1>
                 )}
