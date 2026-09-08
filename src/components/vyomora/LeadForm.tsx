@@ -17,6 +17,8 @@ type Props = {
   interestedVariant?: string;
   /** "line": underline-only fields, +91 phone prefix, centered submit */
   variant?: "boxed" | "line";
+  /** Lock the phone field to a 10-digit Indian mobile (+91). */
+  indianMobileOnly?: boolean;
   onSuccess: (values: LeadValues, intent?: string) => void;
 };
 
@@ -54,10 +56,11 @@ const errorsFor = (v: LeadValues, withCity?: boolean, dial = "91") => {
   return e;
 };
 
-export function LeadForm({ cta = "Submit", compact, intent, withCity, interestedVariant, variant = "line", onSuccess }: Props) {
+export function LeadForm({ cta = "Submit", compact, intent, withCity, interestedVariant, variant = "line", indianMobileOnly, onSuccess }: Props) {
   const [values, setValues] = useState<LeadValues>({ name: "", mobile: "", email: "", city: "" });
   const [errors, setErrors] = useState<Errs>({});
   const [country, setCountry] = useState(DEFAULT_COUNTRY);
+  const activeCountry = indianMobileOnly ? DEFAULT_COUNTRY : country;
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
   const send = useServerFn(submitLead);
@@ -79,23 +82,25 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, interested
           {line ? (
             key === "mobile" ? (
               <span className="relative flex shrink-0 items-center gap-1 border-b border-border bg-secondary px-2.5 text-base text-foreground">
-                <span aria-hidden>{country.flag}</span> +{country.dial}
-                <select
-                  aria-label="Country code"
-                  value={country.iso}
-                  onChange={(ev) => {
-                    const next = COUNTRIES.find((c) => c.iso === ev.target.value);
-                    if (next) setCountry(next);
-                    setErrors((p) => ({ ...p, mobile: undefined }));
-                  }}
-                  className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                >
-                  {COUNTRIES.map((c) => (
-                    <option key={c.iso} value={c.iso}>
-                      {c.flag} {c.name} (+{c.dial})
-                    </option>
-                  ))}
-                </select>
+                <span aria-hidden>{activeCountry.flag}</span> +{activeCountry.dial}
+                {indianMobileOnly ? null : (
+                  <select
+                    aria-label="Country code"
+                    value={country.iso}
+                    onChange={(ev) => {
+                      const next = COUNTRIES.find((c) => c.iso === ev.target.value);
+                      if (next) setCountry(next);
+                      setErrors((p) => ({ ...p, mobile: undefined }));
+                    }}
+                    className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                  >
+                    {COUNTRIES.map((c) => (
+                      <option key={c.iso} value={c.iso}>
+                        {c.flag} {c.name} (+{c.dial})
+                      </option>
+                    ))}
+                  </select>
+                )}
               </span>
             ) : null
           ) : (
@@ -107,7 +112,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, interested
             placeholder={label}
             aria-invalid={Boolean(errors[key])}
             onChange={(e) => {
-              const next = key === "mobile" ? e.target.value.replace(/\D/g, "").slice(0, country.dial === "91" ? 10 : 15) : e.target.value;
+              const next = key === "mobile" ? e.target.value.replace(/\D/g, "").slice(0, activeCountry.dial === "91" ? 10 : 15) : e.target.value;
               setValues((v) => ({ ...v, [key]: next }));
               setErrors((p) => ({ ...p, [key]: undefined }));
             }}
@@ -126,14 +131,14 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, interested
       noValidate
       onSubmit={async (e) => {
         e.preventDefault();
-        const next = errorsFor(values, withCity, country.dial);
+        const next = errorsFor(values, withCity, activeCountry.dial);
         setErrors(next);
         if (Object.keys(next).length > 0) return;
         setBusy(true);
         setFailed(false);
         const payload: LeadValues = {
           name: values.name.trim(),
-          mobile: `+${country.dial}${values.mobile.trim()}`,
+          mobile: `+${activeCountry.dial}${values.mobile.trim()}`,
           email: values.email.trim(),
         };
         if (withCity) payload.city = values.city?.trim() ?? "";

@@ -66,8 +66,14 @@ export type LandingOptions = {
   heading?: string;
   /** Price CTA focuses the lead form instead of opening the popup. */
   priceCtaFocusesForm?: boolean;
+  /** Hero card CTA label; defaults to "Enquire Now". */
+  heroCtaLabel?: string;
+  /** Hero card CTA smooth-scrolls to and focuses the lead form. */
+  heroCtaFocusesForm?: boolean;
   /** Render highlight values as static text instead of animated counters. */
   staticHighlights?: boolean;
+  /** Lock lead forms to 10-digit Indian mobile numbers. */
+  indianMobileOnly?: boolean;
   /** Statistic cards to display. Defaults to the standard highlights. */
   highlights?: typeof HIGHLIGHTS;
 };
@@ -143,7 +149,10 @@ export function VyomoraLanding({
   interestedVariant,
   heading,
   priceCtaFocusesForm = false,
+  heroCtaLabel,
+  heroCtaFocusesForm = false,
   staticHighlights = false,
+  indianMobileOnly = false,
   highlights = HIGHLIGHTS,
 }: LandingOptions = {}) {
   const pageRef = useReveal<HTMLDivElement>();
@@ -223,7 +232,14 @@ export function VyomoraLanding({
       <header className="fixed left-0 right-0 top-0 z-50 xl:right-[20rem]">
         <div className="border-b border-secondary/15 bg-ink/70 shadow-soft backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6">
-            <a href="#top" className="flex min-w-0 items-center py-3">
+            <a
+              href="#top"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="flex min-w-0 items-center py-3"
+            >
               <img
                 src={SP_HEADER_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
@@ -445,11 +461,11 @@ export function VyomoraLanding({
                   {PROJECT.startingPrice} Onwards
                 </p>
                 <button
-                  onClick={() => openEnquiry("hero-card")}
+                  onClick={() => (heroCtaFocusesForm ? focusLeadForm() : openEnquiry("hero-card"))}
                   style={{ animationDelay: "0s, 0.3s" }}
                   className="offer-box mt-4 w-full rounded-md py-2 text-center text-sm font-bold"
                 >
-                  Enquire Now
+                  {heroCtaLabel ?? "Enquire Now"}
                 </button>
 
               </div>
@@ -468,7 +484,7 @@ export function VyomoraLanding({
                 {"\n"}
               </p>
               <div className="mt-5">
-                <LeadForm intent="hero" withCity {...(formCta ? { cta: formCta } : {})} {...(formVariant ? { interestedVariant: formVariant } : {})} onSuccess={handleSuccess} />
+                <LeadForm intent="hero" withCity {...(formCta ? { cta: formCta } : {})} {...(formVariant ? { interestedVariant: formVariant } : {})} {...(indianMobileOnly ? { indianMobileOnly: true } : {})} onSuccess={handleSuccess} />
               </div>
             </div>
           </div>
@@ -524,7 +540,7 @@ export function VyomoraLanding({
 
 
         <div className="mt-4">
-          <LeadForm intent="sticky-panel" variant="line" withCity cta={formCta ?? "Schedule a site visit"} {...(formVariant ? { interestedVariant: formVariant } : {})} onSuccess={handleSuccess} />
+          <LeadForm intent="sticky-panel" variant="line" withCity cta={formCta ?? "Schedule a site visit"} {...(formVariant ? { interestedVariant: formVariant } : {})} {...(indianMobileOnly ? { indianMobileOnly: true } : {})} onSuccess={handleSuccess} />
         </div>
         <a
           href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
@@ -1011,7 +1027,7 @@ export function VyomoraLanding({
         onClick={() => trackWhatsapp("floating-scroll")}
         target="_blank"
         rel="noreferrer"
-        className={`fixed bottom-20 right-4 z-[45] grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lift transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 lg:bottom-4 ${
+        className={`fixed bottom-4 right-4 z-[45] hidden h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lift transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 lg:grid ${
           scrolled ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none"
         }`}
         aria-label="Chat on WhatsApp"
@@ -1143,6 +1159,7 @@ export function VyomoraLanding({
                     cta="Submit"
                     withCity
                     {...(formVariant ? { interestedVariant: formVariant } : {})}
+                    {...(indianMobileOnly ? { indianMobileOnly: true } : {})}
                     onSuccess={handleSuccess}
                   />
                 </div>
