@@ -95,3 +95,25 @@ export const UNIT_PLANS_3BHK: UnitPlan[] = [
     alt: "3 BHK Imperial unit plan (1186 sq.ft.) at Vyomora Hinjawadi Phase 1",
   },
 ];
+
+/** 4 BHK dedicated landing page: both 4 BHK layouts and master layout. */
+export const UNIT_PLANS_4BHK: UnitPlan[] = [
+  {
+    title: "4 BHK Luxury (1,382 – 1,691 sq.ft.)",
+    label: "4 BHK Luxury",
+    src: jodi.url as string,
+    alt: "4 BHK Luxury unit plan (1382 - 1691 sq.ft.) at Vyomora Hinjawadi Phase 1",
+  },
+  {
+    title: "4 BHK Grand (2,115 – 2,356 sq.ft.)",
+    label: "4 BHK Grand",
+    src: jodi.url as string,
+    alt: "4 BHK Grand unit plan (2115 - 2356 sq.ft.) at Vyomora Hinjawadi Phase 1",
+  },
+  {
+    title: "Master Layout Plan",
+    label: "Master Plan",
+    src: masterPlan.url as string,
+    alt: "Vyomora Hinjawadi master layout plan with towers, podium and landscape legend",
+  },
+];
