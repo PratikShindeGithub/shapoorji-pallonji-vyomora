@@ -72,6 +72,8 @@ export type LandingOptions = {
   heroCtaFocusesForm?: boolean;
   /** Render highlight values as static text instead of animated counters. */
   staticHighlights?: boolean;
+  /** Lock lead forms to 10-digit Indian mobile numbers. */
+  indianMobileOnly?: boolean;
   /** Statistic cards to display. Defaults to the standard highlights. */
   highlights?: typeof HIGHLIGHTS;
 };
