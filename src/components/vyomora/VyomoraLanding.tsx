@@ -1017,7 +1017,7 @@ export function VyomoraLanding({
         onClick={() => trackWhatsapp("floating-scroll")}
         target="_blank"
         rel="noreferrer"
-        className={`fixed bottom-20 right-4 z-[45] grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lift transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 lg:bottom-4 ${
+        className={`fixed bottom-4 right-4 z-[45] hidden h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lift transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 lg:grid ${
           scrolled ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none"
         }`}
         aria-label="Chat on WhatsApp"
