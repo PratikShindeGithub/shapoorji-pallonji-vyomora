@@ -10,6 +10,7 @@ const schema = z.object({
   city: z.string().trim().max(60).optional(),
   intent: z.string().trim().max(60).optional(),
   interested_variant: z.string().trim().max(60).optional(),
+  interested_in: z.string().trim().max(60).optional(),
 });
 
 export const submitLead = createServerFn({ method: "POST" })
