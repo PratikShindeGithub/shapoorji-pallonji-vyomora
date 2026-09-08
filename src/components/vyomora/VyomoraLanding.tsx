@@ -991,6 +991,9 @@ export function VyomoraLanding({
             <a href="/privacy-policy.html" className="hover:text-gold hover:underline">
               Privacy Policy
             </a>
+            <a href="#disclaimer" className="hover:text-gold hover:underline">
+              Disclaimer
+            </a>
             <a href="/terms.html" className="hover:text-gold hover:underline">
               Terms &amp; Conditions
             </a>
