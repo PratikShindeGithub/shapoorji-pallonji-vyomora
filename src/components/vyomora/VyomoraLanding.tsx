@@ -82,6 +82,10 @@ export type LandingOptions = {
   startingPrice?: string;
   /** Pre-filled WhatsApp message for every WhatsApp action on the page. */
   whatsappMessage?: string;
+  /** Lead form heading (mobile inline form + desktop sticky panel). */
+  formTitle?: string;
+  /** Carpet area callout shown under the starting price in the hero card. */
+  carpetAreaCallout?: string;
 };
 
 
@@ -163,6 +167,8 @@ export function VyomoraLanding({
   heroBadge,
   startingPrice,
   whatsappMessage = "Hi, I'd like details about Vyomora, Hinjawadi Phase 1.",
+  formTitle,
+  carpetAreaCallout,
 }: LandingOptions = {}) {
   const waHref = `https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
   const pageRef = useReveal<HTMLDivElement>();
