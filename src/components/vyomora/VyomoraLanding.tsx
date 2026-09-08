@@ -147,6 +147,8 @@ export function VyomoraLanding({
   interestedVariant,
   heading,
   priceCtaFocusesForm = false,
+  heroCtaLabel,
+  heroCtaFocusesForm = false,
   staticHighlights = false,
   highlights = HIGHLIGHTS,
 }: LandingOptions = {}) {
