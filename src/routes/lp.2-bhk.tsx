@@ -7,7 +7,7 @@ import { HERO_SLIDES } from "@/components/vyomora/logo";
 
 const TWO_BHK_CONFIGS = CONFIGS.filter((c) => c.type.startsWith("2 BHK"));
 
-const TITLE = "Shapoorji Pallonji Vyomora – Luxury 2 BHK Apartments in Hinjawadi Phase 1";
+const TITLE = "Shapoorji Pallonji Vyomora \n Luxury 2 BHK Apartments in Hinjawadi Phase 1";
 const DESCRIPTION =
   "Luxury 2 BHK apartments at Shapoorji Pallonji Vyomora, Hinjawadi Phase 1, Pune. 685 - 839 sq.ft. carpet, ₹88 L* onwards. Request your 2 BHK cost sheet.";
 
