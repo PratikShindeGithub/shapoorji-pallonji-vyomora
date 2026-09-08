@@ -947,9 +947,20 @@ export function VyomoraLanding({
           <div className="mt-5 w-full text-center text-[12px] font-medium text-secondary">
             This project is MahaRERA registered. | Authorized Channel Partner | Channel Partner MahaRERA Number : A031262400404 | Project MahaRERA Number : PR1260002600999
           </div>
+          <div className="mt-2 w-full text-center text-[12px] font-semibold text-secondary">
+            MahaRERA Reg. No: PR1260002600999 |{" "}
+            <a
+              href="https://maharera.maharashtra.gov.in"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gold hover:underline"
+            >
+              maharera.maharashtra.gov.in
+            </a>
+          </div>
 
           {/* Disclaimer */}
-          <div className="mt-5 w-full text-[11px] leading-relaxed text-secondary/85">
+          <div id="disclaimer" className="mt-5 w-full scroll-mt-24 text-[11px] leading-relaxed text-secondary/85">
             <p className="text-justify hyphens-auto">
 
               Disclaimer: The content presented on this website is solely for informational purposes and does not
