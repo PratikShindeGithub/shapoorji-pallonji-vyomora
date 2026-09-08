@@ -3,6 +3,7 @@ import duplex from "@/assets/vyomora-plan-duplex-v2.png.asset.json";
 import imperial from "@/assets/vyomora-plan-imperial-v2.png.asset.json";
 import grande from "@/assets/vyomora-plan-grande-v2.png.asset.json";
 import jodi from "@/assets/jodi-flat-plan.jpg.asset.json";
+import threeBhkPremium from "@/assets/vyomora-plan-3bhk-imperial.jpg.asset.json";
 import twoBhkLuxury from "@/assets/vyomora-plan-2bhk-grande.jpg.asset.json";
 
 
@@ -54,5 +55,21 @@ export const UNIT_PLANS_2BHK: UnitPlan[] = [
     label: "2 BHK Grand",
     src: grande.url as string,
     alt: "2 BHK Grand unit plan at Vyomora Hinjawadi Phase 1",
+  },
+];
+
+/** 3 BHK dedicated landing page: only the two 3 BHK layouts. */
+export const UNIT_PLANS_3BHK: UnitPlan[] = [
+  {
+    title: "3 BHK - Premium",
+    label: "3 BHK Premium",
+    src: threeBhkPremium.url as string,
+    alt: "3 BHK Premium unit plan (1050 - 1091 sq.ft.) at Vyomora Hinjawadi Phase 1",
+  },
+  {
+    title: "3 BHK - Imperial",
+    label: "3 BHK Imperial",
+    src: imperial.url as string,
+    alt: "3 BHK Imperial unit plan (1186 sq.ft.) at Vyomora Hinjawadi Phase 1",
   },
 ];
