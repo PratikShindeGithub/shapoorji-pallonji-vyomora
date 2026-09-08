@@ -66,6 +66,10 @@ export type LandingOptions = {
   heading?: string;
   /** Price CTA focuses the lead form instead of opening the popup. */
   priceCtaFocusesForm?: boolean;
+  /** Hero card CTA label; defaults to "Enquire Now". */
+  heroCtaLabel?: string;
+  /** Hero card CTA smooth-scrolls to and focuses the lead form. */
+  heroCtaFocusesForm?: boolean;
   /** Render highlight values as static text instead of animated counters. */
   staticHighlights?: boolean;
   /** Statistic cards to display. Defaults to the standard highlights. */
