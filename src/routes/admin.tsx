@@ -372,7 +372,7 @@ function Dashboard({
     const q = search.trim().toLowerCase();
     if (!q) return leads;
     return leads.filter((lead) =>
-      [lead.name, lead.mobile, lead.email, lead.city ?? "", sourceLabel(lead.intent)]
+      [lead.name, lead.mobile, lead.email, lead.city ?? "", sourceLabel(lead.intent), lead.interested_variant ?? "", lead.page_url ?? ""]
         .join(" ")
         .toLowerCase()
         .includes(q),
@@ -507,6 +507,8 @@ function Dashboard({
                   <th className="px-5 py-3 font-semibold">Email</th>
                   <th className="px-5 py-3 font-semibold">City</th>
                   <th className="px-5 py-3 font-semibold">Source</th>
+                  <th className="px-5 py-3 font-semibold">Interested In</th>
+                  <th className="px-5 py-3 font-semibold">Page URL</th>
                   <th className="px-5 py-3 font-semibold">Received</th>
                   <th className="px-5 py-3 font-semibold">Action</th>
                 </tr>
@@ -514,7 +516,7 @@ function Dashboard({
               <tbody>
                 {visibleLeads.length === 0 ? (
                   <tr>
-                    <td colSpan={7} className="px-5 py-8 text-center text-muted-foreground">
+                    <td colSpan={9} className="px-5 py-8 text-center text-muted-foreground">
                       {loading ? "Loading leads…" : leads.length === 0 ? "No leads yet." : "No matching leads."}
                     </td>
                   </tr>
@@ -537,6 +539,30 @@ function Dashboard({
                         <span className="inline-flex rounded-full border border-border bg-secondary px-2.5 py-1 text-xs font-semibold text-foreground">
                           {sourceLabel(lead.intent)}
                         </span>
+                      </td>
+                      <td className="px-5 py-3">
+                        {lead.interested_variant ? (
+                          <span className="inline-flex rounded-full border border-primary/40 bg-primary/10 px-2.5 py-1 text-xs font-semibold text-foreground">
+                            {lead.interested_variant}
+                          </span>
+                        ) : (
+                          <span className="text-muted-foreground">—</span>
+                        )}
+                      </td>
+                      <td className="max-w-[220px] truncate px-5 py-3 text-muted-foreground">
+                        {lead.page_url ? (
+                          <a
+                            href={lead.page_url}
+                            target="_blank"
+                            rel="noreferrer"
+                            title={lead.page_url}
+                            className="hover:text-foreground"
+                          >
+                            {lead.page_url}
+                          </a>
+                        ) : (
+                          "—"
+                        )}
                       </td>
                       <td className="px-5 py-3 text-muted-foreground">
                         {new Date(lead.created_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}
