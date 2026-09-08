@@ -145,7 +145,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, interested
               email: payload.email,
               ...(payload.city ? { city: payload.city } : {}),
               ...(intent ? { intent } : {}),
-              ...(interestedVariant ? { interested_variant: interestedVariant } : {}),
+              ...(interestedVariant ? { interested_variant: interestedVariant, interested_in: interestedVariant } : {}),
             },
           });
           onSuccess(payload, intent);
@@ -159,6 +159,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, interested
 
       className={line ? (compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-2.5") : compact ? "grid gap-3 sm:grid-cols-3" : "grid gap-3"}
     >
+      {interestedVariant ? <input type="hidden" name="interested_in" value={interestedVariant} readOnly /> : null}
       {field("name", line ? "Name" : "Full name", { autoComplete: "name", maxLength: "80" })}
       {field("mobile", line ? "Phone" : "Mobile number", { inputMode: "numeric", autoComplete: "tel" })}
       {field("email", line ? "E-Mail Address" : "Email address", { type: "email", autoComplete: "email", maxLength: "120" })}

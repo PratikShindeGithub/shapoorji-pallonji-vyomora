@@ -36,14 +36,21 @@ export const Route = createFileRoute("/lp/2-bhk")({
   }),
 });
 
+const TWO_BHK_HIGHLIGHTS = [
+  { value: "160+", label: "Years of Excellence" },
+  { value: "2", label: "BHK Luxury & Grand Residences" },
+  { value: "85+", label: "Curated amenities" },
+  { value: "25", label: "Acre integrated community" },
+];
+
 function TwoBhkLanding() {
   return (
     <VyomoraLanding
-      showNav={true}
-      hideHomeNav={true}
+      showNav={false}
       configs={TWO_BHK_CONFIGS}
       plans={UNIT_PLANS_2BHK}
-      formCta="Request 2 BHK Cost Sheet"
+      highlights={TWO_BHK_HIGHLIGHTS}
+      formCta="Request 2 BHK All-Inclusive Cost Sheet"
       interestedVariant="2 BHK"
       heading={TITLE}
       priceCtaFocusesForm

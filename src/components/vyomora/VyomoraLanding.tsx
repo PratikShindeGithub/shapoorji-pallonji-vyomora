@@ -68,6 +68,8 @@ export type LandingOptions = {
   priceCtaFocusesForm?: boolean;
   /** Render highlight values as static text instead of animated counters. */
   staticHighlights?: boolean;
+  /** Statistic cards to display. Defaults to the standard highlights. */
+  highlights?: typeof HIGHLIGHTS;
 };
 
 
@@ -142,6 +144,7 @@ export function VyomoraLanding({
   heading,
   priceCtaFocusesForm = false,
   staticHighlights = false,
+  highlights = HIGHLIGHTS,
 }: LandingOptions = {}) {
   const pageRef = useReveal<HTMLDivElement>();
   const navigate = useNavigate();
@@ -386,9 +389,22 @@ export function VyomoraLanding({
               </p>
               <div className="px-4 pb-4 pt-3">
                 {heading ? (
-                  <h1 className="mt-2 font-display text-[19px] leading-snug text-foreground sm:text-[21px]">
-                    {heading}
-                  </h1>
+                  <>
+                    <h1 className="mt-2 font-display text-[19px] leading-snug text-foreground sm:text-[21px]">
+                      {heading}
+                    </h1>
+                    <p className="mt-2 text-[11px] font-semibold leading-snug text-foreground">
+                      MahaRERA Reg. No: PR1260002600999 |{" "}
+                      <a
+                        href="https://maharera.maharashtra.gov.in"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-gold hover:underline"
+                      >
+                        maharera.maharashtra.gov.in
+                      </a>
+                    </p>
+                  </>
                 ) : (
                   <h1 className="sr-only">Vyomora — {PROJECT.location}</h1>
                 )}
@@ -534,7 +550,7 @@ export function VyomoraLanding({
       {/* Highlights */}
       <section className="border-y border-border bg-secondary">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-5 px-4 py-6 sm:px-6 lg:grid-cols-4">
-          {HIGHLIGHTS.map((h, i) => (
+          {highlights.map((h, i) => (
             <div
               key={h.label}
               className="reveal text-center"
@@ -931,9 +947,20 @@ export function VyomoraLanding({
           <div className="mt-5 w-full text-center text-[12px] font-medium text-secondary">
             This project is MahaRERA registered. | Authorized Channel Partner | Channel Partner MahaRERA Number : A031262400404 | Project MahaRERA Number : PR1260002600999
           </div>
+          <div className="mt-2 w-full text-center text-[12px] font-semibold text-secondary">
+            MahaRERA Reg. No: PR1260002600999 |{" "}
+            <a
+              href="https://maharera.maharashtra.gov.in"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gold hover:underline"
+            >
+              maharera.maharashtra.gov.in
+            </a>
+          </div>
 
           {/* Disclaimer */}
-          <div className="mt-5 w-full text-[11px] leading-relaxed text-secondary/85">
+          <div id="disclaimer" className="mt-5 w-full scroll-mt-24 text-[11px] leading-relaxed text-secondary/85">
             <p className="text-justify hyphens-auto">
 
               Disclaimer: The content presented on this website is solely for informational purposes and does not
@@ -963,6 +990,9 @@ export function VyomoraLanding({
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-secondary/25 pt-5 text-xs text-secondary">
             <a href="/privacy-policy.html" className="hover:text-gold hover:underline">
               Privacy Policy
+            </a>
+            <a href="#disclaimer" className="hover:text-gold hover:underline">
+              Disclaimer
             </a>
             <a href="/terms.html" className="hover:text-gold hover:underline">
               Terms &amp; Conditions
