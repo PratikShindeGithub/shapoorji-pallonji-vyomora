@@ -422,7 +422,7 @@ export function VyomoraLanding({
 
                 </div>
                 <p className="mt-3.5 text-[15px] font-bold leading-snug text-muted-foreground">
-                  Exclusive 2, 3 BHK &amp; Duplex Apartments
+                  Exclusive 2 BHK Apartments
                 </p>
                 <p className="text-[14px] tracking-normal text-muted-foreground">Starting Price</p>
                 <p className="mt-1 font-sans text-[21px] font-bold tracking-tight text-gold sm:text-[23px]">
