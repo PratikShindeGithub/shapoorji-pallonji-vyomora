@@ -13,6 +13,8 @@ type Props = {
   compact?: boolean;
   intent?: string;
   withCity?: boolean;
+  /** Tagged onto the submission, e.g. "2 BHK". */
+  interestedVariant?: string;
   /** "line": underline-only fields, +91 phone prefix, centered submit */
   variant?: "boxed" | "line";
   onSuccess: (values: LeadValues, intent?: string) => void;
@@ -52,7 +54,7 @@ const errorsFor = (v: LeadValues, withCity?: boolean, dial = "91") => {
   return e;
 };
 
-export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = "line", onSuccess }: Props) {
+export function LeadForm({ cta = "Submit", compact, intent, withCity, interestedVariant, variant = "line", onSuccess }: Props) {
   const [values, setValues] = useState<LeadValues>({ name: "", mobile: "", email: "", city: "" });
   const [errors, setErrors] = useState<Errs>({});
   const [country, setCountry] = useState(DEFAULT_COUNTRY);
@@ -143,6 +145,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, variant = 
               email: payload.email,
               ...(payload.city ? { city: payload.city } : {}),
               ...(intent ? { intent } : {}),
+              ...(interestedVariant ? { interested_variant: interestedVariant } : {}),
             },
           });
           onSuccess(payload, intent);
