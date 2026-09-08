@@ -112,7 +112,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, interested
             placeholder={label}
             aria-invalid={Boolean(errors[key])}
             onChange={(e) => {
-              const next = key === "mobile" ? e.target.value.replace(/\D/g, "").slice(0, country.dial === "91" ? 10 : 15) : e.target.value;
+              const next = key === "mobile" ? e.target.value.replace(/\D/g, "").slice(0, activeCountry.dial === "91" ? 10 : 15) : e.target.value;
               setValues((v) => ({ ...v, [key]: next }));
               setErrors((p) => ({ ...p, [key]: undefined }));
             }}
