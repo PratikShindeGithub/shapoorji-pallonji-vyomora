@@ -152,10 +152,35 @@ export function VyomoraLanding({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const focusLeadForm = useCallback(() => {
+    if (typeof document === "undefined") return;
+    const panel = document.getElementById("sticky-panel-name") as HTMLInputElement | null;
+    const hero = document.getElementById("hero-name") as HTMLInputElement | null;
+    const target =
+      panel && panel.offsetParent !== null ? panel : hero && hero.offsetParent !== null ? hero : panel ?? hero;
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    target.focus({ preventScroll: true });
+  }, []);
+
   const openEnquiry = useCallback(
     (intent: string, cta = "Submit Enquiry", title = "Request project details", copy = "Share your details and our sales desk will send the cost sheet, floor plans and brochure within minutes.") =>
       setModal({ intent, cta, title, copy }),
     [],
+  );
+
+  const [priceVariant, setPriceVariant] = useState<string | null>(null);
+
+  const onPriceCta = useCallback(
+    (intent: string, cta: string, title: string, copy: string) => {
+      if (priceCtaFocusesForm) {
+        setPriceVariant(intent.replace("cost-sheet-", ""));
+        focusLeadForm();
+        return;
+      }
+      openEnquiry(intent, cta, title, copy);
+    },
+    [priceCtaFocusesForm, focusLeadForm, openEnquiry],
   );
 
 
@@ -420,7 +445,7 @@ export function VyomoraLanding({
                 {"\n"}
               </p>
               <div className="mt-5">
-                <LeadForm intent="hero" withCity onSuccess={handleSuccess} />
+                <LeadForm intent="hero" withCity {...(formCta ? { cta: formCta } : {})} {...(interestedVariant ? { interestedVariant } : {})} onSuccess={handleSuccess} />
               </div>
             </div>
           </div>
@@ -476,7 +501,7 @@ export function VyomoraLanding({
 
 
         <div className="mt-4">
-          <LeadForm intent="sticky-panel" variant="line" withCity cta="Schedule a site visit" onSuccess={handleSuccess} />
+          <LeadForm intent="sticky-panel" variant="line" withCity cta={formCta ?? "Schedule a site visit"} {...(interestedVariant ? { interestedVariant } : {})} onSuccess={handleSuccess} />
         </div>
         <a
           href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
@@ -560,7 +585,7 @@ export function VyomoraLanding({
         <div className="mt-6 grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
           {/* Mobile cards */}
           <div className="reveal grid gap-5 sm:hidden" data-reveal>
-            {CONFIGS.map((c) => (
+            {configs.map((c) => (
               <div
                 key={c.type}
                 className="rounded-xl border border-border bg-muted/40 px-5 py-7 text-center shadow-soft"
@@ -572,7 +597,7 @@ export function VyomoraLanding({
                 <p className="mt-2 font-sans text-xl font-bold tracking-tight text-primary">{c.price} Onwards</p>
                 <button
                   onClick={() =>
-                    openEnquiry(
+                    onPriceCta(
                       `cost-sheet-${c.type}`,
                       "Request For Price Breakup",
                       `Price breakup — ${c.type}`,
@@ -612,7 +637,7 @@ export function VyomoraLanding({
                 </tr>
               </thead>
               <tbody>
-                {CONFIGS.map((c) => (
+                {configs.map((c) => (
                   <tr key={c.type} className="border-b border-border last:border-0">
                     <td className="border-r border-border px-3 py-2 align-middle text-left text-sm text-foreground">
                       <span className="block truncate">{c.type}</span>
@@ -628,7 +653,7 @@ export function VyomoraLanding({
                     <td className="px-3 py-2 text-center align-middle">
                       <button
                         onClick={() =>
-                          openEnquiry(
+                          onPriceCta(
                             `cost-sheet-${c.type}`,
                             "Request For Price Breakup",
                             `Price breakup — ${c.type}`,
@@ -724,7 +749,7 @@ export function VyomoraLanding({
       </section>
 
       {/* Site & Floor plans */}
-      <SitePlanSection onEnquire={openEnquiry} />
+      <SitePlanSection onEnquire={openEnquiry} {...(plans ? { plans } : {})} />
 
 
       {/* Gallery */}
@@ -1080,6 +1105,7 @@ export function VyomoraLanding({
                     intent={modal?.intent ?? "welcome"}
                     cta="Submit"
                     withCity
+                    {...(interestedVariant ? { interestedVariant } : {})}
                     onSuccess={handleSuccess}
                   />
                 </div>
