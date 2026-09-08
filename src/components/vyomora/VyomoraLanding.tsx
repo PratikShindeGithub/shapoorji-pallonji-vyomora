@@ -1159,6 +1159,7 @@ export function VyomoraLanding({
                     cta="Submit"
                     withCity
                     {...(formVariant ? { interestedVariant: formVariant } : {})}
+                    {...(indianMobileOnly ? { indianMobileOnly: true } : {})}
                     onSuccess={handleSuccess}
                   />
                 </div>
