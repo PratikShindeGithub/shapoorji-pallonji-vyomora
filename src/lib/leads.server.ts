@@ -4,6 +4,7 @@ export type LeadInput = {
   email: string;
   city?: string | undefined;
   intent?: string | undefined;
+  interested_variant?: string | undefined;
 };
 
 const SITE_ORIGIN = "https://shapoorjipallonjivyomora.site";
@@ -20,6 +21,7 @@ export async function saveLead(input: LeadInput) {
       email: input.email,
       city: input.city ?? null,
       intent: input.intent ?? null,
+      interested_variant: input.interested_variant ?? null,
     })
     .select("id")
     .single();
