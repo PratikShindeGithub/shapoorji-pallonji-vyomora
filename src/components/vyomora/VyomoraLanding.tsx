@@ -76,6 +76,12 @@ export type LandingOptions = {
   indianMobileOnly?: boolean;
   /** Statistic cards to display. Defaults to the standard highlights. */
   highlights?: typeof HIGHLIGHTS;
+  /** Hero card badge line above the starting price. */
+  heroBadge?: string;
+  /** Starting price shown in the hero card. */
+  startingPrice?: string;
+  /** Pre-filled WhatsApp message for every WhatsApp action on the page. */
+  whatsappMessage?: string;
 };
 
 
@@ -154,7 +160,11 @@ export function VyomoraLanding({
   staticHighlights = false,
   indianMobileOnly = false,
   highlights = HIGHLIGHTS,
+  heroBadge,
+  startingPrice,
+  whatsappMessage = "Hi, I'd like details about Vyomora, Hinjawadi Phase 1.",
 }: LandingOptions = {}) {
+  const waHref = `https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
   const pageRef = useReveal<HTMLDivElement>();
   const navigate = useNavigate();
   const [modal, setModal] = useState<null | { intent: string; cta: string; title: string; copy: string }>(null);
@@ -285,7 +295,7 @@ export function VyomoraLanding({
                   Organize Site Visit
                 </button>
                 <a
-                  href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+                  href={waHref}
                   onClick={() => trackWhatsapp("header-whatsapp-now")}
                   target="_blank"
                   rel="noreferrer"
@@ -332,7 +342,7 @@ export function VyomoraLanding({
             ) : (
               <div className="ml-auto flex items-center gap-2 lg:hidden">
                 <a
-                  href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+                  href={waHref}
                   onClick={() => trackWhatsapp("header-whatsapp-now-mobile")}
                   target="_blank"
                   rel="noreferrer"
@@ -454,11 +464,11 @@ export function VyomoraLanding({
 
                 </div>
                 <p className="mt-3.5 text-[15px] font-bold leading-snug text-muted-foreground">
-                  Exclusive 2 BHK Apartments
+                  {heroBadge ?? "Exclusive 2 BHK Apartments"}
                 </p>
                 <p className="text-[14px] tracking-normal text-muted-foreground">Starting Price</p>
                 <p className="mt-1 font-sans text-[21px] font-bold tracking-tight text-gold sm:text-[23px]">
-                  {PROJECT.startingPrice} Onwards
+                  {startingPrice ?? PROJECT.startingPrice} Onwards
                 </p>
                 <button
                   onClick={() => (heroCtaFocusesForm ? focusLeadForm() : openEnquiry("hero-card"))}
@@ -503,7 +513,7 @@ export function VyomoraLanding({
             Organize Site Visit
           </button>
           <a
-            href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+            href={waHref}
             onClick={() => trackWhatsapp("sidebar-whatsapp-now")}
             target="_blank"
             rel="noreferrer"
@@ -543,7 +553,7 @@ export function VyomoraLanding({
           <LeadForm intent="sticky-panel" variant="line" withCity cta={formCta ?? "Schedule a site visit"} {...(formVariant ? { interestedVariant: formVariant } : {})} {...(indianMobileOnly ? { indianMobileOnly: true } : {})} onSuccess={handleSuccess} />
         </div>
         <a
-          href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+          href={waHref}
           onClick={() => trackWhatsapp("sidebar-float")}
           target="_blank"
           rel="noreferrer"
@@ -1023,7 +1033,7 @@ export function VyomoraLanding({
 
       {/* Floating WhatsApp button — visible anywhere on the page after scrolling */}
       <a
-        href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+        href={waHref}
         onClick={() => trackWhatsapp("floating-scroll")}
         target="_blank"
         rel="noreferrer"
@@ -1042,7 +1052,7 @@ export function VyomoraLanding({
             key: "wa",
             icon: WhatsAppIcon,
             label: "WhatsApp",
-            href: `https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`,
+            href: waHref,
           },
           { key: "call", icon: Phone, label: "Call", href: `tel:${PROJECT.phone}` },
         ].map(({ key, icon: Icon, label, href }) => (
@@ -1080,7 +1090,7 @@ export function VyomoraLanding({
           <Download className="icon-nudge h-4 w-4" /> Brochure
         </button>
         <a
-          href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+          href={waHref}
           onClick={() => trackWhatsapp("mobile-sticky")}
           target="_blank"
           rel="noreferrer"
