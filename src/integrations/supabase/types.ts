@@ -22,6 +22,7 @@ export type Database = {
           email_sent: boolean
           id: string
           intent: string | null
+          interested_variant: string | null
           mobile: string
           name: string
         }
@@ -32,6 +33,7 @@ export type Database = {
           email_sent?: boolean
           id?: string
           intent?: string | null
+          interested_variant?: string | null
           mobile: string
           name: string
         }
@@ -42,6 +44,7 @@ export type Database = {
           email_sent?: boolean
           id?: string
           intent?: string | null
+          interested_variant?: string | null
           mobile?: string
           name?: string
         }
