@@ -170,6 +170,7 @@ export function VyomoraLanding({
   );
 
   const [priceVariant, setPriceVariant] = useState<string | null>(null);
+  const formVariant = priceVariant ?? interestedVariant;
 
   const onPriceCta = useCallback(
     (intent: string, cta: string, title: string, copy: string) => {
@@ -445,7 +446,7 @@ export function VyomoraLanding({
                 {"\n"}
               </p>
               <div className="mt-5">
-                <LeadForm intent="hero" withCity {...(formCta ? { cta: formCta } : {})} {...(interestedVariant ? { interestedVariant } : {})} onSuccess={handleSuccess} />
+                <LeadForm intent="hero" withCity {...(formCta ? { cta: formCta } : {})} {...(formVariant ? { interestedVariant: formVariant } : {})} onSuccess={handleSuccess} />
               </div>
             </div>
           </div>
@@ -501,7 +502,7 @@ export function VyomoraLanding({
 
 
         <div className="mt-4">
-          <LeadForm intent="sticky-panel" variant="line" withCity cta={formCta ?? "Schedule a site visit"} {...(interestedVariant ? { interestedVariant } : {})} onSuccess={handleSuccess} />
+          <LeadForm intent="sticky-panel" variant="line" withCity cta={formCta ?? "Schedule a site visit"} {...(formVariant ? { interestedVariant: formVariant } : {})} onSuccess={handleSuccess} />
         </div>
         <a
           href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
@@ -1105,7 +1106,7 @@ export function VyomoraLanding({
                     intent={modal?.intent ?? "welcome"}
                     cta="Submit"
                     withCity
-                    {...(interestedVariant ? { interestedVariant } : {})}
+                    {...(formVariant ? { interestedVariant: formVariant } : {})}
                     onSuccess={handleSuccess}
                   />
                 </div>

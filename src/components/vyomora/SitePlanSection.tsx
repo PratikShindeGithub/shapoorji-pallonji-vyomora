@@ -2,10 +2,12 @@ import { useCallback, useEffect, useState } from "react";
 import { Download, Minus, Plus, X } from "lucide-react";
 
 import masterPlanAsset from "@/assets/master-plan-layout-opt.webp.asset.json";
-import { UNIT_PLANS } from "./site-plans";
+import { UNIT_PLANS, type UnitPlan } from "./site-plans";
 
 type Props = {
   onEnquire: (intent: string, cta?: string, title?: string, copy?: string) => void;
+  /** Floor plans to show. Defaults to every configuration. */
+  plans?: UnitPlan[];
 };
 
 type Viewing = { title: string; src: string; alt: string; intent: string };
@@ -130,7 +132,7 @@ function PlanLightbox({
   );
 }
 
-export function SitePlanSection({ onEnquire }: Props) {
+export function SitePlanSection({ onEnquire, plans = UNIT_PLANS }: Props) {
   const [viewing, setViewing] = useState<Viewing | null>(null);
   const close = useCallback(() => setViewing(null), []);
 
@@ -155,7 +157,7 @@ export function SitePlanSection({ onEnquire }: Props) {
         {/* Floor plans */}
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {UNIT_PLANS.map((p, i) => (
+          {plans.map((p, i) => (
             <button
               type="button"
               key={p.title}
@@ -210,7 +212,7 @@ export function SitePlanSection({ onEnquire }: Props) {
             }
             className="reveal group flex h-full cursor-zoom-in flex-col justify-center overflow-hidden rounded-xl bg-card transition duration-500 hover:scale-[1.01] motion-reduce:transform-none lg:col-span-2"
             data-reveal
-            data-reveal-delay={(UNIT_PLANS.length + 1) * 120}
+            data-reveal-delay={(plans.length + 1) * 120}
           >
             <img
               src={masterPlanAsset.url}
