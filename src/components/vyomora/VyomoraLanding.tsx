@@ -198,6 +198,7 @@ export function VyomoraLanding({
               />
             </a>
             {/* Icon nav rail — same line as logo */}
+            {showNav ? (
             <nav aria-label="Section navigation" className="hidden flex-1 lg:block">
               <ul className="flex items-stretch justify-end">
                 {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
@@ -222,7 +223,52 @@ export function VyomoraLanding({
                 </li>
               </ul>
             </nav>
+            ) : (
+              <div className="ml-auto hidden flex-wrap items-center justify-end gap-2 py-2.5 lg:flex">
+                <button
+                  onClick={() =>
+                    openEnquiry("site-visit", "Organize Site Visit", "Organize a site visit", "Share your details and our team will schedule your visit.")
+                  }
+                  className="rounded-md bg-primary px-3.5 py-2 text-[13px] font-semibold text-primary-foreground transition hover:bg-gold hover:text-gold-foreground"
+                >
+                  Organize Site Visit
+                </button>
+                <a
+                  href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+                  onClick={() => trackWhatsapp("header-whatsapp-now")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-primary px-3.5 py-2 text-[13px] font-semibold text-primary-foreground transition hover:bg-gold hover:text-gold-foreground"
+                >
+                  <span
+                    className="grid h-5 w-5 shrink-0 place-items-center rounded-full"
+                    style={{ backgroundColor: "#25D366", color: "#ffffff" }}
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5" />
+                  </span>
+                  WhatsApp Now
+                </a>
+                <div className="rounded-md border border-primary/40 bg-card px-3 py-1.5 text-center">
+                  <a
+                    href={`tel:${PROJECT.phone}`}
+                    className="block text-[15px] font-bold tracking-tight text-primary"
+                  >
+                    Call : {PROJECT.phoneDisplay}
+                  </a>
+                  <button
+                    onClick={() =>
+                      openEnquiry("call-back", "Request Call Back", "Request a call back", "Our sales desk will call you shortly.")
+                    }
+                    className="hero-cta mx-auto mt-1 flex items-center justify-center gap-1.5 rounded-md px-3.5 py-1 text-[12px] font-semibold shadow-soft transition"
+                  >
+                    <Phone className="h-3.5 w-3.5" />
+                    Request Call Back
+                  </button>
+                </div>
+              </div>
+            )}
 
+            {showNav ? (
             <button
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
@@ -232,9 +278,31 @@ export function VyomoraLanding({
             >
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
+            ) : (
+              <div className="ml-auto flex items-center gap-2 lg:hidden">
+                <a
+                  href={`https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent("Hi, I'd like details about Vyomora, Hinjawadi Phase 1.")}`}
+                  onClick={() => trackWhatsapp("header-whatsapp-now-mobile")}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="WhatsApp Now"
+                  className="grid h-10 w-10 place-items-center rounded-full"
+                  style={{ backgroundColor: "#25D366", color: "#ffffff" }}
+                >
+                  <WhatsAppIcon className="h-5 w-5" />
+                </a>
+                <a
+                  href={`tel:${PROJECT.phone}`}
+                  aria-label={`Call ${PROJECT.phoneDisplay}`}
+                  className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground"
+                >
+                  <Phone className="h-5 w-5" />
+                </a>
+              </div>
+            )}
           </div>
 
-          {menuOpen ? (
+          {showNav && menuOpen ? (
             <nav aria-label="Mobile navigation" className="border-t border-secondary/15 lg:hidden">
               <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 px-4 py-2 sm:px-6">
                 {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
@@ -262,6 +330,7 @@ export function VyomoraLanding({
               </ul>
             </nav>
           ) : null}
+
         </div>
       </header>
 
