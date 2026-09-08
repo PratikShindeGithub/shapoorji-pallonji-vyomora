@@ -144,6 +144,7 @@ export function VyomoraLanding({
   heading,
   priceCtaFocusesForm = false,
   staticHighlights = false,
+  highlights = HIGHLIGHTS,
 }: LandingOptions = {}) {
   const pageRef = useReveal<HTMLDivElement>();
   const navigate = useNavigate();
