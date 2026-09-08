@@ -16,6 +16,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsDothtmlRouteImport } from './routes/terms[.]html'
 import { Route as ThankyouDothtmlRouteImport } from './routes/thankyou[.]html'
 import { Route as Lp2BhkRouteImport } from './routes/lp.2-bhk'
+import { Route as Lp3BhkRouteImport } from './routes/lp.3-bhk'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const Lp2BhkRoute = Lp2BhkRouteImport.update({
   path: '/lp/2-bhk',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Lp3BhkRoute = Lp3BhkRouteImport.update({
+  id: '/lp/3-bhk',
+  path: '/lp/3-bhk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LovableEmailTransactionalPreviewRoute =
   LovableEmailTransactionalPreviewRouteImport.update({
     id: '/lovable/email/transactional/preview',
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/terms.html': typeof TermsDothtmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lp/2-bhk': typeof Lp2BhkRoute
+  '/lp/3-bhk': typeof Lp3BhkRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/terms.html': typeof TermsDothtmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lp/2-bhk': typeof Lp2BhkRoute
+  '/lp/3-bhk': typeof Lp3BhkRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/terms.html': typeof TermsDothtmlRoute
   '/thankyou.html': typeof ThankyouDothtmlRoute
   '/lp/2-bhk': typeof Lp2BhkRoute
+  '/lp/3-bhk': typeof Lp3BhkRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/terms.html'
     | '/thankyou.html'
     | '/lp/2-bhk'
+    | '/lp/3-bhk'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/terms.html'
     | '/thankyou.html'
     | '/lp/2-bhk'
+    | '/lp/3-bhk'
     | '/lovable/email/transactional/preview'
   id:
     | '__root__'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/terms.html'
     | '/thankyou.html'
     | '/lp/2-bhk'
+    | '/lp/3-bhk'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   TermsDothtmlRoute: typeof TermsDothtmlRoute
   ThankyouDothtmlRoute: typeof ThankyouDothtmlRoute
   Lp2BhkRoute: typeof Lp2BhkRoute
+  Lp3BhkRoute: typeof Lp3BhkRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
@@ -186,6 +199,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Lp2BhkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lp/3-bhk': {
+      id: '/lp/3-bhk'
+      path: '/lp/3-bhk'
+      fullPath: '/lp/3-bhk'
+      preLoaderRoute: typeof Lp3BhkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/transactional/preview': {
       id: '/lovable/email/transactional/preview'
       path: '/lovable/email/transactional/preview'
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsDothtmlRoute: TermsDothtmlRoute,
   ThankyouDothtmlRoute: ThankyouDothtmlRoute,
   Lp2BhkRoute: Lp2BhkRoute,
+  Lp3BhkRoute: Lp3BhkRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
