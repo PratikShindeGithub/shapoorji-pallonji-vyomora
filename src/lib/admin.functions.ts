@@ -11,6 +11,8 @@ export type AdminLead = {
   email: string;
   city: string | null;
   intent: string | null;
+  interested_variant: string | null;
+  page_url: string | null;
   created_at: string;
 };
 
@@ -92,7 +94,7 @@ export const listLeads = createServerFn({ method: "POST" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data, error } = await supabaseAdmin
       .from("leads")
-      .select("id, name, mobile, email, city, intent, created_at")
+      .select("id, name, mobile, email, city, intent, interested_variant, page_url, created_at")
       .order("created_at", { ascending: false })
       .limit(1000);
     if (error) throw error;

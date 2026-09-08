@@ -11,6 +11,7 @@ const schema = z.object({
   intent: z.string().trim().max(60).optional(),
   interested_variant: z.string().trim().max(60).optional(),
   interested_in: z.string().trim().max(60).optional(),
+  page_url: z.string().trim().max(300).optional(),
 });
 
 export const submitLead = createServerFn({ method: "POST" })

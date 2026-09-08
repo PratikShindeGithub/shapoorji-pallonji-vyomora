@@ -151,6 +151,7 @@ export function LeadForm({ cta = "Submit", compact, intent, withCity, interested
               ...(payload.city ? { city: payload.city } : {}),
               ...(intent ? { intent } : {}),
               ...(interestedVariant ? { interested_variant: interestedVariant, interested_in: interestedVariant } : {}),
+              ...(typeof window !== "undefined" ? { page_url: window.location.href } : {}),
             },
           });
           onSuccess(payload, intent);

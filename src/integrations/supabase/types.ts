@@ -25,6 +25,7 @@ export type Database = {
           interested_variant: string | null
           mobile: string
           name: string
+          page_url: string | null
         }
         Insert: {
           city?: string | null
@@ -36,6 +37,7 @@ export type Database = {
           interested_variant?: string | null
           mobile: string
           name: string
+          page_url?: string | null
         }
         Update: {
           city?: string | null
@@ -47,6 +49,7 @@ export type Database = {
           interested_variant?: string | null
           mobile?: string
           name?: string
+          page_url?: string | null
         }
         Relationships: []
       }
