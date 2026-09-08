@@ -56,10 +56,11 @@ const errorsFor = (v: LeadValues, withCity?: boolean, dial = "91") => {
   return e;
 };
 
-export function LeadForm({ cta = "Submit", compact, intent, withCity, interestedVariant, variant = "line", onSuccess }: Props) {
+export function LeadForm({ cta = "Submit", compact, intent, withCity, interestedVariant, variant = "line", indianMobileOnly, onSuccess }: Props) {
   const [values, setValues] = useState<LeadValues>({ name: "", mobile: "", email: "", city: "" });
   const [errors, setErrors] = useState<Errs>({});
   const [country, setCountry] = useState(DEFAULT_COUNTRY);
+  const activeCountry = indianMobileOnly ? DEFAULT_COUNTRY : country;
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
   const send = useServerFn(submitLead);
