@@ -82,6 +82,10 @@ export type LandingOptions = {
   startingPrice?: string;
   /** Pre-filled WhatsApp message for every WhatsApp action on the page. */
   whatsappMessage?: string;
+  /** Lead form heading (mobile inline form + desktop sticky panel). */
+  formTitle?: string;
+  /** Carpet area callout shown under the starting price in the hero card. */
+  carpetAreaCallout?: string;
 };
 
 
@@ -163,6 +167,8 @@ export function VyomoraLanding({
   heroBadge,
   startingPrice,
   whatsappMessage = "Hi, I'd like details about Vyomora, Hinjawadi Phase 1.",
+  formTitle,
+  carpetAreaCallout,
 }: LandingOptions = {}) {
   const waHref = `https://wa.me/${PROJECT.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
   const pageRef = useReveal<HTMLDivElement>();
@@ -470,6 +476,11 @@ export function VyomoraLanding({
                 <p className="mt-1 font-sans text-[21px] font-bold tracking-tight text-gold sm:text-[23px]">
                   {startingPrice ?? PROJECT.startingPrice} Onwards
                 </p>
+                {carpetAreaCallout ? (
+                  <p className="mt-1 text-[13px] font-semibold tracking-wide text-muted-foreground">
+                    {carpetAreaCallout}
+                  </p>
+                ) : null}
                 <button
                   onClick={() => (heroCtaFocusesForm ? focusLeadForm() : openEnquiry("hero-card"))}
                   style={{ animationDelay: "0s, 0.3s" }}
@@ -488,7 +499,7 @@ export function VyomoraLanding({
               data-reveal-delay="120"
             >
               <h2 className="text-xl text-foreground">
-                Register here and avail the <span className="text-gold">best offers!!</span>
+                {formTitle ?? <>Register here and avail the <span className="text-gold">best offers!!</span></>}
               </h2>
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                 {"\n"}
@@ -549,6 +560,9 @@ export function VyomoraLanding({
 
 
 
+        {formTitle ? (
+          <h2 className="mt-4 text-center text-lg text-foreground">{formTitle}</h2>
+        ) : null}
         <div className="mt-4">
           <LeadForm intent="sticky-panel" variant="line" withCity cta={formCta ?? "Schedule a site visit"} {...(formVariant ? { interestedVariant: formVariant } : {})} {...(indianMobileOnly ? { indianMobileOnly: true } : {})} onSuccess={handleSuccess} />
         </div>
