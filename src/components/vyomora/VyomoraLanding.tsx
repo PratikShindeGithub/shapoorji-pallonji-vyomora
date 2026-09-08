@@ -52,6 +52,8 @@ import VirtualExperience from "@/components/vyomora/VirtualExperience";
 export type LandingOptions = {
   /** Hide the section-links nav (used by ad landing pages). */
   showNav?: boolean;
+  /** Hide only the "Home" item from the section-links nav (useful for landing pages). */
+  hideHomeNav?: boolean;
   /** Pricing rows to display. Defaults to every configuration. */
   configs?: typeof CONFIGS;
   /** Floor plans to display. Defaults to every plan. */
@@ -64,6 +66,8 @@ export type LandingOptions = {
   heading?: string;
   /** Price CTA focuses the lead form instead of opening the popup. */
   priceCtaFocusesForm?: boolean;
+  /** Render highlight values as static text instead of animated counters. */
+  staticHighlights?: boolean;
 };
 
 
@@ -130,12 +134,14 @@ function SectionHead({
 
 export function VyomoraLanding({
   showNav = true,
+  hideHomeNav = false,
   configs = CONFIGS,
   plans,
   formCta,
   interestedVariant,
   heading,
   priceCtaFocusesForm = false,
+  staticHighlights = false,
 }: LandingOptions = {}) {
   const pageRef = useReveal<HTMLDivElement>();
   const navigate = useNavigate();
@@ -227,7 +233,7 @@ export function VyomoraLanding({
             {showNav ? (
             <nav aria-label="Section navigation" className="hidden flex-1 lg:block">
               <ul className="flex items-stretch justify-end">
-                {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
+                {NAV_ITEMS.filter(({ label }) => !(hideHomeNav && label === "Home")).map(({ label, href, icon: Icon }) => (
                   <li key={label}>
                     <a
                       href={href}
@@ -331,7 +337,7 @@ export function VyomoraLanding({
           {showNav && menuOpen ? (
             <nav aria-label="Mobile navigation" className="border-t border-secondary/15 lg:hidden">
               <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 px-4 py-2 sm:px-6">
-                {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
+                {NAV_ITEMS.filter(({ label }) => !(hideHomeNav && label === "Home")).map(({ label, href, icon: Icon }) => (
                   <li key={label}>
                     <a
                       href={href}
@@ -536,7 +542,7 @@ export function VyomoraLanding({
               data-reveal-delay={i * 90}
             >
               <p className="font-display text-3xl text-primary sm:text-4xl">
-                {i === 0 && h.value === "160+" ? (
+                {i === 0 && h.value === "160+" && !staticHighlights ? (
                   <CountUp target={160} />
                 ) : (
                   h.value

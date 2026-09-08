@@ -39,13 +39,15 @@ export const Route = createFileRoute("/lp/2-bhk")({
 function TwoBhkLanding() {
   return (
     <VyomoraLanding
-      showNav={false}
+      showNav={true}
+      hideHomeNav={true}
       configs={TWO_BHK_CONFIGS}
       plans={UNIT_PLANS_2BHK}
       formCta="Request 2 BHK Cost Sheet"
       interestedVariant="2 BHK"
       heading={TITLE}
       priceCtaFocusesForm
+      staticHighlights
     />
   );
 }
