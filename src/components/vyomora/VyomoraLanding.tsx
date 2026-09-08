@@ -68,6 +68,8 @@ export type LandingOptions = {
   priceCtaFocusesForm?: boolean;
   /** Render highlight values as static text instead of animated counters. */
   staticHighlights?: boolean;
+  /** Statistic cards to display. Defaults to the standard highlights. */
+  highlights?: typeof HIGHLIGHTS;
 };
 
 
