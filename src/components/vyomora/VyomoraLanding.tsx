@@ -229,7 +229,14 @@ export function VyomoraLanding({
       <header className="fixed left-0 right-0 top-0 z-50 xl:right-[20rem]">
         <div className="border-b border-secondary/15 bg-ink/70 shadow-soft backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6">
-            <a href="#top" className="flex min-w-0 items-center py-3">
+            <a
+              href="#top"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="flex min-w-0 items-center py-3"
+            >
               <img
                 src={SP_HEADER_LOGO_URL}
                 alt="Shapoorji Pallonji Real Estate"
