@@ -17,6 +17,8 @@ type Props = {
   interestedVariant?: string;
   /** "line": underline-only fields, +91 phone prefix, centered submit */
   variant?: "boxed" | "line";
+  /** Lock the phone field to a 10-digit Indian mobile (+91). */
+  indianMobileOnly?: boolean;
   onSuccess: (values: LeadValues, intent?: string) => void;
 };
 
