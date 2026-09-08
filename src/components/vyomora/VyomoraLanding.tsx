@@ -484,7 +484,7 @@ export function VyomoraLanding({
                 {"\n"}
               </p>
               <div className="mt-5">
-                <LeadForm intent="hero" withCity {...(formCta ? { cta: formCta } : {})} {...(formVariant ? { interestedVariant: formVariant } : {})} onSuccess={handleSuccess} />
+                <LeadForm intent="hero" withCity {...(formCta ? { cta: formCta } : {})} {...(formVariant ? { interestedVariant: formVariant } : {})} {...(indianMobileOnly ? { indianMobileOnly: true } : {})} onSuccess={handleSuccess} />
               </div>
             </div>
           </div>
