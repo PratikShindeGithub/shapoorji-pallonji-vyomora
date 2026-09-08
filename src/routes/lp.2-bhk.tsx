@@ -54,7 +54,10 @@ function TwoBhkLanding() {
       interestedVariant="2 BHK"
       heading={TITLE}
       priceCtaFocusesForm
+      heroCtaLabel="Get 2 BHK Cost Sheet"
+      heroCtaFocusesForm
       staticHighlights
+      indianMobileOnly
     />
   );
 }
