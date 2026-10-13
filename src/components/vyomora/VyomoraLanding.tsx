@@ -416,7 +416,7 @@ export function VyomoraLanding({
               className="reveal w-full overflow-hidden border-y border-gold/25 bg-card text-center lg:max-w-sm lg:rounded-xl lg:border lg:bg-card/92 lg:shadow-lift lg:backdrop-blur"
               data-reveal
             >
-              <p className="eyebrow booking-open py-1.5">
+              <p className="eyebrow booking-open pt-1.5">
                 Booking Open
               </p>
               <div className="px-4 pb-4 pt-3">

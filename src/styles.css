@@ -454,14 +454,17 @@ h1, h2, h3, .font-display {
   background-size: 200% 100%;
   background-position: 0% 50%;
   color: #fff;
-  animation: shine-slide 3.5s ease-in-out infinite;
+  /* ink underlay travels with the float so no sliver shows under the strip */
+  border-bottom: 5px solid var(--ink);
+  animation: shine-slide 3.5s ease-in-out infinite, float-bob 2.2s ease-in-out infinite;
 
   &:hover {
-    animation-play-state: paused;
+    animation-play-state: paused, paused;
   }
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
     background-position: 0% 50%;
+    transform: none;
   }
 }
