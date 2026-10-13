@@ -413,7 +413,7 @@ export function VyomoraLanding({
           <div className="mx-auto grid w-full max-w-6xl gap-6 lg:gap-8">
             {/* Reference-style project fact card */}
             <div
-              className="reveal w-full overflow-hidden border-y border-gold/25 bg-card text-center lg:max-w-sm lg:rounded-xl lg:border lg:bg-card/92 lg:shadow-lift lg:backdrop-blur"
+              className="reveal booking-card w-full overflow-hidden border-y border-gold/25 bg-card text-center lg:max-w-sm lg:rounded-xl lg:border lg:bg-card/92 lg:shadow-lift lg:backdrop-blur"
               data-reveal
             >
               <p className="eyebrow booking-open py-1.5">
