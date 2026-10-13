@@ -501,6 +501,50 @@ h1, h2, h3, .font-display {
   }
 }
 
+/* A stationary information strip with a 1.4s reflection every 4.5s. */
+@keyframes information-shine-sweep {
+  0% { transform: translateX(-130%) skewX(-25deg); }
+  31%, 100% { transform: translateX(130%) skewX(-25deg); }
+}
+
+@utility information-shine {
+  position: relative;
+  overflow: hidden;
+  animation: none;
+  transform: none;
+  filter: none;
+  background-position: 0% 50%;
+
+  &::after {
+    content: none;
+    animation: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -50% 0;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent 40%,
+      color-mix(in oklab, var(--gold-foreground) 16%, transparent) 46%,
+      color-mix(in oklab, var(--gold-foreground) 42%, transparent) 50%,
+      color-mix(in oklab, var(--accent) 22%, transparent) 54%,
+      transparent 60%
+    );
+    transform: translateX(-130%) skewX(-25deg);
+    animation: information-shine-sweep 4.5s linear var(--shine-delay, 0.4s) infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::before {
+      content: none;
+      animation: none;
+    }
+  }
+}
+
 /* Sticky mobile dock: shimmer only — a bobbing dock would open a gap at the
    screen edge, so its buttons stay put (scoped so it wins over .shine-bar). */
 @utility sticky-dock {

@@ -461,8 +461,8 @@ export function VyomoraLanding({
                   {HERO_STRIPS.map((s, i) => (
                     <p
                       key={s}
-                      style={{ ["--sheen-delay" as string]: `${i * 0.5}s` }}
-                      className="offer-box rounded-sm px-2.5 py-1.5 text-center text-[11px] font-semibold tracking-normal"
+                      style={{ ["--shine-delay" as string]: `${0.4 + i * 0.3}s` }}
+                      className="offer-box information-shine rounded-sm px-2.5 py-1.5 text-center text-[11px] font-semibold tracking-normal"
                     >
                       {s}
                     </p>
