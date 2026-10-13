@@ -373,15 +373,18 @@ h1, h2, h3, .font-display {
   background-size: 200% 100%;
   background-position: 0% 50%;
   box-shadow: 0 4px 18px rgba(86, 67, 111, 0.25);
-  animation: hero-cta-shift 3s ease-in-out 750ms infinite;
+  animation:
+    hero-cta-shift 3s ease-in-out 750ms infinite, float-bob 2.2s ease-in-out infinite;
 
   &:hover {
-    animation: hero-blink 0.9s ease-in-out infinite;
+    animation:
+      hero-blink 0.9s ease-in-out infinite, float-bob 2.2s ease-in-out infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
     background-position: 0% 50%;
+    transform: none;
 
     &:hover {
       animation: none;
@@ -400,15 +403,16 @@ h1, h2, h3, .font-display {
   background: linear-gradient(90deg, #4a3a5c, #8b7a99, #4a3a5c, #8b7a99);
   background-size: 300% 100%;
   color: #fff;
-  animation: shine-slide 3.5s ease-in-out infinite;
+  animation: shine-slide 3.5s ease-in-out infinite, float-bob 2.2s ease-in-out infinite;
 
   &:hover {
-    animation-play-state: paused;
+    animation-play-state: paused, paused;
   }
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
     background-position: 0% 50%;
+    transform: none;
   }
 }
 
@@ -436,6 +440,20 @@ h1, h2, h3, .font-display {
     animation: none;
     background-position: 0% 50%;
     transform: none;
+  }
+}
+
+/* Sticky mobile dock: shimmer only — a bobbing dock would open a gap at the
+   screen edge, so its buttons stay put (scoped so it wins over .shine-bar). */
+@utility sticky-dock {
+  & .shine-bar {
+    animation: shine-slide 3.5s ease-in-out infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      background-position: 0% 50%;
+      transform: none;
+    }
   }
 }
 
