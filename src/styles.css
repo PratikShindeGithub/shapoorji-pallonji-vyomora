@@ -441,7 +441,21 @@ h1, h2, h3, .font-display {
 
 
 
-/* ---------- Booking Open strip: header colour, white text, colour-only shimmer ---------- */
+/* ---------- Booking Open card: same float the CTA boxes have ---------- */
+@utility booking-card {
+  animation: float-bob 2.2s ease-in-out 800ms infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* ---------- Booking Open strip: header colour, white text, colour shimmer ---------- */
 @utility booking-open {
   background-image: linear-gradient(
     90deg,
@@ -457,11 +471,12 @@ h1, h2, h3, .font-display {
   animation: shine-slide 3.5s ease-in-out infinite;
 
   &:hover {
-    animation-play-state: paused;
+    animation-play-state: paused, paused;
   }
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
     background-position: 0% 50%;
+    transform: none;
   }
 }
