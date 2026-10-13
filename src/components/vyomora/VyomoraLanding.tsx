@@ -1094,7 +1094,7 @@ export function VyomoraLanding({
       </div>
 
       {/* Sticky mobile bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-border bg-card/95 backdrop-blur lg:hidden">
+      <div className="sticky-dock fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-border bg-card/95 backdrop-blur lg:hidden">
         <button
           onClick={() =>
             openEnquiry("mobile-brochure", "Send Brochure", "Download the brochure", "The complete Vyomora brochure will reach your email and WhatsApp instantly.")
