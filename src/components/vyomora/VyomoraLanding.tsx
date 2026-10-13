@@ -461,7 +461,7 @@ export function VyomoraLanding({
                   {HERO_STRIPS.map((s, i) => (
                     <p
                       key={s}
-                      style={{ animationDelay: `0s, ${i * 0.2}s` }}
+                      style={{ animationDelay: `0s, ${i * 0.2}s`, ["--sheen-delay" as string]: `${i * 0.45}s` }}
                       className="offer-box rounded-sm px-2.5 py-1.5 text-center text-[11px] font-semibold tracking-normal"
                     >
                       {s}
@@ -483,7 +483,7 @@ export function VyomoraLanding({
                 ) : null}
                 <button
                   onClick={() => (heroCtaFocusesForm ? focusLeadForm() : openEnquiry("hero-card"))}
-                  style={{ animationDelay: "0s, 0.3s" }}
+                  style={{ animationDelay: "0s, 0.3s", ["--sheen-delay" as string]: "1.35s" }}
                   className="offer-box mt-4 w-full rounded-md py-2 text-center text-sm font-bold"
                 >
                   {heroCtaLabel ?? "Enquire Now"}
