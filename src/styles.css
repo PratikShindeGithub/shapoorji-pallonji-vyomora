@@ -482,7 +482,7 @@ h1, h2, h3, .font-display {
   }
 
   &:hover {
-    animation-play-state: paused, paused;
+    animation-play-state: paused, paused, paused;
 
     &::after {
       animation-play-state: paused;
