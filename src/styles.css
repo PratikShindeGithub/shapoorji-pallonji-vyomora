@@ -501,7 +501,7 @@ h1, h2, h3, .font-display {
   }
 }
 
-/* A stationary information strip with a 1.4s reflection every 4.5s. */
+/* Information strips with a gentle bounce and a 1.4s reflection every 4.5s. */
 @keyframes information-shine-sweep {
   0% { transform: translateX(-130%) skewX(-25deg); }
   31%, 100% { transform: translateX(130%) skewX(-25deg); }
@@ -510,7 +510,7 @@ h1, h2, h3, .font-display {
 @utility information-shine {
   position: relative;
   overflow: hidden;
-  animation: none;
+  animation: float-bob 2.2s ease-in-out infinite;
   transform: none;
   filter: none;
   background-position: 0% 50%;
@@ -538,6 +538,9 @@ h1, h2, h3, .font-display {
   }
 
   @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transform: none;
+
     &::before {
       content: none;
       animation: none;
