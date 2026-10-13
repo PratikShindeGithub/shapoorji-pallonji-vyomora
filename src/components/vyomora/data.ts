@@ -22,7 +22,7 @@ export const CONFIGS = [
   {
     type: "2 BHK luxury",
     area: "685 - 750 sq.ft.",
-    price: "₹88 L*",
+    price: "₹90 L*",
     notes: ["Wide living-dining", "Dry balcony", "Tower-facing garden view"],
   },
   {
