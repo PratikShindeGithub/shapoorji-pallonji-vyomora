@@ -438,13 +438,32 @@ h1, h2, h3, .font-display {
   }
 }
 
+/* Cascading glow pulse — each strip flashes brighter in turn, top to bottom,
+   matching the reference video. Staggered via --sheen-delay. */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  10% {
+    filter: brightness(1.5);
+  }
+  22% {
+    filter: brightness(1);
+  }
+}
+
 @utility offer-box {
   position: relative;
   overflow: hidden;
   background: linear-gradient(90deg, #4a3a5c, #8b7a99, #4a3a5c, #8b7a99);
   background-size: 300% 100%;
   color: #fff;
-  animation: shine-slide 3.5s ease-in-out infinite, float-bob 2.2s ease-in-out infinite;
+  animation:
+    shine-slide 3.5s ease-in-out infinite,
+    float-bob 2.2s ease-in-out infinite,
+    glow-pulse 3s ease-in-out infinite;
+  animation-delay: 0s, 0s, var(--sheen-delay, 0s);
 
   &::after {
     content: "";
