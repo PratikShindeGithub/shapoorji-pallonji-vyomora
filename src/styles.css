@@ -426,20 +426,59 @@ h1, h2, h3, .font-display {
   }
 }
 
+/* Bright light band sweeping across, like the reference video strips.
+   Per-element stagger via the --sheen-delay custom property. */
+@keyframes sheen-sweep {
+  0% {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+  55%,
+  100% {
+    transform: translateX(130%) skewX(-18deg);
+  }
+}
+
 @utility offer-box {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(90deg, #4a3a5c, #8b7a99, #4a3a5c, #8b7a99);
   background-size: 300% 100%;
   color: #fff;
   animation: shine-slide 3.5s ease-in-out infinite, float-bob 2.2s ease-in-out infinite;
 
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 32%,
+      rgb(255 255 255 / 0.5) 50%,
+      transparent 68%
+    );
+    transform: translateX(-130%) skewX(-18deg);
+    animation: sheen-sweep 3s ease-in-out infinite;
+    animation-delay: var(--sheen-delay, 0s);
+  }
+
   &:hover {
     animation-play-state: paused, paused;
+
+    &::after {
+      animation-play-state: paused;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
     background-position: 0% 50%;
     transform: none;
+
+    &::after {
+      animation: none;
+      content: none;
+    }
   }
 }
 
