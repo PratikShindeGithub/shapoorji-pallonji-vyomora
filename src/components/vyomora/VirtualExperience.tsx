@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Play } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 import sampleApartment from "@/assets/vyomora-living-dining.jpg.asset.json";
 import siteTour from "@/assets/vyomora-tower-exterior.jpg.asset.json";
@@ -36,8 +36,6 @@ const EXPERIENCES: Experience[] = [
 ];
 
 export default function VirtualExperience({ onEnquire }: Props) {
-  const [playing, setPlaying] = useState<string | null>(null);
-
   return (
     <section
       id="experience"
@@ -61,54 +59,40 @@ export default function VirtualExperience({ onEnquire }: Props) {
         <div className="mt-10 grid gap-6 sm:gap-8 md:grid-cols-2">
           {EXPERIENCES.map((item, i) => (
             <div key={item.id} className="reveal" data-reveal data-reveal-delay={i * 120}>
-              {playing === item.id && item.video ? (
-                <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-black shadow-lift">
-                  <video
-                    className="absolute inset-0 h-full w-full bg-black object-cover"
-                    src={item.video}
-                    poster={item.thumb}
-                    controls
-                    autoPlay
-                    playsInline
-                    preload="metadata"
-                    aria-label={`${item.title} walkthrough video`}
-                  />
-                </div>
-              ) : (
-                <button
+                <Button
                   type="button"
+                  variant="ghost"
                   onClick={() =>
-                    item.video
-                      ? setPlaying(item.id)
-                      : onEnquire(
+                    onEnquire(
                           item.id,
                           "Submit Enquiry",
-                          `Watch the ${item.title.toLowerCase()} video`,
-                          "Share your details and our sales desk will share the video walkthrough with you right away.",
+                          `Enquire about the ${item.title.toLowerCase()}`,
+                          "Share your details and our sales desk will contact you with more information.",
                         )
                   }
-                  aria-label={
-                    item.video
-                      ? `Play the ${item.title} walkthrough video`
-                      : `Enquire to watch the ${item.title} video`
-                  }
-                  className="group relative aspect-video w-full overflow-hidden rounded-xl shadow-soft transition duration-500 hover:scale-[1.015] hover:shadow-lift motion-reduce:transform-none motion-reduce:transition-none"
+                  aria-label={`Enquire about the ${item.title}`}
+                  className="group relative aspect-video h-auto w-full overflow-hidden rounded-xl p-0 shadow-soft transition duration-500 hover:scale-[1.015] hover:shadow-lift motion-reduce:transform-none motion-reduce:transition-none"
                 >
-                  <img
-                    src={item.thumb}
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transform-none motion-reduce:transition-none"
+                  <video
+                    src={item.video}
+                    poster={item.thumb}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    aria-hidden="true"
+                    tabIndex={-1}
+                    className="pointer-events-none absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transform-none motion-reduce:transition-none"
                   />
                   <span
-                    className="absolute inset-0 bg-black/30 transition-colors duration-500 group-hover:bg-black/40 motion-reduce:transition-none"
+                    className="absolute inset-0 bg-ink/30 transition-colors duration-500 group-hover:bg-ink/40 motion-reduce:transition-none"
                     aria-hidden="true"
                   />
 
                   <span
                     aria-hidden="true"
-                    className="absolute left-1/2 top-[40%] grid h-[76px] w-[76px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white shadow-lift transition-transform duration-300 group-hover:scale-[1.08] motion-reduce:transform-none motion-reduce:transition-none sm:h-[110px] sm:w-[110px] lg:h-[130px] lg:w-[130px]"
+                    className="absolute left-1/2 top-[40%] grid h-[76px] w-[76px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-primary-foreground shadow-lift transition-transform duration-300 group-hover:scale-[1.08] motion-reduce:transform-none motion-reduce:transition-none sm:h-[110px] sm:w-[110px] lg:h-[130px] lg:w-[130px]"
                   >
                     <Play
                       className="ml-1 h-7 w-7 text-primary sm:h-10 sm:w-10 lg:h-12 lg:w-12"
@@ -119,14 +103,12 @@ export default function VirtualExperience({ onEnquire }: Props) {
 
                   <span className="absolute inset-x-4 bottom-6 block text-center transition-transform duration-500 group-hover:-translate-y-1.5 motion-reduce:transform-none motion-reduce:transition-none sm:bottom-8">
                     <span
-                      className="block truncate font-display text-[clamp(1.25rem,4vw,2.5rem)] font-medium tracking-wide text-white uppercase"
-                      style={{ textShadow: "0 2px 16px rgba(0,0,0,0.45)" }}
+                      className="block truncate font-display text-xl font-medium text-primary-foreground uppercase sm:text-3xl lg:text-4xl"
                     >
                       {item.title}
                     </span>
                   </span>
-                </button>
-              )}
+                </Button>
             </div>
           ))}
         </div>
