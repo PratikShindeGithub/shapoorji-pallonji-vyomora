@@ -4,6 +4,7 @@ import { Play } from "lucide-react";
 import sampleApartment from "@/assets/vyomora-living-dining.jpg.asset.json";
 import siteTour from "@/assets/vyomora-tower-exterior.jpg.asset.json";
 import sampleApartmentVideo from "@/assets/vyomora-sample-apartment-walkthrough.mp4.asset.json";
+import siteTourVideo from "@/assets/vyomora-virtual-site-tour.mp4.asset.json";
 
 type Props = {
   onEnquire: (intent: string, cta?: string, title?: string, copy?: string) => void;
@@ -30,6 +31,7 @@ const EXPERIENCES: Experience[] = [
     title: "Virtual Site Tour",
     subtitle: "Vyomora — Hinjawadi Phase 1, Pune",
     thumb: siteTour.url,
+    video: siteTourVideo.url,
   },
 ];
 
