@@ -92,14 +92,15 @@ export default function VirtualExperience({ onEnquire }: Props) {
 
                   <span
                     aria-hidden="true"
-                    className="absolute left-1/2 top-[40%] grid h-[76px] w-[76px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-primary-foreground shadow-lift transition-transform duration-300 group-hover:scale-[1.08] motion-reduce:transform-none motion-reduce:transition-none sm:h-[110px] sm:w-[110px] lg:h-[130px] lg:w-[130px]"
+                    className="absolute left-1/2 top-[40%] grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-primary-foreground shadow-lift transition-transform duration-300 group-hover:scale-[1.08] motion-reduce:transform-none motion-reduce:transition-none sm:h-14 sm:w-14 lg:h-16 lg:w-16"
                   >
                     <Play
-                      className="ml-1 h-7 w-7 text-primary sm:h-10 sm:w-10 lg:h-12 lg:w-12"
+                      className="ml-0.5 h-4 w-4 text-primary sm:h-5 sm:w-5 lg:h-6 lg:w-6"
                       fill="currentColor"
                       strokeWidth={0}
                     />
                   </span>
+
 
                   <span className="absolute inset-x-4 bottom-6 block text-center transition-transform duration-500 group-hover:-translate-y-1.5 motion-reduce:transform-none motion-reduce:transition-none sm:bottom-8">
                     <span
