@@ -35,9 +35,9 @@ export const HERO_STRIPS = [
 ];
 
 export const PROMISES = [
-  { icon: Headphones, label: "Call Back Assistance" },
-  { icon: CarFront, label: "Site Visit Assistance" },
-  { icon: BadgeIndianRupee, label: "Pricing Information" },
+  { icon: Headphones, label: "Instant Call Back" },
+  { icon: CarFront, label: "Free Site Visit" },
+  { icon: BadgeIndianRupee, label: "Unmatched Price" },
 ];
 
-export const AVAILABILITY = ["Available Residences", "Pricing & Payment Details", "Floor Plans"];
+export const AVAILABILITY = ["Available Units", "Payment Plan", "Floor Plans"];
