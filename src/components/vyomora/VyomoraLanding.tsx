@@ -285,7 +285,7 @@ export function VyomoraLanding({
                     }
                     className="inline-flex h-full items-center gap-1.5 px-3 py-5 text-[13px] font-semibold tracking-wide text-secondary/85 transition hover:text-gold"
                   >
-                    <Download className="icon-nudge h-4 w-4 text-gold" /> Download Brochure
+                    <Download className="icon-nudge h-6 w-6 text-gold" /> Download Brochure
                   </button>
                 </li>
               </ul>
