@@ -1149,7 +1149,7 @@ export function VyomoraLanding({
             </button>
             <div className="grid md:grid-cols-[0.55fr_1fr_0.7fr]">
               <div className="hidden flex-col items-center gap-3 bg-muted/50 px-3 py-4 text-center md:flex">
-                <p className="font-display text-base text-primary">We Promise</p>
+                <p className="font-display text-base text-primary">We Offer</p>
                 {PROMISES.map(({ icon: Icon, label }) => (
                   <div key={label} className="space-y-1">
                     <span className="shine-bar mx-auto grid h-14 w-14 place-items-center rounded-full">
@@ -1160,20 +1160,8 @@ export function VyomoraLanding({
                 ))}
               </div>
               <div className="px-4 py-3">
-                <div className="flex flex-col items-center">
-                  <div className="flex items-center">
-                    <img
-                      src={SP_LOGO_URL}
-                      alt="Shapoorji Pallonji"
-                      width={260}
-                      height={145}
-                      className="h-9 w-auto object-contain"
-                    />
-                  </div>
-                </div>
-                <p className="mt-1.5 text-center font-display text-sm leading-snug text-foreground">
-                  Register here and avail the{" "}
-                  <span className="text-gold">best offers!!</span>
+                <p className="text-center font-display text-lg uppercase tracking-wide text-gold">
+                  Shapoorji Pallonji Vyomora
                 </p>
 
                 <div className="mt-1.5">
@@ -1190,10 +1178,10 @@ export function VyomoraLanding({
               </div>
               <div className="hidden flex-col gap-3 bg-ink px-4 py-4 text-secondary md:flex">
                 <p className="text-center font-display text-base leading-snug">
-                  Get Information On Availabilities
+                  Get Information On Availability
                 </p>
                 <ul className="mt-0.5 space-y-2.5">
-                  {["Available Units", "Payment Plan", "Floor Plans"].map((item) => (
+                  {AVAILABILITY.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm font-semibold">
                       <CheckCircle2 className="h-4 w-4 shrink-0 text-gold" />
                       {item}
