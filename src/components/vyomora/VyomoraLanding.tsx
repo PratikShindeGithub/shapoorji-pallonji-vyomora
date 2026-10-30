@@ -1134,7 +1134,7 @@ export function VyomoraLanding({
           }}
         >
           <div
-            className="animate-scale-in relative w-full max-w-4xl overflow-hidden rounded-lg bg-card shadow-lift"
+            className="animate-scale-in relative w-full max-w-2xl overflow-hidden rounded-lg bg-card shadow-lift"
             onClick={(e) => e.stopPropagation()}
           >
             <button
