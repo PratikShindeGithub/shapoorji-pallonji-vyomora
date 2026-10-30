@@ -2,7 +2,7 @@ export const PROJECT = {
   name: "Vyomora",
   tagline: "A 25-acre township rising in Hinjawadi Phase 1",
   location: "Hinjawadi Phase 1, Pune",
-  startingPrice: "₹90 Lakhs*",
+  startingPrice: "₹97 Lakhs ",
   reraNote: "\n",
   phone: "+919175892774",
   phoneDisplay: "+91 91758 92774",
@@ -21,8 +21,8 @@ export const HIGHLIGHTS = [
 export const CONFIGS = [
   {
     type: "2 BHK luxury",
-    area: "685 - 750 sq.ft.",
-    price: "₹90 L*",
+    area: "749 sq.ft.",
+    price: "₹97 L",
     notes: ["Wide living-dining", "Dry balcony", "Tower-facing garden view"],
   },
   {
