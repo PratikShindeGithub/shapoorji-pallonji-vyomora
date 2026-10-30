@@ -1190,7 +1190,7 @@ export function VyomoraLanding({
                   />
                 </div>
               </div>
-              <div className="hidden flex-col gap-3 bg-ink px-4 py-4 text-secondary md:flex">
+              <div className="flex flex-col gap-3 bg-ink px-4 py-4 text-secondary">
                 <p className="text-center font-display text-base leading-snug">
                   Get Information On Availabilities
                 </p>
