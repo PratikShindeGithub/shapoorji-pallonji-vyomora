@@ -33,6 +33,7 @@ import {
   PROJECT,
 } from "@/components/vyomora/data";
 import {
+  AVAILABILITY,
   HERO_FACTS,
   HERO_STRIPS,
   NAV_ITEMS,
