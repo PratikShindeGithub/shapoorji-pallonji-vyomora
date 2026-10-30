@@ -1148,16 +1148,18 @@ export function VyomoraLanding({
               <X className="h-4 w-4" />
             </button>
             <div className="grid md:grid-cols-[0.55fr_1fr_0.7fr]">
-              <div className="hidden flex-col items-center gap-3 bg-muted/50 px-3 py-4 text-center md:flex">
-                <p className="font-display text-base text-primary">We Promise</p>
-                {PROMISES.map(({ icon: Icon, label }) => (
-                  <div key={label} className="space-y-1">
-                    <span className="shine-bar mx-auto grid h-14 w-14 place-items-center rounded-full">
-                      <Icon className="h-7 w-7" />
-                    </span>
-                    <p className="text-xs font-semibold leading-tight text-foreground">{label}</p>
-                  </div>
-                ))}
+              <div className="flex flex-col items-center gap-3 bg-muted/50 px-3 py-4 text-center">
+                <p className="font-display text-base text-primary">We Offer</p>
+                <div className="flex w-full items-start justify-center gap-6 md:flex-col md:gap-3">
+                  {PROMISES.map(({ icon: Icon, label }) => (
+                    <div key={label} className="space-y-1">
+                      <span className="shine-bar mx-auto grid h-14 w-14 place-items-center rounded-full">
+                        <Icon className="h-7 w-7" />
+                      </span>
+                      <p className="text-xs font-semibold leading-tight text-foreground">{label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className="px-4 py-3">
                 <div className="flex flex-col items-center">
