@@ -8,9 +8,6 @@ export type LeadInput = {
   page_url?: string | undefined;
 };
 
-const SITE_ORIGIN = "https://shapoorjipallonjivyomora.site";
-const FLOOR_PLAN_PATH =
-  "/__l5e/assets-v1/818277c5-5381-41df-b296-6ff6ed19dbf1/vyomora-floor-plans.pdf";
 
 export async function saveLead(input: LeadInput) {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -37,7 +34,8 @@ export async function markLeadEmailed(id: string) {
 }
 
 /**
- * Emails the sales desk with the lead details and sends the lead their floor plans.
+ * Emails the sales desk with the lead details. The customer receives no
+ * email — brochure and floor plans are never sent to them.
  * Never throws — a failed email must not fail the form submission.
  */
 export async function sendLeadEmails(id: string, input: LeadInput) {
@@ -63,18 +61,6 @@ export async function sendLeadEmails(id: string, input: LeadInput) {
     } catch (error) {
       console.error("lead notification email failed", error);
     }
-  }
-
-  try {
-    await sendTemplateEmail("lead-floor-plan", input.email, {
-      templateData: {
-        name: input.name.split(" ")[0] ?? input.name,
-        floorPlanUrl: `${SITE_ORIGIN}${FLOOR_PLAN_PATH}`,
-      },
-      idempotencyKey: `lead-floor-plan-${id}`,
-    });
-  } catch (error) {
-    console.error("lead floor plan email failed", error);
   }
 
   if (emailed) await markLeadEmailed(id);
