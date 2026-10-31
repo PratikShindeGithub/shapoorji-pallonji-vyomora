@@ -2,6 +2,7 @@ import type { ComponentType } from 'react'
 
 import { template as leadNotificationTemplate } from './lead-notification'
 import { template as leadFloorPlanTemplate } from './lead-floor-plan'
+import { template as leadAcknowledgmentTemplate } from './lead-acknowledgment'
 
 export interface TemplateEntry {
   component: ComponentType<any>
@@ -19,4 +20,5 @@ export interface TemplateEntry {
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'lead-notification': leadNotificationTemplate,
   'lead-floor-plan': leadFloorPlanTemplate,
+  'lead-acknowledgment': leadAcknowledgmentTemplate,
 }
