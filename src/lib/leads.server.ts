@@ -34,8 +34,8 @@ export async function markLeadEmailed(id: string) {
 }
 
 /**
- * Emails the sales desk with the lead details. The customer receives no
- * email — brochure and floor plans are never sent to them.
+ * Emails the sales desk with the lead details, and sends the customer a
+ * simple acknowledgment. Brochure and floor plans are never emailed.
  * Never throws — a failed email must not fail the form submission.
  */
 export async function sendLeadEmails(id: string, input: LeadInput) {
@@ -61,6 +61,18 @@ export async function sendLeadEmails(id: string, input: LeadInput) {
     } catch (error) {
       console.error("lead notification email failed", error);
     }
+  }
+
+  try {
+    await sendTemplateEmail("lead-acknowledgment", input.email, {
+      templateData: {
+        name: input.name,
+        interestedVariant: input.interested_variant ?? "",
+      },
+      idempotencyKey: `lead-acknowledgment-${id}`,
+    });
+  } catch (error) {
+    console.error("lead acknowledgment email failed", error);
   }
 
   if (emailed) await markLeadEmailed(id);
