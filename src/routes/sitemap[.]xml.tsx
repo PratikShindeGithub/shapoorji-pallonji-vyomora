@@ -10,6 +10,10 @@ export const Route = createFileRoute("/sitemap.xml")({
           `${BASE_URL}/`,
           `${BASE_URL}/privacy-policy.html`,
           `${BASE_URL}/terms.html`,
+          `${BASE_URL}/lp/2-bhk`,
+          `${BASE_URL}/lp/3-bhk`,
+          `${BASE_URL}/lp/3-bhk-duplex`,
+          `${BASE_URL}/lp/4-bhk`,
         ];
 
         const xml = `<?xml version="1.0" encoding="UTF-8"?>

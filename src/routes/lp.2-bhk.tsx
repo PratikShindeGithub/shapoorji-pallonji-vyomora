@@ -17,7 +17,6 @@ export const Route = createFileRoute("/lp/2-bhk")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
-      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: "https://shapoorjipallonjivyomora.site/lp/2-bhk" },
