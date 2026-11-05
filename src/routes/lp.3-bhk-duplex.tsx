@@ -7,9 +7,10 @@ import { HERO_SLIDES } from "@/components/vyomora/logo";
 
 const DUPLEX_CONFIGS = CONFIGS.filter((c) => c.type === "3 BHK Duplex");
 
-const TITLE = "Shapoorji Pallonji Vyomora – Exclusive 3 BHK Duplex in Hinjawadi Phase 1";
+const HEADING = "Shapoorji Pallonji Vyomora – Exclusive 3 BHK Duplex in Hinjawadi Phase 1";
+const TITLE = "Shapoorji Pallonji Vyomora | 3 BHK Duplex, 1,467 sq.ft. | ₹1.96 Cr Onwards";
 const DESCRIPTION =
-  "Exclusive 3 BHK Duplex residences at Shapoorji Pallonji Vyomora, Hinjawadi Phase 1, Pune. 1,467 sq.ft. carpet, ₹1.96 Cr* onwards. Request exclusive duplex cost sheet.";
+  "Exclusive 3 BHK Duplex at Shapoorji Pallonji Vyomora, Hinjawadi Phase 1, Pune. 1,467 sq.ft. carpet area, ₹1.96 Cr onwards. Request your duplex cost sheet.";
 
 export const Route = createFileRoute("/lp/3-bhk-duplex")({
   component: DuplexLanding,
@@ -56,7 +57,7 @@ function DuplexLanding() {
       formCta="Request Duplex All-Inclusive Cost Sheet"
       formTitle="Request 3 BHK Duplex Cost Sheet & Layouts"
       interestedVariant="3 BHK Duplex"
-      heading={TITLE}
+      heading={HEADING}
       heroBadge="Exclusive 3 BHK Duplex Penthouses"
       startingPrice="₹1.96 Cr*"
       carpetAreaCallout="1,467 Sq. Ft. Carpet Area"
