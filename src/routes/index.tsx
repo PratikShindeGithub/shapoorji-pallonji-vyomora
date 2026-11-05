@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Explore Shapoorji Pallonji Vyomora at Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK apartments starting ₹88 L*. Minutes from Hinjewadi IT Park.",
+          "Explore Shapoorji Pallonji Vyomora at Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK apartments starting ₹97 L*. Minutes from Hinjewadi IT Park.",
       },
       {
         property: "og:title",
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Explore Shapoorji Pallonji Vyomora at Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK apartments starting ₹88 L*. Minutes from Hinjewadi IT Park.",
+          "Explore Shapoorji Pallonji Vyomora at Hinjawadi Phase 1, Pune. Premium 2 & 3 BHK apartments starting ₹97 L*. Minutes from Hinjewadi IT Park.",
       },
       { property: "og:url", content: "https://shapoorjipallonjivyomora.site/" },
     ],
