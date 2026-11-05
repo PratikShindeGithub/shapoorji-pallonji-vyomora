@@ -7,9 +7,10 @@ import { HERO_SLIDES } from "@/components/vyomora/logo";
 
 const TWO_BHK_CONFIGS = CONFIGS.filter((c) => c.type.startsWith("2 BHK"));
 
-const TITLE = "Shapoorji Pallonji Vyomora – Luxury 2 BHK Apartments in Hinjawadi Phase 1";
+const HEADING = "Shapoorji Pallonji Vyomora – Luxury 2 BHK Apartments in Hinjawadi Phase 1";
+const TITLE = "Shapoorji Pallonji Vyomora | 2 BHK, 749–839 sq.ft. | ₹97 L Onwards";
 const DESCRIPTION =
-  "Luxury 2 BHK apartments at Shapoorji Pallonji Vyomora, Hinjawadi Phase 1, Pune. 685 - 839 sq.ft. carpet, ₹88 L* onwards. Request your 2 BHK cost sheet.";
+  "Shapoorji Pallonji Vyomora, Hinjawadi Phase 1, Pune: 2 BHK Luxury, 749 sq.ft., ₹97 L onwards; Grand, 779–839 sq.ft., ₹1 Cr onwards. Carpet areas. Enquire now.";
 
 export const Route = createFileRoute("/lp/2-bhk")({
   component: TwoBhkLanding,
@@ -19,7 +20,11 @@ export const Route = createFileRoute("/lp/2-bhk")({
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "https://shapoorjipallonjivyomora.site/lp/2-bhk" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
     ],
     links: [
       {
@@ -51,7 +56,7 @@ function TwoBhkLanding() {
       highlights={TWO_BHK_HIGHLIGHTS}
       formCta="Request 2 BHK All-Inclusive Cost Sheet"
       interestedVariant="2 BHK"
-      heading={TITLE}
+      heading={HEADING}
       priceCtaFocusesForm
       heroCtaLabel="Get 2 BHK Cost Sheet"
       heroCtaFocusesForm

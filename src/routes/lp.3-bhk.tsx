@@ -9,9 +9,10 @@ const THREE_BHK_CONFIGS = CONFIGS.filter(
   (c) => c.type === "3 BHK Premium" || c.type === "3 BHK Imperial",
 );
 
-const TITLE = "Shapoorji Pallonji Vyomora \n Luxury 3 BHK Apartments in Hinjawadi Phase 1";
+const HEADING = "Shapoorji Pallonji Vyomora \n Luxury 3 BHK Apartments in Hinjawadi Phase 1";
+const TITLE = "Shapoorji Pallonji Vyomora | 3 BHK, 1,050–1,186 sq.ft. | ₹1.36 Cr Onwards";
 const DESCRIPTION =
-  "Luxury 3 BHK residences at Shapoorji Pallonji Vyomora, Hinjawadi Phase 1, Pune. 1,050 - 1,186 sq.ft. carpet, ₹1.36 Cr* onwards. Request 3 BHK cost sheet.";
+  "Shapoorji Pallonji Vyomora, Hinjawadi Phase 1, Pune: 3 BHK Premium, 1,050–1,091 sq.ft., ₹1.36 Cr onwards; Imperial, 1,186 sq.ft., ₹1.54 Cr onwards. Carpet areas.";
 
 export const Route = createFileRoute("/lp/3-bhk")({
   component: ThreeBhkLanding,
@@ -57,7 +58,7 @@ function ThreeBhkLanding() {
       highlights={THREE_BHK_HIGHLIGHTS}
       formCta="Request 3 BHK All-Inclusive Cost Sheet"
       interestedVariant="3 BHK"
-      heading={TITLE}
+      heading={HEADING}
       heroBadge="Exclusive 3 BHK Apartments"
       startingPrice="₹1.36 Cr*"
       whatsappMessage="Hi, I'd like details about 3 BHK at Vyomora, Hinjawadi Phase 1."

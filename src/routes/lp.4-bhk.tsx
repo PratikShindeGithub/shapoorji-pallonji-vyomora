@@ -7,9 +7,10 @@ import { HERO_SLIDES } from "@/components/vyomora/logo";
 
 const FOUR_BHK_CONFIGS = CONFIGS.filter((c) => c.type.startsWith("4 BHK"));
 
-const TITLE = "Shapoorji Pallonji Vyomora – Palatial 4 BHK Residences in Hinjawadi Phase 1";
+const HEADING = "Shapoorji Pallonji Vyomora – Palatial 4 BHK Residences in Hinjawadi Phase 1";
+const TITLE = "Shapoorji Pallonji Vyomora | 4 BHK, 1,382–2,356 sq.ft. | ₹1.84 Cr Onwards";
 const DESCRIPTION =
-  "Palatial 4 BHK luxury residences at Shapoorji Pallonji Vyomora, Hinjawadi Phase 1, Pune. 1,382 - 2,356 sq.ft. carpet, ₹1.84 Cr* onwards. Request exclusive 4 BHK cost sheet.";
+  "Shapoorji Pallonji Vyomora, Hinjawadi Phase 1, Pune: 4 BHK Luxury, 1,382–1,691 sq.ft., ₹1.84 Cr onwards; Grand, 2,115–2,356 sq.ft., ₹2.84 Cr onwards. Carpet areas.";
 
 export const Route = createFileRoute("/lp/4-bhk")({
   component: FourBhkLanding,
@@ -56,7 +57,7 @@ function FourBhkLanding() {
       formCta="Request 4 BHK All-Inclusive Cost Sheet"
       formTitle="Request 4 BHK Cost Sheet & Floor Plans"
       interestedVariant="4 BHK"
-      heading={TITLE}
+      heading={HEADING}
       heroBadge="Exclusive 4 BHK Luxury & Grand Residences"
       startingPrice="₹1.84 Cr*"
       carpetAreaCallout="1,382 – 2,356 Sq. Ft. Carpet Area"
