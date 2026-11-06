@@ -1,7 +1,6 @@
-/// <reference types="bun" />
 import { beforeEach, expect, mock, test } from "bun:test";
 
-const send = mock(async (..._args: unknown[]) => ({ sent: true }));
+const send = mock(async (..._args) => ({ sent: true }));
 const eq = mock(async () => ({}));
 mock.module("@/lib/email-templates/send-email", () => ({ sendTemplateEmail: send }));
 mock.module("@/integrations/supabase/client.server", () => ({
