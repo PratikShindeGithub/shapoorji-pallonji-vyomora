@@ -1,3 +1,4 @@
+/// <reference types="bun" />
 import { beforeEach, expect, mock, test } from "bun:test";
 
 const send = mock(async (..._args: unknown[]) => ({ sent: true }));
