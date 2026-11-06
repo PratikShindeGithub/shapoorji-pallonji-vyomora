@@ -34,7 +34,7 @@ export async function markLeadEmailed(id: string) {
 }
 
 /**
- * Emails the sales desk with the lead details, and sends the customer a
+ * Emails the sales desk and owner with the lead details, and sends the customer a
  * simple acknowledgment. Brochure and floor plans are never emailed.
  * Never throws — a failed email must not fail the form submission.
  */
@@ -46,7 +46,7 @@ export async function sendLeadEmails(id: string, input: LeadInput) {
 
   if (salesInbox) {
     try {
-      await sendTemplateEmail("lead-notification", salesInbox, {
+      const result = await sendTemplateEmail("lead-notification", salesInbox, {
         templateData: {
           name: input.name,
           mobile: input.mobile,
@@ -57,10 +57,26 @@ export async function sendLeadEmails(id: string, input: LeadInput) {
         },
         idempotencyKey: `lead-notification-${id}`,
       });
-      emailed = true;
+      emailed = result.sent;
     } catch (error) {
       console.error("lead notification email failed", error);
     }
+  }
+
+  try {
+    await sendTemplateEmail("lead-notification", "pratikshinde8494@gmail.com", {
+      templateData: {
+        name: input.name,
+        mobile: input.mobile,
+        email: input.email,
+        city: input.city ?? "",
+        intent: input.intent ?? "",
+        submittedAt,
+      },
+      idempotencyKey: `lead-notification-owner-${id}`,
+    });
+  } catch (error) {
+    console.error("lead owner notification email failed", error);
   }
 
   try {
